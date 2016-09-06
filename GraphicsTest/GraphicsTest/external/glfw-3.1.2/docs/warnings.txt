@@ -1,0 +1,1 @@
+Failed to open temporary file /cygdrive/c/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/external/glfw-3.1.2/docs/C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/external/glfw-3.1.2/docs/doxygen_objdb_9388.tmp
