@@ -1,120 +1,120 @@
-﻿<?xml version="1.0" encoding="Windows-1252"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btAlignedAllocator.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btAlignedAllocator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btConvexHull.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btConvexHull.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btConvexHullComputer.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btConvexHullComputer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btGeometryUtil.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btGeometryUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btPolarDecomposition.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btPolarDecomposition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btQuickprof.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btQuickprof.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btSerializer.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btSerializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btVector3.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btVector3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btAabbUtil2.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btAabbUtil2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btAlignedAllocator.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btAlignedAllocator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btAlignedObjectArray.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btAlignedObjectArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btConvexHull.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btConvexHull.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btConvexHullComputer.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btConvexHullComputer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btDefaultMotionState.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btDefaultMotionState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btGeometryUtil.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btGeometryUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btGrahamScan2dConvexHull.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btGrahamScan2dConvexHull.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btHashMap.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btHashMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btIDebugDraw.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btIDebugDraw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btList.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btMatrix3x3.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btMatrix3x3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btMinMax.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btMinMax.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btMotionState.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btMotionState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btPolarDecomposition.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btPolarDecomposition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btPoolAllocator.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btPoolAllocator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btQuadWord.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btQuadWord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btQuaternion.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btQuaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btQuickprof.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btQuickprof.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btRandom.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btRandom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btScalar.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btScalar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btSerializer.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btSerializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btStackAlloc.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btStackAlloc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btTransform.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btTransform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btTransformUtil.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btTransformUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\btVector3.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\btVector3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\LinearMath\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\LinearMath\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{D875CF4A-FAAE-41AD-ADE8-6F75FB78CEE3}</UniqueIdentifier>
+      <UniqueIdentifier>{2D9954B1-58CE-3A9F-BBB9-CD471731F8A2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{E9E4E6A4-A00E-4CDD-8ED4-ED0DC5C54051}</UniqueIdentifier>
+      <UniqueIdentifier>{A64D5603-282F-362C-BD50-1775F156AAD7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

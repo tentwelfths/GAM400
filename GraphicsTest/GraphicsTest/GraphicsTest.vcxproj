@@ -158,6 +158,7 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="GraphicsSystem.cpp" />
+    <ClCompile Include="JSONTranslator.cpp" />
     <ClCompile Include="NetworkingSystem.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
@@ -194,6 +195,8 @@
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="GraphicsSystem.h" />
     <ClInclude Include="IComponent.h" />
+    <ClInclude Include="JSONTranslator.h" />
+    <ClInclude Include="Metadata.h" />
     <ClInclude Include="NetworkingSystem.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Socket.h" />

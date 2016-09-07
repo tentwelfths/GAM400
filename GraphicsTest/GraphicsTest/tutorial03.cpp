@@ -15,8 +15,8 @@ int main( void )
   gCore = new Core();
   gCore->Initialize();
   Object a, b, c;
-  a.AddComponent(new TransformComponent());
-  a.AddComponent(new SpriteComponent());
+  a.AddComponent(components["TransformComponent"]());
+  a.AddComponent(components["SpriteComponent"]());
   TransformComponent * t = a.GetComponent(TransformComponent);
   SpriteComponent * s = a.GetComponent(SpriteComponent);
   s->SetTexture("A.png");

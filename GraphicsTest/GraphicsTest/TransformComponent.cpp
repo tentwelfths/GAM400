@@ -1,7 +1,12 @@
 #include "TransformComponent.h"
+#include "Globals.h"
 
 TransformComponent::TransformComponent()
 {
+  RegisterComponentType(TransformComponent);
+  AddMember(TransformComponent, mPosition_);
+  AddMember(TransformComponent, mScale_);
+  AddMember(TransformComponent, mRotation_);
   mName_ = "TransformComponent";
 }
 

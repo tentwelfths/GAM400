@@ -1,8 +1,29 @@
 #pragma once
 
 #include "System.h"
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <stdio.h>
 
-class Socket;
+#pragma comment(lib, "Ws2_32.lib")
+class Object;
+struct Connection
+{
+  SOCKET client;
+  bool active;
+  int initstep;
+  Object * parent;
+  int clientNumber;
+  Connection(){
+    client = INVALID_SOCKET;
+    active = false;
+    initstep = 0;
+    clientNumber = 0;
+  }
+};
+
+#define DEFAULT_PORT "27015"
+#define NUMCLIENTS 100
 
 class NetworkingSystem : public System
 {
@@ -12,5 +33,11 @@ public:
   void Update(double dt);
   void Shutdown();
 private:
-  std::vector<Socket*> sockets;
+  Connection sockets[NUMCLIENTS];
+  WSADATA wsaData;
+  struct addrinfo *result, *ptr, hints;
+  SOCKET ListenSocket;
+  unsigned char connectionCount;
+  unsigned char clientCount;
+  std::deque<int> openConnections;
 };

@@ -1,6 +1,8 @@
 #pragma once
 #include "Standard.h"
+#include "Metadata.h"
 class Object;
+
 class IComponent
 {
 public:
@@ -10,8 +12,8 @@ public:
   std::string mName(){ return mName_; }
   void mParent(Object * p){ mParent_ = p; }
   Object * mParent(){ return mParent_; }
+  std::unordered_map<std::string, Mem *> members;
 protected:
   Object * mParent_;
   std::string mName_;
-
 };

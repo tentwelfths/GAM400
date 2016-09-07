@@ -11,7 +11,6 @@ public:
   void Update(double dt);
   void Shutdown();
 
-private:
   glm::vec3 mPosition_;
   glm::vec3 mScale_;
   glm::vec3 mRotation_;

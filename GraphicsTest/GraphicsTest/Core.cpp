@@ -1,5 +1,6 @@
 #include "Core.h"
 #include "GraphicsSystem.h"
+#include "NetworkingSystem.h"
 
 void Core::RegisterSystem(System * s)
 {
@@ -10,6 +11,8 @@ bool Core::Initialize()
 {
   auto * g = new GraphicsSystem();
   RegisterSystem(g);
+  auto * n = new NetworkingSystem();
+  RegisterSystem(n);
 
   
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)

@@ -18,9 +18,10 @@ public:
   template <typename T>
   T* GetComponentA(const char * compName);
 
-private:
   std::unordered_map<std::string, IComponent *> mComponents;
 
+  std::string name;
+  std::string source;
 };
 
 template <typename T>

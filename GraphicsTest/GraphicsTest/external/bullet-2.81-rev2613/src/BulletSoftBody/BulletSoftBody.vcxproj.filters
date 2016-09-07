@@ -1,78 +1,78 @@
-﻿<?xml version="1.0" encoding="Windows-1252"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBody.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBody.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyHelpers.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyHelpers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftRigidCollisionAlgorithm.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftRigidCollisionAlgorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftRigidDynamicsWorld.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftRigidDynamicsWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftSoftCollisionAlgorithm.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftSoftCollisionAlgorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btDefaultSoftBodySolver.cpp">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btDefaultSoftBodySolver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBody.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBody.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyData.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyHelpers.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyHelpers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftRigidCollisionAlgorithm.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftRigidCollisionAlgorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftRigidDynamicsWorld.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftRigidDynamicsWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftSoftCollisionAlgorithm.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftSoftCollisionAlgorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSparseSDF.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSparseSDF.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodySolvers.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodySolvers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btDefaultSoftBodySolver.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btDefaultSoftBodySolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodySolverVertexBuffer.h">
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\btSoftBodySolverVertexBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletSoftBody\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletSoftBody\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{D875CF4A-FAAE-41AD-ADE8-6F75FB78CEE3}</UniqueIdentifier>
+      <UniqueIdentifier>{2D9954B1-58CE-3A9F-BBB9-CD471731F8A2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{E9E4E6A4-A00E-4CDD-8ED4-ED0DC5C54051}</UniqueIdentifier>
+      <UniqueIdentifier>{A64D5603-282F-362C-BD50-1775F156AAD7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

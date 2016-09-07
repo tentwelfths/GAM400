@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <deque>
 #include <iostream>
 #include <fstream>
 #include <algorithm>

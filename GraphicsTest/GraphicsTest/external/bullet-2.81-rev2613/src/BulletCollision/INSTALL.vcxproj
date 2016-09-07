@@ -1,49 +1,49 @@
-﻿<?xml version="1.0" encoding="Windows-1252"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
+    <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
+    <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="MinSizeRel|x64">
+    <ProjectConfiguration Include="MinSizeRel|Win32">
       <Configuration>MinSizeRel</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="RelWithDebInfo|x64">
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
       <Configuration>RelWithDebInfo</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{9462177F-4C21-4D82-AF3D-4ECD46C13268}</ProjectGUID>
+    <ProjectGUID>{6FFAFDCD-796B-386E-917F-FFFA99FEB623}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
-    <Platform>x64</Platform>
+    <Platform>Win32</Platform>
     <ProjectName>INSTALL</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
@@ -58,15 +58,15 @@
   <PropertyGroup Label="UserMacros" />
     <PropertyGroup>
       <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
@@ -75,7 +75,7 @@
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -85,10 +85,10 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
@@ -97,7 +97,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -107,10 +107,10 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
@@ -119,7 +119,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -129,10 +129,10 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
@@ -141,7 +141,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -152,9 +152,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\CMakeFiles\92c84ba1760d1d0470c49f99c71c3b59\INSTALL_force.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> </Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+    <CustomBuild Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\CMakeFiles\0a41655ba305359935087bed5535b1e9\INSTALL_force.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> </Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
 cd .
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
@@ -163,11 +163,11 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/CMakeFiles/92c84ba1760d1d0470c49f99c71c3b59/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletCollision\CMakeFiles\INSTALL_force</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> </Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/CMakeFiles/0a41655ba305359935087bed5535b1e9/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletCollision\CMakeFiles\INSTALL_force</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> </Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
 cd .
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
@@ -176,11 +176,11 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/CMakeFiles/92c84ba1760d1d0470c49f99c71c3b59/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletCollision\CMakeFiles\INSTALL_force</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"> </Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/CMakeFiles/0a41655ba305359935087bed5535b1e9/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletCollision\CMakeFiles\INSTALL_force</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'"> </Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
 cd .
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
@@ -189,11 +189,11 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/CMakeFiles/92c84ba1760d1d0470c49f99c71c3b59/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletCollision\CMakeFiles\INSTALL_force</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"> </Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/CMakeFiles/0a41655ba305359935087bed5535b1e9/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletCollision\CMakeFiles\INSTALL_force</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'"> </Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
 cd .
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
@@ -202,14 +202,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/CMakeFiles/92c84ba1760d1d0470c49f99c71c3b59/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletCollision\CMakeFiles\INSTALL_force</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/CMakeFiles/0a41655ba305359935087bed5535b1e9/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletCollision\CMakeFiles\INSTALL_force</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/ALL_BUILD.vcxproj">
-      <Project>81062A38-7AA1-4CD6-854A-AAACD8CB94F9</Project>
+    <ProjectReference Include="C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/ZERO_CHECK.vcxproj">
+      <Project>B3B0022F-C8EC-32C6-93EC-1B011B001EBF</Project>
+    </ProjectReference>
+    <ProjectReference Include="C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/ALL_BUILD.vcxproj">
+      <Project>709677B4-E936-35E9-8AC3-1CC2E1D15104</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,49 +1,49 @@
-﻿<?xml version="1.0" encoding="Windows-1252"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
+    <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
+    <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="MinSizeRel|x64">
+    <ProjectConfiguration Include="MinSizeRel|Win32">
       <Configuration>MinSizeRel</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="RelWithDebInfo|x64">
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
       <Configuration>RelWithDebInfo</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{C558EF85-03EE-4893-A4DC-07ECAFD2B7FA}</ProjectGUID>
+    <ProjectGUID>{45A9F06F-9076-3C91-8B25-3757992DA689}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
-    <Platform>x64</Platform>
+    <Platform>Win32</Platform>
     <ProjectName>docs</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
@@ -58,45 +58,45 @@
   <PropertyGroup Label="UserMacros" />
     <PropertyGroup>
       <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
@@ -104,10 +104,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\docs\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33 -BC:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio --check-stamp-file C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp
+    <CustomBuild Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/docs/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -115,12 +115,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\docs\CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\docs\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33 -BC:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio --check-stamp-file C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/docs/CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/docs/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -128,12 +128,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\docs\CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\docs\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33 -BC:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio --check-stamp-file C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/docs/CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/docs/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -141,12 +141,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\docs\CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\docs\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33 -BC:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio --check-stamp-file C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/docs/CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/docs/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -154,20 +154,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\docs\CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\docs\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/docs/CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\CMakeFiles\8d5520a5f5755cc12102c990d8e64985\docs.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating HTML documentation</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs
+    <CustomBuild Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\CMakeFiles\f229411c6ab67633846de37d426285fe\docs.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating HTML documentation</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
-C:\cygwin\bin\doxygen.exe
+"C:\Program Files\doxygen\bin\doxygen.exe"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -175,16 +175,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/CMakeFiles/8d5520a5f5755cc12102c990d8e64985/docs.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\docs</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating HTML documentation</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/CMakeFiles/f229411c6ab67633846de37d426285fe/docs.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\docs</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating HTML documentation</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
-C:\cygwin\bin\doxygen.exe
+"C:\Program Files\doxygen\bin\doxygen.exe"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -192,16 +192,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/CMakeFiles/8d5520a5f5755cc12102c990d8e64985/docs.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\docs</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating HTML documentation</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/CMakeFiles/f229411c6ab67633846de37d426285fe/docs.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\docs</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating HTML documentation</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
-C:\cygwin\bin\doxygen.exe
+"C:\Program Files\doxygen\bin\doxygen.exe"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -209,16 +209,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/CMakeFiles/8d5520a5f5755cc12102c990d8e64985/docs.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\docs</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating HTML documentation</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/CMakeFiles/f229411c6ab67633846de37d426285fe/docs.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\docs</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating HTML documentation</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
-C:\cygwin\bin\doxygen.exe
+"C:\Program Files\doxygen\bin\doxygen.exe"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -226,17 +226,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/CMakeFiles/8d5520a5f5755cc12102c990d8e64985/docs.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\docs</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/CMakeFiles/f229411c6ab67633846de37d426285fe/docs.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\docs</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\glfw-3.1.2\docs\CMakeFiles\docs" />
+    <None Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\docs\CMakeFiles\docs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/ZERO_CHECK.vcxproj">
-      <Project>993124A6-1C19-47C9-BD00-2A780E6F75BE</Project>
+    <ProjectReference Include="C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/ZERO_CHECK.vcxproj">
+      <Project>B3B0022F-C8EC-32C6-93EC-1B011B001EBF</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

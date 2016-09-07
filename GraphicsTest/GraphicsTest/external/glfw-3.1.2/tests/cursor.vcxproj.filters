@@ -1,16 +1,16 @@
-﻿<?xml version="1.0" encoding="Windows-1252"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\tests\cursor.c">
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\tests\cursor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\tests\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\tests\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{D875CF4A-FAAE-41AD-ADE8-6F75FB78CEE3}</UniqueIdentifier>
+      <UniqueIdentifier>{2D9954B1-58CE-3A9F-BBB9-CD471731F8A2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

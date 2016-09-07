@@ -1,49 +1,49 @@
-﻿<?xml version="1.0" encoding="Windows-1252"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
+    <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
+    <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="MinSizeRel|x64">
+    <ProjectConfiguration Include="MinSizeRel|Win32">
       <Configuration>MinSizeRel</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="RelWithDebInfo|x64">
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
       <Configuration>RelWithDebInfo</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{4048B581-E46D-4876-BA36-EB18154AD852}</ProjectGUID>
+    <ProjectGUID>{50E6FC40-C041-3C54-A784-2CE18DFAA9EE}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
-    <Platform>x64</Platform>
+    <Platform>Win32</Platform>
     <ProjectName>BulletDynamics</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
@@ -58,26 +58,26 @@
   <PropertyGroup Label="UserMacros" />
     <PropertyGroup>
       <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">BulletDynamics.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">BulletDynamics</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">BulletDynamics.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">BulletDynamics</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\MinSizeRel\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">BulletDynamics.dir\MinSizeRel\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">BulletDynamics</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\RelWithDebInfo\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">BulletDynamics.dir\RelWithDebInfo\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">BulletDynamics</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">BulletDynamics.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">BulletDynamics</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">BulletDynamics.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">BulletDynamics</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">BulletDynamics.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">BulletDynamics</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">BulletDynamics.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">BulletDynamics</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
     </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -95,20 +95,23 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;_WINDOWS;ASSIMP_BUILD_BOOST_WORKAROUND;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Lib>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -125,20 +128,23 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;_WINDOWS;ASSIMP_BUILD_BOOST_WORKAROUND;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Lib>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -155,20 +161,23 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;_WINDOWS;ASSIMP_BUILD_BOOST_WORKAROUND;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Lib>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -185,22 +194,25 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;_WINDOWS;ASSIMP_BUILD_BOOST_WORKAROUND;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glfw-3.1.2\include\GLFW;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\glew-1.13.0\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\AntTweakBar-1.16\include;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <AdditionalIncludeDirectories>C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\include\GLFW;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glew-1.13.0\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\AntTweakBar-1.16\include;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\assimp-3.0.1270\code\BoostWorkaround;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src;\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Lib>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33 -BC:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio --check-stamp-file C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp
+    <CustomBuild Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -208,12 +220,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33 -BC:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio --check-stamp-file C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -221,12 +233,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33 -BC:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio --check-stamp-file C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,12 +246,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33 -BC:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio --check-stamp-file C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -247,66 +259,66 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/Joel/Downloads/OpenGLTutorials/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Joel\Downloads\OpenGLTutorials\VisualStudio\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\btBulletDynamicsCommon.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\btBulletCollisionCommon.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btConstraintSolver.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btContactConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btContactSolverInfo.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGearConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btHingeConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btJacobianEntry.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSliderConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSolverBody.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSolverConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btTypedConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btActionInterface.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btDynamicsWorld.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btRigidBody.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btRaycastVehicle.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btVehicleRaycaster.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btWheelInfo.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Character\btCharacterControllerInterface.h" />
-    <ClInclude Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Character\btKinematicCharacterController.h" />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Character\btKinematicCharacterController.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btContactConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGearConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btHingeConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSliderConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btTypedConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btRigidBody.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\Bullet-C-API.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btRaycastVehicle.cpp"  />
-    <ClCompile Include="C:\Users\Joel\Downloads\OpenGLTutorials\ogl-OpenGL-tutorial_0015_33\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btWheelInfo.cpp"  />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\btBulletDynamicsCommon.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\btBulletCollisionCommon.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btConstraintSolver.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btContactConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btContactSolverInfo.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGearConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btHingeConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btJacobianEntry.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSliderConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSolverBody.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSolverConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btTypedConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btActionInterface.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btDynamicsWorld.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btRigidBody.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btRaycastVehicle.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btVehicleRaycaster.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btWheelInfo.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Character\btCharacterControllerInterface.h" />
+    <ClInclude Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Character\btKinematicCharacterController.h" />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Character\btKinematicCharacterController.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btContactConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGearConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btHingeConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSliderConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btTypedConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btRigidBody.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Dynamics\Bullet-C-API.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btRaycastVehicle.cpp"  />
+    <ClCompile Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\bullet-2.81-rev2613\src\BulletDynamics\Vehicle\btWheelInfo.cpp"  />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:/Users/Joel/Downloads/OpenGLTutorials/VisualStudio/ZERO_CHECK.vcxproj">
-      <Project>993124A6-1C19-47C9-BD00-2A780E6F75BE</Project>
+    <ProjectReference Include="C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/ZERO_CHECK.vcxproj">
+      <Project>B3B0022F-C8EC-32C6-93EC-1B011B001EBF</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
