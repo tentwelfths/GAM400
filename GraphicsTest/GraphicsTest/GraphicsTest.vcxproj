@@ -156,9 +156,11 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="FramerateController.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="GraphicsSystem.cpp" />
     <ClCompile Include="JSONTranslator.cpp" />
+    <ClCompile Include="NetworkingComponent.cpp" />
     <ClCompile Include="NetworkingSystem.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
@@ -191,12 +193,14 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Core.h" />
+    <ClInclude Include="FramerateController.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="GraphicsSystem.h" />
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="JSONTranslator.h" />
     <ClInclude Include="Metadata.h" />
+    <ClInclude Include="NetworkingComponent.h" />
     <ClInclude Include="NetworkingSystem.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Socket.h" />

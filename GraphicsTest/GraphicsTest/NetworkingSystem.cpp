@@ -8,6 +8,11 @@ NetworkingSystem::NetworkingSystem()
   mName_ = "NetworkingSystem";
 }
 
+void NetworkingSystem::RegisterComponent(NetworkingComponent * comp)
+{
+  mComponents_.push_back(comp);
+}
+
 bool NetworkingSystem::Initialize()
 {
   //Init WSA

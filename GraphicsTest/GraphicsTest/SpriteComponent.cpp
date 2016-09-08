@@ -6,7 +6,6 @@
 
 SpriteComponent::SpriteComponent() : GraphicsComponent(GraphicsType::SPRITE)
 {
-  RegisterComponentType(SpriteComponent);
   AddMember(SpriteComponent, mTexture_);
   mName_ = "SpriteComponent";
 }

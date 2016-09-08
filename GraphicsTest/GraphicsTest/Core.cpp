@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "GraphicsSystem.h"
 #include "NetworkingSystem.h"
+#include "FramerateController.h"
 
 void Core::RegisterSystem(System * s)
 {
@@ -13,6 +14,8 @@ bool Core::Initialize()
   RegisterSystem(g);
   auto * n = new NetworkingSystem();
   RegisterSystem(n);
+  auto * f = new FramerateController();
+  RegisterSystem(f);
 
   
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
@@ -29,10 +32,13 @@ bool Core::Initialize()
 
 void Core::Update(double dt)
 {
+  auto * frc = static_cast<FramerateController*>(mSystems["FramerateController"]);
+  frc->StartFrame();
   for (auto & iter : mSystems)
   {
-    iter.second->Update(dt);
+    iter.second->Update(frc->GetDT());
   }
+  frc->EndFrame();
 }
 
 void Core::Shutdown()

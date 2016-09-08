@@ -4,12 +4,14 @@
 #include "SpriteComponent.h"
 #include "TransformComponent.h"
 
+
 void JSONTranslator::DeserializeComponent(IComponent * component, std::ifstream & file)
 {
   std::string line;
   while (true)
   {
     std::getline(file,line);
+    line = trim(line);
     if (line == "}" || line=="},")return;
     std::string memberName = "";
     std::string value = "";
@@ -22,14 +24,14 @@ void JSONTranslator::DeserializeComponent(IComponent * component, std::ifstream 
           state = 1;
         }
         else if (state == 1){
-          state = 2;
+          state = 3;
         }
         continue;
       }
-      if (state == 2 && line[i] == ':'){
+      else if (state == 2 && line[i] == '\"'){
         state = 3;
       }
-      if (state == 3){
+      else if (state == 3){
         if (line[i] == ','){
           break;
         }
@@ -37,7 +39,7 @@ void JSONTranslator::DeserializeComponent(IComponent * component, std::ifstream 
           complex = true;
         }
         else{
-          if (line[i] == '\"')continue;
+          if(line[i] == ':')continue;
           value += line[i];
         }
       }
@@ -50,6 +52,7 @@ void JSONTranslator::DeserializeComponent(IComponent * component, std::ifstream 
       std::getline(file, line);//ending }
     }
     else{
+      value = trim(value);
       component->members[memberName]->Set(value);
     }
   }
@@ -67,25 +70,46 @@ Object * JSONTranslator::CreateObjectFromFile(std::string filename)
   {
     std::string line;
     std::getline(file, line);
+    line = trim(line);
     if (line == "{")continue;
     if (line == "}")break;
-    line = line.substr(0, line.length() - 2);
+    line = line.substr(0, line.find_first_of(':'));
     auto * component = components[line]();
     DeserializeComponent(component, file);
-    std::getline(file, line);//ending }
+    obj->AddComponent(component);
   }
+  return obj;
 }
 
 bool JSONTranslator::CreateFileFromObject(Object * obj)
 {
   std::ofstream file;
   file.open(obj->source);
+  if (!file.is_open()) return false;
   file << "{" << std::endl;
   int scope = 0;
-  for (auto iter = obj->mComponents.begin; iter != obj->mComponents.end(); ++iter){
-    file << iter.first << ": {" << std::endl;
+  for (auto iter = obj->mComponents.begin(); iter != obj->mComponents.end(); ++iter){
+    
+    file << iter->first << ": {" << std::endl;
     ++scope;
-    auto comp = iter.second->GetComponent(iter.first);
-
+    for (auto memIter = iter->second->members.begin(); memIter != iter->second->members.end(); ++memIter){
+      
+      file << "\t\"" << memIter->first << "\": " << memIter->second->Get(scope);
+      auto tempiter = memIter;
+      tempiter++;
+      if (tempiter != iter->second->members.end()){
+        file << ",";
+      }
+      file << std::endl;
+    }
+    auto tempiter = iter;
+    tempiter++;
+    file << "}";
+    if (tempiter != obj->mComponents.end()){
+      file << ",";
+    }
+    file << std::endl;
   }
+  file << "}";
+  return true;
 }

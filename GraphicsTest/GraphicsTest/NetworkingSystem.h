@@ -25,6 +25,8 @@ struct Connection
 #define DEFAULT_PORT "27015"
 #define NUMCLIENTS 100
 
+class NetworkingComponent;
+
 class NetworkingSystem : public System
 {
 public:
@@ -32,6 +34,7 @@ public:
   bool Initialize();
   void Update(double dt);
   void Shutdown();
+  void RegisterComponent(NetworkingComponent * comp);
 private:
   Connection sockets[NUMCLIENTS];
   WSADATA wsaData;
@@ -40,4 +43,5 @@ private:
   unsigned char connectionCount;
   unsigned char clientCount;
   std::deque<int> openConnections;
+  std::vector<NetworkingComponent *> mComponents_;
 };

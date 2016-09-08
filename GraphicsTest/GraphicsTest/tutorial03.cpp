@@ -5,40 +5,27 @@
 #include "Object.h"
 #include "Globals.h"
 #include <iostream>
+#include "Metadata.h"
+#include "IComponent.h"
 #include "SpriteComponent.h"
 #include "TransformComponent.h"
+#include "JSONTranslator.h"
 
 Core * gCore = nullptr;
+std::unordered_map<std::string, IComponent*(*)()> components;
 
 int main( void )
 {
+  JSONTranslator j;
+  //components.insert({ "SpriteComponent", (CreateComponent<SpriteComponent>) });
+  RegisterComponentType(SpriteComponent);
+  RegisterComponentType(TransformComponent);
   gCore = new Core();
   gCore->Initialize();
-  Object a, b, c;
-  a.AddComponent(components["TransformComponent"]());
-  a.AddComponent(components["SpriteComponent"]());
-  TransformComponent * t = a.GetComponent(TransformComponent);
-  SpriteComponent * s = a.GetComponent(SpriteComponent);
-  s->SetTexture("A.png");
-  t->mPosition(0, 0, 0);
-  t->mScale(1.f, 2.f, 1.f);
-
-  b.AddComponent(new TransformComponent());
-  b.AddComponent(new SpriteComponent());
-  t = b.GetComponent(TransformComponent);
-  s = b.GetComponent(SpriteComponent);
-  s->SetTexture("Kakka_Carrot_Veggie.png");
-  t->mPosition(-3, 2, 0);
-  t->mScale(3.f, 5.f, 1.f);
-
-  c.AddComponent(new TransformComponent());
-  c.AddComponent(new SpriteComponent());
-  t = c.GetComponent(TransformComponent);
-  s = c.GetComponent(SpriteComponent);
-  s->SetTexture("HealSpell.png");
-  t->mPosition(4, -2, 0);
-  t->mScale(1.4f, 1.1, 1.f);
-
+  Object * a, *b, *c;
+  a = j.CreateObjectFromFile("A.json");
+  b = j.CreateObjectFromFile("B.json");
+  c = j.CreateObjectFromFile("C.json");
   while (true)
   {
     gCore->Update(0.0016);

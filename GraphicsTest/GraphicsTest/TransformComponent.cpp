@@ -3,7 +3,6 @@
 
 TransformComponent::TransformComponent()
 {
-  RegisterComponentType(TransformComponent);
   AddMember(TransformComponent, mPosition_);
   AddMember(TransformComponent, mScale_);
   AddMember(TransformComponent, mRotation_);
