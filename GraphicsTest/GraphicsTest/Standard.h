@@ -11,6 +11,10 @@
 #include <string.h>
 #include <unordered_map>
 
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <stdio.h>
+
 // trim from end of string (right)
 inline std::string& rtrim(std::string& s, const char* t = " \t\n\r\f\v")
 {

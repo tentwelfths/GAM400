@@ -1,5 +1,6 @@
 #pragma once
 #include "IComponent.h"
+#include "Standard.h"
 
 enum class NetworkingType { SPRITE };
 

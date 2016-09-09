@@ -27,3 +27,8 @@ void NetworkingComponent::Shutdown()
 {
 
 }
+
+void NetworkingComponent::SendData(SOCKET& s)
+{
+
+}
