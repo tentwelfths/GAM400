@@ -3,6 +3,9 @@
 #include "Object.h"
 #include "TransformComponent.h"
 #include "SpriteComponent.h"
+#include "InputSystem.h"
+#include "Core.h"
+#include "Globals.h"
 
 #include "SOIL.h"
 
@@ -50,6 +53,7 @@ bool GraphicsSystem::Initialize()
   {
     return false;
   }
+  
 
   glfwWindowHint(GLFW_SAMPLES, 4);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -64,7 +68,9 @@ bool GraphicsSystem::Initialize()
     return false;
   }
   glfwMakeContextCurrent(mWindow);
-
+  glfwSetKeyCallback(mWindow, inputKeyCallback);
+  glfwSetCursorPosCallback(mWindow, inputMouseCallback);
+  glfwSetMouseButtonCallback(mWindow, inputButtonCallback);
   //glfwGetFramebufferSize(mWindow, &width, &height);
 
   // Initialize GLEW

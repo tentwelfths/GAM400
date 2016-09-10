@@ -44,7 +44,7 @@ void FramerateController::EndFrame()
     QueryPerformanceCounter((LARGE_INTEGER*)&mCurrTime);
     mDT = (mCurrTime - mFrameStart) / mTicksPerSecond;
   }
-  std::cout << mDT * 60.0 << std::endl;
+  //std::cout << mDT * 60.0 << std::endl;
 }
 
 void FramerateController::SetFramesPerSecond(unsigned framesPerSecond) { mFramesPerSecond = framesPerSecond; }

@@ -2,6 +2,8 @@
 #include "GraphicsSystem.h"
 #include "NetworkingSystem.h"
 #include "FramerateController.h"
+#include "GameLogicSystem.h"
+#include "InputSystem.h"
 
 void Core::RegisterSystem(System * s)
 {
@@ -16,7 +18,10 @@ bool Core::Initialize()
   RegisterSystem(n);
   auto * f = new FramerateController();
   RegisterSystem(f);
-
+  auto * l = new GameLogicSystem();
+  RegisterSystem(l);
+  auto * i = new InputSystem();
+  RegisterSystem(i);
   
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
     (*iter).second->Initialize();
