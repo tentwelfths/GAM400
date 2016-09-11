@@ -16,6 +16,7 @@ class InputSystem : public System
     void Update(double dt);
     void Shutdown();
     void setKey(int key, bool val);
+    void setRaspKey(int key, bool val);
     void setMousePos(double xMouse, double yMouse);
     bool isKeyPressed(int key);
     bool isKeyJustPressed(int key);

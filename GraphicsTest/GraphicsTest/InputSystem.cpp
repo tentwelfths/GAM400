@@ -28,6 +28,33 @@ void InputSystem::Shutdown()
 
 }
 
+void InputSystem::setRaspKey(int key, bool val)
+{
+  int realKey = 0;
+  switch (key) //can add more as needed.
+  {
+  case 16:
+    realKey = GLFW_KEY_Q;
+    break;
+  case 17:
+    realKey = GLFW_KEY_W;
+    break;
+  case 30:
+    realKey = GLFW_KEY_A;
+    break;
+  case 31:
+    realKey = GLFW_KEY_S;
+    break;
+  case 32:
+    realKey = GLFW_KEY_D;
+    break;
+  case 57:
+    realKey = GLFW_KEY_SPACE;
+    break;
+  }
+  setKey(realKey, val);
+}
+
 void InputSystem::setKey(int key, bool val)
 {
   std::cout << key << ":" << val << std::endl;
