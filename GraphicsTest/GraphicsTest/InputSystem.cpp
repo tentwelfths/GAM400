@@ -30,6 +30,7 @@ void InputSystem::Shutdown()
 
 void InputSystem::setKey(int key, bool val)
 {
+  std::cout << key << ":" << val << std::endl;
   currInputs[key] = val;
 }
 

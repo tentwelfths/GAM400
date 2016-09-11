@@ -1,6 +1,8 @@
 #include "NetworkingSystem.h"
 #include "Globals.h"
 #include "Socket.h"
+#include "InputSystem.h"
+#include "Core.h"
 
 
 NetworkingSystem::NetworkingSystem()
@@ -136,13 +138,20 @@ void NetworkingSystem::Update(double dt)
         --clientCount;
         continue;
       }
+      continue;
     }
     if (sockets[i].initstep == 0){
       std::string str = "Client number: " + std::to_string(sockets[i].clientNumber);
       result = send(sockets[i].client, str.c_str(), strlen(str.c_str()), 0);
     }
-
-    std::cout <<"Got some info from client #" << i << " ---> " << buf << std::endl;
+    std::cout << "Got some info from client #" << i << " ---> " << buf << std::endl;
+    InputSystem * input = gCore->GetSystem(InputSystem);
+    for (int pos = 0; pos < result; ++pos)
+    {
+      int key = buf[pos++];
+      bool val = (pos == 0) ? false : true;
+      input->setKey(key,val);
+    }
   }
 }
 
