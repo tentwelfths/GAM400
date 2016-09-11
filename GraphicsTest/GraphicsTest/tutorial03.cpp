@@ -22,10 +22,8 @@ int main( void )
   RegisterComponentType(TransformComponent);
   gCore = new Core();
   gCore->Initialize();
-  Object * a, *b, *c;
-  a = j.CreateObjectFromFile("A.json");
-  b = j.CreateObjectFromFile("B.json");
-  c = j.CreateObjectFromFile("C.json");
+  Object * a;
+  a = j.CreateObjectFromFile("B.json");
   while (true)
   {
     gCore->Update(0.0016);

@@ -157,8 +157,11 @@
     </ClCompile>
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="FramerateController.cpp" />
+    <ClCompile Include="GameLogicComponent.cpp" />
+    <ClCompile Include="GameLogicSystem.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="GraphicsSystem.cpp" />
+    <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="JSONTranslator.cpp" />
     <ClCompile Include="NetworkingComponent.cpp" />
     <ClCompile Include="NetworkingSystem.cpp" />
@@ -194,10 +197,13 @@
     </ClInclude>
     <ClInclude Include="Core.h" />
     <ClInclude Include="FramerateController.h" />
+    <ClInclude Include="GameLogicComponent.h" />
+    <ClInclude Include="GameLogicSystem.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="GraphicsSystem.h" />
     <ClInclude Include="IComponent.h" />
+    <ClInclude Include="InputSystem.h" />
     <ClInclude Include="JSONTranslator.h" />
     <ClInclude Include="Metadata.h" />
     <ClInclude Include="NetworkingComponent.h" />

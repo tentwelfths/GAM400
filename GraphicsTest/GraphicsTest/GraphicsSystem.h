@@ -40,7 +40,7 @@ private:
   GLfloat mUVArray[12];
   GLuint mVertexArrayID;
   GLuint programID;
-
+  float width, height;
   GLuint mTexture;
   GLuint mTextureID;
   std::unordered_map<std::string, GLuint> mTextureMap_;

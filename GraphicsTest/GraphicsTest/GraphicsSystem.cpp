@@ -62,8 +62,8 @@ bool GraphicsSystem::Initialize()
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE); //We don't want the old OpenGL 
 
   // Open a window and create its OpenGL context
-  int width = 1024, height = 768;
-  mWindow = glfwCreateWindow(1024, 768, "Tutorial 03 - Matrices", NULL, NULL);
+  width = 1920, height = 1080;
+  mWindow = glfwCreateWindow(width, height, "Tutorial 03 - Matrices", glfwGetPrimaryMonitor(), NULL);
   if (mWindow == NULL){
     return false;
   }
@@ -79,12 +79,12 @@ bool GraphicsSystem::Initialize()
     return false;
   }
   GLfloat tVertexArray[] = {
-    0.0f, 1.0f, 0.0f,
-    0.0f, 0.0f, 0.0f,
-    1.0f, 0.0f, 0.0f,
-    0.0f, 1.0f, 0.0f,
-    1.0f, 0.0f, 0.0f,
-    1.0f, 1.0f, 0.0f,
+    -0.5f, 0.5f, 0.0f,
+    -0.5f, -0.5f, 0.0f,
+    0.5f, -0.5f, 0.0f,
+    -0.5f, 0.5f, 0.0f,
+    0.5f, -0.5f, 0.0f,
+    0.5f, 0.5f, 0.0f,
   };
 
   GLfloat tUVArray[] = {
@@ -245,7 +245,7 @@ void GraphicsSystem::Update(double dt)
 
 
   // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-  glm::mat4 Projection = glm::perspective(fov, 4.0f / 3.0f, 0.1f, 100.0f);
+  glm::mat4 Projection = glm::perspective(fov, width / height, 0.1f, 100.0f);
   //glm::mat4 Projection = glm::ortho(-4, 4, 4, -4);
   // Or, for an ortho camera :
   //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
