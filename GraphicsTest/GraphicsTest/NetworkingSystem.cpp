@@ -149,7 +149,7 @@ void NetworkingSystem::Update(double dt)
     for (int pos = 0; pos < result; ++pos)
     {
       int key = buf[pos++];
-      bool val = (pos == '0') ? false : true;
+      bool val = (buf[pos] == '0') ? false : true;
       input->setRaspKey(key,val);
     }
   }
