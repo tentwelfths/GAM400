@@ -144,7 +144,7 @@ void NetworkingSystem::Update(double dt)
       std::string str = "Client number: " + std::to_string(sockets[i].clientNumber);
       result = send(sockets[i].client, str.c_str(), strlen(str.c_str()), 0);
     }
-    std::cout << "Got some info from client #" << i << " ---> " << buf << std::endl;
+    std::cout << "Got "<<result<<" bytes from client #" << i << " ---> " << buf << std::endl;
     InputSystem * input = gCore->GetSystem(InputSystem);
     for (int pos = 0; pos < result; ++pos)
     {
