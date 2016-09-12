@@ -2,12 +2,14 @@
 #include "Globals.h"
 #include "Socket.h"
 #include "InputSystem.h"
+#include "GraphicsSystem.h"
 #include "Core.h"
 
 
 NetworkingSystem::NetworkingSystem()
 {
   mName_ = "NetworkingSystem";
+  even = false;
 }
 
 void NetworkingSystem::RegisterComponent(NetworkingComponent * comp)
@@ -141,7 +143,7 @@ void NetworkingSystem::Update(double dt)
       continue;
     }
     if (sockets[i].initstep == 0){
-      std::string str = "Client number: " + std::to_string(sockets[i].clientNumber);
+      std::string str = "~" + std::to_string(sockets[i].clientNumber) + "~";
       result = send(sockets[i].client, str.c_str(), strlen(str.c_str()), 0);
     }
     std::cout << "Got "<<result<<" bytes from client #" << i << " ---> " << buf << std::endl;
@@ -149,8 +151,12 @@ void NetworkingSystem::Update(double dt)
     for (int pos = 0; pos < result; ++pos)
     {
       int key = buf[pos++];
-      bool val = (buf[pos] == '0') ? false : true;
+      bool val = (buf[pos] == '1') ? true : false;
       input->setRaspKey(key,val);
+    }
+    if ((even && i % 2 == 0) || (!even && i % 2 == 1)){
+      std::string str = gCore->GetSystem(GraphicsSystem)->frameData;
+      send(sockets[i].client, str.c_str(), strlen(str.c_str()), 0);
     }
   }
 }

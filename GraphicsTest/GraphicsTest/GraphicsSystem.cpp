@@ -201,37 +201,71 @@ GLuint GraphicsSystem::LoadShaders(const char * vertex_file_path, const char * f
 
 
 
-  // Link the program
-  printf("Linking program\n");
-  GLuint ProgramID = glCreateProgram();
-  glAttachShader(ProgramID, VertexShaderID);
-  glAttachShader(ProgramID, FragmentShaderID);
-  glLinkProgram(ProgramID);
+// Link the program
+printf("Linking program\n");
+GLuint ProgramID = glCreateProgram();
+glAttachShader(ProgramID, VertexShaderID);
+glAttachShader(ProgramID, FragmentShaderID);
+glLinkProgram(ProgramID);
 
-  // Check the program
-  glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
-  glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-  if (InfoLogLength > 0){
-    std::vector<char> ProgramErrorMessage(InfoLogLength + 1);
-    glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
-    printf("%s\n", &ProgramErrorMessage[0]);
+// Check the program
+glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
+glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
+if (InfoLogLength > 0){
+  std::vector<char> ProgramErrorMessage(InfoLogLength + 1);
+  glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
+  printf("%s\n", &ProgramErrorMessage[0]);
+}
+
+
+glDetachShader(ProgramID, VertexShaderID);
+glDetachShader(ProgramID, FragmentShaderID);
+
+glDeleteShader(VertexShaderID);
+glDeleteShader(FragmentShaderID);
+
+return ProgramID;
+
+}
+
+void GraphicsSystem::GatherFrameData(GraphicsComponent * iter)
+{
+  TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
+  frameData += "!";
+  for (int k = 0; k < sizeof(GLuint); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(static_cast<SpriteComponent *>(iter)->mTexture_)))[k];
   }
-
-
-  glDetachShader(ProgramID, VertexShaderID);
-  glDetachShader(ProgramID, FragmentShaderID);
-
-  glDeleteShader(VertexShaderID);
-  glDeleteShader(FragmentShaderID);
-
-  return ProgramID;
-
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.x)))[k];
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.y)))[k];
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.z)))[k];
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mScale_.x)))[k];
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mScale_.y)))[k];
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mRotation_.z)))[k];
+  }
 }
 
 void GraphicsSystem::Update(double dt)
 {
   GLfloat color[3] = { 1, 1, 0 };
-  
+
 
   float fov = 45.f;
 
@@ -292,14 +326,20 @@ void GraphicsSystem::Update(double dt)
   //  0.0f, 1.f, 0.f, 0.0f,
   //  0.0f, 0.f, 1.f, 0.0f,
   //  x, y, z, 1.0f);
+  frameData = "";
   for (auto & iter : mComponents_)
   {
+
     TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
+    GatherFrameData(iter);
     glm::mat4 Position;
     Position[3][0] = t->mPositionX();
     Position[3][1] = t->mPositionY();
     Position[3][2] = t->mPositionZ();
-
+    t->mPositionX(t->mPositionX() + 0.34f);
+    if (t->mPositionX() > 7){
+      t->mPositionX(-7);
+    }
     glm::mat4 Scale, Rotation;
 
     Scale[0][0] = t->mScaleX();

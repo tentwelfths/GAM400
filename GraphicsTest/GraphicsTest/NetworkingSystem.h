@@ -41,4 +41,6 @@ private:
   unsigned char clientCount;
   std::deque<int> openConnections;
   std::vector<NetworkingComponent *> mComponents_;
+  bool even;
+
 };

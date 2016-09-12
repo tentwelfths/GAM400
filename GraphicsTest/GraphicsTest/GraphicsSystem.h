@@ -30,6 +30,7 @@ public:
 
   GLuint GetTexture(std::string textureName);
 
+  std::string frameData;
 private:
   GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
 
@@ -45,5 +46,5 @@ private:
   GLuint mTextureID;
   std::unordered_map<std::string, GLuint> mTextureMap_;
   std::vector<GraphicsComponent *> mComponents_;
-
+  void GraphicsSystem::GatherFrameData(GraphicsComponent * iter);
 };
