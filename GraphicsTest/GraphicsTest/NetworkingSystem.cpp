@@ -157,6 +157,7 @@ void NetworkingSystem::Update(double dt)
     if ((even && i % 2 == 0) || (!even && i % 2 == 1)){
       std::string str = gCore->GetSystem(GraphicsSystem)->frameData;
       send(sockets[i].client, str.c_str(), strlen(str.c_str()), 0);
+      std::cout << "Send: " << str << std::endl;
     }
   }
 }
