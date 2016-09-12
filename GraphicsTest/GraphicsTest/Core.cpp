@@ -4,6 +4,7 @@
 #include "FramerateController.h"
 #include "GameLogicSystem.h"
 #include "InputSystem.h"
+#include "ObjectSystem.h"
 
 void Core::RegisterSystem(System * s)
 {
@@ -22,6 +23,8 @@ bool Core::Initialize()
   RegisterSystem(l);
   auto * i = new InputSystem();
   RegisterSystem(i);
+  auto * o = new ObjectSystem();
+  RegisterSystem(o);
   
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
     (*iter).second->Initialize();
