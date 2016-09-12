@@ -159,8 +159,9 @@ void NetworkingSystem::Update(double dt)
       input->setRaspKey(key,val);
     }
     if ((even && i % 2 == 0) || (!even && i % 2 == 1)){
-      send(sockets[i].client, frameData.c_str(), strlen(frameData.c_str()), 0);
+      int b = send(sockets[i].client, frameData.c_str(), strlen(frameData.c_str()), 0);
       std::cout << "Send: " << frameData << std::endl;
+      std::cout << "Sent " << b << " bytes." << std::endl;
     }
    
   }
