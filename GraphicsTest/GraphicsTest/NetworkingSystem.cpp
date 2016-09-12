@@ -159,7 +159,9 @@ void NetworkingSystem::Update(double dt)
       send(sockets[i].client, str.c_str(), strlen(str.c_str()), 0);
       std::cout << "Send: " << str << std::endl;
     }
+   
   }
+  even = !even;
 }
 
 void NetworkingSystem::Shutdown()
