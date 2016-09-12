@@ -28,6 +28,10 @@ void     ObjectSystem::Shutdown()
 
 void ObjectSystem::AddObject(Object * obj)
 {
+  if (mObjects.find(obj->name) == mObjects.end())
+  {
+    mObjects.insert({ obj->name, List<Object*>() });
+  }
   mObjects[obj->name].AddToFront(obj);
 }
 
