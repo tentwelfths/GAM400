@@ -126,6 +126,10 @@ void NetworkingSystem::Update(double dt)
   }
   //grab some packets
   char buf[256];
+  even = !even;
+
+  InputSystem * input = gCore->GetSystem(InputSystem);
+  std::string frameData = gCore->GetSystem(GraphicsSystem)->frameData;
   for (int i = 0; i < NUMCLIENTS; ++i){
     if (!sockets[i].active)continue;
     SecureZeroMemory(buf, 256);
@@ -140,14 +144,14 @@ void NetworkingSystem::Update(double dt)
         --clientCount;
         continue;
       }
-      continue;
     }
     if (sockets[i].initstep == 0){
       std::string str = "~" + std::to_string(sockets[i].clientNumber) + "~";
       result = send(sockets[i].client, str.c_str(), strlen(str.c_str()), 0);
     }
-    std::cout << "Got "<<result<<" bytes from client #" << i << " ---> " << buf << std::endl;
-    InputSystem * input = gCore->GetSystem(InputSystem);
+    if (result > 0){
+      std::cout << "Got " << result << " bytes from client #" << i << " ---> " << buf << std::endl;
+    }
     for (int pos = 0; pos < result; ++pos)
     {
       int key = buf[pos++];
@@ -155,13 +159,11 @@ void NetworkingSystem::Update(double dt)
       input->setRaspKey(key,val);
     }
     if ((even && i % 2 == 0) || (!even && i % 2 == 1)){
-      std::string str = gCore->GetSystem(GraphicsSystem)->frameData;
-      send(sockets[i].client, str.c_str(), strlen(str.c_str()), 0);
-      std::cout << "Send: " << str << std::endl;
+      send(sockets[i].client, frameData.c_str(), strlen(frameData.c_str()), 0);
+      std::cout << "Send: " << frameData << std::endl;
     }
    
   }
-  even = !even;
 }
 
 void NetworkingSystem::Shutdown()
