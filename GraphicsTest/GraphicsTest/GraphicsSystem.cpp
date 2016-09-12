@@ -353,10 +353,10 @@ void GraphicsSystem::Update(double dt)
     Position[3][0] = t->mPositionX();
     Position[3][1] = t->mPositionY();
     Position[3][2] = t->mPositionZ();
-    t->mPositionX(t->mPositionX() + 0.34f);
-    if (t->mPositionX() > 7){
-      t->mPositionX(-7);
-    }
+    //t->mPositionX(t->mPositionX() + 0.34f);
+    //if (t->mPositionX() > 7){
+    //  t->mPositionX(-7);
+    //}
     glm::mat4 Scale, Rotation;
 
     Scale[0][0] = t->mScaleX();

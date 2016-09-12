@@ -1,6 +1,9 @@
 #include "InputSystem.h"
 #include "Globals.h"
+#include "ObjectSystem.h"
+#include "TransformComponent.h"
 #include "Core.h"
+#include "Object.h"
 #include <cstring>
 
 bool InputSystem::currInputs[NUMINPUTS] = { false };
@@ -30,6 +33,7 @@ void InputSystem::Shutdown()
 
 void InputSystem::setRaspKey(int key, bool val)
 {
+  Object * obj = nullptr;
   int realKey = 0;
   switch (key) //can add more as needed.
   {
@@ -38,15 +42,23 @@ void InputSystem::setRaspKey(int key, bool val)
     break;
   case 17:
     realKey = GLFW_KEY_W;
+    obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
+    obj->GetComponent(TransformComponent)->mPosition_.y += 0.34;
     break;
   case 30:
     realKey = GLFW_KEY_A;
+    obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
+    obj->GetComponent(TransformComponent)->mPosition_.x -= 0.34;
     break;
   case 31:
     realKey = GLFW_KEY_S;
+    obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
+    obj->GetComponent(TransformComponent)->mPosition_.y -= 0.34;
     break;
   case 32:
     realKey = GLFW_KEY_D;
+    obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
+    obj->GetComponent(TransformComponent)->mPosition_.x += 0.34;
     break;
   case 57:
     realKey = GLFW_KEY_SPACE;

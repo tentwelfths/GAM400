@@ -166,6 +166,7 @@
     <ClCompile Include="NetworkingComponent.cpp" />
     <ClCompile Include="NetworkingSystem.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectSystem.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="tutorial03.cpp" />
@@ -205,10 +206,12 @@
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="JSONTranslator.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Metadata.h" />
     <ClInclude Include="NetworkingComponent.h" />
     <ClInclude Include="NetworkingSystem.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjectSystem.h" />
     <ClInclude Include="Socket.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Standard.h" />

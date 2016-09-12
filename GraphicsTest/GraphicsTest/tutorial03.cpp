@@ -24,10 +24,12 @@ int main( void )
   gCore->Initialize();
   Object * a;
   a = j.CreateObjectFromFile("B.json");
-  Object * b;
-  b = j.CreateObjectFromFile("B.json");
-  static_cast<TransformComponent*>(b->GetComponent(TransformComponent))->mPosition_.y = 2;
-  static_cast<TransformComponent*>(b->GetComponent(TransformComponent))->mPosition_.x = -1;
+  a->name = "Fuccboi";
+  a->Initialize();
+  //Object * b;
+  //b = j.CreateObjectFromFile("B.json");
+  //static_cast<TransformComponent*>(b->GetComponent(TransformComponent))->mPosition_.y = 2;
+  //static_cast<TransformComponent*>(b->GetComponent(TransformComponent))->mPosition_.x = -1;
   while (true)
   {
     gCore->Update(0.0016);
