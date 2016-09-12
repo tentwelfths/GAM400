@@ -231,42 +231,53 @@ return ProgramID;
 void GraphicsSystem::GatherFrameData(GraphicsComponent * iter)
 {
   TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
+  int i = 0;
   frameData += "!";
-  frameData += std::to_string(static_cast<SpriteComponent *>(iter)->mTexture_);
-  frameData +=" " + std::to_string(t->mPosition_.x);
-  frameData +=" " + std::to_string(t->mPosition_.y);
-  frameData +=" " + std::to_string(t->mPosition_.z);
-  frameData +=" " + std::to_string(t->mScale_.x);
-  frameData +=" " + std::to_string(t->mScale_.y);
-  frameData +=" " + std::to_string(t->mRotation_.z) + "!";
-  //for (int k = 0; k < sizeof(GLuint); ++k)
-  //{
-  //  frameData += static_cast<char *>(static_cast<void *>(&(static_cast<SpriteComponent *>(iter)->mTexture_)))[k];
-  //}
-  //for (int k = 0; k < sizeof(float); ++k)
-  //{
-  //  frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.x)))[k];
-  //}
-  //for (int k = 0; k < sizeof(float); ++k)
-  //{
-  //  frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.y)))[k];
-  //}
-  //for (int k = 0; k < sizeof(float); ++k)
-  //{
-  //  frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.z)))[k];
-  //}
-  //for (int k = 0; k < sizeof(float); ++k)
-  //{
-  //  frameData += static_cast<char *>(static_cast<void *>(&(t->mScale_.x)))[k];
-  //}
-  //for (int k = 0; k < sizeof(float); ++k)
-  //{
-  //  frameData += static_cast<char *>(static_cast<void *>(&(t->mScale_.y)))[k];
-  //}
-  //for (int k = 0; k < sizeof(float); ++k)
-  //{
-  //  frameData += static_cast<char *>(static_cast<void *>(&(t->mRotation_.z)))[k];
-  //}
+  ++i;
+  //frameData += std::to_string(static_cast<SpriteComponent *>(iter)->mTexture_);
+  //frameData +=" " + std::to_string(t->mPosition_.x);
+  //frameData +=" " + std::to_string(t->mPosition_.y);
+  //frameData +=" " + std::to_string(t->mPosition_.z);
+  //frameData +=" " + std::to_string(t->mScale_.x);
+  //frameData +=" " + std::to_string(t->mScale_.y);
+  //frameData +=" " + std::to_string(t->mRotation_.z) + "!";
+  for (int k = 0; k < sizeof(GLuint); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(static_cast<SpriteComponent *>(iter)->mTexture_)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.x)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.y)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.z)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mScale_.x)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mScale_.y)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    frameData += static_cast<char *>(static_cast<void *>(&(t->mRotation_.z)))[k];
+    ++i;
+  }
+
+  std::cout << "LENGTH: " << i << " ---" << frameData.length;
 }
 
 void GraphicsSystem::Update(double dt)
