@@ -16,6 +16,7 @@ public:
     Node<T> * n = new Node < T > ;
     n->value = val;
     n->next = head;
+    head = n;
   }
   Node<T> * head;
 
