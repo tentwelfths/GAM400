@@ -17,6 +17,6 @@ TransformComponent: {
 	}
 },
 SpriteComponent: {
-	"mTexture_": 0
+	"mTexture_": 1
 }
 }
