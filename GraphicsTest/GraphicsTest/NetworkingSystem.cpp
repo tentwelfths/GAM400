@@ -147,6 +147,7 @@ void NetworkingSystem::Update(double dt)
     }
     if (sockets[i].initstep == 0){
       std::string str = "~" + std::to_string(sockets[i].clientNumber) + "~";
+      sockets[i].initstep = 5;
       result = send(sockets[i].client, str.c_str(), strlen(str.c_str()), 0);
     }
     if (result > 0){
