@@ -277,7 +277,7 @@ void GraphicsSystem::GatherFrameData(GraphicsComponent * iter)
     ++i;
   }
 
-  std::cout << "LENGTH: " << i << " ---" << frameData.length;
+  std::cout << "LENGTH: " << i << " ---" << frameData.length() << std::endl;
 }
 
 void GraphicsSystem::Update(double dt)
