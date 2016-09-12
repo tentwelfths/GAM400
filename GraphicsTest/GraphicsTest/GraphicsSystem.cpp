@@ -232,7 +232,6 @@ void GraphicsSystem::GatherFrameData(GraphicsComponent * iter)
 {
   TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
   int i = 0;
-  frameData += "!";
   ++i;
   //frameData += std::to_string(static_cast<SpriteComponent *>(iter)->mTexture_);
   //frameData +=" " + std::to_string(t->mPosition_.x);
@@ -276,7 +275,6 @@ void GraphicsSystem::GatherFrameData(GraphicsComponent * iter)
     frameData += static_cast<char *>(static_cast<void *>(&(t->mRotation_.z)))[k];
     ++i;
   }
-  frameData += "!";
   //std::cout << "LENGTH: " << i << " ---" << frameData.length() << std::endl;
 }
 
@@ -345,6 +343,7 @@ void GraphicsSystem::Update(double dt)
   //  0.0f, 0.f, 1.f, 0.0f,
   //  x, y, z, 1.0f);
   frameData = "";
+  frameData += "!";
   for (auto & iter : mComponents_)
   {
 
@@ -395,6 +394,7 @@ void GraphicsSystem::Update(double dt)
     // Draw the triangle !
     glDrawArrays(GL_TRIANGLES, 0, 6); // 3 indices starting at 0 -> 1 triangle
   }
+  frameData += "!";
   glDisableVertexAttribArray(0);
   glDisableVertexAttribArray(1);
   // Swap buffers
