@@ -276,7 +276,7 @@ void GraphicsSystem::GatherFrameData(GraphicsComponent * iter)
     frameData += static_cast<char *>(static_cast<void *>(&(t->mRotation_.z)))[k];
     ++i;
   }
-
+  frameData += "!";
   //std::cout << "LENGTH: " << i << " ---" << frameData.length() << std::endl;
 }
 
