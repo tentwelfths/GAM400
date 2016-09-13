@@ -25,8 +25,8 @@ class InputSystem : public System
   private:
     static bool currInputs[NUMINPUTS];
     static bool prevInputs[NUMINPUTS];
-    static float xPos;
-    static float yPos;
+    static double xPos;
+    static double yPos;
 };
 void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
 void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse);
