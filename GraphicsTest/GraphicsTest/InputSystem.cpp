@@ -8,8 +8,8 @@
 
 bool InputSystem::currInputs[NUMINPUTS] = { false };
 bool InputSystem::prevInputs[NUMINPUTS] = { false };
-float InputSystem::xPos = 0;
-float InputSystem::yPos = 0;
+double InputSystem::xPos = 0;
+double InputSystem::yPos = 0;
 
 InputSystem::InputSystem()
 {
@@ -69,6 +69,7 @@ void InputSystem::setMousePos(double xMouse, double yMouse)
 {
   xPos = xMouse;
   yPos = yMouse;
+  //std::cout << xMouse << ":" << yMouse << std::endl;
 }
 
 bool InputSystem::isKeyJustPressed(int key)
