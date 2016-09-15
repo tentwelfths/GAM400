@@ -343,7 +343,6 @@ void GraphicsSystem::Update(double dt)
   //  0.0f, 0.f, 1.f, 0.0f,
   //  x, y, z, 1.0f);
   frameData = "";
-  frameData += "!";
   for (auto & iter : mComponents_)
   {
 
@@ -394,7 +393,6 @@ void GraphicsSystem::Update(double dt)
     // Draw the triangle !
     glDrawArrays(GL_TRIANGLES, 0, 6); // 3 indices starting at 0 -> 1 triangle
   }
-  frameData += "!";
   glDisableVertexAttribArray(0);
   glDisableVertexAttribArray(1);
   // Swap buffers

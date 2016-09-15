@@ -31,7 +31,7 @@ void InputSystem::Shutdown()
 
 }
 
-void InputSystem::setRaspKey(int key, bool val)
+void InputSystem::setRaspKey(int key, bool val, int clientNumber)
 {
   Object * obj = nullptr;
   int realKey = 0;
@@ -42,23 +42,15 @@ void InputSystem::setRaspKey(int key, bool val)
     break;
   case 17:
     realKey = GLFW_KEY_W;
-    obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
-    obj->GetComponent(TransformComponent)->mPosition_.y += 0.34;
     break;
   case 30:
     realKey = GLFW_KEY_A;
-    obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
-    obj->GetComponent(TransformComponent)->mPosition_.x -= 0.34;
     break;
   case 31:
     realKey = GLFW_KEY_S;
-    obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
-    obj->GetComponent(TransformComponent)->mPosition_.y -= 0.34;
     break;
   case 32:
     realKey = GLFW_KEY_D;
-    obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
-    obj->GetComponent(TransformComponent)->mPosition_.x += 0.34;
     break;
   case 57:
     realKey = GLFW_KEY_SPACE;
