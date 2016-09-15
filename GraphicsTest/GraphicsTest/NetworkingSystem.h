@@ -22,7 +22,7 @@ struct Connection
 
 struct UDPConnection
 {
-  sockaddr addr;
+  sockaddr_in addr;
   unsigned short frameCount;
   unsigned short lastFrameSeen;
   unsigned char clientNumber;
@@ -31,10 +31,10 @@ struct UDPConnection
   int initstep;
   std::string unfinished;
   std::queue<std::string> commands;
-  UDPConnection(sockaddr a) :addr(a), frameCount(0), lastFrameSeen(0), clientNumber(0), parent(nullptr), initstep(0){}
+  UDPConnection(sockaddr_in a) :addr(a), frameCount(0), lastFrameSeen(0), clientNumber(0), parent(nullptr), initstep(0){}
 };
 
-#define DEFAULT_PORT "27015"
+#define DEFAULT_PORT 27015
 #define NUMCLIENTS 100
 
 class NetworkingComponent;
@@ -50,7 +50,8 @@ public:
 private:
   Connection sockets[NUMCLIENTS];
   WSADATA wsaData;
-  struct addrinfo *result, *ptr, hints;
+  //struct addrinfo *ptr, hints;
+  sockaddr_in server;
   SOCKET ListenSocket;
   unsigned char connectionCount;
   unsigned char clientCount;

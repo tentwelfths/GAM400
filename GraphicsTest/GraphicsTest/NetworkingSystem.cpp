@@ -16,9 +16,82 @@ void NetworkingSystem::RegisterComponent(NetworkingComponent * comp)
 {
   mComponents_.push_back(comp);
 }
-
+#define BUFLEN 512
 bool NetworkingSystem::Initialize()
 {
+  struct sockaddr_in si_other;
+  int slen, recv_len;
+  char buf[BUFLEN];
+  WSADATA wsa;
+
+  slen = sizeof(si_other);
+
+  //Initialise winsock
+  printf("\nInitialising Winsock...");
+  if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
+  {
+    printf("Failed. Error Code : %d", WSAGetLastError());
+    exit(EXIT_FAILURE);
+  }
+  printf("Initialised.\n");
+
+  //Create a socket
+  if ((ListenSocket = socket(AF_INET, SOCK_DGRAM, 0)) == INVALID_SOCKET)
+  {
+    printf("Could not create socket : %d", WSAGetLastError());
+  }
+  printf("Socket created.\n");
+
+  //Prepare the sockaddr_in structure
+  server.sin_family = AF_INET;
+  server.sin_addr.s_addr = INADDR_ANY;
+  server.sin_port = htons(DEFAULT_PORT);
+
+  //Bind
+  if (bind(ListenSocket, (struct sockaddr *)&server, sizeof(server)) == SOCKET_ERROR)
+  {
+    printf("Bind failed with error code : %d", WSAGetLastError());
+    exit(EXIT_FAILURE);
+  }
+  puts("Bind done");
+  int iResult;
+  u_long iMode = 1;
+  iResult = ioctlsocket(ListenSocket, FIONBIO, &(iMode));
+  if (iResult != NO_ERROR)
+  {
+    printf("ioctlsocket failed with error: %ld\n", iResult);
+    closesocket(ListenSocket);
+    WSACleanup();
+    return false;
+  }
+  //keep listening for data
+  //while (1)
+  //{
+  //  printf("Waiting for data...");
+  //  fflush(stdout);
+  //
+  //  //clear the buffer by filling null, it might have previously received data
+  //  memset(buf, '\0', BUFLEN);
+  //
+  //  //try to receive some data, this is a blocking call
+  //  if ((recv_len = recvfrom(ListenSocket, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen)) == SOCKET_ERROR)
+  //  {
+  //    printf("recvfrom() failed with error code : %d", WSAGetLastError());
+  //    exit(EXIT_FAILURE);
+  //  }
+  //
+  //  //print details of the client/peer and the data received
+  //  printf("Received packet from %s:%d\n", inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port));
+  //  printf("Data: %s\n", buf);
+  //
+  //  //now reply the client with the same data
+  //  if (sendto(ListenSocket, buf, recv_len, 0, (struct sockaddr*) &si_other, slen) == SOCKET_ERROR)
+  //  {
+  //    printf("sendto() failed with error code : %d", WSAGetLastError());
+  //    exit(EXIT_FAILURE);
+  //  }
+  //}
+  /*
   //Init WSA
   int iResult;
   u_long iMode;
@@ -30,38 +103,28 @@ bool NetworkingSystem::Initialize()
     printf("WSAStartup failed: %d\n", iResult);
     return false;
   }
-  result = NULL; 
-  ptr = NULL;
+
   ListenSocket = INVALID_SOCKET;
-  ZeroMemory(&hints, sizeof(hints));
-  hints.ai_family = AF_INET;
-  hints.ai_socktype = SOCK_DGRAM;
-  hints.ai_protocol = IPPROTO_UDP;
-  hints.ai_flags = AI_PASSIVE;
 
   // Resolve the local address and port to be used by the server
-  iResult = getaddrinfo(NULL, DEFAULT_PORT, &hints, &result);
-  if (iResult != 0) {
-    printf("getaddrinfo failed: %d\n", iResult);
-    WSACleanup();
-    return false;
-  }
-  ListenSocket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
+  server.sin_family = AF_INET;
+  server.sin_addr.s_addr = INADDR_ANY;
+  server.sin_port = htons(DEFAULT_PORT);
+
+  ListenSocket = socket(AF_INET, SOCK_DGRAM, 0);
   if (ListenSocket == INVALID_SOCKET) {
     printf("Error at socket(): %ld\n", WSAGetLastError());
-    freeaddrinfo(result);
     WSACleanup();
     return false;
   }
   //bind socket to listen for new peeps
-  iResult = bind(ListenSocket, result->ai_addr, (int)result->ai_addrlen);
+  iResult = bind(ListenSocket, (struct sockaddr *)&server, sizeof(server));
   if (iResult == SOCKET_ERROR) {
     printf("bind failed with error: %d\n", WSAGetLastError());
     closesocket(ListenSocket);
     WSACleanup();
     return false;
   }
-  freeaddrinfo(result);
   iResult = ioctlsocket(ListenSocket, FIONBIO, &(iMode));
   if (iResult != NO_ERROR)
   {
@@ -76,7 +139,7 @@ bool NetworkingSystem::Initialize()
   //  WSACleanup();
   //  return false;
   //}
-
+  */
 
   return true;
 }
@@ -88,16 +151,16 @@ void NetworkingSystem::Update(double dt)
   char buf[256] = { 0 };
   InputSystem * input = gCore->GetSystem(InputSystem);
   std::string frameData = gCore->GetSystem(GraphicsSystem)->frameData;
-  sockaddr addr;
-  int fromlen;
-  while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (&addr), &fromlen)) && iResult > 0)
+  sockaddr_in addr;
+  int fromlen = sizeof(sockaddr_in);
+  while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (sockaddr*)(&addr), &fromlen)) && iResult > 0)
   {
     std::cout << "We got something capn" << std::endl;
     var same = false;
     var index = 0;
     for (int i = 0; i < connections.size(); ++i)
     {
-      if (connections[i].addr.sa_family == addr.sa_family)
+      if (connections[i].addr.sin_family == addr.sin_family)
       {
         if (((sockaddr_in*)&connections[i].addr)->sin_addr.s_addr == ((sockaddr_in*)&addr)->sin_addr.s_addr)
         {
@@ -127,6 +190,11 @@ void NetworkingSystem::Update(double dt)
     }
     memset(buf, 0, 256);
   }
+  //if (iResult  == SOCKET_ERROR)
+  //{
+  //  printf("recvfrom() failed with error code : %d\n", WSAGetLastError());
+  //  //exit(EXIT_FAILURE);
+  //}
 
   for (int i = 0; i < connections.size(); ++i)
   {
@@ -175,7 +243,7 @@ void NetworkingSystem::Update(double dt)
       std::string toSend = "`"; 
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount)) + frameData + "!";
       ++connections[i].frameCount;
-      int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, &connections[i].addr, sizeof(connections[i].addr));
+      int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(connections[i].addr));
       std::cout << "Send: " << toSend << std::endl;
       std::cout << "Sent " << b << " bytes." << std::endl;
     }
