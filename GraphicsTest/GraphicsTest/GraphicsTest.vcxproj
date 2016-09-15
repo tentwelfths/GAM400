@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BoxColliderComponent.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="common\controls.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -171,13 +172,16 @@
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
+    <ClCompile Include="PlayerControllerComponent.cpp" />
     <ClCompile Include="RigidbodyComponent.cpp" />
+    <ClCompile Include="SphereColliderComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="tutorial03.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="common\controls.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
@@ -221,8 +225,10 @@
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="PhysicsMaterialComponent.h" />
     <ClInclude Include="PhysicsSystem.h" />
+    <ClInclude Include="PlayerControllerComponent.h" />
     <ClInclude Include="RigidbodyComponent.h" />
     <ClInclude Include="Socket.h" />
+    <ClInclude Include="SphereColliderComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Standard.h" />
     <ClInclude Include="stb_image.h" />

@@ -1,4 +1,6 @@
 #include "RigidbodyComponent.h"
+#include "TransformComponent.h"
+#include "Object.h"
 #include "Globals.h"
 #include "Core.h"
 
@@ -18,7 +20,12 @@ bool RigidbodyComponent::Initialize()
 
 void RigidbodyComponent::Update(double dt)
 {
-
+  auto trans = mParent_->GetComponent(TransformComponent);
+  float x = (trans->mPositionX() + mVelocity.x) * dt;
+  float y = (trans->mPositionY() + mVelocity.y) * dt;
+  float z = (trans->mPositionZ() + mVelocity.z) * dt;
+  vec3 newPos(x, y, z);
+  trans->mPosition(newPos);
 }
 
 void RigidbodyComponent::Shutdown()

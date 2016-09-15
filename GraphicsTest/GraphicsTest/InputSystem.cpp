@@ -77,6 +77,7 @@ void InputSystem::setMousePos(double xMouse, double yMouse)
 {
   xPos = xMouse;
   yPos = yMouse;
+  //std::cout << xMouse << ":" << yMouse << std::endl;
 }
 
 bool InputSystem::isKeyJustPressed(int key)
