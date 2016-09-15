@@ -35,8 +35,8 @@ bool NetworkingSystem::Initialize()
   ListenSocket = INVALID_SOCKET;
   ZeroMemory(&hints, sizeof(hints));
   hints.ai_family = AF_INET;
-  hints.ai_socktype = SOCK_STREAM;
-  hints.ai_protocol = SOCK_DGRAM;
+  hints.ai_socktype = SOCK_DGRAM;
+  hints.ai_protocol = IPPROTO_UDP;
   hints.ai_flags = AI_PASSIVE;
 
   // Resolve the local address and port to be used by the server
