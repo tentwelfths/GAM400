@@ -92,6 +92,7 @@ void NetworkingSystem::Update(double dt)
   int fromlen;
   while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (&addr), &fromlen)) && iResult > 0)
   {
+    std::cout << "We got something capn" << std::endl;
     var same = false;
     var index = 0;
     for (int i = 0; i < connections.size(); ++i)
@@ -108,6 +109,7 @@ void NetworkingSystem::Update(double dt)
     }
     if (!same)
     {
+      std::cout << "NEW DUDE" << std::endl;
       index = connections.size();
       connections.push_back(UDPConnection(addr));
     }
