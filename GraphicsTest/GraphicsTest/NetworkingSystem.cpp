@@ -155,7 +155,7 @@ void NetworkingSystem::Update(double dt)
   int fromlen = sizeof(sockaddr_in);
   while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (sockaddr*)(&addr), &fromlen)) && iResult > 0)
   {
-    std::cout << "We got something capn" << std::endl;
+    //std::cout << "We got something capn" << std::endl;
     var same = false;
     var index = 0;
     for (int i = 0; i < connections.size(); ++i)
@@ -195,12 +195,13 @@ void NetworkingSystem::Update(double dt)
   //  printf("recvfrom() failed with error code : %d\n", WSAGetLastError());
   //  //exit(EXIT_FAILURE);
   //}
-
+  std::cout << connections.size() << std::endl;
   for (int i = 0; i < connections.size(); ++i)
   {
     while (!connections[i].commands.empty())
     {
       std::string command = connections[i].commands.front(); connections[i].commands.pop();
+      std::cout << command << std::endl;
       if (command.find("HELLO") != std::string::npos)
       {
         connections[i].update = (i % 2) ? true :false;
@@ -243,7 +244,7 @@ void NetworkingSystem::Update(double dt)
       std::string toSend = "`"; 
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount)) + frameData + "!";
       ++connections[i].frameCount;
-      int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(connections[i].addr));
+      int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
       std::cout << "Send: " << toSend << std::endl;
       std::cout << "Sent " << b << " bytes." << std::endl;
     }
