@@ -6,7 +6,7 @@
 #include "Object.h"
 #include "RigidbodyComponent.h"
 
-PlayerControllerComponent::PlayerControllerComponent() : GameLogicComponent(GameLogicType::PLAYER), speed(5.0f)
+PlayerControllerComponent::PlayerControllerComponent() : GameLogicComponent(GameLogicType::PLAYER), speed(1.1f)
 {
   AddMember(PlayerControllerComponent, speed);
   mName_ = "PlayerControllerComponent";
@@ -26,19 +26,19 @@ void PlayerControllerComponent::Update(double dt)
     if (input->isKeyPressed(GLFW_KEY_W))
     {
       std::cout << "DUBYA PRESSED" << std::endl;
-      rigid->AddVel(0.0f, speed, 0.0f);
+      rigid->SetVel(0.0f, speed, 0.0f);
     }
     else if (input->isKeyPressed(GLFW_KEY_S))
     {
-      rigid->AddVel(0.0f, -speed, 0.0f);
+      rigid->SetVel(0.0f, -speed, 0.0f);
     }
     if (input->isKeyPressed(GLFW_KEY_A))
     {
-      rigid->AddVel(-speed, 0.0f, 0.0f);
+      rigid->SetVel(-speed, 0.0f, 0.0f);
     }
     else if (input->isKeyPressed(GLFW_KEY_D))
     {
-      rigid->AddVel(speed, 0.0f, 0.0f);
+      rigid->SetVel(speed, 0.0f, 0.0f);
     }
   }
 
