@@ -226,12 +226,12 @@ void NetworkingSystem::Update(double dt)
         --i;
         break;
       }
-      else if (command[0] == '~')//keyboard
+      else //if (command[0] == '~')//keyboard
       {
-        int pos = 1;
+        int pos = 0;
         std::cout << "GOT INPUT" << std::endl;
-        unsigned short frame = *static_cast<const unsigned short *>(static_cast<const void *>(&(command.c_str()[pos])));
-        pos += sizeof(unsigned short);
+        //unsigned short frame = *static_cast<const unsigned short *>(static_cast<const void *>(&(command.c_str()[pos])));
+        //pos += sizeof(unsigned short);
         int key = command[pos];
         bool val = (command[pos+1] == '1') ? true : false;
         //if (frame > connections[i].lastFrameSeen)
