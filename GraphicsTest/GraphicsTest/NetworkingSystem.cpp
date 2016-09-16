@@ -246,7 +246,7 @@ void NetworkingSystem::Update(double dt)
       
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[0];
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
-      toSend += frameData + "!";
+      toSend += frameData;
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
       std::cout << "Send: " << toSend << std::endl;
