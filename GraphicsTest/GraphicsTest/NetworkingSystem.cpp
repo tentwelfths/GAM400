@@ -233,7 +233,7 @@ void NetworkingSystem::Update(double dt)
         //unsigned short frame = *static_cast<const unsigned short *>(static_cast<const void *>(&(command.c_str()[pos])));
         //pos += sizeof(unsigned short);
         int key = command[pos];
-        bool val = (command[pos+1] == '1') ? true : false;
+        bool val = (command[pos+1] == '1') ? false : true;
         //if (frame > connections[i].lastFrameSeen)
         //{
         //  connections[i].lastFrameSeen = frame;
