@@ -6,7 +6,7 @@
 #include "Object.h"
 #include "RigidbodyComponent.h"
 
-PlayerControllerComponent::PlayerControllerComponent() : GameLogicComponent(GameLogicType::PLAYER), speed(5.0f)
+PlayerControllerComponent::PlayerControllerComponent() : GameLogicComponent(GameLogicType::PLAYER), speed(0.1f)
 {
   AddMember(PlayerControllerComponent, speed);
   mName_ = "PlayerControllerComponent";
