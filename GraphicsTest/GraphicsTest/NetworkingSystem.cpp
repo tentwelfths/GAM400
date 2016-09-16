@@ -229,15 +229,16 @@ void NetworkingSystem::Update(double dt)
       else if (command[0] == '~')//keyboard
       {
         int pos = 1;
+        std::cout << "GOT INPUT" << std::endl;
         unsigned short frame = *static_cast<const unsigned short *>(static_cast<const void *>(&(command.c_str()[pos])));
         pos += sizeof(unsigned short);
         int key = command[pos];
         bool val = (command[pos+1] == '1') ? true : false;
-        if (frame > connections[i].lastFrameSeen)
-        {
-          connections[i].lastFrameSeen = frame;
+        //if (frame > connections[i].lastFrameSeen)
+        //{
+        //  connections[i].lastFrameSeen = frame;
           input->setRaspKey(key, val, connections[i].clientNumber);
-        }
+        //}
       }
     }
     if ((even && i % 2 == 0) || (!even && i % 2 == 1)){
