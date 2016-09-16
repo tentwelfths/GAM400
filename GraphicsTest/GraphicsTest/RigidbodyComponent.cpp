@@ -1,8 +1,9 @@
 #include "RigidbodyComponent.h"
 #include "TransformComponent.h"
 #include "Object.h"
-#include "Globals.h"
+#include "PhysicsSystem.h"
 #include "Core.h"
+#include "Globals.h"
 
 RigidbodyComponent::RigidbodyComponent() : PhysicsComponent(PhysicsType::RIGIDBODY)
 {
@@ -10,6 +11,8 @@ RigidbodyComponent::RigidbodyComponent() : PhysicsComponent(PhysicsType::RIGIDBO
   AddMember(RigidbodyComponent, mMass);
   AddMember(RigidbodyComponent, mVelocity);
   //AddMember(RigidbodyComponent, mDynamic);
+  PhysicsSystem* g = gCore->GetSystem(PhysicsSystem);
+  g->RegisterComponent(this);
   mName_ = "RigidbodyComponent";
 }
 
@@ -21,9 +24,9 @@ bool RigidbodyComponent::Initialize()
 void RigidbodyComponent::Update(double dt)
 {
   auto trans = mParent_->GetComponent(TransformComponent);
-  float x = (trans->mPositionX() + mVelocity.x) * dt;
-  float y = (trans->mPositionY() + mVelocity.y) * dt;
-  float z = (trans->mPositionZ() + mVelocity.z) * dt;
+  float x = (trans->mPositionX() + (mVelocity.x*dt));
+  float y = (trans->mPositionY() + (mVelocity.y*dt));
+  float z = (trans->mPositionZ() + (mVelocity.z*dt));
   vec3 newPos(x, y, z);
   trans->mPosition(newPos);
 }

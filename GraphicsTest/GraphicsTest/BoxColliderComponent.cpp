@@ -1,11 +1,15 @@
 #include "BoxColliderComponent.h"
+#include "PhysicsSystem.h"
+#include "Core.h"
+#include "Globals.h"
 
 BoxColliderComponent::BoxColliderComponent() : PhysicsComponent(PhysicsType::BOXCOLLIDER)
 {
   //AddMember(BoxColliderComponent, mGhost);
   AddMember(BoxColliderComponent, mHalfSize);
   AddMember(BoxColliderComponent, mOffset);
-  
+  PhysicsSystem* g = gCore->GetSystem(PhysicsSystem);
+  g->RegisterComponent(this);
   mName_ = "BoxColliderComponent";
 }
 

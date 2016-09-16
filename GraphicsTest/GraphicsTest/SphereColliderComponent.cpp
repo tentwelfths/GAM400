@@ -1,11 +1,15 @@
 #include "SphereColliderComponent.h"
+#include "PhysicsSystem.h"
+#include "Core.h"
+#include "Globals.h"
 
 SphereColliderComponent::SphereColliderComponent() : PhysicsComponent(PhysicsType::SPHERECOLLIDER)
 {
   //AddMember(BoxColliderComponent, mGhost);
   AddMember(SphereColliderComponent, mRadius);
   AddMember(SphereColliderComponent, mOffset);
-
+  PhysicsSystem* g = gCore->GetSystem(PhysicsSystem);
+  g->RegisterComponent(this);
   mName_ = "SphereColliderComponent";
 }
 
