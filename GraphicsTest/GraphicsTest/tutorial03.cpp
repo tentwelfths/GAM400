@@ -10,6 +10,7 @@
 #include "SpriteComponent.h"
 #include "TransformComponent.h"
 #include "JSONTranslator.h"
+#include "PlayerControllerComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -24,6 +25,7 @@ int main( void )
   gCore->Initialize();
   Object * a;
   a = j.CreateObjectFromFile("B.json");
+  a->AddComponent(new PlayerControllerComponent);
   a->name = "Fuccboi";
   a->Initialize();
   //Object * b;
