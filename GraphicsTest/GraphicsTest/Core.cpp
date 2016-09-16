@@ -5,6 +5,7 @@
 #include "GameLogicSystem.h"
 #include "InputSystem.h"
 #include "ObjectSystem.h"
+#include "PhysicsSystem.h"
 
 void Core::RegisterSystem(System * s)
 {
@@ -25,7 +26,9 @@ bool Core::Initialize()
   RegisterSystem(i);
   auto * o = new ObjectSystem();
   RegisterSystem(o);
-  
+  auto * p = new PhysicsSystem();
+  RegisterSystem(p);
+
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
     (*iter).second->Initialize();
   g->Update(0);
