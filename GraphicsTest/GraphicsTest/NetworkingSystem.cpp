@@ -195,7 +195,7 @@ void NetworkingSystem::Update(double dt)
   //  printf("recvfrom() failed with error code : %d\n", WSAGetLastError());
   //  //exit(EXIT_FAILURE);
   //}
-  std::cout << connections.size() << std::endl;
+  //std::cout << connections.size() << std::endl;
   for (int i = 0; i < connections.size(); ++i)
   {
     while (!connections[i].commands.empty())
@@ -242,6 +242,7 @@ void NetworkingSystem::Update(double dt)
     if ((even && i % 2 == 0) || (!even && i % 2 == 1)){
       //int b = send(sockets[i].client, frameData.c_str(), frameData.length(), 0);
       std::string toSend = "`"; 
+      even = !even;
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount)) + frameData + "!";
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
