@@ -25,6 +25,7 @@ void PlayerControllerComponent::Update(double dt)
   {
     if (input->isKeyPressed(GLFW_KEY_W))
     {
+      std::cout << "DUBYA PRESSED" << std::endl;
       rigid->AddVel(0.0f, speed, 0.0f);
     }
     else if (input->isKeyPressed(GLFW_KEY_S))

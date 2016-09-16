@@ -11,6 +11,7 @@
 #include "TransformComponent.h"
 #include "JSONTranslator.h"
 #include "PlayerControllerComponent.h"
+#include "RigidbodyComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -26,6 +27,7 @@ int main( void )
   Object * a;
   a = j.CreateObjectFromFile("B.json");
   a->AddComponent(new PlayerControllerComponent);
+  a->AddComponent(new RigidbodyComponent);
   a->name = "Fuccboi";
   a->Initialize();
   //Object * b;
