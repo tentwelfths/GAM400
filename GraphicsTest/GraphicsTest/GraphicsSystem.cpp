@@ -63,7 +63,7 @@ bool GraphicsSystem::Initialize()
 
   // Open a window and create its OpenGL context
   width = 100, height = 100;
-  mWindow = glfwCreateWindow(width, height, "Tutorial 03 - Matrices", NULL/*glfwGetPrimaryMonitor()*/, NULL);
+  mWindow = glfwCreateWindow(width, height, "Tutorial 03 - Matrices", glfwGetPrimaryMonitor(), NULL);
   if (mWindow == NULL){
     return false;
   }
