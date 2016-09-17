@@ -151,6 +151,7 @@ void NetworkingSystem::Update(double dt)
   int fromlen = sizeof(sockaddr_in);
   while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (sockaddr*)(&addr), &fromlen)) && iResult > 0)
   {
+
     //std::cout << "We got something capn" << std::endl;
     var same = false;
     var index = 0;
@@ -175,7 +176,7 @@ void NetworkingSystem::Update(double dt)
     std::cout << "Got " << iResult << "bytes" << std::endl;
     for (var i = 0; i < iResult; ++i)
     {
-      std::cout << buf[i];
+      std::cout << i <<" : " << buf[i]<<std::endl;
       if (buf[i] == '!'){
         std::cout << "COMMAND DONE RECORDING FUCK" << std::endl;
         connections[index].unfinished += buf[i];
