@@ -175,6 +175,7 @@ void NetworkingSystem::Update(double dt)
     std::cout << "Got " << iResult << "bytes" << std::endl;
     for (var i = 0; i < iResult; ++i)
     {
+      std::cout << buf[i];
       if (buf[i] == '!'){
         connections[index].commands.push(connections[index].unfinished);
         connections[index].unfinished = "";
@@ -184,6 +185,7 @@ void NetworkingSystem::Update(double dt)
         connections[index].unfinished += buf[i];
       }
     }
+    std::cout<<std::endl;
     memset(buf, 0, 256);
   }
   //if (iResult  == SOCKET_ERROR)
