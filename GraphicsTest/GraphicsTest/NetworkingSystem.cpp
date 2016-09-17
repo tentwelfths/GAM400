@@ -177,6 +177,7 @@ void NetworkingSystem::Update(double dt)
     {
       std::cout << buf[i];
       if (buf[i] == '!'){
+        connections[index].unfinished += buf[i];
         connections[index].commands.push(connections[index].unfinished);
         connections[index].unfinished = "";
       }
