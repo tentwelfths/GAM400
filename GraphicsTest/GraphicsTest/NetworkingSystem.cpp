@@ -172,7 +172,7 @@ void NetworkingSystem::Update(double dt)
       index = connections.size();
       connections.push_back(UDPConnection(addr));
     }
-
+    std::cout << "Got " << iResult << "bytes" << std::endl;
     for (var i = 0; i < iResult; ++i)
     {
       if (buf[i] == '~'){
@@ -198,7 +198,7 @@ void NetworkingSystem::Update(double dt)
     while (!connections[i].commands.empty())
     {
       std::string command = connections[i].commands.front(); connections[i].commands.pop();
-      std::cout << command << std::endl;
+      std::cout <<command.length() <<"    " << command << std::endl;
       if (command.find("HELLO") != std::string::npos)
       {
         connections[i].update = (i % 2) ? true :false;
