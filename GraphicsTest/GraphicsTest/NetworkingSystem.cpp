@@ -3,6 +3,7 @@
 #include "Socket.h"
 #include "InputSystem.h"
 #include "GraphicsSystem.h"
+#include "ObjectSystem.h"
 #include "Core.h"
 #define var auto
 
@@ -19,16 +20,11 @@ void NetworkingSystem::RegisterComponent(NetworkingComponent * comp)
 #define BUFLEN 512
 bool NetworkingSystem::Initialize()
 {
-  struct sockaddr_in si_other;
-  int slen, recv_len;
-  char buf[BUFLEN];
-  WSADATA wsa;
 
-  slen = sizeof(si_other);
 
   //Initialise winsock
   printf("\nInitialising Winsock...");
-  if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
+  if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
   {
     printf("Failed. Error Code : %d", WSAGetLastError());
     exit(EXIT_FAILURE);
@@ -150,7 +146,7 @@ void NetworkingSystem::Update(double dt)
   u_long iMode = 1;
   char buf[256] = { 0 };
   InputSystem * input = gCore->GetSystem(InputSystem);
-  std::string frameData = gCore->GetSystem(GraphicsSystem)->frameData;
+  std::string frameData = gCore->GetSystem(ObjectSystem)->frameData;
   sockaddr_in addr;
   int fromlen = sizeof(sockaddr_in);
   while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (sockaddr*)(&addr), &fromlen)) && iResult > 0)
@@ -158,7 +154,7 @@ void NetworkingSystem::Update(double dt)
     //std::cout << "We got something capn" << std::endl;
     var same = false;
     var index = 0;
-    for (int i = 0; i < connections.size(); ++i)
+    for (unsigned i = 0; i < connections.size(); ++i)
     {
       if (connections[i].addr.sin_family == addr.sin_family)
       {
@@ -197,7 +193,7 @@ void NetworkingSystem::Update(double dt)
   //}
   //std::cout << connections.size() << std::endl;
   even = !even;
-  for (int i = 0; i < connections.size(); ++i)
+  for (unsigned i = 0; i < connections.size(); ++i)
   {
     while (!connections[i].commands.empty())
     {
@@ -241,7 +237,7 @@ void NetworkingSystem::Update(double dt)
         //}
       }
     }
-    if ((even && i % 2 == 0) || (!even && i % 2 == 1)){
+    if (((even && i % 2 == 0) || (!even && i % 2 == 1)) && frameData != ""){
       //int b = send(sockets[i].client, frameData.c_str(), frameData.length(), 0);
       std::string toSend = "`"; 
       

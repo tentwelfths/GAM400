@@ -342,12 +342,10 @@ void GraphicsSystem::Update(double dt)
   //  0.0f, 1.f, 0.f, 0.0f,
   //  0.0f, 0.f, 1.f, 0.0f,
   //  x, y, z, 1.0f);
-  frameData = "";
   for (auto & iter : mComponents_)
   {
 
     TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
-    GatherFrameData(iter);
     glm::mat4 Position;
     Position[3][0] = t->mPositionX();
     Position[3][1] = t->mPositionY();

@@ -17,4 +17,9 @@ public:
   void AddObject(Object* obj);
   Object * GetNthItemByName(std::string name, unsigned n);
   std::unordered_map<std::string, List<Object*> > mObjects;
+  unsigned int myCount;
+  std::string frameData;
+private:
+  std::string GetData(Object * iter);
+
 };

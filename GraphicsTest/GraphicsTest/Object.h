@@ -21,6 +21,8 @@ public:
   std::unordered_map<std::string, IComponent *> mComponents;
 
   std::string name;
+  unsigned int ID;
+  bool hasChanged;
   std::string source;
 };
 
