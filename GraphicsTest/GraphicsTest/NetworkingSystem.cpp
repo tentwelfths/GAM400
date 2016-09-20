@@ -1,4 +1,6 @@
 #include "NetworkingSystem.h"
+#include "Object.h"
+#include "TransformComponent.h"
 #include "Globals.h"
 #include "Socket.h"
 #include "InputSystem.h"
@@ -174,21 +176,24 @@ void NetworkingSystem::Update(double dt)
       connections.push_back(UDPConnection(addr));
     }
     std::cout << "Got " << iResult << "bytes" << std::endl;
+    std::string str = "";
     for (var i = 0; i < iResult; ++i)
     {
       std::cout << i <<" : " << buf[i]<<std::endl;
-      if (buf[i] == '!'){
-        std::cout << "COMMAND DONE RECORDING FUCK" << std::endl;
-        connections[index].unfinished += buf[i];
-        connections[index].commands.push(connections[index].unfinished);
-        connections[index].unfinished = "";
-      }
-      else
-      {
-        connections[index].unfinished += buf[i];
-      }
+      str += buf[i];
+      //if (buf[i] == '!'){
+      //  std::cout << "COMMAND DONE RECORDING FUCK" << std::endl;
+      //  connections[index].unfinished += buf[i];
+      //  connections[index].commands.push(connections[index].unfinished);
+      //  connections[index].unfinished = "";
+      //}
+      //else
+      //{
+      //  connections[index].unfinished += buf[i];
+      //}
     }
     std::cout<<std::endl;
+    connections[index].commands.push(str);
     memset(buf, 0, 256);
   }
   //if (iResult  == SOCKET_ERROR)
@@ -227,20 +232,32 @@ void NetworkingSystem::Update(double dt)
         --i;
         break;
       }
-      else if (command[0] == '~')//keyboard
+      else if (command[0] == '~')//input
       {
         int pos = 1;
         std::cout << "GOT INPUT" << std::endl;
+        unsigned short x, y;
+        bool button;
+        x = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
+        pos += sizeof(unsigned short);
+        y = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
+        pos += sizeof(unsigned short);
+        button = (command[pos] == '1');
+        auto * obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
+        auto * trans = obj->GetComponent(TransformComponent);
+        trans->mPositionX(((x - 512) / 512.0f) * 4.f);
+        trans->mPositionY(((y - 512) / 512.0f) * 4.f);
+
         //unsigned short frame = *static_cast<const unsigned short *>(static_cast<const void *>(&(command.c_str()[pos])));
         //pos += sizeof(unsigned short);
 
-        int key = command[pos];
-        pos += 2;
-        bool val = (command[pos] == '1') ? true : false;
+        //int key = command[pos];
+        //pos += 2;
+        //bool val = (command[pos] == '1') ? true : false;
         //if (frame > connections[i].lastFrameSeen)
         //{
         //  connections[i].lastFrameSeen = frame;
-          input->setRaspKey(key, val, connections[i].clientNumber);
+        //  input->setRaspKey(key, val, connections[i].clientNumber);
         //}
       }
     }
