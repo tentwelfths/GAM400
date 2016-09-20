@@ -1,3 +1,4 @@
+#include <vector>
 #include "PhysicsSystem.h"
 #include "Object.h"
 #include "PhysicsComponent.h"
@@ -23,34 +24,53 @@ void PhysicsSystem::Update(double dt)
   {
     iter->Update(dt);
   }
-  for (auto & iter : mBoxColliders_)
+  for (auto & iter = mBoxColliders_.begin(); iter != mBoxColliders_.end(); ++iter)
   {
-    iter->Update(dt);
-    for (auto iter2 = iter; iter2 != mBoxColliders_.back(); ++iter2)
+    (*iter)->Update(dt);
+    
+    for (auto & iter2 = iter+1; iter2 != mBoxColliders_.end(); ++iter2)
     {
-      auto firstTrans = iter->mParent()->GetComponentA<TransformComponent>("TransformComponent");
-      auto secondTrans = iter2->mParent()->GetComponentA<TransformComponent>("TransformComponent");
-      auto firstBox = iter->mParent()->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
-      auto secondBox = iter2->mParent()->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
+      if ((*iter) == (*iter2))
+      {
+        break;
+      }
+      auto test = mBoxColliders_.back();
+      auto firstTrans = (*iter)->mParent()->GetComponentA<TransformComponent>("TransformComponent");
+      auto secondTrans = (*iter2)->mParent()->GetComponentA<TransformComponent>("TransformComponent");
+      auto firstBox = (*iter)->mParent()->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
+      auto secondBox = (*iter2)->mParent()->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
 
       auto firstPos = firstTrans->mPosition() + firstBox->GetOffset();
       auto secondPos = secondTrans->mPosition() + secondBox->GetOffset();
       
-      if (((firstPos.x - firstBox->GetHalfSize().x) < (secondPos.x + secondBox->GetHalfSize().x)) &&
-        ((firstPos.x + firstBox->GetHalfSize().x) > (secondPos.x - secondBox->GetHalfSize().x)) &&
-        ((firstPos.y - firstBox->GetHalfSize().y) < (secondPos.y + secondBox->GetHalfSize().y)) &&
-        ((firstPos.y + firstBox->GetHalfSize().y) > (secondPos.y - secondBox->GetHalfSize().y)))
+      float firstRight = firstPos.x + firstBox->GetHalfSize().x;
+      float firstLeft = firstPos.x - firstBox->GetHalfSize().x;
+      float firstTop = firstPos.y + firstBox->GetHalfSize().y;
+      float firstBot = firstPos.y - firstBox->GetHalfSize().y;
+
+      float secondRight = secondPos.x + secondBox->GetHalfSize().x;
+      float secondLeft = secondPos.x - secondBox->GetHalfSize().x;
+      float secondTop = secondPos.y + secondBox->GetHalfSize().y;
+      float secondBot = secondPos.y - secondBox->GetHalfSize().y;
+
+      bool topCheck = firstTop >= secondBot && firstTop <= secondTop;
+      bool botCheck = firstBot <= secondTop && firstBot >= secondBot;
+
+      bool rightCheck = firstRight >= secondLeft && firstRight <= secondRight;
+      bool leftCheck = firstLeft <= secondRight && firstLeft >= secondLeft;
+
+      if ((topCheck || botCheck) && ((rightCheck || leftCheck)))
       {
         Collision col;
         col.AddObjects(firstTrans->mParent(), secondTrans->mParent());
         mCollision_.push_back(col);
       }
     }
-    for (auto & iter2 : mSphereColliders_)
+    for (auto iter2 : mSphereColliders_)
     {
-      auto firstTrans = iter->mParent()->GetComponentA<TransformComponent>("TransformComponent");
+      auto firstTrans = (*iter)->mParent()->GetComponentA<TransformComponent>("TransformComponent");
       auto secondTrans = iter2->mParent()->GetComponentA<TransformComponent>("TransformComponent");
-      auto firstBox = iter->mParent()->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
+      auto firstBox = (*iter)->mParent()->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
       auto secondSphere = iter2->mParent()->GetComponentA<SphereColliderComponent>("SphereColliderComponent");
 
       auto firstPos = firstTrans->mPosition() + firstBox->GetOffset();
@@ -83,17 +103,17 @@ void PhysicsSystem::Update(double dt)
       }
     }
   }
-  for (auto & iter : mSphereColliders_)
+  for (auto & iter = mSphereColliders_.begin(); iter != mSphereColliders_.end(); ++iter)
   {
-    iter->Update(dt);
-    for (auto iter2 = iter; iter2 != mSphereColliders_.back(); ++iter2)
+    (*iter)->Update(dt);
+    for (auto & iter2 = mSphereColliders_.begin(); iter2 != mSphereColliders_.end(); ++iter2)
     {
-      float r = iter->GetRadius() + iter2->GetRadius();
+      float r = (*iter)->GetRadius() + (*iter2)->GetRadius();
       r *= r;
-      auto firstTrans = iter->mParent()->GetComponentA<TransformComponent>("TransformComponent");
-      auto secondTrans = iter2->mParent()->GetComponentA<TransformComponent>("TransformComponent");
-      auto firstSphere = iter->mParent()->GetComponentA<SphereColliderComponent>("SphereColliderComponent");
-      auto secondSphere = iter2->mParent()->GetComponentA<SphereColliderComponent>("SphereColliderComponent");
+      auto firstTrans = (*iter)->mParent()->GetComponentA<TransformComponent>("TransformComponent");
+      auto secondTrans = (*iter2)->mParent()->GetComponentA<TransformComponent>("TransformComponent");
+      auto firstSphere = (*iter)->mParent()->GetComponentA<SphereColliderComponent>("SphereColliderComponent");
+      auto secondSphere = (*iter2)->mParent()->GetComponentA<SphereColliderComponent>("SphereColliderComponent");
 
       auto firstPos = firstTrans->mPosition() + firstSphere->GetOffset();
       auto secondPos = secondTrans->mPosition() + secondSphere->GetOffset();

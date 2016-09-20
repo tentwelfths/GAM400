@@ -53,6 +53,11 @@ void RigidbodyComponent::SetVel(float x, float y, float z)
   mVelocity.z = z;
 }
 
+void RigidbodyComponent::SetVel(vec3 newVel)
+{
+  mVelocity = newVel;
+}
+
 void RigidbodyComponent::SetState(DynamicState newState)
 {
   mDynamic = newState;

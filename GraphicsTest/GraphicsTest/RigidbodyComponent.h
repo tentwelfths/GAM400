@@ -16,6 +16,7 @@ public:
   void SwapLocked() { mRotationLocked = !mRotationLocked; }
   void SetMass(float newMass);
   void SetVel(float x, float y, float z);
+  void SetVel(vec3 newVel);
   void SetState(DynamicState newState);
   void AddVel(float x, float y, float z);
   bool GetLocked();

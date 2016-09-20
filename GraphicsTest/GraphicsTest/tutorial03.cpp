@@ -12,6 +12,7 @@
 #include "JSONTranslator.h"
 #include "PlayerControllerComponent.h"
 #include "RigidbodyComponent.h"
+#include "BoxColliderComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -28,8 +29,26 @@ int main( void )
   a = j.CreateObjectFromFile("B.json");
   a->AddComponent(new PlayerControllerComponent);
   a->AddComponent(new RigidbodyComponent);
+  a->AddComponent(new BoxColliderComponent);
   a->name = "Fuccboi";
   a->Initialize();
+
+  auto box1 = a->GetComponent(BoxColliderComponent);
+  box1->SetHalfSize(vec3(0.5f, 0.5f, 1.0f));
+
+  Object * b;
+
+  b = j.CreateObjectFromFile("B.json");
+  b->AddComponent(new RigidbodyComponent);
+  b->AddComponent(new BoxColliderComponent);
+  b->name = "Fuccboi2";
+  b->Initialize();
+
+  auto box2 = b->GetComponent(BoxColliderComponent);
+  box2->SetHalfSize(vec3(0.5f, 0.5f, 1.0f));
+
+  auto trans2 = b->GetComponent(TransformComponent);
+  trans2->mPositionX(float(5.0f));
   //Object * b;
   //b = j.CreateObjectFromFile("B.json");
   //static_cast<TransformComponent*>(b->GetComponent(TransformComponent))->mPosition_.y = 2;
