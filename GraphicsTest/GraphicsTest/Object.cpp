@@ -7,6 +7,7 @@
 
 bool Object::Initialize()
 {
+  age = 0;
   gCore->GetSystem(ObjectSystem)->AddObject(this);
   return true;
 }

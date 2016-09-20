@@ -22,6 +22,7 @@ public:
 
   std::string name;
   unsigned int ID;
+  unsigned short age;
   bool hasChanged;
   std::string source;
 };

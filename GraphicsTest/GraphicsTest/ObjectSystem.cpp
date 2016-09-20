@@ -76,8 +76,12 @@ void     ObjectSystem::Update(double dt)
   {
     auto node = iter->second.head;
     while (node){
-      if (node->value->hasChanged){
+      if (node->value->hasChanged || node->value->age > 180){
         frameData += GetData(node->value);
+        node->value->age = 0;
+      }
+      else{
+        node->value->age += 1;
       }
       node = node->next;
     }
