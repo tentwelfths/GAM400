@@ -8,6 +8,8 @@
 
 bool InputSystem::currInputs[NUMINPUTS] = { false };
 bool InputSystem::prevInputs[NUMINPUTS] = { false };
+bool Controller::currButt[NUMBUTT]      = { false };
+bool Controller::prevButt[NUMBUTT]      = { false };
 double InputSystem::xPos = 0;
 double InputSystem::yPos = 0;
 
@@ -24,6 +26,10 @@ bool InputSystem::Initialize()
 void InputSystem::Update(double dt)
 {
   memcpy(prevInputs, currInputs, sizeof(bool) * NUMINPUTS);
+  for (int i = 0; i < NUMCONT; ++i)
+  {
+    memcpy(theControllers[i].prevButt, theControllers[i].currButt, sizeof(bool) * NUMBUTT);
+  }
 }
 
 void InputSystem::Shutdown()
@@ -65,11 +71,22 @@ void InputSystem::setKey(int key, bool val)
   currInputs[key] = val;
 }
 
+void InputSystem::setButton(int contNum, int key, bool val)
+{
+  theControllers[contNum].currButt[key] = val;
+}
+
 void InputSystem::setMousePos(double xMouse, double yMouse)
 {
   xPos = xMouse;
   yPos = yMouse;
   //std::cout << xMouse << ":" << yMouse << std::endl;
+}
+
+void InputSystem::setJoystick(int contNum, float xNewStick, float yNewStick)
+{
+  theControllers[contNum].theJoystick.xStick = xNewStick;
+  theControllers[contNum].theJoystick.yStick = yNewStick;
 }
 
 bool InputSystem::isKeyJustPressed(int key)
@@ -90,6 +107,42 @@ bool InputSystem::isKeyUp(int key)
 bool InputSystem::isKeyReleased(int key)
 {
   return (!currInputs[key] && prevInputs[key]);
+}
+
+bool InputSystem::isButtonPressed(int contNum, int key)
+{
+  return theControllers[contNum].currButt[key];
+}
+
+bool InputSystem::isButtonJustPressed(int contNum, int key)
+{
+  return theControllers[contNum].currButt[key] && !theControllers[contNum].prevButt[key];
+}
+
+bool InputSystem::isButtonUp(int contNum, int key)
+{
+  return !theControllers[contNum].currButt[key];
+}
+
+bool InputSystem::isButtonReleased(int contNum, int key)
+{
+  return !theControllers[contNum].currButt[key] && theControllers[contNum].prevButt[key];
+}
+
+Joystick InputSystem::getJoystick(int contNum)
+{
+  return theControllers[contNum].theJoystick;
+}
+
+void InputSystem::updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float xNewStick, float yNewStick)
+{
+  int j = 0;
+  for (auto & iter : theButtons)
+  {
+    setButton(contNum, iter, theVal[j]);
+    ++j;
+  }
+  setJoystick(contNum, xNewStick, yNewStick);
 }
 
 void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
