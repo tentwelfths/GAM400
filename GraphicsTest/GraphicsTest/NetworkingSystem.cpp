@@ -242,6 +242,7 @@ void NetworkingSystem::Update(double dt)
         pos += sizeof(unsigned short);
         y = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
         pos += sizeof(unsigned short);
+        std::cout << "THE COMMAND SAYETH" << command[pos] << std::endl;
         button = (command[pos] == '1');
         std::vector<int> buttons;
         buttons.push_back(0); 

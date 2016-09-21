@@ -157,8 +157,8 @@ void InputSystem::updateController(int contNum, std::vector<int> theButtons, std
   std::cout << theButtons.size() << std::endl;
   for (auto & iter : theButtons)
   {
-    std::cout << iter << std::endl;
-    if (iter){
+    std::cout << theVal[j] << std::endl;
+    if (theVal[j]){
       std::cout << "THERE WAS A BUTTON PRESSED DAWG" << std::endl;
     }
     setButton(contNum, iter, theVal[j]);
