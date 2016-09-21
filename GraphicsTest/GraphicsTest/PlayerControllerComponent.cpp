@@ -34,7 +34,10 @@ void PlayerControllerComponent::Update(double dt)
   if (rigid)
   {
     Joystick j = input->getJoystick(0);
-    std::cout << "THE BUTTON STATE IS: " << input->isButtonJustPressed(0, 0) << std::endl;
+    std::cout << "ISPRESS: " << input->isButtonPressed(0, 0) << std::endl;
+    std::cout << "ISUP: " << input->isButtonUp(0, 0) << std::endl;
+    std::cout << "ISJUSTPRESS: " << input->isButtonJustPressed(0, 0) << std::endl;
+    std::cout << "ISJUSTRELEASED: " << input->isButtonReleased(0, 0) << std::endl;
     if (input->isButtonJustPressed(0, 0))
     {
       
