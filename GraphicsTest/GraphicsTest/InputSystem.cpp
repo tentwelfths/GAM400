@@ -128,6 +128,9 @@ bool InputSystem::isButtonPressed(int contNum, int key)
 
 bool InputSystem::isButtonJustPressed(int contNum, int key)
 {
+
+  std::cout << std::endl << "CURR: " << theControllers[contNum].currButt[key] << std::endl;
+  std::cout << "PREV: " << theControllers[contNum].prevButt[key] << std::endl <<std::endl;
   return theControllers[contNum].currButt[key] && !theControllers[contNum].prevButt[key];
 }
 
