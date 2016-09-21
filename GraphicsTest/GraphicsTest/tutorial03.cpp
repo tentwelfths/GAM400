@@ -23,14 +23,15 @@ int main( void )
   //components.insert({ "SpriteComponent", (CreateComponent<SpriteComponent>) });
   RegisterComponentType(SpriteComponent);
   RegisterComponentType(TransformComponent);
+  RegisterComponentType(RigidbodyComponent);
+  RegisterComponentType(BoxColliderComponent);
+  RegisterComponentType(PlayerControllerComponent);
   gCore = new Core();
   gCore->Initialize();
   Object * a;
-  a = j.CreateObjectFromFile("B.json");
-  a->AddComponent(new PlayerControllerComponent);
-  a->AddComponent(new RigidbodyComponent);
-  a->AddComponent(new BoxColliderComponent);
+  a = j.CreateObjectFromFile("Player.json");
   a->name = "Fuccboi";
+  j.CreateFileFromObject(a);
   a->Initialize();
 
   auto box1 = a->GetComponent(BoxColliderComponent);

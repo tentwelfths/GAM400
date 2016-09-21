@@ -2,7 +2,9 @@
 #include "Globals.h"
 #include "Object.h"
 #include "SpriteComponent.h"
+#include "RigidbodyComponent.h"
 #include "TransformComponent.h"
+#include "BoxColliderComponent.h"
 
 
 void JSONTranslator::DeserializeComponent(IComponent * component, std::ifstream & file)

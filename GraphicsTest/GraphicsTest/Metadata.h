@@ -163,3 +163,18 @@ public:
     return std::to_string(*val);
   }
 };
+
+template<>
+class Member<bool> : public Mem
+{
+public:
+  bool * val;
+  Member(bool * v) :Mem(), val(static_cast<bool *>(v)) {}
+  void Set(std::ifstream &file){};
+  void Set(std::string value){
+    *val = (value == "true");
+  }
+  std::string Get(int scope){
+    return ((*val) ? "true" : "false");
+  }
+};

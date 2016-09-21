@@ -9,6 +9,20 @@
 #define NUMINPUTS 350
 #define NUMBUTT   5
 #define NUMCONT   4
+struct Joystick
+{
+  float xStick;
+  float yStick;
+};
+
+
+struct Controller
+{
+  int numController;
+  static bool currButt[NUMBUTT];
+  static bool prevButt[NUMBUTT];
+  Joystick theJoystick;
+};
 
 class InputSystem : public System
 {
@@ -39,19 +53,6 @@ class InputSystem : public System
     static double yPos;
     Controller theControllers[NUMCONT];
 };
-struct Controller
-{
-  int numController;
-  static bool currButt[NUMBUTT];
-  static bool prevButt[NUMBUTT];
-  Joystick theJoystick;
-};
-struct Joystick
-{
-  float xStick;
-  float yStick;
-};
-
 void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
 void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse);
 void inputButtonCallback(GLFWwindow* window, int button, int action, int mods);
