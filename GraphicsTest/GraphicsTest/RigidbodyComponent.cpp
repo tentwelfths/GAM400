@@ -27,8 +27,11 @@ void RigidbodyComponent::Update(double dt)
   float x = (trans->mPositionX() + (mVelocity.x*dt));
   float y = (trans->mPositionY() + (mVelocity.y*dt));
   float z = (trans->mPositionZ() + (mVelocity.z*dt));
-  vec3 newPos(x, y, z);
-  trans->mPosition(newPos);
+  if (mVelocity.x != 0 || mVelocity.y != 0 || mVelocity.z != 0)
+  {
+    vec3 newPos(x, y, z);
+    trans->mPosition(newPos);
+  }
 }
 
 void RigidbodyComponent::Shutdown()
