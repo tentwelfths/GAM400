@@ -46,6 +46,7 @@ class InputSystem : public System
     bool isButtonUp(int contNum, int key);
     bool isButtonReleased(int contNum, int key);
     Joystick getJoystick(int contNum);
+    Controller getController(int contNum);
   private:
     static bool currInputs[NUMINPUTS];
     static bool prevInputs[NUMINPUTS];

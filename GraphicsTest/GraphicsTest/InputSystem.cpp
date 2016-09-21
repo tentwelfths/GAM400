@@ -134,6 +134,11 @@ Joystick InputSystem::getJoystick(int contNum)
   return theControllers[contNum].theJoystick;
 }
 
+Controller InputSystem::getController(int contNum)
+{
+  return theControllers[contNum];
+}
+
 void InputSystem::updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float xNewStick, float yNewStick)
 {
   int j = 0;
