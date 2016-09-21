@@ -31,7 +31,6 @@ int main( void )
   Object * a;
   a = j.CreateObjectFromFile("Player.json");
   a->name = "Fuccboi";
-  j.CreateFileFromObject(a);
   a->Initialize();
 
   auto box1 = a->GetComponent(BoxColliderComponent);
@@ -39,17 +38,17 @@ int main( void )
 
   Object * b;
 
-  b = j.CreateObjectFromFile("B.json");
-  b->AddComponent(new RigidbodyComponent);
-  b->AddComponent(new BoxColliderComponent);
-  b->name = "Fuccboi2";
-  b->Initialize();
-
-  auto box2 = b->GetComponent(BoxColliderComponent);
-  box2->SetHalfSize(vec3(0.5f, 0.5f, 1.0f));
-
-  auto trans2 = b->GetComponent(TransformComponent);
-  trans2->mPositionX(float(5.0f));
+  //b = j.CreateObjectFromFile("B.json");
+  //b->AddComponent(new RigidbodyComponent);
+  //b->AddComponent(new BoxColliderComponent);
+  //b->name = "Fuccboi2";
+  //b->Initialize();
+  //
+  //auto box2 = b->GetComponent(BoxColliderComponent);
+  //box2->SetHalfSize(vec3(0.5f, 0.5f, 1.0f));
+  //
+  //auto trans2 = b->GetComponent(TransformComponent);
+  //trans2->mPositionX(float(5.0f));
   //Object * b;
   //b = j.CreateObjectFromFile("B.json");
   //static_cast<TransformComponent*>(b->GetComponent(TransformComponent))->mPosition_.y = 2;

@@ -243,10 +243,11 @@ void NetworkingSystem::Update(double dt)
         y = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
         pos += sizeof(unsigned short);
         button = (command[pos] == '1');
-        auto * obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
-        auto * trans = obj->GetComponent(TransformComponent);
-        trans->mPositionX(((x - 512) / 512.0f) * 4.f);
-        trans->mPositionY(((y - 512) / 512.0f) * 4.f);
+        input->updateController(0, std::vector<int>(0), std::vector<bool>(button), (x - 512) / 512.f, (y - 512) / 512.f);
+        //auto * obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
+        //auto * trans = obj->GetComponent(TransformComponent);
+        //trans->mPositionX(((x - 512) / 512.0f) * 4.f);
+        //trans->mPositionY(((y - 512) / 512.0f) * 4.f);
 
         //unsigned short frame = *static_cast<const unsigned short *>(static_cast<const void *>(&(command.c_str()[pos])));
         //pos += sizeof(unsigned short);

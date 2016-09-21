@@ -15,7 +15,7 @@ double InputSystem::yPos = 0;
 
 InputSystem::InputSystem()
 {
-  mName_ = "";
+  mName_ = "InputSystem";
 }
 
 bool InputSystem::Initialize()
