@@ -10,6 +10,7 @@
 void Core::RegisterSystem(System * s)
 {
   mSystems.insert({ s->mName(), s });
+  mSystemsOrdered.push_back(s);
 }
 
 bool Core::Initialize()
@@ -22,12 +23,12 @@ bool Core::Initialize()
   RegisterSystem(f);
   auto * l = new GameLogicSystem();
   RegisterSystem(l);
-  auto * i = new InputSystem();
-  RegisterSystem(i);
   auto * o = new ObjectSystem();
   RegisterSystem(o);
   auto * p = new PhysicsSystem();
   RegisterSystem(p);
+  auto * i = new InputSystem();
+  RegisterSystem(i);
 
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
     (*iter).second->Initialize();
@@ -40,9 +41,9 @@ void Core::Update(double dt)
 {
   auto * frc = static_cast<FramerateController*>(mSystems["FramerateController"]);
   frc->StartFrame();
-  for (auto & iter : mSystems)
+  for (auto & iter : mSystemsOrdered)
   {
-    iter.second->Update(frc->GetDT());
+    iter->Update(frc->GetDT());
   }
   frc->EndFrame();
 }

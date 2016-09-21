@@ -16,6 +16,7 @@ public:
 
 private:
   std::unordered_map<std::string, System*> mSystems;
+  std::vector<System*> mSystemsOrdered;
 };
 
 template <typename T>
