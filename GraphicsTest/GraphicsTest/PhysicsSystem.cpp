@@ -20,6 +20,7 @@ bool PhysicsSystem::Initialize()
 
 void PhysicsSystem::Update(double dt)
 {
+  return;
   for (auto & iter : mRigidbodies_)
   {
     iter->Update(dt);
