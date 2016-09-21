@@ -50,8 +50,12 @@ void PlayerControllerComponent::Update(double dt)
       trans2->mPosition_.y = (rand()%100 - 50) / 10.f;
       trans2->mPosition_.x = (rand()%100 - 50) / 10.f;
     }
-    newVel.x = j.xStick * speed;
-    newVel.y = j.yStick * speed;
+    if (j.xStick > 0.1 || j.xStick < -0.1){
+      newVel.x = j.xStick * speed;
+    }
+    if (j.yStick > 0.1 || j.yStick < -0.1){
+      newVel.y = j.yStick * speed;
+    }
     
     //if (input->isKeyPressed(GLFW_KEY_W))
     //{
