@@ -13,9 +13,21 @@ bool Controller::prevButt[NUMBUTT]      = { false };
 double InputSystem::xPos = 0;
 double InputSystem::yPos = 0;
 
+static int controllerTracker = 0;
+
 InputSystem::InputSystem()
 {
   mName_ = "InputSystem";
+}
+
+Controller::Controller() : numController(controllerTracker), isPluggedIn(true)
+{
+  ++controllerTracker;
+}
+
+Joystick::Joystick() : xStick(0.0f), yStick(0.0f)
+{
+  
 }
 
 bool InputSystem::Initialize()

@@ -11,6 +11,7 @@
 #define NUMCONT   4
 struct Joystick
 {
+  Joystick();
   float xStick;
   float yStick;
 };
@@ -18,7 +19,9 @@ struct Joystick
 
 struct Controller
 {
+  Controller();
   int numController;
+  bool isPluggedIn;
   static bool currButt[NUMBUTT];
   static bool prevButt[NUMBUTT];
   Joystick theJoystick;
