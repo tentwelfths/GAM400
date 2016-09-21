@@ -154,13 +154,8 @@ Controller InputSystem::getController(int contNum)
 void InputSystem::updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float xNewStick, float yNewStick)
 {
   int j = 0;
-  std::cout << theButtons.size() << std::endl;
   for (auto & iter : theButtons)
   {
-    std::cout << theVal[j] << std::endl;
-    if (theVal[j]){
-      std::cout << "THERE WAS A BUTTON PRESSED DAWG" << std::endl;
-    }
     setButton(contNum, iter, theVal[j]);
     ++j;
   }

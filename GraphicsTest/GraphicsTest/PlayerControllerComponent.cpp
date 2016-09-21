@@ -34,9 +34,10 @@ void PlayerControllerComponent::Update(double dt)
   if (rigid)
   {
     Joystick j = input->getJoystick(0);
+    std::cout << "THE BUTTON STATE IS: " << input->isButtonJustPressed(0, 0) << std::endl;
     if (input->isButtonJustPressed(0, 0))
     {
-    
+      
       JSONTranslator j;
       Object * b;
       b = j.CreateObjectFromFile("B.json");
