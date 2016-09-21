@@ -179,7 +179,7 @@ void NetworkingSystem::Update(double dt)
     std::string str = "";
     for (var i = 0; i < iResult; ++i)
     {
-      std::cout << i <<" : " << buf[i]<<std::endl;
+      //std::cout << i <<" : " << buf[i]<<std::endl;
       str += buf[i];
       //if (buf[i] == '!'){
       //  std::cout << "COMMAND DONE RECORDING FUCK" << std::endl;
@@ -192,7 +192,7 @@ void NetworkingSystem::Update(double dt)
       //  connections[index].unfinished += buf[i];
       //}
     }
-    std::cout<<std::endl;
+    //std::cout<<std::endl;
     connections[index].commands.push(str);
     memset(buf, 0, 256);
   }
