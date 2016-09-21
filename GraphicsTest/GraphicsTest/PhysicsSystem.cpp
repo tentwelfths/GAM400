@@ -20,11 +20,11 @@ bool PhysicsSystem::Initialize()
 
 void PhysicsSystem::Update(double dt)
 {
-  return;
   for (auto & iter : mRigidbodies_)
   {
     iter->Update(dt);
   }
+  return;
   for (auto & iter = mBoxColliders_.begin(); iter != mBoxColliders_.end(); ++iter)
   {
     (*iter)->Update(dt);
