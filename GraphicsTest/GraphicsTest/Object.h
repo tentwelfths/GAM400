@@ -7,6 +7,7 @@ class IComponent;
 class Object
 {
 public:
+  Object();
   bool Initialize();
 
   void Update(double dt);
