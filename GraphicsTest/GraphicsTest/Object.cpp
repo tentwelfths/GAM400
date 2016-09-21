@@ -4,10 +4,15 @@
 #include "Core.h"
 #include "IComponent.h"
 
+Object::Object() : age(0), hasChanged(true)
+{
+
+}
 
 bool Object::Initialize()
 {
   age = 0;
+  hasChanged = true;
   gCore->GetSystem(ObjectSystem)->AddObject(this);
   return true;
 }
