@@ -76,11 +76,11 @@ void     ObjectSystem::Update(double dt)
   {
     auto node = iter->second.head;
     while (node){
-      node->value->hasChanged = true;
+      //node->value->hasChanged = true;
       if (node->value->hasChanged || node->value->age > 180){
         frameData += GetData(node->value);
         node->value->age = 0;
-        //node->value->hasChanged = false;
+        node->value->hasChanged = false;
       }
       else{
         node->value->age += 1;
