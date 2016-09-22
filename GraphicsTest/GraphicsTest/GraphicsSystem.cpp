@@ -6,6 +6,8 @@
 #include "InputSystem.h"
 #include "Core.h"
 #include "Globals.h"
+#include <imgui.h>
+#include "imgui_impl_glfw_gl3.h"
 
 #include "SOIL.h"
 
@@ -67,6 +69,8 @@ bool GraphicsSystem::Initialize()
   if (mWindow == NULL){
     return false;
   }
+
+
   glfwMakeContextCurrent(mWindow);
   glfwSetKeyCallback(mWindow, inputKeyCallback);
   glfwSetCursorPosCallback(mWindow, inputMouseCallback);
@@ -78,6 +82,10 @@ bool GraphicsSystem::Initialize()
   if (glewInit() != GLEW_OK) {
     return false;
   }
+
+  // Setup ImGui binding
+  ImGui_ImplGlfwGL3_Init(mWindow, true);
+
   GLfloat tVertexArray[] = {
     -0.5f, 0.5f, 0.0f,
     -0.5f, -0.5f, 0.0f,
@@ -110,15 +118,14 @@ bool GraphicsSystem::Initialize()
   glBindBuffer(GL_ARRAY_BUFFER, mUVbuffer);
   glBufferData(GL_ARRAY_BUFFER, sizeof(mUVArray), mUVArray, GL_STATIC_DRAW);
 
-  // Enable depth test
-  glEnable(GL_DEPTH_TEST);
-  // Accept fragment if it closer to the camera than the former one
-  glDepthFunc(GL_LESS);
-
   glEnable(GL_BLEND);
-  //glDisable( GL_BLEND );
-  //	straight alpha
+  glBlendEquation(GL_FUNC_ADD);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  //glEnable(GL_CULL_FACE);
+  glEnable(GL_DEPTH_TEST);
+  glDepthFunc(GL_LESS);
+  //glEnable(GL_SCISSOR_TEST);
+  glActiveTexture(GL_TEXTURE0);
 
 
   // Ensure we can capture the escape key being pressed below
@@ -201,87 +208,41 @@ GLuint GraphicsSystem::LoadShaders(const char * vertex_file_path, const char * f
 
 
 
-// Link the program
-printf("Linking program\n");
-GLuint ProgramID = glCreateProgram();
-glAttachShader(ProgramID, VertexShaderID);
-glAttachShader(ProgramID, FragmentShaderID);
-glLinkProgram(ProgramID);
+  // Link the program
+  printf("Linking program\n");
+  GLuint ProgramID = glCreateProgram();
+  glAttachShader(ProgramID, VertexShaderID);
+  glAttachShader(ProgramID, FragmentShaderID);
+  glLinkProgram(ProgramID);
 
-// Check the program
-glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
-glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-if (InfoLogLength > 0){
-  std::vector<char> ProgramErrorMessage(InfoLogLength + 1);
-  glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
-  printf("%s\n", &ProgramErrorMessage[0]);
-}
+  // Check the program
+  glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
+  glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
+  if (InfoLogLength > 0){
+    std::vector<char> ProgramErrorMessage(InfoLogLength + 1);
+    glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
+    printf("%s\n", &ProgramErrorMessage[0]);
+  }
 
 
-glDetachShader(ProgramID, VertexShaderID);
-glDetachShader(ProgramID, FragmentShaderID);
+  glDetachShader(ProgramID, VertexShaderID);
+  glDetachShader(ProgramID, FragmentShaderID);
 
-glDeleteShader(VertexShaderID);
-glDeleteShader(FragmentShaderID);
+  glDeleteShader(VertexShaderID);
+  glDeleteShader(FragmentShaderID);
 
-return ProgramID;
+  return ProgramID;
 
 }
 
 void GraphicsSystem::GatherFrameData(GraphicsComponent * iter)
 {
-  TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
-  int i = 0;
-  ++i;
-  //frameData += std::to_string(static_cast<SpriteComponent *>(iter)->mTexture_);
-  //frameData +=" " + std::to_string(t->mPosition_.x);
-  //frameData +=" " + std::to_string(t->mPosition_.y);
-  //frameData +=" " + std::to_string(t->mPosition_.z);
-  //frameData +=" " + std::to_string(t->mScale_.x);
-  //frameData +=" " + std::to_string(t->mScale_.y);
-  //frameData +=" " + std::to_string(t->mRotation_.z) + "!";
-  for (int k = 0; k < sizeof(GLuint); ++k)
-  {
-    frameData += static_cast<char *>(static_cast<void *>(&(static_cast<SpriteComponent *>(iter)->mTexture_)))[k];
-    ++i;
-  }
-  for (int k = 0; k < sizeof(float); ++k)
-  {
-    frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.x)))[k];
-    ++i;
-  }
-  for (int k = 0; k < sizeof(float); ++k)
-  {
-    frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.y)))[k];
-    ++i;
-  }
-  for (int k = 0; k < sizeof(float); ++k)
-  {
-    frameData += static_cast<char *>(static_cast<void *>(&(t->mPosition_.z)))[k];
-    ++i;
-  }
-  for (int k = 0; k < sizeof(float); ++k)
-  {
-    frameData += static_cast<char *>(static_cast<void *>(&(t->mScale_.x)))[k];
-    ++i;
-  }
-  for (int k = 0; k < sizeof(float); ++k)
-  {
-    frameData += static_cast<char *>(static_cast<void *>(&(t->mScale_.y)))[k];
-    ++i;
-  }
-  for (int k = 0; k < sizeof(float); ++k)
-  {
-    frameData += static_cast<char *>(static_cast<void *>(&(t->mRotation_.z)))[k];
-    ++i;
-  }
-  //std::cout << "LENGTH: " << i << " ---" << frameData.length() << std::endl;
+
 }
 
 void GraphicsSystem::Update(double dt)
 {
   GLfloat color[3] = { 1, 1, 0 };
-
 
   float fov = 45.f;
 
@@ -292,6 +253,7 @@ void GraphicsSystem::Update(double dt)
 
   // Use our shader
   glUseProgram(programID);
+  glActiveTexture(GL_TEXTURE0);
 
 
   // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
@@ -393,6 +355,39 @@ void GraphicsSystem::Update(double dt)
   }
   glDisableVertexAttribArray(0);
   glDisableVertexAttribArray(1);
+
+  //Draw imgui stuff
+  bool show_test_window = true;
+  bool show_another_window = false;
+
+  ImGui_ImplGlfwGL3_NewFrame();
+  ImVec4 clear_color = ImColor(114, 144, 154);
+  {
+    static float f = 0.0f;
+    ImGui::Text("Hello, world!");
+    ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
+    ImGui::ColorEdit3("clear color", (float*)&clear_color);
+    if (ImGui::Button("Test Window")) show_test_window ^= 1;
+    if (ImGui::Button("Another Window")) show_another_window ^= 1;
+    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+  }
+  
+  // 2. Show another simple window, this time using an explicit Begin/End pair
+  if (show_another_window)
+  {
+    ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
+    ImGui::Begin("Another Window", &show_another_window);
+    ImGui::Text("Hello");
+    ImGui::End();
+  }
+  
+  // 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
+  if (show_test_window)
+  {
+    ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
+    ImGui::ShowTestWindow(&show_test_window);
+  }
+  ImGui::Render();
   // Swap buffers
   glfwSwapBuffers(mWindow);
   glfwPollEvents();

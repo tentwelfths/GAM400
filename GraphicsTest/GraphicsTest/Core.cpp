@@ -32,7 +32,7 @@ bool Core::Initialize()
 
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
     (*iter).second->Initialize();
-  g->Update(0);
+
   g->LoadTexture("Kakka_Carrot_Veggie.png");
   return true;
 }
