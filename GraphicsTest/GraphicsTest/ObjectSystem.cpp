@@ -77,11 +77,15 @@ void     ObjectSystem::Update(double dt)
     auto node = iter->second.head;
     while (node){
       //node->value->hasChanged = true;
-      if (node->value->hasChanged || node->value->age > 10){
+      if (node->value->hasChanged || node->value->age > rand() % 100 + 100){
         frameData += GetData(node->value);
-        if (node->value->age > 12){
+        if (node->value->age == 300){
           node->value->age = 0;
         }
+        else{
+          node->value->age = 300;
+        }
+        
         node->value->hasChanged = false;
       }
       else{
