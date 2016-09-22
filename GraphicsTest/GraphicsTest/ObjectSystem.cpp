@@ -83,6 +83,7 @@ void     ObjectSystem::Update(double dt)
         node->value->hasChanged = false;
       }
       else{
+        std::cout << node->value->age << std::endl;
         node->value->age += 1;
       }
       node = node->next;
