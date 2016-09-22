@@ -13,6 +13,7 @@ struct Quad
   float height;
   float midX;
   float midY;
+  void set(float newWidth, float newHeight, float newMidX, float newMidY);
 };
 
 
