@@ -119,6 +119,7 @@
     <ClCompile Include="PlayerControllerComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="imgui.cpp">
       <Filter>NotOurCode</Filter>
     </ClCompile>
@@ -130,6 +131,10 @@
     </ClCompile>
     <ClCompile Include="imgui_impl_glfw_gl3.cpp">
       <Filter>NotOurCode</Filter>
+=======
+    <ClCompile Include="QuadTree.cpp">
+      <Filter>Source Files</Filter>
+>>>>>>> a1d5d02b8dab14af7a134a76b88cddfe7b213cde
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +252,7 @@
     <ClInclude Include="PlayerControllerComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="stb_truetype.h">
       <Filter>NotOurCode</Filter>
     </ClInclude>
@@ -267,6 +273,10 @@
     </ClInclude>
     <ClInclude Include="imgui_impl_glfw_gl3.h">
       <Filter>NotOurCode</Filter>
+=======
+    <ClInclude Include="QuadTree.h">
+      <Filter>Header Files</Filter>
+>>>>>>> a1d5d02b8dab14af7a134a76b88cddfe7b213cde
     </ClInclude>
   </ItemGroup>
 </Project>

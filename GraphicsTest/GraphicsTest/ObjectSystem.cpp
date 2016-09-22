@@ -79,7 +79,7 @@ void     ObjectSystem::Update(double dt)
       if (node->value->hasChanged || node->value->age > 180){
         frameData += GetData(node->value);
         node->value->age = 0;
-        node->value->hasChanged = false;
+        //node->value->hasChanged = false;
       }
       else{
         node->value->age += 1;
