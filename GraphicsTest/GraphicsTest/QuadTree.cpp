@@ -13,9 +13,9 @@ Quad::Quad(float newWidth, float newHeight, float newMidX, float newMidY) : widt
 
 QuadTree::~QuadTree()
 {
-  for (auto & iter : childrenList)
+  for (int i = 0; i < MAXCHILDREN; ++i)
   {
-    delete iter;
+    delete childrenList[i];
   }
 }
 
@@ -77,7 +77,11 @@ void QuadTree::split()
   for (int i = 0; i < SECTIONS; ++i)
   {
     QuadTree* child = new QuadTree(level + 1, quadArray[i]);
-    childrenList.push_back(child);
+    for (auto & iter : objectList)
+    {
+      child->insert(iter);
+    }
+    childrenList[i] = child;
   }
 }
 
@@ -102,13 +106,13 @@ bool QuadTree::insert(Object newMember)
     objectList.push_back(newMember);
     return true;
   }
-  if (childrenList.empty())
+  if (childrenList[0] == nullptr)
   {
     split();
   }
-  for (auto & iter : childrenList)
+  for (int i = 0; i < MAXCHILDREN; ++i)
   {
-    if (iter->insert(newMember))
+    if (childrenList[i]->insert(newMember))
     {
       return true;
     }
@@ -127,11 +131,11 @@ bool QuadTree::retreive(std::vector<Object> possibleCollisions, Object check)
   auto coll = check.GetComponentA<BoxColliderComponent>("BoxColliderComponent");
   if (region.bound(*trans, *coll))
   {
-    if (!childrenList.empty())
+    if (childrenList[0])
     {
-      for (auto & iter : childrenList)
+      for (int i = 0; i < MAXCHILDREN; ++i)
       {
-        iter->retreive(possibleCollisions, check);
+        childrenList[i]->retreive(possibleCollisions, check);
       }
     }
     else

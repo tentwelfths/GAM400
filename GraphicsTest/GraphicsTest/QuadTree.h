@@ -9,6 +9,7 @@ class BoxColliderComponent;
 class SphereColliderComponent;
 
 #define MAXOBJECT 5
+#define MAXCHILDREN 4
 struct Quad
 {
   Quad();
@@ -37,7 +38,7 @@ class QuadTree
   private:
     int level;
     Quad region;
-    std::vector<QuadTree*> childrenList;
+    QuadTree* childrenList[MAXCHILDREN];
     std::vector<Object> objectList;
 
 };
