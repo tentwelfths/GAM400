@@ -4,6 +4,10 @@
 #include "Object.h"
 #include <vector>
 
+class TransformComponent;
+class BoxColliderComponent;
+class SphereColliderComponent;
+
 #define MAXOBJECT 5
 struct Quad
 {
@@ -14,6 +18,8 @@ struct Quad
   float midX;
   float midY;
   void set(float newWidth, float newHeight, float newMidX, float newMidY);
+  bool bound(TransformComponent trans, BoxColliderComponent collider);
+  bool bound(TransformComponent trans, SphereColliderComponent collider);
 };
 
 
@@ -22,11 +28,12 @@ class QuadTree
   public:
     //QuadTree();
     QuadTree(int newLevel, Quad newQuad);
+    ~QuadTree();
     void clear();
     void split();
-    void insert(Object newMember);
-    int index(Quad area);
-    std::vector<Object> retreive(std::vector<Object> possibleCollisions, Object check);
+    bool insert(Object newMember);
+    //int index(Quad area);
+    bool retreive(std::vector<Object> possibleCollisions, Object check);
   private:
     int level;
     Quad region;

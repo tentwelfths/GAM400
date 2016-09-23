@@ -1,12 +1,14 @@
 #pragma once
 #include "System.h"
 #include "Standard.h"
+#include "QuadTree.h"
 
 class PhysicsComponent;
 class RigidbodyComponent;
 class BoxColliderComponent;
 class SphereColliderComponent;
 class Collision;
+class QuadTree;
 
 enum class DynamicState { STATIC, DYNAMIC, KINEMATIC };
 
@@ -22,6 +24,7 @@ public:
   void RegisterComponent(BoxColliderComponent * comp);
   void RegisterComponent(SphereColliderComponent * comp);
 private:
+  QuadTree mPhysicsTree;
   std::vector<PhysicsComponent *> mComponents_;
   std::vector<RigidbodyComponent *> mRigidbodies_;
   std::vector<BoxColliderComponent *> mBoxColliders_;

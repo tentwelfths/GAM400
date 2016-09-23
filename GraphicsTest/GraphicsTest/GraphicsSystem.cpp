@@ -70,6 +70,9 @@ bool GraphicsSystem::Initialize()
     return false;
   }
 
+  // Setup ImGui binding
+  ImGui_ImplGlfwGL3_Init(mWindow, true);
+
 
   glfwMakeContextCurrent(mWindow);
   glfwSetKeyCallback(mWindow, inputKeyCallback);
@@ -82,9 +85,6 @@ bool GraphicsSystem::Initialize()
   if (glewInit() != GLEW_OK) {
     return false;
   }
-
-  // Setup ImGui binding
-  ImGui_ImplGlfwGL3_Init(mWindow, true);
 
   GLfloat tVertexArray[] = {
     -0.5f, 0.5f, 0.0f,

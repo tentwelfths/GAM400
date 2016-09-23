@@ -38,7 +38,7 @@ int main( void )
 
   Object * b;
 
-  //b = j.CreateObjectFromFile("B.json");
+  b = j.CreateObjectFromFile("B.json");
   //b->AddComponent(new RigidbodyComponent);
   //b->AddComponent(new BoxColliderComponent);
   //b->name = "Fuccboi2";
