@@ -43,8 +43,11 @@ void Core::Update(double dt)
   frc->StartFrame();
   for (auto & iter : mSystemsOrdered)
   {
+    frc->SetSystemStart(iter->mName());
     iter->Update(frc->GetDT());
+    frc->SetSystemEnd();
   }
+  frc->PrintSystemTimeAnalysis();
   frc->EndFrame();
 }
 

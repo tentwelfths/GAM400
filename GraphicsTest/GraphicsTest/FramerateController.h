@@ -2,6 +2,13 @@
 #include "System.h"
 #include "Standard.h"
 
+struct Times{
+  std::string name;
+  __int64 start;
+  __int64 end;
+  __int64 total;
+};
+
 class FramerateController : public System
 {
 public:
@@ -18,7 +25,9 @@ public:
   unsigned GetFramesPerSecond();
   float GetDT();
   float GetActualFramesPerSecond();
-
+  void SetSystemStart(std::string name);
+  void SetSystemEnd();
+  void PrintSystemTimeAnalysis();
 private:
   double mTicksPerSecond;
   double mDT;
@@ -30,6 +39,8 @@ private:
   __int64 mCurrTime;
   __int64 mFrameStart;
   double mTotalTime;
+  Times currentSystemTime;
 
   bool mStopped;
+  std::vector<Times> times;
 };

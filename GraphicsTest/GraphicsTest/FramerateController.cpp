@@ -32,6 +32,7 @@ void FramerateController::Reset()
 
 void FramerateController::StartFrame()
 {
+  times.clear();
   QueryPerformanceCounter((LARGE_INTEGER*)&mFrameStart);
 }
 
@@ -54,3 +55,26 @@ float FramerateController::GetDT()
   return (float)mDT;
 }
 float FramerateController::GetActualFramesPerSecond(){ return float(1.0 / mDT); }
+
+void FramerateController::SetSystemStart(std::string name)
+{
+  currentSystemTime.name = name;
+  QueryPerformanceCounter((LARGE_INTEGER*)&currentSystemTime.start);
+}
+void FramerateController::SetSystemEnd()
+{
+  QueryPerformanceCounter((LARGE_INTEGER*)&currentSystemTime.end);
+  currentSystemTime.total = currentSystemTime.end - currentSystemTime.start;
+  times.push_back(currentSystemTime);
+}
+
+void FramerateController::PrintSystemTimeAnalysis()
+{
+  __int64 totalFrameTime = 0;
+  for (unsigned i = 0; i < times.size(); ++i){
+    totalFrameTime += times[i].total;
+  }
+  for (unsigned i = 0; i < times.size(); ++i){
+    std::cout << times[i].name << ": " << ((double)times[i].total / (double)totalFrameTime) * 100.0 << "%" << std::endl;
+  }
+}
