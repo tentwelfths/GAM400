@@ -75,6 +75,6 @@ void FramerateController::PrintSystemTimeAnalysis()
     totalFrameTime += times[i].total;
   }
   for (unsigned i = 0; i < times.size(); ++i){
-    std::cout << times[i].name << ": " << ((double)times[i].total / (double)totalFrameTime) * 100.0 << "%" << std::endl;
+    std::cout << times[i].name << ": " << ((double)times[i].total / (double)totalFrameTime) * 100.0 << "% -- " <<times[i].end <<"-"<<times[i].start<<"="<<times[i].total << std::endl;
   }
 }
