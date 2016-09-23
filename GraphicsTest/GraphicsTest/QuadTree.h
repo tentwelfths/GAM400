@@ -9,6 +9,9 @@ class BoxColliderComponent;
 class SphereColliderComponent;
 
 #define MAXOBJECT 5
+#define MAXCHILDREN 4
+#define MAXLEVELS 6
+
 struct Quad
 {
   Quad();
@@ -18,8 +21,8 @@ struct Quad
   float midX;
   float midY;
   void set(float newWidth, float newHeight, float newMidX, float newMidY);
-  bool bound(TransformComponent trans, BoxColliderComponent collider);
-  bool bound(TransformComponent trans, SphereColliderComponent collider);
+  bool bound(TransformComponent& trans, BoxColliderComponent& collider);
+  bool bound(TransformComponent& trans, SphereColliderComponent& collider);
 };
 
 
@@ -31,13 +34,16 @@ class QuadTree
     ~QuadTree();
     void clear();
     void split();
-    bool insert(Object newMember);
+    bool insert(Object& newMember);
     //int index(Quad area);
-    bool retreive(std::vector<Object> possibleCollisions, Object check);
+    bool retreive(std::vector<Object>& possibleCollisions, Object check);
+    void setActive(bool newActive) { active = newActive; }
+    void createChildren();
   private:
+    bool active;
     int level;
     Quad region;
-    std::vector<QuadTree*> childrenList;
+    QuadTree* childrenList[MAXCHILDREN];
     std::vector<Object> objectList;
 
 };

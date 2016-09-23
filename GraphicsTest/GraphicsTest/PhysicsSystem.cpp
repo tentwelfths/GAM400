@@ -11,6 +11,11 @@
 
 PhysicsSystem::PhysicsSystem() : mPhysicsTree(0, Quad(100.0f,100.0f, 0.0f, 0.0f))
 {
+  mPhysicsTree.setActive(true);
+  for (int i = 0; i < MAXLEVELS; ++i)
+  {
+    mPhysicsTree.createChildren();
+  }
   mName_ = "PhysicsSystem";
 }
 
@@ -32,7 +37,39 @@ void PhysicsSystem::Update(double dt)
   {
     std::vector<Object> colCheck;
     mPhysicsTree.retreive(colCheck, *iter->mParent());
-
+    for (auto & iter2 : colCheck)
+    {
+      auto firstTrans = iter->mParent()->GetComponentA<TransformComponent>("TransformComponent");
+      auto secondTrans = iter2.GetComponentA<TransformComponent>("TransformComponent");
+      auto firstBox = iter->mParent()->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
+      auto secondBox = iter2.GetComponentA<BoxColliderComponent>("BoxColliderComponent");
+      
+      auto firstPos = firstTrans->mPosition() + firstBox->GetOffset();
+      auto secondPos = secondTrans->mPosition() + secondBox->GetOffset();
+      
+      float firstRight = firstPos.x + firstBox->GetHalfSize().x;
+      float firstLeft = firstPos.x - firstBox->GetHalfSize().x;
+      float firstTop = firstPos.y + firstBox->GetHalfSize().y;
+      float firstBot = firstPos.y - firstBox->GetHalfSize().y;
+      
+      float secondRight = secondPos.x + secondBox->GetHalfSize().x;
+      float secondLeft = secondPos.x - secondBox->GetHalfSize().x;
+      float secondTop = secondPos.y + secondBox->GetHalfSize().y;
+      float secondBot = secondPos.y - secondBox->GetHalfSize().y;
+      
+      bool topCheck = firstTop >= secondBot && firstTop <= secondTop;
+      bool botCheck = firstBot <= secondTop && firstBot >= secondBot;
+      
+      bool rightCheck = firstRight >= secondLeft && firstRight <= secondRight;
+      bool leftCheck = firstLeft <= secondRight && firstLeft >= secondLeft;
+      
+      if ((topCheck || botCheck) && ((rightCheck || leftCheck)))
+      {
+        Collision col;
+        col.AddObjects(firstTrans->mParent(), secondTrans->mParent());
+        mCollision_.push_back(col);
+      }
+    }
   }
 //  for (auto & iter = mBoxColliders_.begin(); iter != mBoxColliders_.end(); ++iter)
 //  {
