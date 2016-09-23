@@ -18,6 +18,22 @@ public:
     n->next = head;
     head = n;
   }
+  void Remove(Node<T> * target){
+    Node<T> * node = head;
+    if (target == head){
+      head = head->next;
+      delete node;
+      return;
+    }
+    while (node){
+      if (node->next == target){
+        auto* temp = node->next;
+        node->next = temp->next;
+        delete temp;
+        return;
+      }
+    }
+  }
   Node<T> * head;
 
 };

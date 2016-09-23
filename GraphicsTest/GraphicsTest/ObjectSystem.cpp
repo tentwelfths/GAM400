@@ -19,6 +19,18 @@ bool     ObjectSystem::Initialize()
   return true;
 }
 
+Object * ObjectSystem::CreateObjectFromFile(std::string filename){
+  return nullptr;
+}
+void ObjectSystem::CreateArchetypeFromObject(Object * obj){
+
+}
+
+void ObjectSystem::ClearSystem(){
+
+}
+
+
 std::string ObjectSystem::GetData(Object * iter)
 {
   TransformComponent * t = iter->GetComponent(TransformComponent);
@@ -77,6 +89,31 @@ void     ObjectSystem::Update(double dt)
     auto node = iter->second.head;
     while (node){
       //node->value->hasChanged = true;
+      
+      if (node->value->dead){
+        bool removable = false;
+        for (auto iter = node->value->mComponents.begin(); iter != node->value->mComponents.end(); ++iter){
+          
+          if (iter->second->clean == false){
+            removable = false;
+          }
+          else{
+            IComponent * temp = iter->second;
+            auto i = --iter;
+            node->value->mComponents.erase(iter);
+            iter = i;
+            temp->Shutdown();
+          }
+        }
+        if (removable){
+          delete node->value;
+          iter->second.Remove(node);
+        }
+        else{
+          node = node->next;
+        }
+        continue;
+      }
       if (node->value->hasChanged || node->value->age > rand() % 100 + 100){
         frameData += GetData(node->value);
         if (node->value->age == 300){

@@ -17,9 +17,15 @@ public:
   void AddObject(Object* obj);
   Object * GetNthItemByName(std::string name, unsigned n);
   std::unordered_map<std::string, List<Object*> > mObjects;
+
+  Object * CreateObjectFromFile(std::string filename);
+  void CreateArchetypeFromObject(Object * obj);
+
+  void ClearSystem();
+
   unsigned int myCount;
   std::string frameData;
 private:
   std::string GetData(Object * iter);
-
+  
 };

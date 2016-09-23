@@ -12,6 +12,8 @@ public:
 
   void Update(double dt);
 
+  void Destroy();
+
   void Shutdown();
 
   void AddComponent(IComponent * comp);
@@ -26,6 +28,7 @@ public:
   unsigned short age;
   bool hasChanged;
   std::string source;
+  bool dead;
 };
 
 template <typename T>

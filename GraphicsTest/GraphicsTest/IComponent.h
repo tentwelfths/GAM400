@@ -13,6 +13,7 @@ public:
   void mParent(Object * p){ mParent_ = p; }
   Object * mParent(){ return mParent_; }
   std::unordered_map<std::string, Mem *> members;
+  bool clean;
 protected:
   Object * mParent_;
   std::string mName_;

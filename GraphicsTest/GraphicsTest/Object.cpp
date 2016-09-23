@@ -22,6 +22,10 @@ void Object::Update(double dt)
 
 }
 
+void Object::Destroy(){
+  dead = true;
+}
+
 void Object::Shutdown()
 {
 

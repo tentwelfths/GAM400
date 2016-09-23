@@ -304,8 +304,15 @@ void GraphicsSystem::Update(double dt)
   //  0.0f, 1.f, 0.f, 0.0f,
   //  0.0f, 0.f, 1.f, 0.0f,
   //  x, y, z, 1.0f);
-  for (auto & iter : mComponents_)
+  for (unsigned i = 0; i < mComponents_.size(); ++i)
   {
+    auto iter = mComponents_[i];
+    if (iter->mParent()->dead){
+      mComponents_[i]->clean = true;
+      mComponents_.erase(mComponents_.begin() + i);
+      --i;
+      continue;
+    }
 
     TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
     glm::mat4 Position;
@@ -406,6 +413,7 @@ void GraphicsSystem::Shutdown()
 
 void GraphicsSystem::RegisterComponent(GraphicsComponent * comp)
 {
+  comp->clean = false;
   mComponents_.push_back(comp);
 }
 
