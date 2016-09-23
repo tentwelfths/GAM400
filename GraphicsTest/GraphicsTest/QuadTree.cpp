@@ -69,10 +69,10 @@ void QuadTree::split()
   for (int i = 0; i < MAXCHILDREN; ++i)
   {
     childrenList[i]->active = true;
-    for (auto & iter : objectList)
-    {
-      childrenList[i]->insert(iter);
-    }
+    //for (auto & iter : objectList)
+    //{
+    //  childrenList[i]->insert(iter);
+    //}
   }
   //Quad quadArray[SECTIONS];
   //float newWidth = region.width / 2;
@@ -113,8 +113,13 @@ bool QuadTree::insert(Object& newMember)
     objectList.push_back(newMember);
     return true;
   }
-  if (childrenList[0] == nullptr)
+  if (level >= MAXLEVELS)
   {
+    return false;
+  }
+  if (!childrenList[0]->active)
+  {
+    //std::cout << "I SPLIT" << std::endl;
     split();
   }
   for (int i = 0; i < MAXCHILDREN; ++i)
@@ -132,13 +137,17 @@ bool QuadTree::insert(Object& newMember)
 //  return 0;
 //}
 
-bool QuadTree::retreive(std::vector<Object>& possibleCollisions, Object check)
+bool QuadTree::retreive(std::vector<Object>& possibleCollisions, Object& check)
 {
   auto trans = check.GetComponentA<TransformComponent>("TransformComponent");
   auto coll = check.GetComponentA<BoxColliderComponent>("BoxColliderComponent");
+  if (level >= MAXLEVELS)
+  {
+    return false;
+  }
   if (region.bound(*trans, *coll))
   {
-    if (childrenList[0])
+    if (childrenList[0]->active)
     {
       for (int i = 0; i < MAXCHILDREN; ++i)
       {

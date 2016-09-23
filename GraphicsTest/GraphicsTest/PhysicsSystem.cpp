@@ -27,6 +27,50 @@ bool PhysicsSystem::Initialize()
 void PhysicsSystem::Update(double dt)
 {
   mPhysicsTree.clear();
+  for (unsigned i = 0; i < mComponents_.size(); ++i)
+  {
+    auto iter = mComponents_[i];
+    if (iter->mParent()->dead)
+    {
+      mComponents_[i]->clean = true;
+      mComponents_.erase(mComponents_.begin() + i);
+      --i;
+      continue;
+    }
+  }
+  for (unsigned i = 0; i < mRigidbodies_.size(); ++i)
+  {
+    auto iter = mRigidbodies_[i];
+    if (iter->mParent()->dead)
+    {
+      mRigidbodies_[i]->clean = true;
+      mRigidbodies_.erase(mRigidbodies_.begin() + i);
+      --i;
+      continue;
+    }
+  }
+  for (unsigned i = 0; i < mBoxColliders_.size(); ++i)
+  {
+    auto iter = mBoxColliders_[i];
+    if (iter->mParent()->dead)
+    {
+      mBoxColliders_[i]->clean = true;
+      mBoxColliders_.erase(mBoxColliders_.begin() + i);
+      --i;
+      continue;
+    }
+  }
+  for (unsigned i = 0; i < mSphereColliders_.size(); ++i)
+  {
+    auto iter = mSphereColliders_[i];
+    if (iter->mParent()->dead)
+    {
+      mSphereColliders_[i]->clean = true;
+      mSphereColliders_.erase(mSphereColliders_.begin() + i);
+      --i;
+      continue;
+    }
+  }
   for (auto & iter : mRigidbodies_)
   {
     iter->Update(dt);
@@ -36,7 +80,7 @@ void PhysicsSystem::Update(double dt)
   for (auto & iter : mBoxColliders_)
   {
     std::vector<Object> colCheck;
-    mPhysicsTree.retreive(colCheck, *iter->mParent());
+    //mPhysicsTree.retreive(colCheck, *iter->mParent());
     for (auto & iter2 : colCheck)
     {
       auto firstTrans = iter->mParent()->GetComponentA<TransformComponent>("TransformComponent");
@@ -44,6 +88,7 @@ void PhysicsSystem::Update(double dt)
       auto firstBox = iter->mParent()->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
       auto secondBox = iter2.GetComponentA<BoxColliderComponent>("BoxColliderComponent");
       
+
       auto firstPos = firstTrans->mPosition() + firstBox->GetOffset();
       auto secondPos = secondTrans->mPosition() + secondBox->GetOffset();
       
@@ -66,8 +111,8 @@ void PhysicsSystem::Update(double dt)
       if ((topCheck || botCheck) && ((rightCheck || leftCheck)))
       {
         Collision col;
-        col.AddObjects(firstTrans->mParent(), secondTrans->mParent());
-        mCollision_.push_back(col);
+        //col.AddObjects(*firstTrans->mParent(), *secondTrans->mParent());
+        //mCollision_.push_back(col);
       }
     }
   }
@@ -180,6 +225,7 @@ void PhysicsSystem::Update(double dt)
 //  {
 //    iter.ResolveCollision();
 //  }
+  std::cout << "Got " << mRigidbodies_.size() << "objects" << std::endl;
   mCollision_.clear();
 }
 

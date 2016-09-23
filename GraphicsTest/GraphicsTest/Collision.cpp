@@ -5,8 +5,8 @@ bool Collision::ResolveCollision()
   return true;
 }
 
-void Collision::AddObjects(Object * firObj, Object * secObj)
+void Collision::AddObjects(Object & firObj, Object & secObj)
 {
-  firstObj = firObj;
-  secondObj = secObj;
+  firstObj = &firObj;
+  secondObj = &secObj;
 }

@@ -36,7 +36,8 @@ class QuadTree
     void split();
     bool insert(Object& newMember);
     //int index(Quad area);
-    bool retreive(std::vector<Object>& possibleCollisions, Object check);
+    bool retreive(std::vector<Object>& possibleCollisions, Object& check);
+    bool getActive() { return active; }
     void setActive(bool newActive) { active = newActive; }
     void createChildren();
   private:
