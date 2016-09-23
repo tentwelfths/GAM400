@@ -5,6 +5,7 @@
 #include "Core.h"
 #include "Object.h"
 #include <cstring>
+#include "imgui.h"
 
 bool InputSystem::currInputs[NUMINPUTS] = { false };
 bool InputSystem::prevInputs[NUMINPUTS] = { false };
@@ -168,12 +169,22 @@ void InputSystem::updateController(int contNum, std::vector<int> theButtons, std
 void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
 {
   InputSystem * i = gCore->GetSystem(InputSystem);
+  ImGuiIO& io = ImGui::GetIO();
+  
+  io.KeysDown[key] = true;
+  if (io.WantCaptureKeyboard)
+    return;
+  
   switch (action)
   {
   case GLFW_RELEASE:
+    io.KeysDown[key] = false;
     i->setKey(key, false);
     break;
   default:
+    io.KeysDown[key] = true;
+    if (io.WantCaptureKeyboard)
+      return;
     i->setKey(key, true);
     break;
   }
