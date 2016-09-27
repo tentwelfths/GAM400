@@ -110,7 +110,7 @@ bool QuadTree::insert(Object& newMember)
   }
   if (objectList.size() < MAXOBJECT)
   {
-    objectList.push_back(newMember);
+    objectList.push_back(&newMember);
     return true;
   }
   if (level >= MAXLEVELS)
@@ -137,7 +137,7 @@ bool QuadTree::insert(Object& newMember)
 //  return 0;
 //}
 
-bool QuadTree::retreive(std::vector<Object>& possibleCollisions, Object& check)
+bool QuadTree::retreive(std::vector<Object*> possibleCollisions, Object& check)
 {
   auto trans = check.GetComponentA<TransformComponent>("TransformComponent");
   auto coll = check.GetComponentA<BoxColliderComponent>("BoxColliderComponent");

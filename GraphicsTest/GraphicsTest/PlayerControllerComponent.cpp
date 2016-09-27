@@ -59,19 +59,19 @@ void PlayerControllerComponent::Update(double dt)
     
     if (input->isKeyPressed(GLFW_KEY_W))
     {
-      newVel.y = speed;
-      //JSONTranslator j;
-      //Object * b;
-      //b = j.CreateObjectFromFile("B.json");
-      //b->AddComponent(new RigidbodyComponent);
-      //b->AddComponent(new BoxColliderComponent);
-      //b->name = "Fuccboi2";
-      //b->Initialize();
-      //
-      //
-      //auto * trans2 = b->GetComponent(TransformComponent);
-      //trans2->mPosition_.y = (rand() % 100 - 50) / 10.f;
-      //trans2->mPosition_.x = (rand() % 100 - 50) / 10.f;
+      //newVel.y = speed;
+      JSONTranslator j;
+      Object * b;
+      b = j.CreateObjectFromFile("B.json");
+      b->AddComponent(new RigidbodyComponent);
+      b->AddComponent(new BoxColliderComponent);
+      b->name = "Fuccboi2";
+      b->Initialize();
+      
+      
+      auto * trans2 = b->GetComponent(TransformComponent);
+      trans2->mPosition_.y = (rand() % 100 - 50) / 10.f;
+      trans2->mPosition_.x = (rand() % 100 - 50) / 10.f;
     }
     //else if (input->isKeyPressed(GLFW_KEY_S))
     //{

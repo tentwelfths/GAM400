@@ -79,14 +79,14 @@ void PhysicsSystem::Update(double dt)
   }
   for (auto & iter : mBoxColliders_)
   {
-    std::vector<Object> colCheck;
-    //mPhysicsTree.retreive(colCheck, *iter->mParent());
+    std::vector<Object*> colCheck;
+    mPhysicsTree.retreive(colCheck, *iter->mParent());
     for (auto & iter2 : colCheck)
     {
       auto firstTrans = iter->mParent()->GetComponentA<TransformComponent>("TransformComponent");
-      auto secondTrans = iter2.GetComponentA<TransformComponent>("TransformComponent");
+      auto secondTrans = iter2->GetComponentA<TransformComponent>("TransformComponent");
       auto firstBox = iter->mParent()->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
-      auto secondBox = iter2.GetComponentA<BoxColliderComponent>("BoxColliderComponent");
+      auto secondBox = iter2->GetComponentA<BoxColliderComponent>("BoxColliderComponent");
       
 
       auto firstPos = firstTrans->mPosition() + firstBox->GetOffset();
