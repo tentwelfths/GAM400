@@ -20,6 +20,7 @@ public:
   float GetRadius();
   vec3 GetOffset();
 private:
+  int quadLoc;
   bool mGhost;
   float mRadius;
   vec3 mOffset;

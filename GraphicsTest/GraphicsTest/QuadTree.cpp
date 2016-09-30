@@ -3,21 +3,15 @@
 #include "SphereColliderComponent.h"
 #include "TransformComponent.h"
 
-#define SECTIONS 4
+#define SECTIONS 3
+
+
 
 Quad::Quad() : width(0.0f), height(0.0f), midX(0.0f), midY(0.0f)
 { }
 
 Quad::Quad(float newWidth, float newHeight, float newMidX, float newMidY) : width(newWidth), height(newHeight), midX(newMidX), midY(newMidY)
 { }
-
-QuadTree::~QuadTree()
-{
-  for (int i = 0; i < MAXCHILDREN; ++i)
-  {
-    delete childrenList[i];
-  }
-}
 
 void Quad::set(float newWidth, float newHeight, float newMidX, float newMidY)
 {
@@ -47,143 +41,164 @@ bool Quad::bound(TransformComponent& trans, SphereColliderComponent& collider)
   return false;
 }
 
-QuadTree::QuadTree(int newLevel, Quad newQuad) : active(false), level(newLevel), region(newQuad)
-{ }
-
-void QuadTree::clear()
+Grid::Grid(float width, float height)
 {
-  objectList.clear();
-  if (level < MAXLEVELS)
+  float modX = width / SECTIONS;
+  float modY = height / SECTIONS;
+  for (int i = 1; i < SECTIONS+1; ++i)
   {
-    for (int i = 0; i < MAXCHILDREN; ++i)
+    for (int j = 1; j < SECTIONS+1; ++j)
     {
-      childrenList[i]->active = false;
-      childrenList[i]->clear();
+      float newX = modX*j;
+      float newY = modY*i;
     }
   }
 }
 
-
-void QuadTree::split()
-{
-  for (int i = 0; i < MAXCHILDREN; ++i)
-  {
-    childrenList[i]->active = true;
-    //for (auto & iter : objectList)
-    //{
-    //  childrenList[i]->insert(iter);
-    //}
-  }
-  //Quad quadArray[SECTIONS];
-  //float newWidth = region.width / 2;
-  //float newHeight = region.height / 2;
-  //quadArray[0].set(newWidth, newHeight, region.midX - newWidth, region.midY + newHeight);
-  //quadArray[1].set(newWidth, newHeight, region.midX + newWidth, region.midY + newHeight);
-  //quadArray[2].set(newWidth, newHeight, region.midX + newWidth, region.midY - newHeight);
-  //quadArray[3].set(newWidth, newHeight, region.midX - newWidth, region.midY - newHeight);
-  //for (int i = 0; i < SECTIONS; ++i)
-  //{
-  //  QuadTree* child = new QuadTree(level + 1, quadArray[i]);
-  //  for (auto & iter : objectList)
-  //  {
-  //    child->insert(iter);
-  //  }
-  //  childrenList[i] = child;
-  //}
-}
-
-bool QuadTree::insert(Object& newMember)
-{
-  auto trans = newMember.GetComponentA<TransformComponent>("TransformComponent");
-  auto coll = newMember.GetComponentA<BoxColliderComponent>("BoxColliderComponent");
-  if (coll == nullptr)
-  {
-    auto coll = newMember.GetComponentA<SphereColliderComponent>("SphereColliderComponent");
-    if (coll == nullptr)
-    {
-      return false;
-    }
-  }
-  if (!region.bound(*trans, *coll))
-  {
-    return false;
-  }
-  if (objectList.size() < MAXOBJECT)
-  {
-    objectList.push_back(&newMember);
-    return true;
-  }
-  if (level >= MAXLEVELS)
-  {
-    return false;
-  }
-  if (!childrenList[0]->active)
-  {
-    //std::cout << "I SPLIT" << std::endl;
-    split();
-  }
-  for (int i = 0; i < MAXCHILDREN; ++i)
-  {
-    if (childrenList[i]->insert(newMember))
-    {
-      return true;
-    }
-  }
-  return false;
-}
-
-//int QuadTree::index(Quad area)
+//QuadTree::~QuadTree()
 //{
-//  return 0;
+//  for (int i = 0; i < MAXCHILDREN; ++i)
+//  {
+//    delete childrenList[i];
+//  }
 //}
-
-bool QuadTree::retreive(std::vector<Object*> possibleCollisions, Object& check)
-{
-  auto trans = check.GetComponentA<TransformComponent>("TransformComponent");
-  auto coll = check.GetComponentA<BoxColliderComponent>("BoxColliderComponent");
-  if (level >= MAXLEVELS)
-  {
-    return false;
-  }
-  if (region.bound(*trans, *coll))
-  {
-    if (childrenList[0]->active)
-    {
-      for (int i = 0; i < MAXCHILDREN; ++i)
-      {
-        childrenList[i]->retreive(possibleCollisions, check);
-      }
-    }
-    else
-    {
-      possibleCollisions = objectList;
-      return true;
-    }
-  }
-  return false;
-}
-
-void QuadTree::createChildren()
-{
-  if (childrenList[0] != nullptr)
-  {
-    for (int i = 0; i < MAXCHILDREN; ++i)
-    {
-      childrenList[i]->createChildren();
-    }
-  }
-  else
-  {
-    Quad quadArray[SECTIONS];
-    float newWidth = region.width / 2;
-    float newHeight = region.height / 2;
-    quadArray[0].set(newWidth, newHeight, region.midX - newWidth, region.midY + newHeight);
-    quadArray[1].set(newWidth, newHeight, region.midX + newWidth, region.midY + newHeight);
-    quadArray[2].set(newWidth, newHeight, region.midX + newWidth, region.midY - newHeight);
-    quadArray[3].set(newWidth, newHeight, region.midX - newWidth, region.midY - newHeight);
-    for (int i = 0; i < MAXCHILDREN; ++i)
-    {
-      childrenList[i] = new QuadTree(level + 1, quadArray[i]);
-    }
-  }
-}
+//QuadTree::QuadTree(int newLevel, Quad newQuad) : active(false), level(newLevel), region(newQuad)
+//{ }
+//
+//void QuadTree::clear()
+//{
+//  objectList.clear();
+//  if (level < MAXLEVELS)
+//  {
+//    for (int i = 0; i < MAXCHILDREN; ++i)
+//    {
+//      childrenList[i]->active = false;
+//      childrenList[i]->clear();
+//    }
+//  }
+//}
+//
+//
+//void QuadTree::split()
+//{
+//  for (int i = 0; i < MAXCHILDREN; ++i)
+//  {
+//    childrenList[i]->active = true;
+//    //for (auto & iter : objectList)
+//    //{
+//    //  childrenList[i]->insert(iter);
+//    //}
+//  }
+//  //Quad quadArray[SECTIONS];
+//  //float newWidth = region.width / 2;
+//  //float newHeight = region.height / 2;
+//  //quadArray[0].set(newWidth, newHeight, region.midX - newWidth, region.midY + newHeight);
+//  //quadArray[1].set(newWidth, newHeight, region.midX + newWidth, region.midY + newHeight);
+//  //quadArray[2].set(newWidth, newHeight, region.midX + newWidth, region.midY - newHeight);
+//  //quadArray[3].set(newWidth, newHeight, region.midX - newWidth, region.midY - newHeight);
+//  //for (int i = 0; i < SECTIONS; ++i)
+//  //{
+//  //  QuadTree* child = new QuadTree(level + 1, quadArray[i]);
+//  //  for (auto & iter : objectList)
+//  //  {
+//  //    child->insert(iter);
+//  //  }
+//  //  childrenList[i] = child;
+//  //}
+//}
+//
+//bool QuadTree::insert(Object& newMember)
+//{
+//  auto trans = newMember.GetComponentA<TransformComponent>("TransformComponent");
+//  auto coll = newMember.GetComponentA<BoxColliderComponent>("BoxColliderComponent");
+//  if (coll == nullptr)
+//  {
+//    auto coll = newMember.GetComponentA<SphereColliderComponent>("SphereColliderComponent");
+//    if (coll == nullptr)
+//    {
+//      return false;
+//    }
+//  }
+//  if (!region.bound(*trans, *coll))
+//  {
+//    return false;
+//  }
+//  if (objectList.size() < MAXOBJECT)
+//  {
+//    objectList.push_back(&newMember);
+//    return true;
+//  }
+//  if (level >= MAXLEVELS)
+//  {
+//    return false;
+//  }
+//  if (!childrenList[0]->active)
+//  {
+//    //std::cout << "I SPLIT" << std::endl;
+//    split();
+//  }
+//  for (int i = 0; i < MAXCHILDREN; ++i)
+//  {
+//    if (childrenList[i]->insert(newMember))
+//    {
+//      return true;
+//    }
+//  }
+//  return false;
+//}
+//
+////int QuadTree::index(Quad area)
+////{
+////  return 0;
+////}
+//
+//bool QuadTree::retreive(std::vector<Object*> possibleCollisions, Object& check)
+//{
+//  auto trans = check.GetComponentA<TransformComponent>("TransformComponent");
+//  auto coll = check.GetComponentA<BoxColliderComponent>("BoxColliderComponent");
+//  if (level >= MAXLEVELS)
+//  {
+//    return false;
+//  }
+//  if (region.bound(*trans, *coll))
+//  {
+//    if (childrenList[0]->active)
+//    {
+//      for (int i = 0; i < MAXCHILDREN; ++i)
+//      {
+//        childrenList[i]->retreive(possibleCollisions, check);
+//      }
+//    }
+//    else
+//    {
+//      possibleCollisions = objectList;
+//      return true;
+//    }
+//  }
+//  return false;
+//}
+//
+//void QuadTree::createChildren()
+//{
+//  if (childrenList[0] != nullptr)
+//  {
+//    for (int i = 0; i < MAXCHILDREN; ++i)
+//    {
+//      childrenList[i]->createChildren();
+//    }
+//  }
+//  else
+//  {
+//    Quad quadArray[SECTIONS];
+//    float newWidth = region.width / 2;
+//    float newHeight = region.height / 2;
+//    quadArray[0].set(newWidth, newHeight, region.midX - newWidth, region.midY + newHeight);
+//    quadArray[1].set(newWidth, newHeight, region.midX + newWidth, region.midY + newHeight);
+//    quadArray[2].set(newWidth, newHeight, region.midX + newWidth, region.midY - newHeight);
+//    quadArray[3].set(newWidth, newHeight, region.midX - newWidth, region.midY - newHeight);
+//    for (int i = 0; i < MAXCHILDREN; ++i)
+//    {
+//      childrenList[i] = new QuadTree(level + 1, quadArray[i]);
+//    }
+//  }
+//}

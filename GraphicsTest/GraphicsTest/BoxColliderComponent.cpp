@@ -3,7 +3,7 @@
 #include "Core.h"
 #include "Globals.h"
 
-BoxColliderComponent::BoxColliderComponent() : PhysicsComponent(PhysicsType::BOXCOLLIDER)
+BoxColliderComponent::BoxColliderComponent() : PhysicsComponent(PhysicsType::BOXCOLLIDER), quadLoc(0)
 {
   //AddMember(BoxColliderComponent, mGhost);
   AddMember(BoxColliderComponent, mHalfSize);

@@ -25,26 +25,38 @@ struct Quad
   bool bound(TransformComponent& trans, SphereColliderComponent& collider);
 };
 
-
-class QuadTree
+class Grid
 {
   public:
-    //QuadTree();
-    QuadTree(int newLevel, Quad newQuad);
-    ~QuadTree();
-    void clear();
-    void split();
-    bool insert(Object& newMember);
-    //int index(Quad area);
-    bool retreive(std::vector<Object*> possibleCollisions, Object& check);
-    bool getActive() { return active; }
-    void setActive(bool newActive) { active = newActive; }
-    void createChildren();
+    Grid(float width, float height);
+    void insert(Object& newMember);
+    void remove(Object& remove);
+    Quad checkRegion(Object& findObject) const;
+    
   private:
-    bool active;
-    int level;
-    Quad region;
-    QuadTree* childrenList[MAXCHILDREN];
-    std::vector<Object*> objectList;
-
+    std::vector<Quad*> Level;
 };
+
+
+//class QuadTree
+//{
+//  public:
+//    //QuadTree();
+//    QuadTree(int newLevel, Quad newQuad);
+//    ~QuadTree();
+//    void clear();
+//    void split();
+//    bool insert(Object& newMember);
+//    //int index(Quad area);
+//    bool retreive(std::vector<Object*> possibleCollisions, Object& check);
+//    bool getActive() { return active; }
+//    void setActive(bool newActive) { active = newActive; }
+//    void createChildren();
+//  private:
+//    bool active;
+//    int level;
+//    Quad region;
+//    QuadTree* childrenList[MAXCHILDREN];
+//    std::vector<Object*> objectList;
+//
+//};

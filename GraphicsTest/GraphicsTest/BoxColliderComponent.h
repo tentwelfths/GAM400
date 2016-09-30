@@ -20,6 +20,7 @@ public:
   vec3 GetHalfSize();
   vec3 GetOffset();
 private:
+  int quadLoc;
   bool mGhost;
   vec3 mHalfSize;
   vec3 mOffset;
