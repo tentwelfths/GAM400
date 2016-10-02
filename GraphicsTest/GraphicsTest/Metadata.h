@@ -99,7 +99,7 @@ public:
     s += tabs + "x: " + std::to_string(val->x);
     s += ",\n" + tabs + "y: " + std::to_string(val->y);
     s += ",\n" + tabs + "z: " + std::to_string(val->z);
-    s += "\n" + tabs.substr(1) + "}";
+    s += "\n" + tabs + "}";
     return s;
   }
 };

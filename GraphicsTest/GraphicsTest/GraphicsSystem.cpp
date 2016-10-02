@@ -346,7 +346,7 @@ void GraphicsSystem::Update(double dt)
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &Rotation[0][0]);
     if (iter->mType() == GraphicsType::SPRITE)
     {
-      GLuint tex = static_cast<SpriteComponent *>(iter)->mTexture();
+      GLuint tex = mTextureMap_[static_cast<SpriteComponent *>(iter)->mTextureName];
       glActiveTexture(GL_TEXTURE0);
       glBindTexture(GL_TEXTURE_2D, tex);
 

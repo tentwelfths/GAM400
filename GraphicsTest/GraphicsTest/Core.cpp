@@ -34,6 +34,7 @@ bool Core::Initialize()
     (*iter).second->Initialize();
 
   g->LoadTexture("Kakka_Carrot_Veggie.png");
+  g->LoadTexture("Key.png");
   return true;
 }
 
