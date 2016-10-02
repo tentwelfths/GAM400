@@ -34,7 +34,8 @@ void ObjectSystem::ClearSystem(){
 std::string ObjectSystem::GetData(Object * iter)
 {
   TransformComponent * t = iter->GetComponent(TransformComponent);
-  std::string data = "";
+  std::string data = "THE FUCK";
+  data = "";
   int i = 0;
   ++i;  
   for (int k = 0; k < sizeof(unsigned int); ++k)
