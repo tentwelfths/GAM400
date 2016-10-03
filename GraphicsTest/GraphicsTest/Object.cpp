@@ -14,6 +14,10 @@ bool Object::Initialize()
   age = 0;
   hasChanged = true;
   gCore->GetSystem(ObjectSystem)->AddObject(this);
+  for (auto & iter : mComponents)
+  {
+    iter.second->Initialize();
+  }
   return true;
 }
 

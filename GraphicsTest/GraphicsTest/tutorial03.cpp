@@ -23,7 +23,7 @@ int main( void )
   //components.insert({ "SpriteComponent", (CreateComponent<SpriteComponent>) });
   RegisterComponentType(SpriteComponent);
   RegisterComponentType(TransformComponent);
-  RegisterComponentType(RigidbodyComponent);
+  //RegisterComponentType(RigidbodyComponent);
   RegisterComponentType(BoxColliderComponent);
   RegisterComponentType(PlayerControllerComponent);
   gCore = new Core();
@@ -36,9 +36,9 @@ int main( void )
   auto box1 = a->GetComponent(BoxColliderComponent);
   box1->SetHalfSize(vec3(0.5f, 0.5f, 1.0f));
 
-  Object * b;
+  //Object * b;
 
-  b = j.CreateObjectFromFile("B.json");
+  //b = j.CreateObjectFromFile("B.json");
   //b->AddComponent(new RigidbodyComponent);
   //b->AddComponent(new BoxColliderComponent);
   //b->name = "Fuccboi2";

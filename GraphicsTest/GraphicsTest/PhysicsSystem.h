@@ -1,16 +1,15 @@
 #pragma once
 #include "System.h"
 #include "Standard.h"
-#include "QuadTree.h"
+
 
 class PhysicsComponent;
-class RigidbodyComponent;
-class BoxColliderComponent;
-class SphereColliderComponent;
-class Collision;
-class QuadTree;
+class b2Body;
+class b2BodyDef;
+class b2World;
+class MyListen;
 
-enum class DynamicState { STATIC, DYNAMIC, KINEMATIC };
+
 
 class PhysicsSystem : public System
 {
@@ -20,14 +19,10 @@ public:
   void Update(double dt);
   void Shutdown();
   void RegisterComponent(PhysicsComponent * comp);
-  void RegisterComponent(RigidbodyComponent * comp);
-  void RegisterComponent(BoxColliderComponent * comp);
-  void RegisterComponent(SphereColliderComponent * comp);
+  b2Body* AddBody(b2BodyDef* theBody);
+  MyListen* GetListen() { return theListen; }
 private:
-  QuadTree mPhysicsTree;
   std::vector<PhysicsComponent *> mComponents_;
-  std::vector<RigidbodyComponent *> mRigidbodies_;
-  std::vector<BoxColliderComponent *> mBoxColliders_;
-  std::vector<SphereColliderComponent *> mSphereColliders_;
-  std::vector<Collision> mCollision_;
+  b2World* theWorld;
+  MyListen* theListen;
 };

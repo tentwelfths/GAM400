@@ -1,3 +1,4 @@
+#include <Box2D\Box2D.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "Core.h"
@@ -11,7 +12,7 @@
 #include "TransformComponent.h"
 #include "JSONTranslator.h"
 #include "PlayerControllerComponent.h"
-#include "RigidbodyComponent.h"
+//#include "RigidbodyComponent.h"
 #include "InputSystem.h"
 #include "BoxColliderComponent.h"
 
@@ -29,8 +30,8 @@ bool PlayerControllerComponent::Initialize()
 void PlayerControllerComponent::Update(double dt)
 {
   auto * input = gCore->GetSystem(InputSystem);
-  auto * rigid = mParent_->GetComponent(RigidbodyComponent);
-  vec3 newVel;
+  auto * rigid = mParent_->GetComponent(BoxColliderComponent);
+  b2Vec2 newVel(0.0f,0.0f);
   if (rigid)
   {
     Joystick j = input->getJoystick(0);
@@ -40,7 +41,7 @@ void PlayerControllerComponent::Update(double dt)
       JSONTranslator j;
       Object * b;
       b = j.CreateObjectFromFile("B.json");
-      b->AddComponent(new RigidbodyComponent);
+      //b->AddComponent(new RigidbodyComponent);
       b->AddComponent(new BoxColliderComponent);
       b->name = "Fuccboi2";
       b->Initialize();
@@ -63,8 +64,8 @@ void PlayerControllerComponent::Update(double dt)
       JSONTranslator j;
       Object * b;
       b = j.CreateObjectFromFile("B.json");
-      b->AddComponent(new RigidbodyComponent);
-      b->AddComponent(new BoxColliderComponent);
+      //b->AddComponent(new RigidbodyComponent);
+      //b->AddComponent(new BoxColliderComponent);
       b->name = "Fuccboi2";
       b->Initialize();
       
@@ -72,6 +73,15 @@ void PlayerControllerComponent::Update(double dt)
       auto * trans2 = b->GetComponent(TransformComponent);
       trans2->mPosition_.y = (rand() % 100 - 50) / 10.f;
       trans2->mPosition_.x = (rand() % 100 - 50) / 10.f;
+      auto* col = b->GetComponent(BoxColliderComponent);
+      b2Vec2 newPos(trans2->mPosition_.x + col->GetOffset().x, trans2->mPosition_.y + col->GetOffset().y);
+      col->GetBody()->SetTransform(newPos, 0.0f);
+      //col->GetType()->position = newPos;
+      //int c = 10;
+    }
+    if (input->isKeyPressed(GLFW_KEY_D))
+    {
+      newVel.x = speed;
     }
     //else if (input->isKeyPressed(GLFW_KEY_S))
     //{
@@ -85,7 +95,10 @@ void PlayerControllerComponent::Update(double dt)
     //{
     //  newVel.x = speed;
     //}
-    rigid->SetVel(newVel);
+    if (rigid->GetBody())
+    {
+      rigid->GetBody()->SetLinearVelocity(newVel);
+    }
   }
 
 }
