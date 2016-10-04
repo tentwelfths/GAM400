@@ -21,6 +21,8 @@ std::unordered_map<std::string, IComponent*(*)()> components;
 int main( void )
 {
   JSONTranslator j;
+  gCore = new Core();
+  gCore->Initialize();
   //components.insert({ "SpriteComponent", (CreateComponent<SpriteComponent>) });
   RegisterComponentType(SpriteComponent);
   RegisterComponentType(TransformComponent);

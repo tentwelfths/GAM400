@@ -13,6 +13,7 @@ public:
   void RegisterSystem(System * s);
   template <typename T>
   T * GetSystemA(const char * systemName);
+  bool editor;
 
 private:
   std::unordered_map<std::string, System*> mSystems;

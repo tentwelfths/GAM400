@@ -16,6 +16,7 @@ void Core::RegisterSystem(System * s)
 
 bool Core::Initialize()
 {
+  editor = false;
   auto * g = new GraphicsSystem();
   RegisterSystem(g);
   auto * n = new NetworkingSystem();

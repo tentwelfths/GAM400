@@ -18,7 +18,12 @@ bool EditorSystem::Initialize(){
   return true;
 }
 void EditorSystem::Update(double dt){
+  
   auto * input = gCore->GetSystem(InputSystem);
+  if (input->isKeyJustPressed(GLFW_KEY_GRAVE_ACCENT)){
+    gCore->editor = !gCore->editor;
+  }
+  if (!gCore->editor)return;
   if (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_1)){
     selected = nullptr;
   }
