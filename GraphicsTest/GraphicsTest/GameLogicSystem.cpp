@@ -1,10 +1,13 @@
 #include "GameLogicSystem.h"
 #include "GameLogicComponent.h"
+#include "Core.h"
+#include "Globals.h"
 #include "Object.h"
 
 GameLogicSystem::GameLogicSystem()
 {
   mName_ = "GameLogicSystem";
+  wasEditor = gCore->editor;
 }
 
 bool GameLogicSystem::Initialize()
@@ -14,6 +17,8 @@ bool GameLogicSystem::Initialize()
 
 void GameLogicSystem::Update(double dt)
 {
+  if (gCore->editor)wasEditor = true;
+  if (gCore->editor)return;
   for (unsigned i = 0; i < mComponents_.size(); ++i)
   {
     auto iter = mComponents_[i];

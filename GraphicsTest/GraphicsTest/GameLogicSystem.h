@@ -13,4 +13,5 @@ class GameLogicSystem : public System
     void RegisterComponent(GameLogicComponent * comp);
   private:
     std::vector<GameLogicComponent *> mComponents_;
+    bool wasEditor;
 };
