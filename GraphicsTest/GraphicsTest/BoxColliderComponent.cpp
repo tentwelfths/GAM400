@@ -7,13 +7,14 @@
 
 #define EPIFORTRANS 0.00001
 
-BoxColliderComponent::BoxColliderComponent() : PhysicsComponent(PhysicsType::BOXCOLLIDER)
+BoxColliderComponent::BoxColliderComponent() : PhysicsComponent(PhysicsType::BOXCOLLIDER), justCollided(false), isColliding(false)
 {
   AddMember(BoxColliderComponent, mHalfSize);
   AddMember(BoxColliderComponent, mOffset);
   AddMember(BoxColliderComponent, dynamicState);
   AddMember(BoxColliderComponent, mDensity);
   AddMember(BoxColliderComponent, mFriction);
+  AddMember(BoxColliderComponent, mGhost);
   PhysicsSystem* g = gCore->GetSystem(PhysicsSystem);
   g->RegisterComponent(this);
   
@@ -27,13 +28,14 @@ bool BoxColliderComponent::Initialize()
   PhysicsSystem* g = gCore->GetSystem(PhysicsSystem);
   type = new b2BodyDef();
   box = new b2PolygonShape();
-  type->userData = static_cast<void*>(&mParent_->name);
-  type->type = b2_dynamicBody;
+  type->userData = static_cast<void*>(this);
+  type->type = static_cast<b2BodyType>(dynamicState);
   type->position.Set(trans->mPositionX() + mOffset.x, trans->mPositionY() + mOffset.y);
   theBody = g->AddBody(type);
   box->SetAsBox(mHalfSize.x, mHalfSize.y);
   b2FixtureDef fixing;
   fixing.shape = box;
+  fixing.isSensor = mGhost;
   fixing.density = mDensity;
   fixing.friction = mFriction;
   theBody->CreateFixture(&fixing);
@@ -43,6 +45,7 @@ bool BoxColliderComponent::Initialize()
 
 void BoxColliderComponent::Update(double dt)
 {
+  justCollided = false;
   auto* trans = mParent_->GetComponent(TransformComponent);
   
   vec3 newPos;

@@ -21,14 +21,21 @@ public:
   b2BodyDef* GetType() { return type; }
   void SetHalfSize(vec3 newSize) { mHalfSize = newSize; }
   void SetOffset(vec3 newOff) { mOffset = newOff; }
+  void SetJustCollided(bool newState) { justCollided = newState; }
+  void SetIsColliding(bool newState) { isColliding = newState; }
   vec3 GetHalfSize() { return mHalfSize; }
   vec3 GetOffset() { return mOffset; }
+  bool GetJustCollided() { return justCollided; }
+  bool GetIsColliding() { return isColliding; }
 private:
   vec3 mHalfSize;
   vec3 mOffset;
   int dynamicState;
   float mDensity;
   float mFriction;
+  bool mGhost;
+  bool justCollided;
+  bool isColliding;
   b2BodyDef* type;
   b2Body* theBody;
   b2PolygonShape* box;

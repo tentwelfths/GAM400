@@ -6,6 +6,7 @@
 
 class b2Contact;
 class b2Fixture;
+class BoxColliderComponent;
 
 class MyListen : public b2ContactListener
 {
@@ -13,6 +14,6 @@ public:
   void BeginContact(b2Contact* contact);
   void EndContact(b2Contact* contact);
 private:
-  std::string* objOne;
-  std::string* objTwo;
+  BoxColliderComponent* objOne;
+  BoxColliderComponent* objTwo;
 };

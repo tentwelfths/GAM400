@@ -27,11 +27,15 @@ bool PhysicsSystem::Initialize()
 
 void PhysicsSystem::Update(double dt)
 {
-  theWorld->Step(dt, VECPASS, POSPASS);
-  for (auto & iter : mComponents_)
-  {
-    iter->Update(dt);
-  }
+  //GraphicsSystem * e = gCore->GetSystem(GraphicsSystem);
+  //if ()
+  //{
+    for (auto & iter : mComponents_)
+    {
+      iter->Update(dt);
+    }
+    theWorld->Step(dt, VECPASS, POSPASS);
+  //}
 }
 
 void PhysicsSystem::Shutdown()
