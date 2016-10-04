@@ -15,7 +15,7 @@
 
 PhysicsSystem::PhysicsSystem()
 {
-  b2Vec2 grav(0.0f, 0.0f);
+  b2Vec2 grav(0.0f, -9.8f);
   theWorld = new b2World(grav);
   theListen = new MyListen();
   theWorld->SetContactListener(theListen);

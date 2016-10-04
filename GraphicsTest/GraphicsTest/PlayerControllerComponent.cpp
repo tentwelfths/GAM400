@@ -12,7 +12,6 @@
 #include "TransformComponent.h"
 #include "JSONTranslator.h"
 #include "PlayerControllerComponent.h"
-//#include "RigidbodyComponent.h"
 #include "InputSystem.h"
 #include "BoxColliderComponent.h"
 
