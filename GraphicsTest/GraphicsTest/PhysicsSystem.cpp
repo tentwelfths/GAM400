@@ -42,7 +42,6 @@ void PhysicsSystem::Update(double dt)
       iter->ConfirmPosition();
     }
   }
-  theWorld->Step(dt, VECPASS, POSPASS);
   for (unsigned i = 0; i < mComponents_.size(); ++i)
   {
     auto iter = mComponents_[i];
@@ -56,6 +55,7 @@ void PhysicsSystem::Update(double dt)
     if (gCore->editor)continue;
     mComponents_[i]->Update(dt);
   }
+  theWorld->Step(dt, VECPASS, POSPASS);
   //}
 }
 

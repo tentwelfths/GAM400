@@ -15,7 +15,11 @@
 #include "InputSystem.h"
 #include "BoxColliderComponent.h"
 
-DemoSpawner::DemoSpawner() :GameLogicComponent(GameLogicType::DEMODROPPER)
+#define ROCKSPEED 5.0f
+#define ROCKMULTI 1.5f
+
+
+DemoSpawner::DemoSpawner() :GameLogicComponent(GameLogicType::DEMODROPPER), leftCD(0.5f), rightCD(1.0f), theLeftCD(0.5f), theRightCD(1.0f)
 {
   mName_ = "DemoSpawner";
 }
@@ -28,10 +32,50 @@ bool DemoSpawner::Initialize()
 void DemoSpawner::Update(double dt)
 {
   auto * input = gCore->GetSystem(InputSystem);
-  if (input->isKeyPressed(GLFW_MOUSE_BUTTON_1))
+  if (input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && theLeftCD > leftCD)
   {
-    int b = 10;
+    JSONTranslator j;
+    Object * b;
+    b = j.CreateObjectFromFile("DemoRock.json");
+    //b->AddComponent(new RigidbodyComponent);
+    //b->AddComponent(new BoxColliderComponent);
+    b->name = "Hazard";
+    b->Initialize();
+
+
+    auto * trans2 = b->GetComponent(TransformComponent);
+    trans2->mPosition_.y = input->GetMouseY();
+    trans2->mPosition_.x = input->GetMouseX();
+    auto* col = b->GetComponent(BoxColliderComponent);
+    b2Vec2 newPos(trans2->mPosition_.x + col->GetOffset().x, trans2->mPosition_.y + col->GetOffset().y);
+    col->GetBody()->SetTransform(newPos, 0.0f);
+    b2Vec2 newVel(0.0f,-ROCKSPEED);
+    col->GetBody()->SetLinearVelocity(newVel);
+    theLeftCD = 0.0f;
   }
+  if (input->isKeyPressed(GLFW_MOUSE_BUTTON_2) && theRightCD > rightCD)
+  {
+    JSONTranslator j;
+    Object * b;
+    b = j.CreateObjectFromFile("DemoGiantRock.json");
+    //b->AddComponent(new RigidbodyComponent);
+    //b->AddComponent(new BoxColliderComponent);
+    b->name = "Hazard";
+    b->Initialize();
+
+
+    auto * trans2 = b->GetComponent(TransformComponent);
+    trans2->mPosition_.y = input->GetMouseY();
+    trans2->mPosition_.x = input->GetMouseX();
+    auto* col = b->GetComponent(BoxColliderComponent);
+    b2Vec2 newPos(trans2->mPosition_.x + col->GetOffset().x, trans2->mPosition_.y + col->GetOffset().y);
+    col->GetBody()->SetTransform(newPos, 0.0f);
+    b2Vec2 newVel(0.0f, -ROCKSPEED * ROCKMULTI);
+    col->GetBody()->SetLinearVelocity(newVel);
+    theRightCD = 0.0f;
+  }
+  theLeftCD += dt;
+  theRightCD += dt;
 }
 
 void DemoSpawner::Shutdown()

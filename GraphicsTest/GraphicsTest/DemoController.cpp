@@ -38,6 +38,10 @@ void DemoController::Update(double dt)
       rigid->GetBody()->SetLinearVelocity(newVel);
     }
   }
+  if (rigid->GetJustCollided())
+  {
+    mParent()->Destroy();
+  }
 }
 
 void DemoController::Shutdown()

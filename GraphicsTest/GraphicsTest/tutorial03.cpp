@@ -33,7 +33,7 @@ int main( void )
   RegisterComponentType(DemoSpawner);
   RegisterComponentType(EditorComponent);
 
-  j.LoadLevelFromFile("TestLevel.json");
+  j.LoadLevelFromFile("DemoLevel.json");
 
   while (true)
   {
