@@ -7,6 +7,7 @@
 #include "ObjectSystem.h"
 #include "PhysicsSystem.h"
 #include "EditorSystem.h"
+#include "JSONTranslator.h"
 
 void Core::RegisterSystem(System * s)
 {
@@ -59,4 +60,13 @@ void Core::Update(double dt)
 void Core::Shutdown()
 {
 
+}
+void Core::LoadLevel(std::string filename){
+
+  JSONTranslator j;
+  j.LoadLevelFromFile(filename);
+
+}
+void Core::UnloadLevel(){
+  static_cast<ObjectSystem*>(mSystems["ObjectSystem"])->ClearSystem();
 }

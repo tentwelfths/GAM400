@@ -18,7 +18,7 @@ bool GameLogicSystem::Initialize()
 void GameLogicSystem::Update(double dt)
 {
   if (gCore->editor)wasEditor = true;
-  if (gCore->editor)return;
+  
   for (unsigned i = 0; i < mComponents_.size(); ++i)
   {
     auto iter = mComponents_[i];
@@ -29,10 +29,8 @@ void GameLogicSystem::Update(double dt)
       --i;
       continue;
     }
-  }
-  for (auto & iter : mComponents_)
-  {
-    iter->Update(dt);
+    if (gCore->editor)continue;
+    mComponents_[i]->Update(dt);
   }
 }
 

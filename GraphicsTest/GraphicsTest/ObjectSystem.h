@@ -27,5 +27,4 @@ public:
   std::string frameData;
 private:
   std::string GetData(Object * iter);
-  
 };

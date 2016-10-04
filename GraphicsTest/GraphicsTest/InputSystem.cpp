@@ -209,10 +209,11 @@ void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse)
   //get the world coordinates from the screen coordinates
   for (int i = 0; i < 16; ++i){
     projection[i] = gSys->Projection[i / 4][i%4];
-  //  modelview[i] = gSys->View[i / 4][i % 4];
+    //modelview[i] = gSys->View[i / 4][i % 4];
   }
   gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
-  i->setMousePos(worldX / 10.0, worldY/ 10.0);
+  std::cout << worldX << ", " << worldY << std::endl;
+  i->setMousePos(worldX, worldY);
 }
 
 void inputButtonCallback(GLFWwindow* window, int button, int action, int mods)

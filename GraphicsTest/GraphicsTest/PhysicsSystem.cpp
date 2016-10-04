@@ -34,8 +34,7 @@ void PhysicsSystem::Update(double dt)
   //if ()
   //{
   if (gCore->editor)wasEditor = true;
-  if (gCore->editor)return;
-  if (wasEditor)
+  if (wasEditor && !gCore->editor)
   {
     wasEditor = false;
     for (auto & iter : mComponents_)
@@ -44,9 +43,18 @@ void PhysicsSystem::Update(double dt)
     }
   }
   theWorld->Step(dt, VECPASS, POSPASS);
-  for (auto & iter : mComponents_)
+  for (unsigned i = 0; i < mComponents_.size(); ++i)
   {
-    iter->Update(dt);
+    auto iter = mComponents_[i];
+    if (iter->mParent()->dead)
+    {
+      mComponents_[i]->clean = true;
+      mComponents_.erase(mComponents_.begin() + i);
+      --i;
+      continue;
+    }
+    if (gCore->editor)continue;
+    mComponents_[i]->Update(dt);
   }
   //}
 }

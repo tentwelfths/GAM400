@@ -17,4 +17,5 @@ public:
 private:
   Object * selected;
   std::vector<EditorComponent *> mComponents_;
+  bool showfilter;
 };

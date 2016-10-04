@@ -27,7 +27,14 @@ void ObjectSystem::CreateArchetypeFromObject(Object * obj){
 }
 
 void ObjectSystem::ClearSystem(){
-
+  for (auto iter = mObjects.begin(); iter != mObjects.end(); ++iter)
+  {
+    auto node = iter->second.head;
+    while (node){
+      node->value->Destroy();
+      node = node->next;
+    }
+  }
 }
 
 
@@ -91,23 +98,22 @@ void     ObjectSystem::Update(double dt)
       //node->value->hasChanged = true;
       
       if (node->value->dead){
-        bool removable = false;
-        for (auto iter = node->value->mComponents.begin(); iter != node->value->mComponents.end(); ++iter){
+        bool removable = true;
+        for (auto compiter = node->value->mComponents.begin(); compiter != node->value->mComponents.end();){
           
-          if (iter->second->clean == false){
+          if (compiter->second->clean == false){
             removable = false;
+            ++compiter;
           }
           else{
-            IComponent * temp = iter->second;
-            auto i = --iter;
-            node->value->mComponents.erase(iter);
-            iter = i;
+            IComponent * temp = compiter->second;
+            compiter = node->value->mComponents.erase(compiter);
             temp->Shutdown();
           }
         }
         if (removable){
           delete node->value;
-          iter->second.Remove(node);
+          node = iter->second.Remove(node);
         }
         else{
           node = node->next;
