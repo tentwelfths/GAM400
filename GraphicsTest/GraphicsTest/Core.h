@@ -11,6 +11,8 @@ public:
   void Update(double dt);
   void Shutdown();
   void RegisterSystem(System * s);
+  void LoadLevel(std::string filename);
+  void UnloadLevel();
   template <typename T>
   T * GetSystemA(const char * systemName);
   bool editor;

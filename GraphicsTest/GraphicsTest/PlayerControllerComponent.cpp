@@ -104,5 +104,4 @@ void PlayerControllerComponent::Update(double dt)
 
 void PlayerControllerComponent::Shutdown()
 {
-
 }

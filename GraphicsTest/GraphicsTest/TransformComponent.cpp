@@ -12,6 +12,7 @@ TransformComponent::TransformComponent()
 
 bool TransformComponent::Initialize()
 {
+  clean = true;
   return true;
 }
 

@@ -258,7 +258,8 @@ void GraphicsSystem::Update(double dt)
 
 
   // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-  Projection = glm::perspective(fov, width / height, 0.1f, 100.0f);
+  //Projection = glm::perspective(fov, width / height, 0.1f, 100.0f);
+  Projection = glm::ortho(-5.f, 5.f, -5.f, 5.f, 0.1f, 100.0f);
   //glm::mat4 Projection = glm::ortho(-4, 4, 4, -4);
   // Or, for an ortho camera :
   //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
