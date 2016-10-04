@@ -2,6 +2,7 @@
 #include "Globals.h"
 #include "ObjectSystem.h"
 #include "TransformComponent.h"
+#include "GraphicsSystem.h"
 #include "Core.h"
 #include "Object.h"
 #include <cstring>
@@ -130,8 +131,8 @@ bool InputSystem::isButtonPressed(int contNum, int key)
 bool InputSystem::isButtonJustPressed(int contNum, int key)
 {
 
-  std::cout << std::endl << "CURR: " << theControllers[contNum].currButt[key] << std::endl;
-  std::cout << "PREV: " << theControllers[contNum].prevButt[key] << std::endl <<std::endl;
+  //std::cout << std::endl << "CURR: " << theControllers[contNum].currButt[key] << std::endl;
+  //std::cout << "PREV: " << theControllers[contNum].prevButt[key] << std::endl <<std::endl;
   return theControllers[contNum].currButt[key] && !theControllers[contNum].prevButt[key];
 }
 
@@ -171,10 +172,6 @@ void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int
   InputSystem * i = gCore->GetSystem(InputSystem);
   ImGuiIO& io = ImGui::GetIO();
   
-  io.KeysDown[key] = true;
-  if (io.WantCaptureKeyboard)
-    return;
-  
   switch (action)
   {
   case GLFW_RELEASE:
@@ -193,19 +190,43 @@ void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int
 
 void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse)
 {
+  auto * gSys = gCore->GetSystem(GraphicsSystem);
   InputSystem * i = gCore->GetSystem(InputSystem);
-  i->setMousePos(xMouse, yMouse);
+  GLint viewport[4]; //var to hold the viewport info
+  GLdouble modelview[16]; //var to hold the modelview info
+  GLdouble projection[16]; //var to hold the projection matrix info
+  GLfloat winX, winY, winZ; //variables to hold screen x,y,z coordinates
+  GLdouble worldX, worldY, worldZ; //variables to hold world x,y,z coordinates
+
+  glGetDoublev(GL_MODELVIEW_MATRIX, modelview); //get the modelview info
+  //glGetDoublev(GL_PROJECTION_MATRIX, projection); //get the projection matrix info
+  glGetIntegerv(GL_VIEWPORT, viewport); //get the viewport info
+
+  winX = (float)xMouse;
+  winY = (float)viewport[3] - (float)yMouse;
+  glReadPixels(xMouse, int(winY), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ);
+
+  //get the world coordinates from the screen coordinates
+  for (int i = 0; i < 16; ++i){
+    projection[i] = gSys->Projection[i / 4][i%4];
+  //  modelview[i] = gSys->View[i / 4][i % 4];
+  }
+  gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
+  i->setMousePos(worldX / 10.0, worldY/ 10.0);
 }
 
 void inputButtonCallback(GLFWwindow* window, int button, int action, int mods)
 {
   InputSystem * i = gCore->GetSystem(InputSystem);
+  ImGuiIO& io = ImGui::GetIO();
   switch (action)
   {
   case GLFW_RELEASE:
     i->setKey(button, false);
     break;
   default:
+    if (io.WantCaptureMouse)
+      return;
     i->setKey(button, true);
     break;
   }

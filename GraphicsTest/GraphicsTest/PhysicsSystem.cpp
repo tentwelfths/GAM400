@@ -225,7 +225,7 @@ void PhysicsSystem::Update(double dt)
 //  {
 //    iter.ResolveCollision();
 //  }
-  std::cout << "Got " << mRigidbodies_.size() << "objects" << std::endl;
+ // std::cout << "Got " << mRigidbodies_.size() << "objects" << std::endl;
   mCollision_.clear();
 }
 

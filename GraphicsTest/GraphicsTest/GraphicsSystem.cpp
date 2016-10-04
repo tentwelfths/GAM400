@@ -1,4 +1,5 @@
 #include "GraphicsSystem.h"
+#include "EditorSystem.h"
 #include "GraphicsComponent.h"
 #include "Object.h"
 #include "TransformComponent.h"
@@ -64,7 +65,7 @@ bool GraphicsSystem::Initialize()
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE); //We don't want the old OpenGL 
 
   // Open a window and create its OpenGL context
-  width = 800, height = 640;
+  width = 1600, height = 800;
   mWindow = glfwCreateWindow(width, height, "Tutorial 03 - Matrices", NULL/*glfwGetPrimaryMonitor()*/, NULL);
   if (mWindow == NULL){
     return false;
@@ -121,7 +122,7 @@ bool GraphicsSystem::Initialize()
   glEnable(GL_BLEND);
   glBlendEquation(GL_FUNC_ADD);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  //glEnable(GL_CULL_FACE);
+  glDisable(GL_CULL_FACE);
   glEnable(GL_DEPTH_TEST);
   glDepthFunc(GL_LESS);
   //glEnable(GL_SCISSOR_TEST);
@@ -257,14 +258,14 @@ void GraphicsSystem::Update(double dt)
 
 
   // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-  glm::mat4 Projection = glm::perspective(fov, width / height, 0.1f, 100.0f);
+  Projection = glm::perspective(fov, width / height, 0.1f, 100.0f);
   //glm::mat4 Projection = glm::ortho(-4, 4, 4, -4);
   // Or, for an ortho camera :
   //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
 
   // Camera matrix
-  glm::mat4 View = glm::lookAt(
-    glm::vec3(0, 0, 10), // Camera is at (4,3,3), in World Space
+  View = glm::lookAt(
+    glm::vec3(0, 0, 10), // Camera is at (0,0,10), in World Space
     glm::vec3(0, 0, 0), // and looks at the origin
     glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
     );
@@ -364,36 +365,13 @@ void GraphicsSystem::Update(double dt)
   glDisableVertexAttribArray(1);
 
   //Draw imgui stuff
-  bool show_test_window = true;
-  bool show_another_window = false;
-
+  //bool show_test_window = true;
+  //bool show_another_window = false;
+  //
   ImGui_ImplGlfwGL3_NewFrame();
-  ImVec4 clear_color = ImColor(114, 144, 154);
-  {
-    static float f = 0.0f;
-    ImGui::Text("Hello, world!");
-    ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
-    ImGui::ColorEdit3("clear color", (float*)&clear_color);
-    if (ImGui::Button("Test Window")) show_test_window ^= 1;
-    if (ImGui::Button("Another Window")) show_another_window ^= 1;
-    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-  }
-  
-  // 2. Show another simple window, this time using an explicit Begin/End pair
-  if (show_another_window)
-  {
-    ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
-    ImGui::Begin("Another Window", &show_another_window);
-    ImGui::Text("Hello");
-    ImGui::End();
-  }
-  
-  // 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
-  if (show_test_window)
-  {
-    ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
-    ImGui::ShowTestWindow(&show_test_window);
-  }
+  auto * editor = gCore->GetSystem(EditorSystem);
+  editor->DisplayImGUI();
+
   ImGui::Render();
   // Swap buffers
   glfwSwapBuffers(mWindow);

@@ -34,10 +34,9 @@ void ObjectSystem::ClearSystem(){
 std::string ObjectSystem::GetData(Object * iter)
 {
   TransformComponent * t = iter->GetComponent(TransformComponent);
-  std::string data = "THE FUCK";
-  data = "";
+  std::string data = "";
   int i = 0;
-  ++i;  
+  ++i;
   for (int k = 0; k < sizeof(unsigned int); ++k)
   {
     data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];

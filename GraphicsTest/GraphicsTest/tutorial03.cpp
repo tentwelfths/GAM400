@@ -13,6 +13,7 @@
 #include "PlayerControllerComponent.h"
 #include "RigidbodyComponent.h"
 #include "BoxColliderComponent.h"
+#include "EditorComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -26,6 +27,7 @@ int main( void )
   RegisterComponentType(RigidbodyComponent);
   RegisterComponentType(BoxColliderComponent);
   RegisterComponentType(PlayerControllerComponent);
+  RegisterComponentType(EditorComponent);
   gCore = new Core();
   gCore->Initialize();
   //Object * a;

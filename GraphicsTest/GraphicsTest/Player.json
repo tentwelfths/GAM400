@@ -21,6 +21,8 @@ TransformComponent: {
 SpriteComponent: {
 	"mTexture_": 1
 },
+EditorComponent: {
+	},
 PlayerControllerComponent: {
 	"speed": 1.100000
 },

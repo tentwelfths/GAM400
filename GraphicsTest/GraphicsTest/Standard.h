@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
+#include <array>
 
 #include <stdlib.h>
 #include <string.h>

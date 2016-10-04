@@ -13,14 +13,8 @@ uniform vec4 Color;
 void main()
 {
   vec2 pos = mod(UV.xy * 64,vec2(8));
-  if(int(pos.x + pos.y) % 2 > 0)
-  {
-    color = vec4(1,0,1,1);
-  }
-  else
-  {
-    color = vec4(0,1,0,1);
-  }
-	color = texture( myTextureSampler, UV ).rgba;
+  vec4 texel = texture( myTextureSampler, UV ).rgba;
+  if(texel.a < 0.5) discard;
+	color = texel;
 
 }

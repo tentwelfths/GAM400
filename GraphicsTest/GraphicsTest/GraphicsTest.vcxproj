@@ -158,6 +158,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="EditorComponent.cpp" />
+    <ClCompile Include="EditorSystem.cpp" />
     <ClCompile Include="FramerateController.cpp" />
     <ClCompile Include="GameLogicComponent.cpp" />
     <ClCompile Include="GameLogicSystem.cpp" />
@@ -212,6 +214,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Core.h" />
+    <ClInclude Include="EditorComponent.h" />
+    <ClInclude Include="EditorSystem.h" />
     <ClInclude Include="FramerateController.h" />
     <ClInclude Include="GameLogicComponent.h" />
     <ClInclude Include="GameLogicSystem.h" />

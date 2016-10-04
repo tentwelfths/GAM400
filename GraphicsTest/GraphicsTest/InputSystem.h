@@ -50,6 +50,8 @@ class InputSystem : public System
     bool isButtonReleased(int contNum, int key);
     Joystick getJoystick(int contNum);
     Controller getController(int contNum);
+    double GetMouseX(){ return xPos; }
+    double GetMouseY(){ return yPos; }
   private:
     static bool currInputs[NUMINPUTS];
     static bool prevInputs[NUMINPUTS];

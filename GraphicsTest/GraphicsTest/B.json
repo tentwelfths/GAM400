@@ -19,6 +19,8 @@ TransformComponent: {
 		}
 	},
 SpriteComponent: {
-	"mTexture_": 1
+	"mTextureName": Key.png
+	},
+EditorComponent: {
 	}
 }
