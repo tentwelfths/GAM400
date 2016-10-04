@@ -1,6 +1,8 @@
 #include <Box2D\Box2D.h>
 #include <vector>
 #include "PhysicsSystem.h"
+#include "Core.h"
+#include "Globals.h"
 #include "Object.h"
 #include "PhysicsComponent.h"
 #include "RigidbodyComponent.h"
@@ -18,6 +20,7 @@ PhysicsSystem::PhysicsSystem()
   theListen = new MyListen();
   theWorld->SetContactListener(theListen);
   mName_ = "PhysicsSystem";
+  wasEditor = gCore->editor;
 }
 
 bool PhysicsSystem::Initialize()
@@ -30,11 +33,21 @@ void PhysicsSystem::Update(double dt)
   //GraphicsSystem * e = gCore->GetSystem(GraphicsSystem);
   //if ()
   //{
+  if (gCore->editor)wasEditor = true;
+  if (gCore->editor)return;
+  if (wasEditor)
+  {
+    wasEditor = false;
     for (auto & iter : mComponents_)
     {
-      iter->Update(dt);
+      iter->ConfirmPosition();
     }
-    theWorld->Step(dt, VECPASS, POSPASS);
+  }
+  theWorld->Step(dt, VECPASS, POSPASS);
+  for (auto & iter : mComponents_)
+  {
+    iter->Update(dt);
+  }
   //}
 }
 

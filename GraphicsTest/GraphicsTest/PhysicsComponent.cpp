@@ -25,3 +25,7 @@ void PhysicsComponent::Update(double dt)
 void PhysicsComponent::Shutdown()
 {
 }
+
+void PhysicsComponent::ConfirmPosition(){
+
+}

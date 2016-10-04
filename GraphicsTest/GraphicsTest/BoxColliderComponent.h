@@ -17,6 +17,7 @@ public:
   bool Initialize();
   void Update(double dt);
   void Shutdown();
+  void ConfirmPosition();
   b2Body* GetBody() { return theBody; }
   b2BodyDef* GetType() { return type; }
   void SetHalfSize(vec3 newSize) { mHalfSize = newSize; }

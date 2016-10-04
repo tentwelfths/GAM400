@@ -35,6 +35,7 @@ BoxColliderComponent: {
 	"dynamicState": 2
 	"mDensity" : 1.000000
 	"mFriction" : 1.000000
+	"mGhost" : true
 }
 EditorComponent: {
 	}

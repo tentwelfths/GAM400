@@ -47,7 +47,7 @@ void BoxColliderComponent::Update(double dt)
 {
   justCollided = false;
   auto* trans = mParent_->GetComponent(TransformComponent);
-  
+
   vec3 newPos;
   newPos.x = theBody->GetPosition().x - mOffset.x;
   newPos.y = theBody->GetPosition().y - mOffset.y;
@@ -62,4 +62,10 @@ void BoxColliderComponent::Shutdown()
 {
   delete type;
   delete box;
+}
+
+void BoxColliderComponent::ConfirmPosition(){
+  auto* trans = mParent_->GetComponent(TransformComponent);
+  b2Vec2 testVec(trans->mPositionX(), trans->mPositionY());
+  theBody->SetTransform(testVec, trans->mRotationZ());
 }

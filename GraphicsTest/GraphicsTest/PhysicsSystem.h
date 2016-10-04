@@ -25,4 +25,5 @@ private:
   std::vector<PhysicsComponent *> mComponents_;
   b2World* theWorld;
   MyListen* theListen;
+  bool wasEditor;
 };
