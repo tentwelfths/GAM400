@@ -41,7 +41,7 @@ void PlayerControllerComponent::Update(double dt)
       Object * b;
       b = j.CreateObjectFromFile("B.json");
       //b->AddComponent(new RigidbodyComponent);
-      b->AddComponent(new BoxColliderComponent);
+      //b->AddComponent(new BoxColliderComponent);
       b->name = "Fuccboi2";
       b->Initialize();
     
