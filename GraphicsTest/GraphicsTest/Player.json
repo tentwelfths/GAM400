@@ -1,4 +1,6 @@
-{
+File: B.json
+Name: Fuccboi
+Object: {
 TransformComponent: {
 	"mPosition_": {
 		x: 0.000000,
@@ -19,6 +21,8 @@ TransformComponent: {
 SpriteComponent: {
 	"mTexture_": 1
 },
+EditorComponent: {
+	},
 PlayerControllerComponent: {
 	"speed": 1.100000
 },

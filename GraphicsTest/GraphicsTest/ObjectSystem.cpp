@@ -42,10 +42,10 @@ std::string ObjectSystem::GetData(Object * iter)
     data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
     ++i;
   }
-  for (int k = 0; k < sizeof(GLuint); ++k)
-  {
-    data += static_cast<char *>(static_cast<void *>(&(static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTexture_)))[k];
-    ++i;
+  unsigned char len = (static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName.length());
+  data += len;
+  for (unsigned char i = 0; i < len; ++i){
+    data += (static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName[i]);
   }
   for (int k = 0; k < sizeof(float); ++k)
   {

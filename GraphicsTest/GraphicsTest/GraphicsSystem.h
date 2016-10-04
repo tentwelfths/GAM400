@@ -31,6 +31,8 @@ public:
   GLuint GetTexture(std::string textureName);
 
   std::string frameData;
+  glm::mat4 Projection;
+  glm::mat4 View;
 private:
   GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
 

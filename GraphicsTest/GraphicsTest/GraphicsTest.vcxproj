@@ -131,6 +131,52 @@
     <None Include="SingleColor.fragmentshader" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Box2D\Collision\b2BroadPhase.cpp" />
+    <ClCompile Include="Box2D\Collision\b2CollideCircle.cpp" />
+    <ClCompile Include="Box2D\Collision\b2CollideEdge.cpp" />
+    <ClCompile Include="Box2D\Collision\b2CollidePolygon.cpp" />
+    <ClCompile Include="Box2D\Collision\b2Collision.cpp" />
+    <ClCompile Include="Box2D\Collision\b2Distance.cpp" />
+    <ClCompile Include="Box2D\Collision\b2DynamicTree.cpp" />
+    <ClCompile Include="Box2D\Collision\b2TimeOfImpact.cpp" />
+    <ClCompile Include="Box2D\Collision\Shapes\b2ChainShape.cpp" />
+    <ClCompile Include="Box2D\Collision\Shapes\b2CircleShape.cpp" />
+    <ClCompile Include="Box2D\Collision\Shapes\b2EdgeShape.cpp" />
+    <ClCompile Include="Box2D\Collision\Shapes\b2PolygonShape.cpp" />
+    <ClCompile Include="Box2D\Common\b2BlockAllocator.cpp" />
+    <ClCompile Include="Box2D\Common\b2Draw.cpp" />
+    <ClCompile Include="Box2D\Common\b2Math.cpp" />
+    <ClCompile Include="Box2D\Common\b2Settings.cpp" />
+    <ClCompile Include="Box2D\Common\b2StackAllocator.cpp" />
+    <ClCompile Include="Box2D\Common\b2Timer.cpp" />
+    <ClCompile Include="Box2D\Dynamics\b2Body.cpp" />
+    <ClCompile Include="Box2D\Dynamics\b2ContactManager.cpp" />
+    <ClCompile Include="Box2D\Dynamics\b2Fixture.cpp" />
+    <ClCompile Include="Box2D\Dynamics\b2Island.cpp" />
+    <ClCompile Include="Box2D\Dynamics\b2World.cpp" />
+    <ClCompile Include="Box2D\Dynamics\b2WorldCallbacks.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Contacts\b2ChainAndCircleContact.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Contacts\b2CircleContact.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Contacts\b2Contact.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Contacts\b2ContactSolver.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Contacts\b2PolygonContact.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2DistanceJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2FrictionJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2GearJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2Joint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2MotorJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2MouseJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2PrismaticJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2PulleyJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2RevoluteJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2RopeJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
+    <ClCompile Include="Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
+    <ClCompile Include="Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="BoxColliderComponent.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="common\controls.cpp">
@@ -158,6 +204,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="EditorComponent.cpp" />
+    <ClCompile Include="EditorSystem.cpp" />
     <ClCompile Include="FramerateController.cpp" />
     <ClCompile Include="GameLogicComponent.cpp" />
     <ClCompile Include="GameLogicSystem.cpp" />
@@ -169,6 +217,7 @@
     <ClCompile Include="imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="JSONTranslator.cpp" />
+    <ClCompile Include="MyListen.cpp" />
     <ClCompile Include="NetworkingComponent.cpp" />
     <ClCompile Include="NetworkingSystem.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -177,7 +226,6 @@
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
     <ClCompile Include="PlayerControllerComponent.cpp" />
-    <ClCompile Include="QuadTree.cpp" />
     <ClCompile Include="RigidbodyComponent.cpp" />
     <ClCompile Include="SphereColliderComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
@@ -185,6 +233,53 @@
     <ClCompile Include="tutorial03.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Box2D\Box2D.h" />
+    <ClInclude Include="Box2D\Collision\b2BroadPhase.h" />
+    <ClInclude Include="Box2D\Collision\b2Collision.h" />
+    <ClInclude Include="Box2D\Collision\b2Distance.h" />
+    <ClInclude Include="Box2D\Collision\b2DynamicTree.h" />
+    <ClInclude Include="Box2D\Collision\b2TimeOfImpact.h" />
+    <ClInclude Include="Box2D\Collision\Shapes\b2ChainShape.h" />
+    <ClInclude Include="Box2D\Collision\Shapes\b2CircleShape.h" />
+    <ClInclude Include="Box2D\Collision\Shapes\b2EdgeShape.h" />
+    <ClInclude Include="Box2D\Collision\Shapes\b2PolygonShape.h" />
+    <ClInclude Include="Box2D\Collision\Shapes\b2Shape.h" />
+    <ClInclude Include="Box2D\Common\b2BlockAllocator.h" />
+    <ClInclude Include="Box2D\Common\b2Draw.h" />
+    <ClInclude Include="Box2D\Common\b2GrowableStack.h" />
+    <ClInclude Include="Box2D\Common\b2Math.h" />
+    <ClInclude Include="Box2D\Common\b2Settings.h" />
+    <ClInclude Include="Box2D\Common\b2StackAllocator.h" />
+    <ClInclude Include="Box2D\Common\b2Timer.h" />
+    <ClInclude Include="Box2D\Dynamics\b2Body.h" />
+    <ClInclude Include="Box2D\Dynamics\b2ContactManager.h" />
+    <ClInclude Include="Box2D\Dynamics\b2Fixture.h" />
+    <ClInclude Include="Box2D\Dynamics\b2Island.h" />
+    <ClInclude Include="Box2D\Dynamics\b2TimeStep.h" />
+    <ClInclude Include="Box2D\Dynamics\b2World.h" />
+    <ClInclude Include="Box2D\Dynamics\b2WorldCallbacks.h" />
+    <ClInclude Include="Box2D\Dynamics\Contacts\b2ChainAndCircleContact.h" />
+    <ClInclude Include="Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.h" />
+    <ClInclude Include="Box2D\Dynamics\Contacts\b2CircleContact.h" />
+    <ClInclude Include="Box2D\Dynamics\Contacts\b2Contact.h" />
+    <ClInclude Include="Box2D\Dynamics\Contacts\b2ContactSolver.h" />
+    <ClInclude Include="Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.h" />
+    <ClInclude Include="Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.h" />
+    <ClInclude Include="Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.h" />
+    <ClInclude Include="Box2D\Dynamics\Contacts\b2PolygonContact.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2DistanceJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2FrictionJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2GearJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2Joint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2MotorJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2MouseJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2PrismaticJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2PulleyJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2RevoluteJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2RopeJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2WeldJoint.h" />
+    <ClInclude Include="Box2D\Dynamics\Joints\b2WheelJoint.h" />
+    <ClInclude Include="Box2D\Rope\b2Rope.h" />
     <ClInclude Include="BoxColliderComponent.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="common\controls.hpp">
@@ -212,6 +307,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Core.h" />
+    <ClInclude Include="EditorComponent.h" />
+    <ClInclude Include="EditorSystem.h" />
     <ClInclude Include="FramerateController.h" />
     <ClInclude Include="GameLogicComponent.h" />
     <ClInclude Include="GameLogicSystem.h" />
@@ -227,6 +324,7 @@
     <ClInclude Include="JSONTranslator.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Metadata.h" />
+    <ClInclude Include="MyListen.h" />
     <ClInclude Include="NetworkingComponent.h" />
     <ClInclude Include="NetworkingSystem.h" />
     <ClInclude Include="Object.h" />
@@ -235,7 +333,6 @@
     <ClInclude Include="PhysicsMaterialComponent.h" />
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="PlayerControllerComponent.h" />
-    <ClInclude Include="QuadTree.h" />
     <ClInclude Include="RigidbodyComponent.h" />
     <ClInclude Include="Socket.h" />
     <ClInclude Include="SphereColliderComponent.h" />

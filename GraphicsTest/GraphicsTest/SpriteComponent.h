@@ -13,5 +13,6 @@ public:
   void SetTexture(std::string textureName);
   void Shutdown();
   GLuint mTexture(){ return mTexture_; }
+  std::string mTextureName;
   GLuint mTexture_;
 };

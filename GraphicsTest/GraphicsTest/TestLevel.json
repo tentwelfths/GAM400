@@ -1,0 +1,77 @@
+{
+	File: B.json
+	Name: Fuccboi
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Kakka_Carrot_Veggie.png
+		},
+	EditorComponent: {
+		},
+	RigidbodyComponent: {
+		"mMass": 0.000000,
+		"mVelocity": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					}
+		},
+	PlayerControllerComponent: {
+		"speed": 1.100000
+		},
+	BoxColliderComponent: {
+		"mHalfSize": {
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							}
+		}
+	},
+	File: B.json
+	Name: Fucc
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 1.000000,
+			y: 2.000000,
+			z: 0.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Key.png
+		},
+	EditorComponent: {
+		}
+	},
+}

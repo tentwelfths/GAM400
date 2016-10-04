@@ -6,6 +6,7 @@
 #include "InputSystem.h"
 #include "ObjectSystem.h"
 #include "PhysicsSystem.h"
+#include "EditorSystem.h"
 
 void Core::RegisterSystem(System * s)
 {
@@ -27,6 +28,8 @@ bool Core::Initialize()
   RegisterSystem(o);
   auto * p = new PhysicsSystem();
   RegisterSystem(p);
+  auto * e = new EditorSystem();
+  RegisterSystem(e);
   auto * i = new InputSystem();
   RegisterSystem(i);
 
@@ -34,6 +37,7 @@ bool Core::Initialize()
     (*iter).second->Initialize();
 
   g->LoadTexture("Kakka_Carrot_Veggie.png");
+  g->LoadTexture("Key.png");
   return true;
 }
 
@@ -47,7 +51,7 @@ void Core::Update(double dt)
     iter->Update(frc->GetDT());
     frc->SetSystemEnd();
   }
-  frc->PrintSystemTimeAnalysis();
+  //frc->PrintSystemTimeAnalysis();
   frc->EndFrame();
 }
 

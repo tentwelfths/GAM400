@@ -5,6 +5,7 @@
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <imgui.h>
 #include "Standard.h"
 /*
 class Memm
@@ -23,6 +24,7 @@ public:
   virtual void Set(std::string) = 0;
   virtual void Set(std::ifstream &file) = 0;
   virtual std::string Get(int scope) = 0;
+  virtual void GetUI(std::string name) = 0;
 };
 
 template<typename T>
@@ -38,6 +40,29 @@ public:
   std::string Get(int scope){
     return std::string(*val);
   }
+  void GetUI(std::string name){
+    ImGui::InputText(name.c_str(), val, IM_ARRAYSIZE(val));
+  }
+};
+
+template<>
+class Member<std::string> : public Mem
+{
+public:
+  std::string * val;
+  Member(std::string * v) : Mem(), val(static_cast<std::string *>(v)) {}
+  void Set(std::ifstream &file){};
+  void Set(std::string value){
+    *val = value;
+  }
+  std::string Get(int scope){
+    return std::string(*val);
+  }
+  void GetUI(std::string name){
+    //std::array<char, 128> arr = (const_cast<char *>(val->data()));
+    ImGui::InputText(name.c_str(), const_cast<char*>(val->data()), 128);
+    //*val = (arr.data());
+  }
 };
 
 template<>
@@ -52,6 +77,9 @@ public:
   }
   std::string Get(int scope){
     return std::to_string(*val);
+  }
+  void GetUI(std::string name){
+    ImGui::InputInt(name.c_str(), val);
   }
 };
 
@@ -99,8 +127,17 @@ public:
     s += tabs + "x: " + std::to_string(val->x);
     s += ",\n" + tabs + "y: " + std::to_string(val->y);
     s += ",\n" + tabs + "z: " + std::to_string(val->z);
-    s += "\n" + tabs.substr(1) + "}";
+    s += "\n" + tabs + "}";
     return s;
+  }
+  void GetUI(std::string name){
+    ImGui::Text(name.c_str());
+    std::string x = "x##" + name;
+    std::string y = "y##" + name;
+    std::string z = "z##" + name;
+    ImGui::InputFloat(x.c_str(), &(val->x));
+    ImGui::InputFloat(y.c_str(), &(val->y));
+    ImGui::InputFloat(z.c_str(), &(val->z));
   }
 };
 
@@ -117,6 +154,9 @@ public:
   std::string Get(int scope){
     return std::to_string(*val);
   }
+  void GetUI(std::string name){
+    ImGui::InputInt(name.c_str(), (int*)val);
+  }
 };
 
 template<>
@@ -131,6 +171,9 @@ public:
   }
   std::string Get(int scope){
     return std::to_string(*val);
+  }
+  void GetUI(std::string name){
+    ImGui::InputFloat(name.c_str(), reinterpret_cast<float*>(val));
   }
 };
 
@@ -147,6 +190,9 @@ public:
   std::string Get(int scope){
     return std::to_string(*val);
   }
+  void GetUI(std::string name){
+    ImGui::InputFloat(name.c_str(), val);
+  }
 };
 
 template<>
@@ -162,6 +208,9 @@ public:
   std::string Get(int scope){
     return std::to_string(*val);
   }
+  void GetUI(std::string name){
+    ImGui::InputText(name.c_str(), val, 1);
+  }
 };
 
 template<>
@@ -176,5 +225,8 @@ public:
   }
   std::string Get(int scope){
     return ((*val) ? "true" : "false");
+  }
+  void GetUI(std::string name){
+    ImGui::Checkbox(name.c_str(), val);
   }
 };

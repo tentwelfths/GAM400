@@ -6,7 +6,7 @@
 
 SpriteComponent::SpriteComponent() : GraphicsComponent(GraphicsType::SPRITE)
 {
-  AddMember(SpriteComponent, mTexture_);
+  AddMember(SpriteComponent, mTextureName);
   mName_ = "SpriteComponent";
 }
 
@@ -30,6 +30,7 @@ void SpriteComponent::Shutdown()
 
 void SpriteComponent::SetTexture(std::string textureName)
 {
+  mTextureName = textureName;
   GLuint temp = gCore->GetSystem(GraphicsSystem)->GetTexture(textureName);
   if (temp > 0)
     mTexture_ = temp;

@@ -212,7 +212,7 @@
     <CustomBuild Include="C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\src\CMakeLists.txt">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\src\CMakeFiles\generate.stamp
+C:\Users\joel.shook\Downloads\cmake-3.6.2-win64-x64\cmake-3.6.2-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\src\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -225,7 +225,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\src\CMakeFiles\generate.stamp
+C:\Users\joel.shook\Downloads\cmake-3.6.2-win64-x64\cmake-3.6.2-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\src\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -238,7 +238,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\src\CMakeFiles\generate.stamp
+C:\Users\joel.shook\Downloads\cmake-3.6.2-win64-x64\cmake-3.6.2-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\src\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -251,7 +251,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external/glfw-3.1.2/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-C:\Users\joel.shook\Downloads\cmake-3.6.1-win64-x64\cmake-3.6.1-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\src\CMakeFiles\generate.stamp
+C:\Users\joel.shook\Downloads\cmake-3.6.2-win64-x64\cmake-3.6.2-win64-x64\bin\cmake.exe -HC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external -BC:/Users/joel.shook/GAM400/GraphicsTest/GraphicsTest/external --check-stamp-file C:\Users\joel.shook\GAM400\GraphicsTest\GraphicsTest\external\glfw-3.1.2\src\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
