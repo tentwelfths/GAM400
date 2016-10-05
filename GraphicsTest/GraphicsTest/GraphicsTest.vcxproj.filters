@@ -187,6 +187,7 @@
     </ClCompile>
     <ClCompile Include="DemoController.cpp" />
     <ClCompile Include="DemoSpawner.cpp" />
+    <ClCompile Include="OutOfBounds.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -388,6 +389,7 @@
     </ClInclude>
     <ClInclude Include="DemoController.h" />
     <ClInclude Include="DemoSpawner.h" />
+    <ClInclude Include="OutOfBounds.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

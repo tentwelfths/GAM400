@@ -19,7 +19,7 @@ TransformComponent: {
 		}
 	},
 SpriteComponent: {
-	"mTextureName": Kakka_Carrot_Veggie.png
+	"mTextureName": player.png
 	},
 EditorComponent: {
 	},

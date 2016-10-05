@@ -40,6 +40,9 @@ bool Core::Initialize()
 
   g->LoadTexture("Kakka_Carrot_Veggie.png");
   g->LoadTexture("Key.png");
+  g->LoadTexture("player.png");
+  g->LoadTexture("bolt.png");
+  g->LoadTexture("rock.png");
   return true;
 }
 

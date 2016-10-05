@@ -17,9 +17,9 @@
 
 #define ROCKSPEED 5.0f
 #define ROCKMULTI 1.5f
+#define CLICKY 6.0f
 
-
-DemoSpawner::DemoSpawner() :GameLogicComponent(GameLogicType::DEMODROPPER), leftCD(0.5f), rightCD(1.0f), theLeftCD(0.5f), theRightCD(1.0f)
+DemoSpawner::DemoSpawner() : GameLogicComponent(GameLogicType::DEMODROPPER), leftCD(0.5f), rightCD(1.0f), theLeftCD(0.5f), theRightCD(1.0f)
 {
   mName_ = "DemoSpawner";
 }
@@ -47,8 +47,8 @@ void DemoSpawner::Update(double dt)
     trans2->mPosition_.y = input->GetMouseY();
     trans2->mPosition_.x = input->GetMouseX();
     auto* col = b->GetComponent(BoxColliderComponent);
-    b2Vec2 newPos(trans2->mPosition_.x + col->GetOffset().x, trans2->mPosition_.y + col->GetOffset().y);
-    col->GetBody()->SetTransform(newPos, 0.0f);
+    b2Vec2 newPos(trans2->mPosition_.x + col->GetOffset().x, CLICKY + col->GetOffset().y);
+    col->GetBody()->SetTransform(newPos, trans2->mRotationZ());
     b2Vec2 newVel(0.0f,-ROCKSPEED);
     col->GetBody()->SetLinearVelocity(newVel);
     theLeftCD = 0.0f;
@@ -68,8 +68,8 @@ void DemoSpawner::Update(double dt)
     trans2->mPosition_.y = input->GetMouseY();
     trans2->mPosition_.x = input->GetMouseX();
     auto* col = b->GetComponent(BoxColliderComponent);
-    b2Vec2 newPos(trans2->mPosition_.x + col->GetOffset().x, trans2->mPosition_.y + col->GetOffset().y);
-    col->GetBody()->SetTransform(newPos, 0.0f);
+    b2Vec2 newPos(trans2->mPosition_.x + col->GetOffset().x, CLICKY + col->GetOffset().y);
+    col->GetBody()->SetTransform(newPos, trans2->mRotationZ());
     b2Vec2 newVel(0.0f, -ROCKSPEED * ROCKMULTI);
     col->GetBody()->SetLinearVelocity(newVel);
     theRightCD = 0.0f;

@@ -42,6 +42,17 @@ void DemoController::Update(double dt)
   {
     mParent()->Destroy();
   }
+  auto * trans = mParent_->GetComponent(TransformComponent);
+  if (trans->mPositionX() > 10.0f)
+  {
+    trans->mPositionX(-9.9f);
+    rigid->GetBody()->SetTransform(b2Vec2(trans->mPositionX(), trans->mPositionY()),trans->mRotationZ());
+  }
+  else if (trans->mPositionX() < -10.0f)
+  {
+    trans->mPositionX(9.9f);
+    rigid->GetBody()->SetTransform(b2Vec2(trans->mPositionX(), trans->mPositionY()), trans->mRotationZ());
+  }
 }
 
 void DemoController::Shutdown()
