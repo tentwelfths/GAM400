@@ -93,7 +93,7 @@ void     ObjectSystem::Update(double dt)
   frameData = "";
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
     frameData += '%';
-    for (int k = 0; k < sizeof(float); ++k)
+    for (int k = 0; k < sizeof(unsigned int); ++k)
     {
       frameData += static_cast<char *>(static_cast<void *>(&(*iter)))[k];
     }
