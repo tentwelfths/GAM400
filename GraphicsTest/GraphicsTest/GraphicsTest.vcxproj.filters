@@ -185,6 +185,9 @@
     <ClCompile Include="imgui_impl_glfw_gl3.cpp">
       <Filter>NotOurCode</Filter>
     </ClCompile>
+    <ClCompile Include="DemoController.cpp" />
+    <ClCompile Include="DemoSpawner.cpp" />
+    <ClCompile Include="OutOfBounds.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -384,6 +387,9 @@
     <ClInclude Include="imgui_internal.h">
       <Filter>NotOurCode</Filter>
     </ClInclude>
+    <ClInclude Include="DemoController.h" />
+    <ClInclude Include="DemoSpawner.h" />
+    <ClInclude Include="OutOfBounds.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

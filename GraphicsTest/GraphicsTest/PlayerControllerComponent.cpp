@@ -12,7 +12,6 @@
 #include "TransformComponent.h"
 #include "JSONTranslator.h"
 #include "PlayerControllerComponent.h"
-//#include "RigidbodyComponent.h"
 #include "InputSystem.h"
 #include "BoxColliderComponent.h"
 
@@ -42,7 +41,7 @@ void PlayerControllerComponent::Update(double dt)
       Object * b;
       b = j.CreateObjectFromFile("B.json");
       //b->AddComponent(new RigidbodyComponent);
-      b->AddComponent(new BoxColliderComponent);
+      //b->AddComponent(new BoxColliderComponent);
       b->name = "Fuccboi2";
       b->Initialize();
     
@@ -50,6 +49,9 @@ void PlayerControllerComponent::Update(double dt)
       auto * trans2 = b->GetComponent(TransformComponent);
       trans2->mPosition_.y = (rand()%100 - 50) / 10.f;
       trans2->mPosition_.x = (rand()%100 - 50) / 10.f;
+      auto* col = b->GetComponent(BoxColliderComponent);
+      b2Vec2 newPos(trans2->mPosition_.x + col->GetOffset().x, trans2->mPosition_.y + col->GetOffset().y);
+      col->GetBody()->SetTransform(newPos, trans2->mRotationZ());
     }
     if (j.xStick > 0.1 || j.xStick < -0.1){
       newVel.x = j.xStick * speed;
@@ -75,7 +77,7 @@ void PlayerControllerComponent::Update(double dt)
       trans2->mPosition_.x = (rand() % 100 - 50) / 10.f;
       auto* col = b->GetComponent(BoxColliderComponent);
       b2Vec2 newPos(trans2->mPosition_.x + col->GetOffset().x, trans2->mPosition_.y + col->GetOffset().y);
-      col->GetBody()->SetTransform(newPos, 0.0f);
+      col->GetBody()->SetTransform(newPos, trans2->mRotationZ());
       //col->GetType()->position = newPos;
       //int c = 10;
     }

@@ -204,6 +204,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="DemoController.cpp" />
+    <ClCompile Include="DemoSpawner.cpp" />
     <ClCompile Include="EditorComponent.cpp" />
     <ClCompile Include="EditorSystem.cpp" />
     <ClCompile Include="FramerateController.cpp" />
@@ -222,6 +224,7 @@
     <ClCompile Include="NetworkingSystem.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectSystem.cpp" />
+    <ClCompile Include="OutOfBounds.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
@@ -307,6 +310,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Core.h" />
+    <ClInclude Include="DemoController.h" />
+    <ClInclude Include="DemoSpawner.h" />
     <ClInclude Include="EditorComponent.h" />
     <ClInclude Include="EditorSystem.h" />
     <ClInclude Include="FramerateController.h" />
@@ -329,6 +334,7 @@
     <ClInclude Include="NetworkingSystem.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectSystem.h" />
+    <ClInclude Include="OutOfBounds.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="PhysicsMaterialComponent.h" />
     <ClInclude Include="PhysicsSystem.h" />

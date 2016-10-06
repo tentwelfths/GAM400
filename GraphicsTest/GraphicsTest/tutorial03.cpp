@@ -14,6 +14,9 @@
 #include "RigidbodyComponent.h"
 #include "BoxColliderComponent.h"
 #include "EditorComponent.h"
+#include "DemoController.h"
+#include "DemoSpawner.h"
+#include "OutOfBounds.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -26,7 +29,12 @@ int main( void )
   RegisterComponentType(TransformComponent);
   RegisterComponentType(BoxColliderComponent);
   RegisterComponentType(PlayerControllerComponent);
+  RegisterComponentType(DemoController);
+  RegisterComponentType(DemoSpawner);
   RegisterComponentType(EditorComponent);
+  RegisterComponentType(OutOfBounds);
+
+  j.LoadLevelFromFile("DemoLevel.json");
 
   while (true)
   {
