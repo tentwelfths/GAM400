@@ -92,11 +92,18 @@ void     ObjectSystem::Update(double dt)
 {
   frameData = "";
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
-    std::cout << "FUCK YOU BE DIE"<<*iter<<std::endl;
+    std::cout << "FUCK YOU BE DIE"<<iter->first<<std::endl;
     frameData += '%';
     for (int k = 0; k < sizeof(unsigned int); ++k)
     {
-      frameData += static_cast<char *>(static_cast<void *>(&(*iter)))[k];
+      if (iter->second <= 1)
+      {
+        frameData += static_cast<const char *>(static_cast<const void *>(&(iter->first)))[k];
+      }
+      if (iter->second == 0){
+        iter->second = 30;
+      }
+      iter->second -= 1;
     }
   }
   for (auto iter = mObjects.begin(); iter != mObjects.end(); ++iter)
@@ -120,7 +127,7 @@ void     ObjectSystem::Update(double dt)
           }
         }
         if (removable){
-          deadObjects.push_back(node->value->ID);
+          deadObjects.insert({ node->value->ID, 1 });
           delete node->value;
           node = iter->second.Remove(node);
         }
@@ -184,7 +191,7 @@ Object * ObjectSystem::GetNthItemByName(std::string name, unsigned n)
 void ObjectSystem::RemoveDeadObject(unsigned int ID)
 {
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
-    if (*iter == ID){
+    if (iter->first == ID){
       deadObjects.erase(iter);
       return;
     }

@@ -27,5 +27,5 @@ public:
   std::string frameData;
 private:
   std::string GetData(Object * iter);
-  std::vector<unsigned int> deadObjects;
+  std::unordered_map<unsigned int,char> deadObjects;
 };
