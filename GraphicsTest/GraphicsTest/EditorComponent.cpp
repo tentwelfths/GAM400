@@ -13,6 +13,7 @@ EditorComponent::EditorComponent(){
   mName_ = "EditorComponent";
 }
 bool EditorComponent::Initialize(){
+  clean = true;
   return true;
 }
 void EditorComponent::Update(double dt){
