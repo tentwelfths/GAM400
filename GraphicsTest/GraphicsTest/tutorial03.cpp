@@ -34,7 +34,7 @@ int main( void )
   RegisterComponentType(EditorComponent);
   RegisterComponentType(OutOfBounds);
 
-  j.LoadLevelFromFile("DemoLevel.json");
+  gCore->LoadLevel("DemoLevel.json");
 
   while (true)
   {
