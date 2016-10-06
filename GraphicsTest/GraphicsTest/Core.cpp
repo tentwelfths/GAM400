@@ -43,6 +43,8 @@ bool Core::Initialize()
   g->LoadTexture("player.png");
   g->LoadTexture("bolt.png");
   g->LoadTexture("rock.png");
+  unloading = false;
+  needToLoad = "";
   return true;
 }
 
@@ -52,6 +54,12 @@ void Core::Update(double dt)
 
   auto * frc = static_cast<FramerateController*>(mSystems["FramerateController"]);
   frc->StartFrame();
+  if (static_cast<ObjectSystem*>(mSystems["ObjectSystem"])->numObjects == 0){
+    unloading = false;
+  }
+  if (needToLoad != ""){
+    LoadLevel(needToLoad);
+  }
   for (auto & iter : mSystemsOrdered)
   {
     frc->SetSystemStart(iter->mName());
@@ -68,11 +76,15 @@ void Core::Shutdown()
 
 }
 void Core::LoadLevel(std::string filename){
+  needToLoad = filename;
 
+  if (unloading)return;
   JSONTranslator j;
-  j.LoadLevelFromFile(filename);
+  j.LoadLevelFromFile(needToLoad);
+  needToLoad = "";
 
 }
 void Core::UnloadLevel(){
+  unloading = true;
   static_cast<ObjectSystem*>(mSystems["ObjectSystem"])->ClearSystem();
 }

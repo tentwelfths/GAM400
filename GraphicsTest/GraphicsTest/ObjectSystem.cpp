@@ -7,6 +7,7 @@ ObjectSystem::ObjectSystem()
 {
   mName_ = "ObjectSystem";
   myCount = 0;
+  numObjects = 0;
 }
 
 void     ObjectSystem::RegisterComponent(IComponent*)
@@ -128,6 +129,7 @@ void     ObjectSystem::Update(double dt)
         }
         if (removable){
           deadObjects.insert({ node->value->ID, 1 });
+          --numObjects;
           delete node->value;
           node = iter->second.Remove(node);
         }
@@ -170,6 +172,7 @@ void ObjectSystem::AddObject(Object * obj)
     mObjects.insert({ obj->name, List<Object*>() });
   }
   mObjects[obj->name].AddToFront(obj);
+  ++numObjects; 
 }
 
 Object * ObjectSystem::GetFirstItemByName(std::string name)
@@ -189,7 +192,7 @@ Object * ObjectSystem::GetNthItemByName(std::string name, unsigned n)
   if (!head)return nullptr;
   return head->value;
 }
-void ObjectSystem::RemoveDeadObject(unsigned int ID)
+void ObjectSystem::RemoveDeadObject(unsigned int ID)//FUCK YOU THIS DOESN'T DO WHAT YOU THINK IT DOES. IS FOR NATWURKN
 {
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
     if (iter->first == ID){

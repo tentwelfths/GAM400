@@ -25,6 +25,7 @@ public:
 
   unsigned int myCount;
   std::string frameData;
+  unsigned int numObjects;
 private:
   std::string GetData(Object * iter);
   std::unordered_map<unsigned int,char> deadObjects;

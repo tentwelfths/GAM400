@@ -11,13 +11,15 @@ public:
   void Update(double dt);
   void Shutdown();
   void RegisterSystem(System * s);
-  void LoadLevel(std::string filename);
   void UnloadLevel();
+  void LoadLevel(std::string filename);
   template <typename T>
   T * GetSystemA(const char * systemName);
   bool editor;
 
 private:
+  bool unloading;
+  std::string needToLoad;
   std::unordered_map<std::string, System*> mSystems;
   std::vector<System*> mSystemsOrdered;
 };
