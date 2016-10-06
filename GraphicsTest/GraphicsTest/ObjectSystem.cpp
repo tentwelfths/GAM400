@@ -174,6 +174,7 @@ void ObjectSystem::AddObject(Object * obj)
 
 Object * ObjectSystem::GetFirstItemByName(std::string name)
 {
+  if (!mObjects[name].head)return nullptr;
   return mObjects[name].head->value;
 }
 Object * ObjectSystem::GetNthItemByName(std::string name, unsigned n)

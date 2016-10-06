@@ -24,7 +24,7 @@ SpriteComponent: {
 EditorComponent: {
 	},
 DemoController: {
-	"speed": 1.100000
+	"speed": 5.000000
 	},
 DemoSpawner: {
 	},

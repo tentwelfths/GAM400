@@ -17,6 +17,7 @@
 #include "DemoController.h"
 #include "DemoSpawner.h"
 #include "OutOfBounds.h"
+#include "DemoReload.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -33,6 +34,7 @@ int main( void )
   RegisterComponentType(DemoSpawner);
   RegisterComponentType(EditorComponent);
   RegisterComponentType(OutOfBounds);
+  RegisterComponentType(DemoReload);
 
   gCore->LoadLevel("DemoLevel.json");
 

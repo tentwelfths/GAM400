@@ -205,6 +205,7 @@
     </ClCompile>
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="DemoController.cpp" />
+    <ClCompile Include="DemoReload.cpp" />
     <ClCompile Include="DemoSpawner.cpp" />
     <ClCompile Include="EditorComponent.cpp" />
     <ClCompile Include="EditorSystem.cpp" />
@@ -311,6 +312,7 @@
     </ClInclude>
     <ClInclude Include="Core.h" />
     <ClInclude Include="DemoController.h" />
+    <ClInclude Include="DemoReload.h" />
     <ClInclude Include="DemoSpawner.h" />
     <ClInclude Include="EditorComponent.h" />
     <ClInclude Include="EditorSystem.h" />
