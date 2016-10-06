@@ -65,8 +65,8 @@ bool GraphicsSystem::Initialize()
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE); //We don't want the old OpenGL 
 
   // Open a window and create its OpenGL context
-  width = 100, height = 100;
-  mWindow = glfwCreateWindow(width, height, "Tutorial 03 - Matrices", NULL/*glfwGetPrimaryMonitor()*/, NULL);
+  width = 1600, height = 900;
+  mWindow = glfwCreateWindow(width, height, "Tutorial 03 - Matrices", glfwGetPrimaryMonitor(), NULL);
   if (mWindow == NULL){
     return false;
   }
