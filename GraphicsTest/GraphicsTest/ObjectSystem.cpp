@@ -92,19 +92,19 @@ void     ObjectSystem::Update(double dt)
 {
   frameData = "";
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
-    std::cout << "FUCK YOU BE DIE"<<iter->first<<std::endl;
-    frameData += '%';
-    for (int k = 0; k < sizeof(unsigned int); ++k)
+    if (iter->second <= 1)
     {
-      if (iter->second <= 1)
+      std::cout << "FUCK YOU BE DIE" << iter->first << std::endl;
+      frameData += '%';
+      for (int k = 0; k < sizeof(unsigned int); ++k)
       {
-        frameData += static_cast<const char *>(static_cast<const void *>(&(iter->first)))[k];
+          frameData += static_cast<const char *>(static_cast<const void *>(&(iter->first)))[k];
       }
-      if (iter->second == 0){
-        iter->second = 30;
-      }
-      iter->second -= 1;
     }
+    if (iter->second == 0){
+      iter->second = 30;
+    }
+    iter->second -= 1;
   }
   for (auto iter = mObjects.begin(); iter != mObjects.end(); ++iter)
   {
