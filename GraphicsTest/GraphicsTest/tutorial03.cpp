@@ -20,7 +20,6 @@ std::unordered_map<std::string, IComponent*(*)()> components;
 
 int main( void )
 {
-  JSONTranslator j;
   gCore = new Core();
   gCore->Initialize();
   RegisterComponentType(SpriteComponent);
@@ -28,8 +27,6 @@ int main( void )
   RegisterComponentType(BoxColliderComponent);
   RegisterComponentType(PlayerControllerComponent);
   RegisterComponentType(EditorComponent);
-
-  j.LoadLevelFromFile("TestLevel.json");
 
   while (true)
   {

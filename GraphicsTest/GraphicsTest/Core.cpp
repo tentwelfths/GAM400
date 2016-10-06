@@ -45,6 +45,8 @@ bool Core::Initialize()
 
 void Core::Update(double dt)
 {
+
+
   auto * frc = static_cast<FramerateController*>(mSystems["FramerateController"]);
   frc->StartFrame();
   for (auto & iter : mSystemsOrdered)
@@ -53,6 +55,7 @@ void Core::Update(double dt)
     iter->Update(frc->GetDT());
     frc->SetSystemEnd();
   }
+
   //frc->PrintSystemTimeAnalysis();
   frc->EndFrame();
 }

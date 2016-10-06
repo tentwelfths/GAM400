@@ -21,6 +21,12 @@ bool EditorSystem::Initialize(){
 void EditorSystem::Update(double dt){
   
   auto * input = gCore->GetSystem(InputSystem);
+  if (input->isKeyJustPressed(GLFW_KEY_O)){
+    gCore->LoadLevel("TestLevel.json");
+  }
+  else if (input->isKeyJustPressed(GLFW_KEY_P)){
+    gCore->UnloadLevel();
+  }
   if (input->isKeyJustPressed(GLFW_KEY_GRAVE_ACCENT)){
     gCore->editor = !gCore->editor;
   }

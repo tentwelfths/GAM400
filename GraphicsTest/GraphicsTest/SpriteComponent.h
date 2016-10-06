@@ -15,4 +15,5 @@ public:
   GLuint mTexture(){ return mTexture_; }
   std::string mTextureName;
   GLuint mTexture_;
+  bool hasChanged;
 };

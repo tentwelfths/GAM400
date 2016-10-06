@@ -41,7 +41,7 @@ void ObjectSystem::ClearSystem(){
 std::string ObjectSystem::GetData(Object * iter)
 {
   TransformComponent * t = iter->GetComponent(TransformComponent);
-  std::string data = "";
+  std::string data = "`";
   int i = 0;
   ++i;
   for (int k = 0; k < sizeof(unsigned int); ++k)
@@ -91,6 +91,13 @@ std::string ObjectSystem::GetData(Object * iter)
 void     ObjectSystem::Update(double dt)
 {
   frameData = "";
+  for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
+    frameData += '%';
+    for (int k = 0; k < sizeof(float); ++k)
+    {
+      frameData += static_cast<char *>(static_cast<void *>(&(*iter)))[k];
+    }
+  }
   for (auto iter = mObjects.begin(); iter != mObjects.end(); ++iter)
   {
     auto node = iter->second.head;
@@ -112,6 +119,7 @@ void     ObjectSystem::Update(double dt)
           }
         }
         if (removable){
+          deadObjects.push_back(node->value->ID);
           delete node->value;
           node = iter->second.Remove(node);
         }
@@ -171,4 +179,13 @@ Object * ObjectSystem::GetNthItemByName(std::string name, unsigned n)
   }
   if (!head)return nullptr;
   return head->value;
+}
+void ObjectSystem::RemoveDeadObject(unsigned int ID)
+{
+  for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
+    if (*iter == ID){
+      deadObjects.erase(iter);
+      return;
+    }
+  }
 }

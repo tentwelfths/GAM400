@@ -232,6 +232,13 @@ void NetworkingSystem::Update(double dt)
         --i;
         break;
       }
+      else if (command[0] == '%')//ACKing DEATH
+      {
+        int pos = 1;
+        int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
+        auto * objSys = gCore->GetSystem(ObjectSystem);
+        objSys->RemoveDeadObject(ded);
+      }
       else if (command[0] == '~')//input
       {
         int pos = 1;
@@ -269,7 +276,7 @@ void NetworkingSystem::Update(double dt)
     }
     if (((even && i % 2 == 0) || (!even && i % 2 == 1)) && frameData != ""){
       //int b = send(sockets[i].client, frameData.c_str(), frameData.length(), 0);
-      std::string toSend = "`"; 
+      std::string toSend = ""; 
       
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[0];
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];

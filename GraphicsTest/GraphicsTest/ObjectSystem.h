@@ -20,11 +20,12 @@ public:
 
   Object * CreateObjectFromFile(std::string filename);
   void CreateArchetypeFromObject(Object * obj);
-
+  void RemoveDeadObject(unsigned int ID);
   void ClearSystem();
 
   unsigned int myCount;
   std::string frameData;
 private:
   std::string GetData(Object * iter);
+  std::vector<unsigned int> deadObjects;
 };

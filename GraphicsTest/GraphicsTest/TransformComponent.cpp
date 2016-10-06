@@ -7,11 +7,13 @@ TransformComponent::TransformComponent()
   AddMember(TransformComponent, mPosition_);
   AddMember(TransformComponent, mScale_);
   AddMember(TransformComponent, mRotation_);
+  hasChanged = false;
   mName_ = "TransformComponent";
 }
 
 bool TransformComponent::Initialize()
 {
+  hasChanged = true;
   clean = true;
   return true;
 }
@@ -29,77 +31,92 @@ void TransformComponent::Shutdown()
 
 void       TransformComponent::mPosition(glm::vec3 pos)             
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mPosition_ = pos; 
 }
 void       TransformComponent::mPosition(float x, float y, float z) 
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mPosition_ = glm::vec3(x, y, z); 
 }
 void       TransformComponent::mPositionX(float x)                  
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mPosition_.x = x; 
 }
 void       TransformComponent::mPositionY(float y)                  
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mPosition_.y = y; 
 }
 void       TransformComponent::mPositionZ(float z)                  
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mPosition_.z = z; 
 }
 void       TransformComponent::mScale(glm::vec3 pos)                
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mScale_ = pos; 
 }
 void       TransformComponent::mScale(float x, float y, float z)    
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mScale_ = glm::vec3(x, y, z); 
 }
 void       TransformComponent::mScaleX(float x)                     
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mScale_.x = x; 
 }
 void       TransformComponent::mScaleY(float y)                     
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mScale_.y = y; 
 }
 void       TransformComponent::mScaleZ(float z)                     
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mScale_.z = z; 
 }
 void       TransformComponent::mRotation(glm::vec3 pos)             
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mRotation_ = pos; 
 }
 void       TransformComponent::mRotation(float x, float y, float z) 
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mRotation_ = glm::vec3(x, y, z); 
 }
 void       TransformComponent::mRotationX(float x)                  
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mRotation_.x = x; 
 }
 void       TransformComponent::mRotationY(float y)                  
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mRotation_.y = y; 
 }
 void       TransformComponent::mRotationZ(float z)                  
 {
-  mParent_->hasChanged = true; 
+  mParent_->hasChanged = true;
+  hasChanged = true;
   mRotation_.z = z; 
 }
 glm::vec3  TransformComponent::mPosition(){ return mPosition_; }

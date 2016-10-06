@@ -16,6 +16,7 @@ public:
   glm::vec3 mRotation_;
 
 public:
+  bool hasChanged;
   void mPosition(glm::vec3 pos);//
   void mPosition(float x, float y, float z);// { mPosition_ = glm::vec3(x, y, z); }
   void mPositionX(float x);//{ mPosition_.x = x; }
