@@ -95,7 +95,7 @@ void     ObjectSystem::Update(double dt)
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
     if (iter->second <= 1)
     {
-      std::cout << "FUCK YOU BE DIE" << iter->first << std::endl;
+      //std::cout << "FUCK YOU BE DIE" << iter->first << std::endl;
       frameData += '%';
       for (int k = 0; k < sizeof(unsigned int); ++k)
       {

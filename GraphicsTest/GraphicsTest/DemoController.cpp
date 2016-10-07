@@ -9,6 +9,8 @@
 #include "PlayerControllerComponent.h"
 #include "InputSystem.h"
 #include "BoxColliderComponent.h"
+#include "Standard.h"
+#include "System.h"
 
 DemoController::DemoController() :GameLogicComponent(GameLogicType::DEMOPLAYER), speed(1.1f)
 {
@@ -40,6 +42,8 @@ void DemoController::Update(double dt)
   }
   if (rigid->GetJustCollided())
   {
+    rigid->SetJustCollided(false);
+    std::cout << "HIT" << std::endl;
     mParent()->Destroy();
   }
   auto * trans = mParent_->GetComponent(TransformComponent);

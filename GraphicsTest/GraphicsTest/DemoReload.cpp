@@ -3,6 +3,8 @@
 #include "Globals.h"
 #include "ObjectSystem.h"
 #include "Object.h"
+#include "Standard.h"
+#include "System.h"
 
 DemoReload::DemoReload() : GameLogicComponent(GameLogicType::RELOAD), timeToUnload(1.0f), time(0.0f)
 {
@@ -20,6 +22,7 @@ void DemoReload::Update(double dt)
   auto player = checker->GetFirstItemByName("Player");
   if (!player)
   {
+    std::cout << time << std::endl;
     if (time >= timeToUnload)
     {
       gCore->UnloadLevel();

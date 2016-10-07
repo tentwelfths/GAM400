@@ -25,9 +25,9 @@ void EditorComponent::Update(double dt){
     
     if (mX > trans->mPositionX() - trans->mScaleX() / 2.f && mX < trans->mPositionX() + trans->mScaleX() / 2.f
       && mY > trans->mPositionY() - trans->mScaleY() / 2.f && mY < trans->mPositionY() + trans->mScaleY() / 2.f){
-      std::cout << mX << "," << mY << std::endl;
-      std::cout << trans->mPositionX() - trans->mScaleX() / 2.f << "," << trans->mPositionX() + trans->mScaleX() / 2.f << std::endl;
-      std::cout << trans->mPositionY() - trans->mScaleY() / 2.f << "," << trans->mPositionY() + trans->mScaleY() / 2.f << std::endl << std::endl;
+      //std::cout << mX << "," << mY << std::endl;
+      //std::cout << trans->mPositionX() - trans->mScaleX() / 2.f << "," << trans->mPositionX() + trans->mScaleX() / 2.f << std::endl;
+      //std::cout << trans->mPositionY() - trans->mScaleY() / 2.f << "," << trans->mPositionY() + trans->mScaleY() / 2.f << std::endl << std::endl;
       auto * editor = gCore->GetSystem(EditorSystem);
       editor->Select(mParent_);
     }
@@ -36,8 +36,8 @@ void EditorComponent::Update(double dt){
     
     if (mX > trans->mPositionX() - trans->mScaleX() / 2.f && mX < trans->mPositionX() + trans->mScaleX() / 2.f
       && mY > trans->mPositionY() - trans->mScaleY() / 2.f && mY < trans->mPositionY() + trans->mScaleY() / 2.f){
-      std::cout << mX << "," << mY << std::endl;
-      std::cout << trans->mPositionX() << "," << trans->mPositionY() << std::endl << std::endl;
+      //std::cout << mX << "," << mY << std::endl;
+      //std::cout << trans->mPositionX() << "," << trans->mPositionY() << std::endl << std::endl;
       mParent_->Destroy();
       auto * editor = gCore->GetSystem(EditorSystem);
       editor->Select(nullptr);

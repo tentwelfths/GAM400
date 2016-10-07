@@ -74,3 +74,8 @@ b2Body* PhysicsSystem::AddBody(b2BodyDef* theBody)
 {
   return theWorld->CreateBody(theBody);
 }
+
+void PhysicsSystem::RemoveBody(b2Body* remove)
+{
+  theWorld->DestroyBody(remove);
+}

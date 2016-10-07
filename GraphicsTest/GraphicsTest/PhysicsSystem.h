@@ -21,6 +21,7 @@ public:
   void RegisterComponent(PhysicsComponent * comp);
   b2Body* AddBody(b2BodyDef* theBody);
   MyListen* GetListen() { return theListen; }
+  void RemoveBody(b2Body* remove);
 private:
   std::vector<PhysicsComponent *> mComponents_;
   b2World* theWorld;

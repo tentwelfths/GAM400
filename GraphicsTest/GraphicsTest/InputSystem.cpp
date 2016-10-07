@@ -81,7 +81,7 @@ void InputSystem::setRaspKey(int key, bool val, int clientNumber)
 
 void InputSystem::setKey(int key, bool val)
 {
-  std::cout << key << ":" << val << std::endl;
+  //std::cout << key << ":" << val << std::endl;
   currInputs[key] = val;
 }
 
@@ -212,7 +212,7 @@ void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse)
     //modelview[i] = gSys->View[i / 4][i % 4];
   }
   gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
-  std::cout << worldX << ", " << worldY << std::endl;
+  //std::cout << worldX << ", " << worldY << std::endl;
   i->setMousePos(worldX, worldY);
 }
 

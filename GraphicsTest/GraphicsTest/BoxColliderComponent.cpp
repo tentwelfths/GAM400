@@ -60,12 +60,18 @@ void BoxColliderComponent::Update(double dt)
 
 void BoxColliderComponent::Shutdown()
 {
+  PhysicsSystem* g = gCore->GetSystem(PhysicsSystem);
+  g->RemoveBody(theBody);
   delete type;
   delete box;
 }
 
 void BoxColliderComponent::ConfirmPosition(){
   auto* trans = mParent_->GetComponent(TransformComponent);
+  if (!trans)
+  {
+    return;
+  }
   b2Vec2 testVec(trans->mPositionX(), trans->mPositionY());
   theBody->SetTransform(testVec, trans->mRotationZ());
 }
