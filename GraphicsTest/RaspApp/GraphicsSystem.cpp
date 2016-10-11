@@ -624,18 +624,18 @@ GLboolean GraphicsSystem::userInterrupt(ESContext *esContext)
 
 void GraphicsSystem::LoadPngToTexture(const char * filename)
 {
-  GLint myPNG = loadpng(filename);
-  if(myPNG == 0){
-    std::cout<<"PNG did not load"<<std::endl;
-    return;
-  }
-  std::string temp = filename;
-  //temp = temp.substr(0, temp.find_last_of('.'));
-  TextureType t;
-  t.name = temp;
-  t.textureID = myPNG;
-  
-  mTextures.insert({temp, t});
+  //GLint myPNG = loadpng(filename);
+  //if(myPNG == 0){
+  //  std::cout<<"PNG did not load"<<std::endl;
+  //  return;
+  //}
+  //std::string temp = filename;
+  ////temp = temp.substr(0, temp.find_last_of('.'));
+  //TextureType t;
+  //t.name = temp;
+  //t.textureID = myPNG;
+  //
+  //mTextures.insert({temp, t});
 }
 
 
