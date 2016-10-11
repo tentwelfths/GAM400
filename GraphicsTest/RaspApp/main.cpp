@@ -269,12 +269,12 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         pos += sizeof(float);
         auto & temp = gObjectMap.find(objectID);
         if(temp != gObjectMap.end()){
-          (temp).second->position[0] = xPos;
-          (temp).second->position[1] = yPos;
-          (temp).second->position[2] = zPos;
-          (temp).second->scale[0] = xSca;
-          (temp).second->scale[1] = ySca;
-          (temp).second->rotation[2] = rot;
+          (temp)->second->position[0] = xPos;
+          (temp)->second->position[1] = yPos;
+          (temp)->second->position[2] = zPos;
+          (temp)->second->scale[0] = xSca;
+          (temp)->second->scale[1] = ySca;
+          (temp)->second->rotation[2] = rot;
         }
       }
       break;
