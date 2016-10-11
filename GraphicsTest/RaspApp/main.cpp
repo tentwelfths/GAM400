@@ -176,6 +176,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
     int pos = 1;
     switch(command[0]){
       case '`': // Object created. 
+      {
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         const unsigned char textureNameLength = *reinterpret_cast<const unsigned char*>(&(command[pos]));
@@ -227,9 +228,9 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         } 
         n->Send(temp.data(), temp.length());
       break;
-
+      }
       case '%': //Object died
-
+      {
       unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
       pos += sizeof(unsigned int);
       if(gObjectMap.find(objectID) != gObjectMap.end()){
@@ -241,9 +242,11 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
       } 
       n->Send(temp.data(), temp.length());
+      }
       break;
 
       case '#': //Object moved
+      {
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
@@ -273,15 +276,25 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
           (*temp)->scale[1] = ySca;
           (*temp)->rotation[2] = rot;
         }
+      }
       break;
 
       case '$': //Object texture changed
+      {
+
+      }
       break;
 
       case '^': //Update led bar graph
+      {
+
+      }
       break;
 
       case '&': //play sound effect
+      {
+        
+      }
       break;
 
     }
