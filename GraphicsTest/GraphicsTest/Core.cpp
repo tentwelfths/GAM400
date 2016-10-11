@@ -38,14 +38,22 @@ bool Core::Initialize()
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
     (*iter).second->Initialize();
 
-  g->LoadTexture("Kakka_Carrot_Veggie.png");
-  g->LoadTexture("Key.png");
-  g->LoadTexture("player.png");
-  g->LoadTexture("bolt.png");
-  g->LoadTexture("rock.png");
+  //g->LoadTexture("../Assets/Kakka_Carrot_Veggie.png");
+  //g->LoadTexture("../Assets/Key.png");
+  //g->LoadTexture("../Assets/player.png");
+  //g->LoadTexture("../Assets/bolt.png");
+  //g->LoadTexture("../Assets/rock.png");
+  LoadTextures("../Assets/Textures.JSON", g);
   unloading = false;
   needToLoad = "";
   return true;
+}
+
+void Core::LoadTextures(std::string filename, GraphicsSystem * g)
+{
+  
+  JSONTranslator j;
+  j.LoadTextures(filename, g);
 }
 
 void Core::Update(double dt)

@@ -12,8 +12,8 @@ public:
   //void GetTexture(std::string textureName);
   void SetTexture(std::string textureName);
   void Shutdown();
-  GLuint mTexture(){ return mTexture_; }
+  //GLuint mTexture(){ return mTexture_; }
   std::string mTextureName;
-  GLuint mTexture_;
+  //GLuint mTexture_;
   bool hasChanged;
 };

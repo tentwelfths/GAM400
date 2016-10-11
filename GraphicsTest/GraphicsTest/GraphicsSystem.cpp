@@ -348,7 +348,7 @@ void GraphicsSystem::Update(double dt)
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &Rotation[0][0]);
     if (iter->mType() == GraphicsType::SPRITE)
     {
-      GLuint tex = mTextureMap_[static_cast<SpriteComponent *>(iter)->mTextureName];
+      GLuint tex = mTextureMap_[static_cast<SpriteComponent *>(iter)->mTextureName].textureID;
       glActiveTexture(GL_TEXTURE0);
       glBindTexture(GL_TEXTURE_2D, tex);
 
@@ -414,7 +414,7 @@ SOIL_free_image_data(image);
 glBindTexture(GL_TEXTURE_2D, 0);
 */
 
-void GraphicsSystem::LoadTexture(std::string filename)
+GLuint GraphicsSystem::LoadTexture(std::string filename)
 {
   int w, h;
   GLuint texID;
@@ -440,30 +440,18 @@ void GraphicsSystem::LoadTexture(std::string filename)
   // free the image back to the system, it has been added to the texture
   SOIL_free_image_data(image);
   glBindTexture(GL_TEXTURE_2D, 0);
-  
-  //
-  //unsigned char * p = SOIL_load_image(filename.c_str(), &w, &h, &c, SOIL_LOAD_L);
-  //
-  ////GLuint texID = SOIL_load_OGL_texture("A.png",
-  ////  SOIL_LOAD_AUTO,
-  ////  SOIL_CREATE_NEW_ID,
-  ////  SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-  ////  );
-  //texID = SOIL_load_OGL_texture_from_memory
-  //  (
-  //  p,
-  //  w*h*c,
-  //  SOIL_LOAD_AUTO,
-  //  SOIL_CREATE_NEW_ID,
-  //  SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT
-  //  );
+
   if (texID > 0)
   {
-    mTextureMap_.insert({ filename, texID });
+    //std::string name = filename.substr(filename.find_first_of('/') + 1);
+    //name = name.substr(name.find_first_of('/') + 1);
+    //mTextureMap_.insert({ name, texID });
+    return texID;
   }
   else
   {
     std::cout << "Texture loading failed:\n Filename: '"<<filename<<"\nReason: '" << SOIL_last_result() << "'" << std::endl;
+    return 0;
   }
 
 }
@@ -472,6 +460,12 @@ GLuint GraphicsSystem::GetTexture(std::string textureName)
 {
   auto tex = mTextureMap_.find(textureName);
   if (tex != mTextureMap_.end())
-    return tex->second;
+    return tex->second.textureID;
   return 0; 
+}
+
+
+void GraphicsSystem::RegisterTexture(TextureType t)
+{
+  mTextureMap_.insert({ t.name, t });
 }

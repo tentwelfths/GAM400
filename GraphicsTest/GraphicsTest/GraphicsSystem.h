@@ -13,6 +13,16 @@ using namespace glm;
 
 class GraphicsComponent;
 
+struct TextureType
+{
+  std::string name;
+  int frames;
+  int rows;
+  int cols;
+  int index;
+  GLuint textureID;
+};
+
 class GraphicsSystem : public System
 {
 public:
@@ -26,7 +36,9 @@ public:
 
   void RegisterComponent(GraphicsComponent * comp);
 
-  void LoadTexture(std::string filename);
+  GLuint LoadTexture(std::string filename);
+
+  void RegisterTexture(TextureType t);
 
   GLuint GetTexture(std::string textureName);
 
@@ -44,9 +56,9 @@ private:
   GLuint mVertexArrayID;
   GLuint programID;
   float width, height;
-  GLuint mTexture;
+  //GLuint mTexture;
   GLuint mTextureID;
-  std::unordered_map<std::string, GLuint> mTextureMap_;
+  std::unordered_map<std::string, TextureType> mTextureMap_;
   std::vector<GraphicsComponent *> mComponents_;
   void GraphicsSystem::GatherFrameData(GraphicsComponent * iter);
 };

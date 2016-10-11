@@ -20,7 +20,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": player.png
+		"mTextureName": Key.png
 		},
 	EditorComponent: {
 		},

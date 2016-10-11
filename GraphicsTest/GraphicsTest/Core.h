@@ -4,6 +4,8 @@
 
 #define GetSystem(sysName) GetSystemA<sysName>(#sysName)
 
+class GraphicsSystem;
+
 class Core
 {
 public:
@@ -13,6 +15,7 @@ public:
   void RegisterSystem(System * s);
   void UnloadLevel();
   void LoadLevel(std::string filename);
+  void LoadTextures(std::string filename, GraphicsSystem * g);
   template <typename T>
   T * GetSystemA(const char * systemName);
   bool editor;

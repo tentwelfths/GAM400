@@ -1,11 +1,13 @@
 #include "JSONTranslator.h"
 #include "Globals.h"
 #include "Object.h"
+#include "Standard.h"
 #include "SpriteComponent.h"
 #include "RigidbodyComponent.h"
 #include "TransformComponent.h"
 #include "BoxColliderComponent.h"
 #include "ObjectSystem.h"
+#include "GraphicsSystem.h"
 
 
 void JSONTranslator::DeserializeComponent(IComponent * component, std::ifstream & file)
@@ -161,6 +163,69 @@ void JSONTranslator::LoadLevelFromFile(std::string filename)
       break;
     Object * obj = DeserializeObject(file);
     obj->Initialize();
+  }
+}
+
+void JSONTranslator::LoadTextures(std::string filename, GraphicsSystem * system)
+{
+  std::ifstream file;
+  file.open(filename);
+  if (!file.is_open()) return;
+  std::string name = "";
+  GLuint index = 0;
+  int frames = 1; 
+  int rows = 1;
+  int cols = 1;
+  while (!file.eof())
+  {
+    std::string line;
+    line += file.peek();
+    if (line == "{"){
+      std::getline(file, line);
+      continue;
+    }
+    if (line == "}" || line == "},")
+    {
+      TextureType t;
+      t.name = name; 
+      t.index = index;
+      t.frames = frames;
+      t.rows = rows;
+      t.cols = cols;
+      t.textureID = system->LoadTexture("../Assets/"+name);
+      system->RegisterTexture(t);
+      name = "";
+      index = 0;
+      frames = 1;
+      rows = 1;
+      cols = 1;
+    }
+
+    std::getline(file, line);
+    std::string propertyName;
+    std::string value;
+    propertyName = trim(line.substr(0, line.find_first_of(':')));
+    value = trim(trim(line.substr(line.find_first_of(':') + 1)), ",");
+    if (propertyName == "Name")
+    {
+      name = value;
+    }
+    else if (propertyName == "Index")
+    {
+      index = std::stoi(value);
+    }
+    else if (propertyName == "Rows")
+    {
+      rows = std::stoi(value);
+    }
+    else if (propertyName == "Cols")
+    {
+      cols = std::stoi(value);
+    }
+    else if (propertyName == "Frames")
+    {
+      frames = std::stoi(value);
+    }
   }
 }
 

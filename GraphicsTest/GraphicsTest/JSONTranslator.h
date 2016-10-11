@@ -2,6 +2,7 @@
 class Object;
 class IComponent;
 class ObjectSystem;
+class GraphicsSystem;
 class JSONTranslator{
 public:
   void DeserializeComponent(IComponent * component, std::ifstream & file);
@@ -11,4 +12,5 @@ public:
   Object * DeserializeObject(std::ifstream & file);
   void LoadLevelFromFile(std::string filename);
   void SaveLevelToFile(std::string filename, ObjectSystem * system);
+  void LoadTextures(std::string filename, GraphicsSystem * system);
 };

@@ -34,8 +34,8 @@ void SpriteComponent::SetTexture(std::string textureName)
 {
   mParent_->hasChanged = true;
   mTextureName = textureName;
-  GLuint temp = gCore->GetSystem(GraphicsSystem)->GetTexture(textureName);
-  if (temp > 0)
-    mTexture_ = temp;
+  //GLuint temp = gCore->GetSystem(GraphicsSystem)->GetTexture(textureName);
+  //if (temp > 0)
+  //  mTexture_ = temp;
 
 }
