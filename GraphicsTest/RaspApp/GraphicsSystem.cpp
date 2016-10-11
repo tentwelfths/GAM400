@@ -244,7 +244,7 @@ GraphicsSystem::GraphicsSystem()
 
 }
 
-void GraphicsSystem::LoadTextures(std::string){
+void GraphicsSystem::LoadTextures(std::string filename){
   std::ifstream file;
   file.open(filename);
   if (!file.is_open()) return;
@@ -667,7 +667,7 @@ GLint GraphicsSystem::loadpng(std::string file_name)
 
   png_byte header[8];
 
-  FILE *fp = fopen(file_name, "rb");
+  FILE *fp = fopen(file_name.c_str(), "rb");
   if (fp == 0)
   {
       perror(file_name.c_str());
