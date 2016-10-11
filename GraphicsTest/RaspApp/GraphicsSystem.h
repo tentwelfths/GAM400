@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
 
 #include <GLES/gl.h>
 #include <EGL/egl.h>
@@ -116,7 +117,7 @@ public:
   
   GLushort indices_[6];
 private:
-  GLint loadpng(const char * filename);
+  GLint loadpng(std::string filename);
   bool WinCreate();
   GLboolean userInterrupt();
 };

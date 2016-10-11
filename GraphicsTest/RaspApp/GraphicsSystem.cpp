@@ -660,7 +660,7 @@ void GraphicsSystem::LoadPngToTexture(const char * filename)
 // This one file (png_texture.cpp) is free and unencumbered software
 // released into the public domain.
 
-GLint GraphicsSystem::loadpng(const char * file_name)
+GLint GraphicsSystem::loadpng(std::string file_name)
 {
   // This function was originally written by David Grayson for
   // https://github.com/DavidEGrayson/ahrs-visualizer
