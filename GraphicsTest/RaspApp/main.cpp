@@ -267,7 +267,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         pos += sizeof(float);
-        auto & temp = gObjectMap.find(objectID);
+        auto temp = gObjectMap.find(objectID);
         if(temp != gObjectMap.end()){
           (temp)->second->position[0] = xPos;
           (temp)->second->position[1] = yPos;
