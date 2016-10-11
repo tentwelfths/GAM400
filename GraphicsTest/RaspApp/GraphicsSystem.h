@@ -60,6 +60,10 @@ static Display *x_display = NULL;
 
 struct TextureType{
   std::string name;
+  int frames;
+  int rows;
+  int cols;
+  int index;
   GLuint textureID;
 };
 
