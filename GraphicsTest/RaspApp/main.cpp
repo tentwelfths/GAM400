@@ -221,12 +221,12 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->textureID = textureID;
         temp->inUse = true;
         
-        std::string temp = "`";
+        std::string tempstring = "`";
         for(unsigned i = 0; i < sizeof(unsigned int); ++i)
         {
-          temp += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
+          tempstring += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
         } 
-        n->Send(temp.data(), temp.length());
+        n->Send(tempstring.data(), tempstring.length());
       break;
       }
       case '%': //Object died
