@@ -179,12 +179,12 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       {
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
-        const unsigned char textureNameLength = *reinterpret_cast<const unsigned char*>(&(command[pos]));
+        const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
-        std::string textureName = "";
-        for(unsigned char i = 0; i < textureNameLength; ++i){
-          textureName += (char)command[pos++];
-        }
+        //std::string textureName = "";
+        //for(unsigned char i = 0; i < textureNameLength; ++i){
+        //  textureName += (char)command[pos++];
+        //}
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
@@ -204,7 +204,6 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         pos += sizeof(float);
-        int textureID = g->mTextures[textureName].textureID;
         if(gObjects[textureID].find(objectID) == gObjects[textureID].end())
         {
           Object * obj = new Object();
