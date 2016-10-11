@@ -281,8 +281,8 @@ void GraphicsSystem::LoadTextures(std::string){
     std::getline(file, line);
     std::string propertyName;
     std::string value;
-    propertyName = trim(line.substr(0, line.find_first_of(':')));
-    value = trim(trim(line.substr(line.find_first_of(':') + 1)), ",");
+    propertyName = trim(std::string(line.substr(0, line.find_first_of(':'))));
+    value = trim(trim(std::string(line.substr(line.find_first_of(':') + 1)), ","));
     if (propertyName == "Name")
     {
       name = value;
