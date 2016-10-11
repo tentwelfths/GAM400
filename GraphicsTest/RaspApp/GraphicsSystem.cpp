@@ -670,7 +670,7 @@ GLint GraphicsSystem::loadpng(std::string file_name)
   FILE *fp = fopen(file_name, "rb");
   if (fp == 0)
   {
-      perror(file_name);
+      perror(file_name.c_str());
       return 0;
   }
 
@@ -679,7 +679,7 @@ GLint GraphicsSystem::loadpng(std::string file_name)
 
   if (png_sig_cmp(header, 0, 8))
   {
-      fprintf(stderr, "error: %s is not a PNG.\n", file_name);
+      fprintf(stderr, "error: %s is not a PNG.\n", file_name.c_str());
       fclose(fp);
       return 0;
   }
@@ -741,7 +741,7 @@ GLint GraphicsSystem::loadpng(std::string file_name)
 
   if (bit_depth != 8)
   {
-      fprintf(stderr, "%s: Unsupported bit depth %d.  Must be 8.\n", file_name, bit_depth);
+      fprintf(stderr, "%s: Unsupported bit depth %d.  Must be 8.\n", file_name.c_str(), bit_depth);
       return 0;
   }
 
@@ -755,7 +755,7 @@ GLint GraphicsSystem::loadpng(std::string file_name)
       format = GL_RGBA;
       break;
   default:
-      fprintf(stderr, "%s: Unknown libpng color type %d.\n", file_name, color_type);
+      fprintf(stderr, "%s: Unknown libpng color type %d.\n", file_name.c_str(), color_type);
       return 0;
   }
 
