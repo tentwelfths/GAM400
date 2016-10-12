@@ -59,7 +59,7 @@ std::string ObjectSystem::GetTextureData(unsigned int ID)
 
 std::string ObjectSystem::GetTransformData(Object * iter)
 {
-  if (iter->dead) return "";
+  if (iter == nullptr || iter->dead) return "";
   TransformComponent * t = iter->GetComponent(TransformComponent);
   std::string data = "";
   int i = 0;
@@ -106,7 +106,7 @@ std::string ObjectSystem::GetTransformData(Object * iter)
 std::string ObjectSystem::GetTextureData(Object * iter)
 {
   std::string data = "";
-  if (iter->dead) return data;
+  if (iter == nullptr || iter->dead) return data;
   for (int k = 0; k < sizeof(unsigned int); ++k)
   {
     data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
@@ -119,7 +119,7 @@ std::string ObjectSystem::GetTextureData(Object * iter)
 std::string ObjectSystem::GetData(Object * iter)
 {
   std::string data = "";
-  if (iter->dead) return data;
+  if (iter == nullptr || iter->dead) return data;
   TransformComponent * t = iter->GetComponent(TransformComponent);
   int i = 0;
   ++i;
