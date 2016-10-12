@@ -284,8 +284,6 @@ Object * ObjectSystem::GetNthItemByName(std::string name, unsigned n)
 }
 void ObjectSystem::RemoveDeadObject(unsigned int ID)//FUCK YOU THIS DOESN'T DO WHAT YOU THINK IT DOES. IS FOR NATWURKN
 {
-  auto * system = gCore->GetSystem(NetworkingSystem);
-  system->AddCommand('%', ID);
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
     if (iter->first == ID){
       deadObjects.erase(iter);
@@ -295,8 +293,6 @@ void ObjectSystem::RemoveDeadObject(unsigned int ID)//FUCK YOU THIS DOESN'T DO W
 }
 void ObjectSystem::RemoveBornObject(unsigned int ID)//FUCK YOU THIS DOESN'T DO WHAT YOU THINK IT DOES. IS FOR NATWURKN
 {
-  auto * system = gCore->GetSystem(NetworkingSystem);
-  system->AddCommand('%', ID);
   for (auto iter = bornObjects.begin(); iter != bornObjects.end(); ++iter){
     if (iter->first == ID){
       bornObjects.erase(iter);
