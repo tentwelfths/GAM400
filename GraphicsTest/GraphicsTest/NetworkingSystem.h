@@ -36,7 +36,8 @@ struct UDPConnection
 
 struct Command
 {
-  std::string command;
+  char comType;
+  unsigned int ID;
   char sendCount;
 };
 
@@ -67,5 +68,5 @@ private:
   std::vector<UDPConnection> connections;
   bool even;
   std::vector<Command> mCommands;
-
+  std::string ConstructCommand(char type, unsigned int ID);
 };

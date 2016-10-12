@@ -289,12 +289,11 @@ void NetworkingSystem::Update(double dt)
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[0];
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
-      for (unsigned k = 0; k < mCommands.size() && toSend.length() + mCommands[k].command.length() < 1020; ++k){
+      for (unsigned k = 0; k < mCommands.size() && k < 30; ++k){
         toSend += '!';
-        for (unsigned j = 0; j < mCommands[k].command.length(); ++j){
-          toSend += mCommands[k].command[j];
-        }
-        ++c;
+        std::string temp = ConstructCommand(mCommands[k].comType, mCommands[k].ID);
+        if (toSend.length() + temp.length() > 1023)break;
+        toSend += temp;
       }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
@@ -302,13 +301,11 @@ void NetworkingSystem::Update(double dt)
       std::cout << "Sent " << b << " bytes." << std::endl;
     }
   }
-  for (unsigned k = 0, total = 2; k < mCommands.size() && total + mCommands[k].command.length() < 1020; ++k){
+  for (unsigned k = 0; k < mCommands.size() && k < 30; ++k){
     mCommands[k].sendCount += 1;
-    total += mCommands[k].command.length();
     if (mCommands[k].sendCount > 1){
       mCommands.erase(mCommands.begin() + k);
       --k;
-      --c;
     }
   }
 }
@@ -326,6 +323,17 @@ void NetworkingSystem::Shutdown()
 }
 
 void NetworkingSystem::AddCommand(char com, unsigned int ID)
+{
+  for (unsigned i = 0; i < mCommands.size(); ++i){
+    if (mCommands[i].comType == com && mCommands[i].ID == ID){
+      mCommands[i].sendCount = 0;
+      return;
+    }
+  }
+  mCommands.push_back({ com, ID, 0 });
+}
+
+std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
 {
   switch (com){
   case '`': // Object created. 
