@@ -174,7 +174,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   //    unfinished += buf[i];
   //  }
   //}
-  int pos = 0;
+  pos = 0;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
     switch(command[pos]){
