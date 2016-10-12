@@ -242,7 +242,7 @@ void NetworkingSystem::Update(double dt)
       else if (command[0] == '~')//input
       {
         int pos = 1;
-        std::cout << "GOT INPUT" << std::endl;
+        //std::cout << "GOT INPUT" << std::endl;
         unsigned short x, y;
         bool button;
         x = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
@@ -291,8 +291,8 @@ void NetworkingSystem::Update(double dt)
       }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
-      //std::cout << "Send: " << toSend << std::endl;
-      //std::cout << "Sent " << b << " bytes." << std::endl;
+      std::cout << "Send: " << toSend << std::endl;
+      std::cout << "Sent " << b << " bytes." << std::endl;
     }
   }
 }

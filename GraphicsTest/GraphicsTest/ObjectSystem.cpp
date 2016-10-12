@@ -230,7 +230,7 @@ void     ObjectSystem::Update(double dt)
         continue;
       }
       if (node->value->hasChanged || node->value->age > rand() % 100 + 100){
-        frameData += GetData(node->value);
+        //frameData += GetData(node->value);
 
         auto * system = gCore->GetSystem(NetworkingSystem);
         system->AddCommand('#', node->value->ID);
