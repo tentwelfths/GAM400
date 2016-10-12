@@ -423,7 +423,7 @@ int main ( int argc, char *argv[] )
   for(auto & iter : g.mTextures){
     std::cout<<iter.first<<"   "<<iter.second.name<<std::endl;
   }
-  return 0;
+  //return 0;
   //Object a;
   //a.position[0] = 0;
   //a.position[1] = 0;
