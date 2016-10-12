@@ -148,7 +148,7 @@ void NetworkingSystem::Update(double dt)
   u_long iMode = 1;
   char buf[256] = { 0 };
   InputSystem * input = gCore->GetSystem(InputSystem);
-  std::string frameData = gCore->GetSystem(ObjectSystem)->frameData;
+  auto * objsys = gCore->GetSystem(ObjectSystem);
   sockaddr_in addr;
   int fromlen = sizeof(sockaddr_in);
   int c = 0;
@@ -194,7 +194,7 @@ void NetworkingSystem::Update(double dt)
       //}
     }
     //std::cout<<std::endl;
-    connections[index].commands.push(str);
+    connections[index].commandsRec.push(str);
     memset(buf, 0, 256);
   }
   //if (iResult  == SOCKET_ERROR)
@@ -206,9 +206,9 @@ void NetworkingSystem::Update(double dt)
   even = !even;
   for (unsigned i = 0; i < connections.size(); ++i)
   {
-    while (!connections[i].commands.empty())
+    while (!connections[i].commandsRec.empty())
     {
-      std::string command = connections[i].commands.front(); connections[i].commands.pop();
+      std::string command = connections[i].commandsRec.front(); connections[i].commandsRec.pop();
       //std::cout <<command.length() <<"    " << command << std::endl;
       if (command.find("HELLO") != std::string::npos)
       {
@@ -220,6 +220,7 @@ void NetworkingSystem::Update(double dt)
           connections[i].clientNumber = openConnections.front();
           openConnections.pop_front();
         }
+        connections[i].initstep = 0;
         ++clientCount;
         ++connectionCount;
       }
@@ -246,6 +247,17 @@ void NetworkingSystem::Update(double dt)
         int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
         auto * objSys = gCore->GetSystem(ObjectSystem);
         objSys->RemoveBornObject(ded);
+      }
+      else if (command[0] == 'L')//ACKing LOAD
+      {
+        int pos = 1;
+        int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
+        for (unsigned l = 0; l < connections[i].unloaded.size(); ++l){
+          if (connections[i].unloaded[l] == ded){
+            connections[i].unloaded.erase(connections[i].unloaded.begin() + l);
+            --l;
+          }
+        }
       }
       else if (command[0] == '~')//input
       {
@@ -282,30 +294,38 @@ void NetworkingSystem::Update(double dt)
         //}
       }
     }
-    if (((even && i % 2 == 0) || (!even && i % 2 == 1)) && mCommands.size() > 0){
+    if (((even && i % 2 == 0) || (!even && i % 2 == 1)) && connections[i].commandsSend.size() > 0){
       //int b = send(sockets[i].client, frameData.c_str(), frameData.length(), 0);
-      std::string toSend = ""; 
-      
+      std::string toSend = "";
+      if (connections[i].initstep == 0){
+        for (auto & iter : objsys->mObjectMap_){
+          AddCommand(i, 'L', iter.first);
+          connections[i].unloaded.push_back(iter.first);
+        }
+        connections[i].initstep = 1;
+      }
+
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[0];
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
-      for (unsigned k = 0; k < mCommands.size() && k < 30; ++k){
+      if (connections[i].initstep > 0) ++connections[i].initstep;
+      if (connections[i].unloaded.empty()) connections[i].initstep = -1;
+      else if (connections[i].initstep > 30){
+        for (auto & iter : connections[i].unloaded)
+          AddCommand(i, 'L', iter);
+        connections[i].initstep = 1;
+      }
+      for (unsigned k = 0; connections[i].commandsSend.empty() == false && k < 30; ++k){
         toSend += '!';
-        std::string temp = ConstructCommand(mCommands[k].comType, mCommands[k].ID);
+        std::string temp = ConstructCommand(connections[i].commandsSend.front().comType, connections[i].commandsSend.front().ID);
         if (toSend.length() + temp.length() > 1023)break;
+        connections[i].commandsSend.pop();
         toSend += temp;
       }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
       std::cout << "Send: " << toSend << std::endl;
       std::cout << "Sent " << b << " bytes." << std::endl;
-    }
-  }
-  for (unsigned k = 0; k < mCommands.size() && k < 30; ++k){
-    mCommands[k].sendCount += 1;
-    if (mCommands[k].sendCount > 1){
-      mCommands.erase(mCommands.begin() + k);
-      --k;
     }
   }
 }
@@ -324,13 +344,15 @@ void NetworkingSystem::Shutdown()
 
 void NetworkingSystem::AddCommand(char com, unsigned int ID)
 {
-  for (unsigned i = 0; i < mCommands.size(); ++i){
-    if (mCommands[i].comType == com && mCommands[i].ID == ID){
-      mCommands[i].sendCount = 0;
-      return;
-    }
+  for (unsigned i = 0; i < connections.size(); ++i){
+
+    connections[i].commandsSend.push({ com, ID});
   }
-  mCommands.push_back({ com, ID, 0 });
+}
+
+void NetworkingSystem::AddCommand(int connectionNumber, char com, unsigned int ID)
+{
+  connections[connectionNumber].commandsSend.push({ com, ID });
 }
 
 std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
@@ -340,6 +362,16 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
   case '`': // Object created. 
   {
     temp = "`";
+    std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID);
+    for (unsigned i = 0; i < data.length(); ++i){
+      temp += data[i];
+    }
+  }
+    break;
+
+  case 'L':
+  {
+    temp = "L";
     std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID);
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
@@ -359,8 +391,9 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
 
   case '#': //Object moved
   {
-    temp = "#";
     std::string data = gCore->GetSystem(ObjectSystem)->GetTransformData(ID);
+    if (data == "") break;
+    temp = "#";
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }
@@ -369,8 +402,9 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
 
   case '$': //Object texture changed
   {
-    temp = "$";
     std::string data = gCore->GetSystem(ObjectSystem)->GetTextureData(ID);
+    if (data == "") break;
+    temp = "$";
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }

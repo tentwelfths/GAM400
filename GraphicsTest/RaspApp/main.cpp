@@ -175,6 +175,60 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
     std::string command = commands.front(); commands.pop();
     int pos = 1;
     switch(command[0]){
+      case 'L': //INITIAL Load
+      {
+        unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
+        pos += sizeof(unsigned int);
+        const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
+        pos += sizeof(unsigned char);
+        //std::string textureName = "";
+        //for(unsigned char i = 0; i < textureNameLength; ++i){
+        //  textureName += (char)command[pos++];
+        //}
+        
+        const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        pos += sizeof(float);
+        const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        pos += sizeof(float);
+        const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"]"<<len <<" zPos: "<< zPos <<std::endl;
+        pos += sizeof(float);
+        const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
+        pos += sizeof(float);
+        const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
+        pos += sizeof(float);
+        const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        pos += sizeof(float);
+        if(gObjects[textureID].find(objectID) == gObjects[textureID].end())
+        {
+          Object * obj = new Object();
+          gObjects[textureID].insert({objectID, obj});
+          gObjectMap.insert({objectID, obj});
+        }
+        Object * temp = gObjects[textureID][objectID];
+        temp->position[0] = xPos;
+        temp->position[1] = yPos;
+        temp->position[2] = zPos;
+        temp->scale[0] = xSca;
+        temp->scale[1] = ySca;
+        temp->rotation[2] = rot;
+        temp->textureID = textureID;
+        temp->inUse = true;
+        
+        std::string tempstring = "L";
+        for(unsigned i = 0; i < sizeof(unsigned int); ++i)
+        {
+          tempstring += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
+        } 
+        n->Send(tempstring.data(), tempstring.length());
+      }
+      break;
+
       case '`': // Object created. 
       {
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));

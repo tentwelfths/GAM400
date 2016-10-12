@@ -20,6 +20,12 @@ struct Connection
   }
 };
 
+struct Command
+{
+  char comType;
+  unsigned int ID;
+};
+
 struct UDPConnection
 {
   sockaddr_in addr;
@@ -30,16 +36,12 @@ struct UDPConnection
   Object * parent;
   int initstep;
   std::string unfinished;
-  std::queue<std::string> commands;
+  std::vector<unsigned int> unloaded;
+  std::queue<std::string> commandsRec;
+  std::queue<Command> commandsSend;
   UDPConnection(sockaddr_in a) :addr(a), frameCount(0), lastFrameSeen(0), clientNumber(0), parent(nullptr), initstep(0){}
 };
 
-struct Command
-{
-  char comType;
-  unsigned int ID;
-  char sendCount;
-};
 
 #define DEFAULT_PORT 27015
 #define NUMCLIENTS 100
@@ -55,6 +57,7 @@ public:
   void Shutdown();
   void RegisterComponent(NetworkingComponent * comp);
   void AddCommand(char type, unsigned int ID);
+  void AddCommand(int connectionNumber, char type, unsigned int ID);
 private:
   Connection sockets[NUMCLIENTS];
   WSADATA wsaData;
@@ -67,6 +70,5 @@ private:
   std::vector<NetworkingComponent *> mComponents_;
   std::vector<UDPConnection> connections;
   bool even;
-  std::vector<Command> mCommands;
   std::string ConstructCommand(char type, unsigned int ID);
 };
