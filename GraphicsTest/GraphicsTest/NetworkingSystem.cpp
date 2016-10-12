@@ -302,8 +302,9 @@ void NetworkingSystem::Update(double dt)
       std::cout << "Sent " << b << " bytes." << std::endl;
     }
   }
-  for (unsigned k = 0, total = 2; total + mCommands[k].command.length() < 1020; ++k){
+  for (unsigned k = 0, total = 2; k < mCommands.size() && total + mCommands[k].command.length() < 1020; ++k){
     mCommands[k].sendCount += 1;
+    total += mCommands[k].command.length();
     if (mCommands[k].sendCount > 1){
       mCommands.erase(mCommands.begin() + k);
       --k;
