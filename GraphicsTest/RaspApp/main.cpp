@@ -163,23 +163,24 @@ unsigned short lastFrameSeen = 0;
 
 void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, GraphicsSystem * g, NetworkingSystem * n)
 {
-  for (int i = 0; i < len; ++i)
-  {
-    if (buf[i] == '!'){
-      commands.push(unfinished);
-      unfinished = "";
-    }
-    else
-    {
-      unfinished += buf[i];
-    }
-  }
-  while(commands.empty() == false){
-    std::string command = commands.front(); commands.pop();
-    int pos = 1;
-    switch(command[0]){
+  //for (int i = 0; i < len; ++i)
+  //{
+  //  if (buf[i] == '\0'){
+  //    commands.push(unfinished);
+  //    unfinished = "";
+  //  }
+  //  else
+  //  {
+  //    unfinished += buf[i];
+  //  }
+  //}
+  int pos = 0;
+  while(pos < len){
+    //std::string command = commands.front(); commands.pop();
+    switch(command[pos]){
       case 'L': //INITIAL Load
       {
+        ++pos;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
@@ -242,7 +243,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
 
       case '`': // Object created. 
       {
-        
+        ++pos;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         
@@ -305,8 +306,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
       break;
       case '%': //Object died
       {
+        ++pos;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
+        
         std::cout<<objectID<<std::endl;
         if(pID == objectID){
           std::cout<<"GOT DED MESSAGE -- PLAYER DED???????"<<std::endl;
@@ -325,6 +328,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
 
       case '#': //Object moved
       {
+        ++pos;
         //std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
@@ -360,19 +364,19 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
 
       case '$': //Object texture changed
       {
-
+        ++pos;
       }
       break;
 
       case '^': //Update led bar graph
       {
-
+        ++pos;
       }
       break;
 
       case '&': //play sound effect
       {
-
+        ++pos;
       }
       break;
 

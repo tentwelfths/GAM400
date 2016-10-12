@@ -10,7 +10,7 @@
 ObjectSystem::ObjectSystem()
 {
   mName_ = "ObjectSystem";
-  myCount = 0;
+  myCount = 1;
   numObjects = 0;
 }
 
@@ -252,7 +252,8 @@ void     ObjectSystem::Shutdown()
 
 void ObjectSystem::AddObject(Object * obj)
 {
-  obj->ID = myCount += 2;
+  obj->ID = myCount++;
+  if (myCount == 0) myCount = 1;
   //obj->hasChanged = true;
   if (mObjects.find(obj->name) == mObjects.end())
   {

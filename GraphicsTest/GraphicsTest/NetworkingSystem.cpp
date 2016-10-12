@@ -323,7 +323,7 @@ void NetworkingSystem::Update(double dt)
         if (toSend.length() + temp.length() > 1023)break;
         connections[i].commandsSend.pop();
         toSend += temp;
-        toSend += '!';
+        //toSend += '\0';
       }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
