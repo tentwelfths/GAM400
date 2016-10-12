@@ -289,7 +289,7 @@ void NetworkingSystem::Update(double dt)
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[0];
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
-      for (unsigned k = 0; k < mCommands.size() && toSend.length() + mCommands[i].command.length() < 1020; ++k){
+      for (unsigned k = 0; k < mCommands.size() && toSend.length() + mCommands[k].command.length() < 1020; ++k){
         toSend += '!';
         for (unsigned j = 0; j < mCommands[k].command.length(); ++j){
           toSend += mCommands[k].command[j];
@@ -302,7 +302,7 @@ void NetworkingSystem::Update(double dt)
       std::cout << "Sent " << b << " bytes." << std::endl;
     }
   }
-  for (unsigned k = 0; k < c; ++k){
+  for (unsigned k = 0, total = 2; total + mCommands[k].command.length() < 1020; ++k){
     mCommands[k].sendCount += 1;
     if (mCommands[k].sendCount > 1){
       mCommands.erase(mCommands.begin() + k);

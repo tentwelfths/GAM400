@@ -12,7 +12,7 @@ Object::Object() : age(0), hasChanged(true)
 bool Object::Initialize()
 {
   age = 0;
-  hasChanged = true;
+  hasChanged = false;
   gCore->GetSystem(ObjectSystem)->AddObject(this);
   dead = false;
   for (auto & iter : mComponents)
