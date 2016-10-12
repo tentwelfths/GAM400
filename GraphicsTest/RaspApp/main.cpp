@@ -161,7 +161,7 @@ std::queue<std::string> commands;
 std::string unfinished = "";
 unsigned short lastFrameSeen = 0;
 
-void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, GraphicsSystem * g, NetworkingSystem * n)
+void ProcessResponse(int& pos, int & clientNumber, const char * command, int len, GraphicsSystem * g, NetworkingSystem * n)
 {
   //for (int i = 0; i < len; ++i)
   //{
