@@ -451,10 +451,11 @@ int main ( int argc, char *argv[] )
       //std::cout<<"Tryna recv"<<std::endl;
       netResult = n.Receive((buf),1023);
       
-      std::cout<<"netResult: "<<netResult<<std::endl;
+      
       pos = 0;
       if(netResult > 0)
       {
+        std::cout<<"netResult: "<<netResult<<std::endl;
         ProcessResponse(pos, clientNumber, buf, netResult, &g, &n);
       }
     }while(netResult > 0);
