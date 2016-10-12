@@ -45,6 +45,7 @@ public:
   std::string frameData;
   glm::mat4 Projection;
   glm::mat4 View;
+  std::unordered_map<std::string, TextureType> mTextureMap_;
 private:
   GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
 
@@ -58,7 +59,6 @@ private:
   float width, height;
   //GLuint mTexture;
   GLuint mTextureID;
-  std::unordered_map<std::string, TextureType> mTextureMap_;
   std::vector<GraphicsComponent *> mComponents_;
   void GraphicsSystem::GatherFrameData(GraphicsComponent * iter);
 };

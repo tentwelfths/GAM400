@@ -280,7 +280,15 @@ void NetworkingSystem::Update(double dt)
       
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[0];
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
-      toSend += frameData;
+      //toSend += frameData;
+      for (unsigned k = 0; k < mCommands.size() && toSend.length() + mCommands[i].command.length() < 1020; ++k){
+        toSend += '!' + mCommands[k].command;
+        ++mCommands[k].sendCount;
+        if (mCommands[k].sendCount > 1){
+          mCommands.erase(mCommands.begin() + k);
+          --k;
+        }
+      }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
       //std::cout << "Send: " << toSend << std::endl;
@@ -299,4 +307,50 @@ void NetworkingSystem::Shutdown()
   closesocket(ListenSocket);
   //shutdown wsa
   WSACleanup();
+}
+
+void NetworkingSystem::AddCommand(char type, unsigned int ID)
+{
+  switch (type){
+  case '`': // Object created. 
+  {
+    mCommands.push_back({ std::string(type + gCore->GetSystem(ObjectSystem)->GetData(ID)), 0 });
+  }
+    break;
+
+  case '%': //Object died
+  {
+    std::string str = "" + type;
+    for (int k = 0; k < sizeof(unsigned int); ++k)
+    {
+      str += static_cast<char *>(static_cast<void *>(&(ID)))[k];
+    }
+    mCommands.push_back({ str, 0 });
+  }
+    break;
+
+  case '#': //Object moved
+  {
+    mCommands.push_back({ std::string(type + gCore->GetSystem(ObjectSystem)->GetTransformData(ID)), 0 });
+  }
+    break;
+
+  case '$': //Object texture changed
+  {
+    mCommands.push_back({ std::string(type + gCore->GetSystem(ObjectSystem)->GetTextureData(ID)), 0 });
+  }
+    break;
+
+  case '^': //Update led bar graph
+  {
+
+  }
+    break;
+
+  case '&': //play sound effect
+  {
+
+  }
+    break;
+  }
 }

@@ -2,6 +2,10 @@
 #include "ObjectSystem.h"
 #include "SpriteComponent.h"
 #include "TransformComponent.h"
+#include "Core.h"
+#include "GraphicsSystem.h"
+#include "Globals.h"
+#include "NetworkingSystem.h"
 
 ObjectSystem::ObjectSystem()
 {
@@ -38,11 +42,25 @@ void ObjectSystem::ClearSystem(){
   }
 }
 
+std::string ObjectSystem::GetData(unsigned int ID)
+{
+  return GetData(mObjectMap_[ID]);
+}
 
-std::string ObjectSystem::GetData(Object * iter)
+std::string ObjectSystem::GetTransformData(unsigned int ID)
+{
+  return GetTransformData(mObjectMap_[ID]);
+}
+
+std::string ObjectSystem::GetTextureData(unsigned int ID)
+{
+  return GetTextureData(mObjectMap_[ID]);
+}
+
+std::string ObjectSystem::GetTransformData(Object * iter)
 {
   TransformComponent * t = iter->GetComponent(TransformComponent);
-  std::string data = "`";
+  std::string data = "";
   int i = 0;
   ++i;
   for (int k = 0; k < sizeof(unsigned int); ++k)
@@ -50,11 +68,65 @@ std::string ObjectSystem::GetData(Object * iter)
     data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
     ++i;
   }
-  unsigned char len = (static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName.length());
-  data += len;
-  for (unsigned char i = 0; i < len; ++i){
-    data += (static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName[i]);
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.x)))[k];
+    ++i;
   }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.y)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.z)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(t->mScale_.x)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(t->mScale_.y)))[k];
+    ++i;
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(t->mRotation_.z)))[k];
+    ++i;
+  }
+  //std::cout << "LENGTH: " << i << " ---" << frameData.length() << std::endl;
+  return data;
+}
+
+std::string ObjectSystem::GetTextureData(Object * iter)
+{
+  std::string data = "";
+  for (int k = 0; k < sizeof(unsigned int); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
+  }
+  unsigned char len = gCore->GetSystem(GraphicsSystem)->mTextureMap_[(static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName)].index;
+  data += len;
+  return data;
+}
+
+std::string ObjectSystem::GetData(Object * iter)
+{
+  TransformComponent * t = iter->GetComponent(TransformComponent);
+  std::string data = "";
+  int i = 0;
+  ++i;
+  for (int k = 0; k < sizeof(unsigned int); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
+    ++i;
+  }
+  unsigned char len = gCore->GetSystem(GraphicsSystem)->mTextureMap_[(static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName)].index;
+  data += len;
   for (int k = 0; k < sizeof(float); ++k)
   {
     data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.x)))[k];
@@ -92,8 +164,20 @@ std::string ObjectSystem::GetData(Object * iter)
 void     ObjectSystem::Update(double dt)
 {
   frameData = "";
+  for (auto iter = bornObjects.begin(); iter != bornObjects.end(); ++iter){
+    if (iter->second.second <= 1)
+    {
+      //std::cout << "FUCK YOU BE ALIVE" << iter->first << std::endl;
+      frameData += '`';
+      frameData += GetData(mObjectMap_[iter->first]);
+    }
+    if (iter->second.second == 0){
+      iter->second.second = 30;
+    }
+    iter->second.second -= 1;
+  }
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
-    if (iter->second <= 1)
+    if (iter->second.second <= 1)
     {
       //std::cout << "FUCK YOU BE DIE" << iter->first << std::endl;
       frameData += '%';
@@ -102,10 +186,10 @@ void     ObjectSystem::Update(double dt)
           frameData += static_cast<const char *>(static_cast<const void *>(&(iter->first)))[k];
       }
     }
-    if (iter->second == 0){
-      iter->second = 30;
+    if (iter->second.second == 0){
+      iter->second.second = 30;
     }
-    iter->second -= 1;
+    iter->second.second -= 1;
   }
   for (auto iter = mObjects.begin(); iter != mObjects.end(); ++iter)
   {
@@ -128,8 +212,15 @@ void     ObjectSystem::Update(double dt)
           }
         }
         if (removable){
-          deadObjects.insert({ node->value->ID, 1 });
+          deadObjects.insert({ node->value->ID, { 1, 1 } });
           --numObjects;
+
+          for (auto iter = bornObjects.begin(); iter != bornObjects.end(); ++iter){
+            if (iter->first == node->value->ID){
+              bornObjects.erase(iter);
+              break;
+            }
+          }
           delete node->value;
           node = iter->second.Remove(node);
         }
@@ -140,12 +231,9 @@ void     ObjectSystem::Update(double dt)
       }
       if (node->value->hasChanged || node->value->age > rand() % 100 + 100){
         frameData += GetData(node->value);
-        if (node->value->age == 300){
-          node->value->age = 0;
-        }
-        else{
-          node->value->age = 300;
-        }
+
+        auto * system = gCore->GetSystem(NetworkingSystem);
+        system->AddCommand('#', node->value->ID);
         
         node->value->hasChanged = false;
       }
@@ -171,7 +259,11 @@ void ObjectSystem::AddObject(Object * obj)
   {
     mObjects.insert({ obj->name, List<Object*>() });
   }
+  bornObjects.insert({obj->ID , {1,1} });
   mObjects[obj->name].AddToFront(obj);
+  mObjectMap_.insert({ obj->ID, obj });
+  auto * system = gCore->GetSystem(NetworkingSystem);
+  system->AddCommand('`', obj->ID);
   ++numObjects; 
 }
 
@@ -194,10 +286,12 @@ Object * ObjectSystem::GetNthItemByName(std::string name, unsigned n)
 }
 void ObjectSystem::RemoveDeadObject(unsigned int ID)//FUCK YOU THIS DOESN'T DO WHAT YOU THINK IT DOES. IS FOR NATWURKN
 {
+  auto * system = gCore->GetSystem(NetworkingSystem);
+  system->AddCommand('%', ID);
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
     if (iter->first == ID){
       deadObjects.erase(iter);
-      return;
+      break;
     }
   }
 }

@@ -34,6 +34,12 @@ struct UDPConnection
   UDPConnection(sockaddr_in a) :addr(a), frameCount(0), lastFrameSeen(0), clientNumber(0), parent(nullptr), initstep(0){}
 };
 
+struct Command
+{
+  std::string command;
+  char sendCount;
+};
+
 #define DEFAULT_PORT 27015
 #define NUMCLIENTS 100
 
@@ -47,6 +53,7 @@ public:
   void Update(double dt);
   void Shutdown();
   void RegisterComponent(NetworkingComponent * comp);
+  void AddCommand(char type, unsigned int ID);
 private:
   Connection sockets[NUMCLIENTS];
   WSADATA wsaData;
@@ -59,5 +66,6 @@ private:
   std::vector<NetworkingComponent *> mComponents_;
   std::vector<UDPConnection> connections;
   bool even;
+  std::vector<Command> mCommands;
 
 };

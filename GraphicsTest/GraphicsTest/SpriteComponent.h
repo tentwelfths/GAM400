@@ -14,6 +14,7 @@ public:
   void Shutdown();
   //GLuint mTexture(){ return mTexture_; }
   std::string mTextureName;
+  unsigned char mTextureIndex;
   //GLuint mTexture_;
   bool hasChanged;
 };

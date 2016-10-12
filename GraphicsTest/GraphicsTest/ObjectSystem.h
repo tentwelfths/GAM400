@@ -26,7 +26,15 @@ public:
   unsigned int myCount;
   std::string frameData;
   unsigned int numObjects;
+  std::string GetData(unsigned int ID);
+  std::string GetTransformData(unsigned int ID);
+  std::string GetTextureData(unsigned int ID);
 private:
   std::string GetData(Object * iter);
-  std::unordered_map<unsigned int,char> deadObjects;
+  std::string GetTransformData(Object * iter);
+  std::string GetTextureData(Object * iter);
+
+  std::unordered_map<unsigned int, Object *> mObjectMap_;
+  std::unordered_map<unsigned int, std::pair<char, char>> deadObjects;
+  std::unordered_map<unsigned int, std::pair<char, char>> bornObjects;
 };
