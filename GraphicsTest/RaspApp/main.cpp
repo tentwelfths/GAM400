@@ -177,6 +177,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
     switch(command[0]){
       case 'L': //INITIAL Load
       {
+        std::cout<<"GOT LOAD MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
@@ -231,6 +232,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
 
       case '`': // Object created. 
       {
+        std::cout<<"GOT CREATE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
@@ -284,6 +286,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
       break;
       case '%': //Object died
       {
+        std::cout<<"GOT DED MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         if(gObjectMap.find(objectID) != gObjectMap.end()){
@@ -300,6 +303,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
 
       case '#': //Object moved
       {
+        std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
@@ -352,114 +356,6 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
 
     }
   }
-
-
-
-
-
-
-
-
-  /*
-  if (command[0] == '@')//clientNumber
-  {
-    clientNumber = (int)((unsigned char)command[1]);
-  } 
-  else
-  {
-    int pos = 0;
-    unsigned short frame = *static_cast<const unsigned short *>(static_cast<const void *>(&(command[pos])));
-    pos += sizeof(unsigned short);
-    //std::cout<<frame<<":"<<lastFrameSeen<<std::endl;
-    if(!(frame > lastFrameSeen || (frame < 50 && lastFrameSeen > (unsigned short)(-1) - 50))) return;
-    lastFrameSeen = frame;
-    int counter =0;
-    while(pos < len)
-    {
-      //std::cout<<(int)command[pos]<<std::endl;
-      //if(command[pos] == 0){
-      //  ++pos; continue;
-      //}
-      
-      if (command[pos] == '`')//object
-      {
-        ++pos;
-        ++counter;
-        //std::cout<<"Getting Object"<<std::endl;
-        //std::cout<<"Response found an object!!!!"<<std::endl;
-        unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
-        pos += sizeof(unsigned int);
-        const unsigned char textureNameLength = *reinterpret_cast<const unsigned char*>(&(command[pos]));
-        pos += sizeof(unsigned char);
-        std::string textureName = "";
-        for(unsigned char i = 0; i < textureNameLength; ++i){
-          textureName += (char)command[pos++];
-        }
-        //std::cout<<"TEXTURE NAME: "<<textureName<<std::endl;
-        //for(auto & iter : g->mTextures){
-        //  std::cout<<iter.first<<" "<<strcmp(textureName.c_str(), iter.first.c_str())<<std::endl;
-        //  if(strcmp(textureName.c_str(), iter.first.c_str()) == 0){
-        //    std::cout<<"MATCH FOUND " << iter.second.textureID;
-        //  }
-        //}
-        //std::cout<<"Object with textID "<<textureID<<" #"<<count[textureID]<<std::endl;
-        //std::cout<<pos<<"-"<<len <<" TextureID: "<< textureID <<std::endl;
-        
-        const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
-        pos += sizeof(float);
-        const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
-        pos += sizeof(float);
-        const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"]"<<len <<" zPos: "<< zPos <<std::endl;
-        pos += sizeof(float);
-        const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
-        pos += sizeof(float);
-        const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
-        pos += sizeof(float);
-        const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
-        pos += sizeof(float);
-        int textureID = g->mTextures[textureName].textureID;
-        if(gObjects[textureID].find(objectID) == gObjects[textureID].end())
-        {
-          Object * obj = new Object();
-          gObjects[textureID].insert({objectID, obj});
-          gObjectMap.insert({objectID, obj});
-        }
-        Object * temp = gObjects[textureID][objectID];
-        temp->position[0] = xPos;
-        temp->position[1] = yPos;
-        temp->position[2] = zPos;
-        temp->scale[0] = xSca;
-        temp->scale[1] = ySca;
-        temp->rotation[2] = rot;
-        temp->textureID = textureID;
-        temp->inUse = true;
-      }
-      else if(command[pos] == '%')//DEATH
-      {
-        ++pos;
-        std::cout<<"FUCK YOU DIE"<<std::endl;
-        unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
-        pos += sizeof(unsigned int);
-        if(gObjectMap.find(objectID) != gObjectMap.end()){
-          gObjectMap[objectID]->inUse = false;
-        }
-        std::string temp = "%";
-        for(unsigned i = 0; i < sizeof(unsigned int); ++i)
-        {
-          temp += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
-        } 
-        n->Send(temp.data(), temp.length());
-      }
-    }
-    
-    //std::cout<<"\t\t\t\tUPDATING #"<<counter<<" OBJECTS"<<std::endl;
-  }*/
 }
 
 int main ( int argc, char *argv[] )
@@ -477,15 +373,7 @@ int main ( int argc, char *argv[] )
   for(auto & iter : g.mTextures){
     std::cout<<iter.first<<"   "<<iter.second.name<<std::endl;
   }
-  //return 0;
-  //Object a;
-  //a.position[0] = 0;
-  //a.position[1] = 0;
-  //a.scale[0] = 1;
-  //a.scale[1] = 1;
-  //a.textureID = g.mTextures["Kakka_Carrot_Veggie"].textureID;
-  //a.inUse = true;
-  //gObjects[a.textureID][0] = a;
+  
   bool toSend = false;
   char buf[1024] = {0};
   int pos = 0;
@@ -509,7 +397,7 @@ int main ( int argc, char *argv[] )
       pos = 0;
       if(netResult > 0)
       {
-        std::cout<<"netResult: "<<netResult<<std::endl;
+        //std::cout<<"netResult: "<<netResult<<std::endl;
         ProcessResponse(pos, clientNumber, buf, netResult, &g, &n);
       }
     }while(netResult > 0);
