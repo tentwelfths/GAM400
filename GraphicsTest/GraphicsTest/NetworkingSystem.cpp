@@ -282,7 +282,10 @@ void NetworkingSystem::Update(double dt)
       toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
       for (unsigned k = 0; k < mCommands.size() && toSend.length() + mCommands[i].command.length() < 1020; ++k){
-        toSend += '!' + mCommands[k].command;
+        toSend += '!';
+        for (unsigned j = 0; j < mCommands[k].command.length(); ++i){
+          toSend += mCommands[k].command[j];
+        }
         ++mCommands[k].sendCount;
         if (mCommands[k].sendCount > 1){
           mCommands.erase(mCommands.begin() + k);
