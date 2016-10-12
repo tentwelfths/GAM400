@@ -185,7 +185,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
         if(textureID == 3){
-          std::cout<<"Found player " << textureID<<std::endl;
+          std::cout<<"Found player " << (int)textureID<<std::endl;
           pID = objectID;
         }
         else if(objectID == pID){
@@ -249,7 +249,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
         if(textureID == 3){
-          std::cout<<"Found player " << textureID<<std::endl;
+          std::cout<<"Found player " << (int)textureID<<std::endl;
           pID = objectID;
         }
         else if(objectID == pID){
