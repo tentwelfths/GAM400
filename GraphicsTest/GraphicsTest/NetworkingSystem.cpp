@@ -282,7 +282,7 @@ void NetworkingSystem::Update(double dt)
         //}
       }
     }
-    if (((even && i % 2 == 0) || (!even && i % 2 == 1)) && frameData != ""){
+    if (((even && i % 2 == 0) || (!even && i % 2 == 1)) && mCommands.size() > 0){
       //int b = send(sockets[i].client, frameData.c_str(), frameData.length(), 0);
       std::string toSend = ""; 
       
@@ -298,8 +298,8 @@ void NetworkingSystem::Update(double dt)
       }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
-      //std::cout << "Send: " << toSend << std::endl;
-      //std::cout << "Sent " << b << " bytes." << std::endl;
+      std::cout << "Send: " << toSend << std::endl;
+      std::cout << "Sent " << b << " bytes." << std::endl;
     }
   }
   for (unsigned k = 0; k < c; ++k){
