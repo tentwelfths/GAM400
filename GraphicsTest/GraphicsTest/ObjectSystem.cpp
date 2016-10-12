@@ -258,6 +258,7 @@ void ObjectSystem::AddObject(Object * obj)
   {
     mObjects.insert({ obj->name, List<Object*>() });
   }
+
   bornObjects.insert({obj->ID , {1,1} });
   mObjects[obj->name].AddToFront(obj);
   mObjectMap_.insert({ obj->ID, obj });

@@ -238,7 +238,7 @@ void NetworkingSystem::Update(double dt)
       {
         int pos = 1;
         std::cout << "DEATH ACKD" << std::endl;
-        int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
+        unsigned int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
         auto * objSys = gCore->GetSystem(ObjectSystem);
         objSys->RemoveDeadObject(ded);
       }
@@ -385,6 +385,9 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
   case '%': //Object died
   {
     temp = "%";
+    if (ID == 0){
+      int b = 10;
+    }
     for (int k = 0; k < sizeof(unsigned int); ++k)
     {
       temp += static_cast<char *>(static_cast<void *>(&(ID)))[k];
