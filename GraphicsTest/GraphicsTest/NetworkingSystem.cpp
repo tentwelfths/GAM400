@@ -151,6 +151,7 @@ void NetworkingSystem::Update(double dt)
   std::string frameData = gCore->GetSystem(ObjectSystem)->frameData;
   sockaddr_in addr;
   int fromlen = sizeof(sockaddr_in);
+  int c = 0;
   while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (sockaddr*)(&addr), &fromlen)) && iResult > 0)
   {
 
@@ -286,16 +287,19 @@ void NetworkingSystem::Update(double dt)
         for (unsigned j = 0; j < mCommands[k].command.length(); ++j){
           toSend += mCommands[k].command[j];
         }
-        ++mCommands[k].sendCount;
-        if (mCommands[k].sendCount > 1){
-          mCommands.erase(mCommands.begin() + k);
-          --k;
-        }
+        ++c;
       }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
       std::cout << "Send: " << toSend << std::endl;
       std::cout << "Sent " << b << " bytes." << std::endl;
+    }
+  }
+  for (unsigned k = 0; k < c; ++k){
+    mCommands[k].sendCount += 1;
+    if (mCommands[k].sendCount > 1){
+      mCommands.erase(mCommands.begin() + k);
+      --k;
     }
   }
 }
