@@ -172,11 +172,11 @@ void NetworkingSystem::Update(double dt)
     }
     if (!same)
     {
-      std::cout << "NEW DUDE" << std::endl;
+      //std::cout << "NEW DUDE" << std::endl;
       index = connections.size();
       connections.push_back(UDPConnection(addr));
     }
-    std::cout << "Got " << iResult << "bytes" << std::endl;
+    //std::cout << "Got " << iResult << "bytes" << std::endl;
     std::string str = "";
     for (var i = 0; i < iResult; ++i)
     {
@@ -209,7 +209,7 @@ void NetworkingSystem::Update(double dt)
     while (!connections[i].commands.empty())
     {
       std::string command = connections[i].commands.front(); connections[i].commands.pop();
-      std::cout <<command.length() <<"    " << command << std::endl;
+      //std::cout <<command.length() <<"    " << command << std::endl;
       if (command.find("HELLO") != std::string::npos)
       {
         connections[i].update = (i % 2) ? true :false;
@@ -225,7 +225,7 @@ void NetworkingSystem::Update(double dt)
       }
       else if (command.find("BYE") != std::string::npos)
       {
-        std::cout << "We lost a dude" << std::endl;
+        //std::cout << "We lost a dude" << std::endl;
         openConnections.push_back(connections[i].clientNumber);
         std::sort(openConnections.begin(), openConnections.end());
         connections.erase(connections.begin() + i);
@@ -239,6 +239,13 @@ void NetworkingSystem::Update(double dt)
         int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
         auto * objSys = gCore->GetSystem(ObjectSystem);
         objSys->RemoveDeadObject(ded);
+      }
+      else if (command[0] == '`')//ACKing BORN
+      {
+        int pos = 1;
+        int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
+        auto * objSys = gCore->GetSystem(ObjectSystem);
+        objSys->RemoveBornObject(ded);
       }
       else if (command[0] == '~')//input
       {
@@ -291,8 +298,8 @@ void NetworkingSystem::Update(double dt)
       }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
-      std::cout << "Send: " << toSend << std::endl;
-      std::cout << "Sent " << b << " bytes." << std::endl;
+      //std::cout << "Send: " << toSend << std::endl;
+      //std::cout << "Sent " << b << " bytes." << std::endl;
     }
   }
   for (unsigned k = 0; k < c; ++k){

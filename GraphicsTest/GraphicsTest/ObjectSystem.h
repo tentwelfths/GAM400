@@ -21,6 +21,7 @@ public:
   Object * CreateObjectFromFile(std::string filename);
   void CreateArchetypeFromObject(Object * obj);
   void RemoveDeadObject(unsigned int ID);
+  void RemoveBornObject(unsigned int ID);
   void ClearSystem();
 
   unsigned int myCount;
