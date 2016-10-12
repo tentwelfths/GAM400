@@ -118,9 +118,9 @@ std::string ObjectSystem::GetTextureData(Object * iter)
 
 std::string ObjectSystem::GetData(Object * iter)
 {
-  TransformComponent * t = iter->GetComponent(TransformComponent);
   std::string data = "";
   if (iter->dead) return data;
+  TransformComponent * t = iter->GetComponent(TransformComponent);
   int i = 0;
   ++i;
   for (int k = 0; k < sizeof(unsigned int); ++k)
