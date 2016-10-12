@@ -312,18 +312,23 @@ void NetworkingSystem::Shutdown()
   WSACleanup();
 }
 
-void NetworkingSystem::AddCommand(char type, unsigned int ID)
+void NetworkingSystem::AddCommand(char com, unsigned int ID)
 {
-  switch (type){
+  switch (com){
   case '`': // Object created. 
   {
-    mCommands.push_back({ std::string(type + gCore->GetSystem(ObjectSystem)->GetData(ID)), 0 });
+    std::string temp = "`";
+    std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID);
+    for (unsigned i = 0; i < data.length(); ++i){
+      temp += data[i];
+    }
+    mCommands.push_back({ temp, 0 });
   }
     break;
 
   case '%': //Object died
   {
-    std::string str = "" + type;
+    std::string str = "%";
     for (int k = 0; k < sizeof(unsigned int); ++k)
     {
       str += static_cast<char *>(static_cast<void *>(&(ID)))[k];
@@ -334,13 +339,13 @@ void NetworkingSystem::AddCommand(char type, unsigned int ID)
 
   case '#': //Object moved
   {
-    mCommands.push_back({ std::string(type + gCore->GetSystem(ObjectSystem)->GetTransformData(ID)), 0 });
+    mCommands.push_back({ std::string("#" + gCore->GetSystem(ObjectSystem)->GetTransformData(ID)), 0 });
   }
     break;
 
   case '$': //Object texture changed
   {
-    mCommands.push_back({ std::string(type + gCore->GetSystem(ObjectSystem)->GetTextureData(ID)), 0 });
+    mCommands.push_back({ std::string("$" + gCore->GetSystem(ObjectSystem)->GetTextureData(ID)), 0 });
   }
     break;
 
