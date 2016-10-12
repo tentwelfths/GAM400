@@ -300,6 +300,7 @@ void NetworkingSystem::Update(double dt)
     if (mCommands[k].sendCount > 1){
       mCommands.erase(mCommands.begin() + k);
       --k;
+      --c;
     }
   }
 }
