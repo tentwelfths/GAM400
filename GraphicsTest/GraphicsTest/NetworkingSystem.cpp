@@ -283,7 +283,7 @@ void NetworkingSystem::Update(double dt)
       //toSend += frameData;
       for (unsigned k = 0; k < mCommands.size() && toSend.length() + mCommands[i].command.length() < 1020; ++k){
         toSend += '!';
-        for (unsigned j = 0; j < mCommands[k].command.length(); ++i){
+        for (unsigned j = 0; j < mCommands[k].command.length(); ++j){
           toSend += mCommands[k].command[j];
         }
         ++mCommands[k].sendCount;
