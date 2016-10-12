@@ -237,6 +237,7 @@ void NetworkingSystem::Update(double dt)
       else if (command[0] == '%')//ACKing DEATH
       {
         int pos = 1;
+        std::cout << "DEATH ACKD" << std::endl;
         int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
         auto * objSys = gCore->GetSystem(ObjectSystem);
         objSys->RemoveDeadObject(ded);
@@ -244,6 +245,7 @@ void NetworkingSystem::Update(double dt)
       else if (command[0] == '`')//ACKing BORN
       {
         int pos = 1;
+        std::cout << "BORN ACKD" << std::endl;
         int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
         auto * objSys = gCore->GetSystem(ObjectSystem);
         objSys->RemoveBornObject(ded);
@@ -251,6 +253,7 @@ void NetworkingSystem::Update(double dt)
       else if (command[0] == 'L')//ACKing LOAD
       {
         int pos = 1;
+        std::cout << "LOAD ACKD" << std::endl;
         int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
         for (unsigned l = 0; l < connections[i].unloaded.size(); ++l){
           if (connections[i].unloaded[l] == ded){
@@ -324,8 +327,8 @@ void NetworkingSystem::Update(double dt)
       }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
-      std::cout << "Send: " << toSend << std::endl;
-      std::cout << "Sent " << b << " bytes." << std::endl;
+      //std::cout << "Send: " << toSend << std::endl;
+      //std::cout << "Sent " << b << " bytes." << std::endl;
     }
   }
 }
