@@ -339,13 +339,23 @@ void NetworkingSystem::AddCommand(char com, unsigned int ID)
 
   case '#': //Object moved
   {
-    mCommands.push_back({ std::string("#" + gCore->GetSystem(ObjectSystem)->GetTransformData(ID)), 0 });
+    std::string temp = "#";
+    std::string data = gCore->GetSystem(ObjectSystem)->GetTransformData(ID);
+    for (unsigned i = 0; i < data.length(); ++i){
+      temp += data[i];
+    }
+    mCommands.push_back({ temp, 0 });
   }
     break;
 
   case '$': //Object texture changed
   {
-    mCommands.push_back({ std::string("$" + gCore->GetSystem(ObjectSystem)->GetTextureData(ID)), 0 });
+    std::string temp = "$";
+    std::string data = gCore->GetSystem(ObjectSystem)->GetTextureData(ID);
+    for (unsigned i = 0; i < data.length(); ++i){
+      temp += data[i];
+    }
+    mCommands.push_back({ temp, 0 });
   }
     break;
 
