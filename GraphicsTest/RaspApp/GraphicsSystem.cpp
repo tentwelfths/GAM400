@@ -328,16 +328,16 @@ void GraphicsSystem::Draw()
   glUniformMatrix4fv(View_, 1, GL_FALSE, &View[0][0]);
   glUniformMatrix4fv(Projection_, 1, GL_FALSE, &Projection[0][0]);
    
-  for(auto & iter : gObjectMap)
+  for(int i = 0; i < 50; ++i)
   {
     //if(gObjects[i][0].inUse == false)continue;
-    glBindTexture ( GL_TEXTURE_2D, iter.first );  
+    glBindTexture ( GL_TEXTURE_2D, mTextures[i].textureID );  
        // Bind the texture
     glActiveTexture ( GL_TEXTURE0 );
 
     // Set the sampler texture unit to 0
     glUniform1i ( Texture, 0 );
-    //for(auto iter = gObjects[i].begin(); iter != gObjects[i].end(); ++iter)
+    for(auto iter = gObjects[i].begin(); iter != gObjects[i].end(); ++iter)
     {
       //std::cout<<"Drawing object #"<<j<<std::endl;
       if(iter->second->inUse == false)continue;
