@@ -23,6 +23,9 @@ std::string inputstream = "";
 
 std::unordered_map<unsigned int, Object*> gObjects[50];
 std::unordered_map<unsigned int, Object*> gObjectMap;
+
+unsigned int pID = 0;
+
 int count[50];
 
 bool Input ( void )
@@ -177,11 +180,17 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
     switch(command[0]){
       case 'L': //INITIAL Load
       {
-        std::cout<<"GOT LOAD MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
+        if(textureID == 3){
+          pID = objectID;
+        }
+        else if(objectID == pID){
+          std::cout<<"GOT LOAD MESSAGE" << objectID <<std::endl;
+          std::cout<<"GOT A FUCKIN DUPE! "<<textureID<<std::endl;
+        }
         //std::string textureName = "";
         //for(unsigned char i = 0; i < textureNameLength; ++i){
         //  textureName += (char)command[pos++];
@@ -232,11 +241,19 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
 
       case '`': // Object created. 
       {
-        std::cout<<"GOT CREATE MESSAGE"<<std::endl;
+        
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
+        
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
+        if(textureID == 3){
+          pID = objectID;
+        }
+        else if(objectID == pID){
+          std::cout<<"GOT CREATE MESSAGE" << objectID <<std::endl;
+          std::cout<<"GOT A FUCKIN DUPE! "<<textureID<<std::endl;
+        }
         //std::string textureName = "";
         //for(unsigned char i = 0; i < textureNameLength; ++i){
         //  textureName += (char)command[pos++];
@@ -286,9 +303,12 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
       break;
       case '%': //Object died
       {
-        std::cout<<"GOT DED MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
+        
+        if(pID = objectID){
+          std::cout<<"GOT DED MESSAGE -- PLAYER DED???????"<<std::endl;
+        }
         if(gObjectMap.find(objectID) != gObjectMap.end()){
           gObjectMap[objectID]->inUse = false;
         }
@@ -303,7 +323,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
 
       case '#': //Object moved
       {
-        std::cout<<"GOT MOVE MESSAGE"<<std::endl;
+        //std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
