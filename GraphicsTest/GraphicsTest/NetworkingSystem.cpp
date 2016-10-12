@@ -335,48 +335,45 @@ void NetworkingSystem::AddCommand(char com, unsigned int ID)
 
 std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
 {
+  std::string temp;
   switch (com){
   case '`': // Object created. 
   {
-    std::string temp = "`";
+    temp = "`";
     std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID);
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }
-    mCommands.push_back({ temp, 0 });
   }
     break;
 
   case '%': //Object died
   {
-    std::string str = "%";
+    temp = "%";
     for (int k = 0; k < sizeof(unsigned int); ++k)
     {
-      str += static_cast<char *>(static_cast<void *>(&(ID)))[k];
+      temp += static_cast<char *>(static_cast<void *>(&(ID)))[k];
     }
-    mCommands.push_back({ str, 0 });
   }
     break;
 
   case '#': //Object moved
   {
-    std::string temp = "#";
+    temp = "#";
     std::string data = gCore->GetSystem(ObjectSystem)->GetTransformData(ID);
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }
-    mCommands.push_back({ temp, 0 });
   }
     break;
 
   case '$': //Object texture changed
   {
-    std::string temp = "$";
+    temp = "$";
     std::string data = gCore->GetSystem(ObjectSystem)->GetTextureData(ID);
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }
-    mCommands.push_back({ temp, 0 });
   }
     break;
 
@@ -392,4 +389,5 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
   }
     break;
   }
+  return temp;
 }
