@@ -168,11 +168,10 @@ void     ObjectSystem::Update(double dt)
 {
   frameData = "";
   for (auto iter = bornObjects.begin(); iter != bornObjects.end(); ++iter){
-    if (iter->second.second <= 1)
+    if (iter->second.second < 1)
     {
       //std::cout << "FUCK YOU BE ALIVE" << iter->first << std::endl;
-      frameData += '`';
-      frameData += GetData(mObjectMap_[iter->first]);
+      gCore->GetSystem(NetworkingSystem)->AddCommand('`', iter->first);
     }
     if (iter->second.second == 0){
       iter->second.second = 30;
@@ -180,14 +179,10 @@ void     ObjectSystem::Update(double dt)
     iter->second.second -= 1;
   }
   for (auto iter = deadObjects.begin(); iter != deadObjects.end(); ++iter){
-    if (iter->second.second <= 1)
+    if (iter->second.second < 1)
     {
       //std::cout << "FUCK YOU BE DIE" << iter->first << std::endl;
-      frameData += '%';
-      for (int k = 0; k < sizeof(unsigned int); ++k)
-      {
-          frameData += static_cast<const char *>(static_cast<const void *>(&(iter->first)))[k];
-      }
+      gCore->GetSystem(NetworkingSystem)->AddCommand('%', iter->first);
     }
     if (iter->second.second == 0){
       iter->second.second = 30;
