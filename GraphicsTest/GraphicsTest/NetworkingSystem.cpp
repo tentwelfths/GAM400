@@ -308,8 +308,8 @@ void NetworkingSystem::Update(double dt)
         connections[i].initstep = 1;
       }
 
-      toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[0];
-      toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
+      //toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[0];
+      //toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
       if (connections[i].initstep > 0) ++connections[i].initstep;
       if (connections[i].unloaded.empty()) connections[i].initstep = -1;
@@ -319,11 +319,11 @@ void NetworkingSystem::Update(double dt)
         connections[i].initstep = 1;
       }
       for (unsigned k = 0; connections[i].commandsSend.empty() == false && k < 30; ++k){
-        toSend += '!';
         std::string temp = ConstructCommand(connections[i].commandsSend.front().comType, connections[i].commandsSend.front().ID);
         if (toSend.length() + temp.length() > 1023)break;
         connections[i].commandsSend.pop();
         toSend += temp;
+        toSend += '!';
       }
       ++connections[i].frameCount;
       int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));

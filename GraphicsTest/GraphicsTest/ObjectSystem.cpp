@@ -253,7 +253,7 @@ void     ObjectSystem::Shutdown()
 void ObjectSystem::AddObject(Object * obj)
 {
   obj->ID = myCount++;
-  obj->hasChanged = true;
+  //obj->hasChanged = true;
   if (mObjects.find(obj->name) == mObjects.end())
   {
     mObjects.insert({ obj->name, List<Object*>() });
