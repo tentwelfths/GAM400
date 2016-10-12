@@ -280,21 +280,21 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
           tempstring += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
         } 
         n->Send(tempstring.data(), tempstring.length());
-      break;
       }
+      break;
       case '%': //Object died
       {
-      unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
-      pos += sizeof(unsigned int);
-      if(gObjectMap.find(objectID) != gObjectMap.end()){
-        gObjectMap[objectID]->inUse = false;
-      }
-      std::string temp = "%";
-      for(unsigned i = 0; i < sizeof(unsigned int); ++i)
-      {
-        temp += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
-      } 
-      n->Send(temp.data(), temp.length());
+        unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
+        pos += sizeof(unsigned int);
+        if(gObjectMap.find(objectID) != gObjectMap.end()){
+          gObjectMap[objectID]->inUse = false;
+        }
+        std::string temp = "%";
+        for(unsigned i = 0; i < sizeof(unsigned int); ++i)
+        {
+          temp += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
+        } 
+        n->Send(temp.data(), temp.length());
       }
       break;
 
