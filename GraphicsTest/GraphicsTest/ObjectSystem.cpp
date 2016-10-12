@@ -219,6 +219,7 @@ void     ObjectSystem::Update(double dt)
               break;
             }
           }
+          mObjectMap_.erase(mObjectMap_.find(node->value->ID));
           delete node->value;
           node = iter->second.Remove(node);
         }
