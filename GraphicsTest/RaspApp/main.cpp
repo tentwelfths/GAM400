@@ -307,7 +307,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * buf, int len, Gr
       {
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
-        
+        std::cout<<objectID<<std::endl;
         if(pID = objectID){
           std::cout<<"GOT DED MESSAGE -- PLAYER DED???????"<<std::endl;
         }
