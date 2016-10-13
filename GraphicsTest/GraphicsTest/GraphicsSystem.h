@@ -23,6 +23,11 @@ struct TextureType
   GLuint textureID;
 };
 
+struct Camera
+{
+  float x, y, zoom;
+};
+
 class GraphicsSystem : public System
 {
 public:
@@ -46,6 +51,7 @@ public:
   glm::mat4 Projection;
   glm::mat4 View;
   std::unordered_map<std::string, TextureType> mTextureMap_;
+  Camera mMainCamera;
 private:
   GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
 

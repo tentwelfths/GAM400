@@ -151,6 +151,10 @@ GraphicsSystem::GraphicsSystem()
   
   CreateWindow();
   
+  mMainCamera.x = 0;
+  mMainCamera.y = 0;
+  mMainCamera.zoom = 1;
+
   char  vShaderStr[] =  
     "attribute vec3 vertexPosition_modelspace;       \n"
     "attribute vec2 vertexUV;       \n"
@@ -313,15 +317,15 @@ void GraphicsSystem::Draw()
   glClear ( GL_COLOR_BUFFER_BIT );
   float fov = 45.f;
   // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-  glm::mat4 Projection = glm::ortho(-5.f, 5.f, -5.f, 5.f, 0.1f, 100.0f);//glm::perspective(fov, (float)width / (float)height, 0.1f, 100.0f);
+  glm::mat4 Projection = glm::ortho(-5.f * mMainCamera.zoom, 5.f * mMainCamera.zoom, -5.f * mMainCamera.zoom, 5.f * mMainCamera.zoom, 0.1f, 100.0f);//glm::perspective(fov, (float)width / (float)height, 0.1f, 100.0f);
   //glm::mat4 Projection = glm::ortho(-4, 4, 4, -4);
   // Or, for an ortho camera :
   //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
 
   // Camera matrix
   glm::mat4 View = glm::lookAt(
-    glm::vec3(0, 0, 10), // Camera is at (4,3,3), in World Space
-    glm::vec3(0, 0, 0), // and looks at the origin
+    glm::vec3(mMainCamera.x, mMainCamera.y, 10), // Camera is at (4,3,3), in World Space
+    glm::vec3(mMainCamera.x, mMainCamera.y, 0), // and looks at the origin
     glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
     );
 

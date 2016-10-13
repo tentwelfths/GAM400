@@ -213,7 +213,7 @@ void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse)
   }
   gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
   //std::cout << worldX << ", " << worldY << std::endl;
-  i->setMousePos(worldX, worldY);
+  i->setMousePos(worldX + gSys->mMainCamera.x, worldY + gSys->mMainCamera.y);
 }
 
 void inputButtonCallback(GLFWwindow* window, int button, int action, int mods)

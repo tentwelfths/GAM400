@@ -11,6 +11,7 @@
 #include "BoxColliderComponent.h"
 #include "Standard.h"
 #include "System.h"
+#include "GraphicsSystem.h"
 
 DemoController::DemoController() :GameLogicComponent(GameLogicType::DEMOPLAYER), speed(1.1f)
 {
@@ -26,6 +27,7 @@ bool DemoController::Initialize()
 void DemoController::Update(double dt)
 {
   auto * input = gCore->GetSystem(InputSystem);
+  auto * graphics = gCore->GetSystem(GraphicsSystem);
   auto * rigid = mParent_->GetComponent(BoxColliderComponent);
   b2Vec2 newVel(0.0f, 0.0f);
   if (rigid)
@@ -56,6 +58,24 @@ void DemoController::Update(double dt)
   {
     trans->mPositionX(9.9f);
     rigid->GetBody()->SetTransform(b2Vec2(trans->mPositionX(), trans->mPositionY()), trans->mRotationZ());
+  }
+  if (input->isKeyPressed(GLFW_KEY_LEFT)){
+    graphics->mMainCamera.x -= 0.1;
+  }
+  if (input->isKeyPressed(GLFW_KEY_RIGHT)){
+    graphics->mMainCamera.x += 0.1;
+  }
+  if (input->isKeyPressed(GLFW_KEY_DOWN)){
+    graphics->mMainCamera.y -= 0.1;
+  }
+  if (input->isKeyPressed(GLFW_KEY_UP)){
+    graphics->mMainCamera.y += 0.1;
+  }
+  if (input->isKeyPressed(GLFW_KEY_PAGE_DOWN)){
+    graphics->mMainCamera.zoom -= 0.1;
+  }
+  if (input->isKeyPressed(GLFW_KEY_PAGE_UP)){
+    graphics->mMainCamera.zoom += 0.1;
   }
 }
 

@@ -68,8 +68,9 @@ struct TextureType{
   GLuint textureID;
 };
 
-struct Camera{
-  float posx,posy,fov;
+struct Camera
+{
+  float x, y, zoom;
 };
 
 class GraphicsSystem
@@ -116,6 +117,8 @@ public:
   GLfloat vVerts_[20];
   
   GLushort indices_[6];
+
+  Camera mMainCamera;
 private:
   GLint loadpng(std::string filename);
   bool WinCreate();

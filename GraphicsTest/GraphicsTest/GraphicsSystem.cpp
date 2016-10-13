@@ -57,6 +57,9 @@ bool GraphicsSystem::Initialize()
     return false;
   }
   
+  mMainCamera.x = 0;
+  mMainCamera.y = 0;
+  mMainCamera.zoom = 1;
 
   glfwWindowHint(GLFW_SAMPLES, 4);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -259,15 +262,15 @@ void GraphicsSystem::Update(double dt)
 
   // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
   //Projection = glm::perspective(fov, width / height, 0.1f, 100.0f);
-  Projection = glm::ortho(-5.f, 5.f, -5.f, 5.f, 0.1f, 100.0f);
+  Projection = glm::ortho(-5.f * mMainCamera.zoom, 5.f* mMainCamera.zoom, -5.f* mMainCamera.zoom, 5.f* mMainCamera.zoom, 0.1f, 100.0f);
   //glm::mat4 Projection = glm::ortho(-4, 4, 4, -4);
   // Or, for an ortho camera :
   //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
 
   // Camera matrix
   View = glm::lookAt(
-    glm::vec3(0, 0, 10), // Camera is at (0,0,10), in World Space
-    glm::vec3(0, 0, 0), // and looks at the origin
+    glm::vec3(mMainCamera.x, mMainCamera.y, 10), // Camera is at (0,0,10), in World Space
+    glm::vec3(mMainCamera.x, mMainCamera.y, 0), // and looks at the origin
     glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
     );
 
