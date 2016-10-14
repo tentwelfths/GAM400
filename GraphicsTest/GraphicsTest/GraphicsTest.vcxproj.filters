@@ -189,6 +189,12 @@
     <ClCompile Include="DemoSpawner.cpp" />
     <ClCompile Include="OutOfBounds.cpp" />
     <ClCompile Include="DemoReload.cpp" />
+    <ClCompile Include="AudioSystem.cpp">
+      <Filter>AudioSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioComponent.cpp">
+      <Filter>AudioSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -392,6 +398,45 @@
     <ClInclude Include="DemoSpawner.h" />
     <ClInclude Include="OutOfBounds.h" />
     <ClInclude Include="DemoReload.h" />
+    <ClInclude Include="fmod.hpp">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_codec.h">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_common.h">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_dsp.h">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_dsp_effects.h">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_errors.h">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_output.h">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod.h">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioSystem.h">
+      <Filter>AudioSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioComponent.h">
+      <Filter>AudioSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_studio.hpp">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_studio_common.h">
+      <Filter>FMOD</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_studio.h">
+      <Filter>FMOD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />
@@ -403,6 +448,12 @@
     </Filter>
     <Filter Include="NotOurCode">
       <UniqueIdentifier>{af717131-0b44-4643-b186-45e7ca2f45c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD">
+      <UniqueIdentifier>{34094e87-2e55-4d2d-bf16-5114196a7435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem">
+      <UniqueIdentifier>{a6ec0757-1a6f-4ce4-9ba2-8b99c8a48c71}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
