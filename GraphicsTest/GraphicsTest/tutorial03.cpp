@@ -18,6 +18,8 @@
 #include "DemoSpawner.h"
 #include "OutOfBounds.h"
 #include "DemoReload.h"
+#include "PCControllerComponent.h"
+#include "KnifeComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -35,6 +37,8 @@ int main( void )
   RegisterComponentType(EditorComponent);
   RegisterComponentType(OutOfBounds);
   RegisterComponentType(DemoReload);
+  RegisterComponentType(PCControllerComponent);
+  RegisterComponentType(KnifeComponent);
 
   gCore->LoadLevel("DemoLevel.json");
 

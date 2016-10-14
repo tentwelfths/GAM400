@@ -220,12 +220,14 @@
     <ClCompile Include="imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="JSONTranslator.cpp" />
+    <ClCompile Include="KnifeComponent.cpp" />
     <ClCompile Include="MyListen.cpp" />
     <ClCompile Include="NetworkingComponent.cpp" />
     <ClCompile Include="NetworkingSystem.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectSystem.cpp" />
     <ClCompile Include="OutOfBounds.cpp" />
+    <ClCompile Include="PCControllerComponent.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
@@ -329,6 +331,7 @@
     <ClInclude Include="imgui_internal.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="JSONTranslator.h" />
+    <ClInclude Include="KnifeComponent.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Metadata.h" />
     <ClInclude Include="MyListen.h" />
@@ -337,6 +340,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectSystem.h" />
     <ClInclude Include="OutOfBounds.h" />
+    <ClInclude Include="PCControllerComponent.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="PhysicsMaterialComponent.h" />
     <ClInclude Include="PhysicsSystem.h" />

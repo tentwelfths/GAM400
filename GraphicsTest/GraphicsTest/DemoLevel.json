@@ -24,10 +24,11 @@
 		},
 	EditorComponent: {
 		},
-	DemoController: {
+	PCControllerComponent: {
 		"speed": 5.000000
-		},
-	DemoSpawner: {
+		"playerID": 0
+		"health": 10
+		"sprintSpeed" : 2.000000
 		},
 	BoxColliderComponent: {
 		"mHalfSize": {
@@ -66,12 +67,28 @@
 			z: 0.000000
 			}
 		},
+		BoxColliderComponent: {
+		"mHalfSize": {
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							}
+		"dynamicState": 2
+		"mDensity" : 1.000000
+		"mFriction" : 1.000000
+		"mGhost" : true
+		},
 		EditorComponent: {
 		},
 		SpriteComponent: {
 		"mTextureName": player.png
 		},
-		DemoReload: {
+		KnifeComponent: {
 		}
 	}
 }
