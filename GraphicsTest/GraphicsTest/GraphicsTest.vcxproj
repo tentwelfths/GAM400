@@ -76,7 +76,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SOIL.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(ProjectDir)external\glfw-3.1.2\src\Debug\glfw3.lib;$(ProjectDir)external\Debug\GLEW_1130.lib</AdditionalDependencies>
+      <AdditionalDependencies>fmodstudio_vc.lib;fmod_vc.lib;SOIL.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;$(ProjectDir)external\glfw-3.1.2\src\Debug\glfw3.lib;$(ProjectDir)external\Debug\GLEW_1130.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)external\glfw-3.1.2\src\Debug;C:\Users\Joel\Desktop\GraphicsTest\GraphicsTest\GraphicsTest\external\glew-1.13.0\bin\Debug\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
       <TargetMachine>NotSet</TargetMachine>
@@ -131,6 +131,8 @@
     <None Include="SingleColor.fragmentshader" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AudioComponent.cpp" />
+    <ClCompile Include="AudioSystem.cpp" />
     <ClCompile Include="Box2D\Collision\b2BroadPhase.cpp" />
     <ClCompile Include="Box2D\Collision\b2CollideCircle.cpp" />
     <ClCompile Include="Box2D\Collision\b2CollideEdge.cpp" />
@@ -239,6 +241,8 @@
     <ClCompile Include="tutorial03.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioComponent.h" />
+    <ClInclude Include="AudioSystem.h" />
     <ClInclude Include="Box2D\Box2D.h" />
     <ClInclude Include="Box2D\Collision\b2BroadPhase.h" />
     <ClInclude Include="Box2D\Collision\b2Collision.h" />
@@ -318,6 +322,17 @@
     <ClInclude Include="DemoSpawner.h" />
     <ClInclude Include="EditorComponent.h" />
     <ClInclude Include="EditorSystem.h" />
+    <ClInclude Include="fmod.h" />
+    <ClInclude Include="fmod.hpp" />
+    <ClInclude Include="fmod_codec.h" />
+    <ClInclude Include="fmod_common.h" />
+    <ClInclude Include="fmod_dsp.h" />
+    <ClInclude Include="fmod_dsp_effects.h" />
+    <ClInclude Include="fmod_errors.h" />
+    <ClInclude Include="fmod_output.h" />
+    <ClInclude Include="fmod_studio.h" />
+    <ClInclude Include="fmod_studio.hpp" />
+    <ClInclude Include="fmod_studio_common.h" />
     <ClInclude Include="FramerateController.h" />
     <ClInclude Include="GameLogicComponent.h" />
     <ClInclude Include="GameLogicSystem.h" />
