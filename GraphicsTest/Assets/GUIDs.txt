@@ -1,0 +1,7 @@
+{6a01df48-384b-4f8b-87d0-297abca369a0} event:/Music
+{eb8baa51-9673-40b7-b4fa-aaf5b2501ba1} event:/Shoot
+{bf451b6a-699f-4aba-b28e-277202f3ef2f} event:/Step
+{6cb228d3-1874-4d77-8c14-f612df5f0d38} event:/Hit2
+{845b0ead-79b3-4bef-b681-ab5afd537c3a} bus:/
+{60c2f790-c8b6-417b-be02-f0e1546a3009} bus:/Reverb
+{abb1a293-eb3a-4be1-98e7-9aef83ecbaa3} bank:/Master Bank

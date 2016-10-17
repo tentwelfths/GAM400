@@ -8,6 +8,7 @@
 #include "PhysicsSystem.h"
 #include "EditorSystem.h"
 #include "JSONTranslator.h"
+#include "AudioSystem.h"
 
 void Core::RegisterSystem(System * s)
 {
@@ -34,6 +35,8 @@ bool Core::Initialize()
   RegisterSystem(e);
   auto * i = new InputSystem();
   RegisterSystem(i);
+  auto * a = new AudioSystem();
+  RegisterSystem(a);
 
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
     (*iter).second->Initialize();
