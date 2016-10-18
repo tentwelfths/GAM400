@@ -139,7 +139,7 @@ int main (void)
       LEDs[i] = new GPIOClass(PINS[i]);
       LEDs[i]->export_gpio();
       LEDs[i]->setdir_gpio("out");
-      LEDs[i]->setval_gpio("0");
+      LEDs[i]->setval_gpio("1");
     }
     struct sigaction sig_struct;
     sig_struct.sa_handler = sig_handler;
@@ -165,7 +165,7 @@ int main (void)
 //
     //cout << " Set GPIO pin directions" << endl;
     int counter = 0;
-    bool on = true;
+    bool on = false;
     while(1)
     {
         usleep(500000);
