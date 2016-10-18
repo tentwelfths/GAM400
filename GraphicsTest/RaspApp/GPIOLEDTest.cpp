@@ -201,11 +201,10 @@ int main (void)
     int state = 0;
     while(1)
     {
-        usleep(500000);
-        std::cout<<PINS[counter]<<std::endl;
+        //usleep(500000);
         int old = counter;
         if(KnobTurned(counter, bit1, bit2, state)){
-
+          std::cout<<"turned"<<std::endl;
           LEDs[old]->setval_gpio("0");
           if(counter == 10){
             counter = 0;
