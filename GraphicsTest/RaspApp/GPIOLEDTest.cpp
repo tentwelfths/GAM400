@@ -169,6 +169,7 @@ int main (void)
     while(1)
     {
         usleep(500000);
+        std::cout<<PINS[counter]<<std::endl;
         LEDs[counter++]->setval_gpio( (on) ? "1" : "0");
         if(counter == 10){
           counter = 0;
