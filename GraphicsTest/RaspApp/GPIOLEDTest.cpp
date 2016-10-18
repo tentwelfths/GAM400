@@ -213,7 +213,6 @@ int main (void)
                         //delete gpio17;
                         //gpio17 =0;
                         for(int i = 0; i < 10; ++i){
-                          LEDs[i] = new GPIOClass(std::to_string(PINS[i]));
                           LEDs[i]->setval_gpio("0");
                           LEDs[i]->unexport_gpio();
                           delete LEDs[i];
