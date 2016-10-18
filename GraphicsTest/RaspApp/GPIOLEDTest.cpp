@@ -158,7 +158,7 @@ int main (void)
 {
     std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
     GPIOClass * bit1 = new GPIOClass("6");
-    GPIOClass * bit2 = new GPIOClass("13");
+    GPIOClass * bit2 = new GPIOClass("5");
     bit1->export_gpio();
     bit1->setdir_gpio("in");
     bit2->export_gpio();
@@ -204,7 +204,8 @@ int main (void)
     {
         usleep(500000);
         int old = counter;
-        if(KnobTurned(counter, bit1, bit2, state)){
+        if(KnobTurned(counter, bit1, bit2, state))
+        {
           std::cout<<"turned"<<std::endl;
           LEDs[old]->setval_gpio("0");
           if(counter == 10){
