@@ -228,7 +228,7 @@ int main (void)
     int state = 0;
     while(1)
     {
-        usleep(500000);
+        //usleep(500000);
         int old = counter;
         if(KnobTurned(counter, bit1, bit2, state))
         {
