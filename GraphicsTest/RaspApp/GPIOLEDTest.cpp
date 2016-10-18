@@ -133,7 +133,7 @@ bool ctrl_c_pressed = false;
 
 int main (void)
 {
-    int PINS = [27,17,18,23,24,25,12,16,20,21];
+    int PINS = {27,17,18,23,24,25,12,16,20,21};
     GPIOClass* LEDs[10];
     for(int i = 0; i < 10; ++i){
       LEDs[i] = new GPIOClass(std::to_string(PINS[i]));
@@ -169,7 +169,7 @@ int main (void)
     while(1)
     {
         usleep(500000);
-        LEDs[counter++] = (on) ? "1" : "0";
+        LEDs[counter++]->setval_gpio( (on) ? "1" : "0");
         if(counter == 10){
           counter = 0;
           on = !on;
