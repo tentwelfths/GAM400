@@ -205,13 +205,20 @@ int main (void)
                     {
                         cout << "Ctrl^C Pressed" << endl;
                         cout << "unexporting pins" << endl;
-                        gpio4->unexport_gpio();
-                        gpio17->unexport_gpio();
-                        cout << "deallocating GPIO Objects" << endl;
-                        delete gpio4;
-                        gpio4 = 0;
-                        delete gpio17;
-                        gpio17 =0;
+                        //gpio4->unexport_gpio();
+                        //gpio17->unexport_gpio();
+                        //cout << "deallocating GPIO Objects" << endl;
+                        //delete gpio4;
+                        //gpio4 = 0;
+                        //delete gpio17;
+                        //gpio17 =0;
+                        for(int i = 0; i < 10; ++i){
+                          LEDs[i] = new GPIOClass(std::to_string(PINS[i]));
+                          LEDs[i]->setval_gpio("0");
+                          LEDs[i]->unexport_gpio();
+                          delete LEDs[i];
+                          LEDs[i] = 0;
+                        }
                         break;
 
                     }
