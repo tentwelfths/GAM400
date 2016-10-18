@@ -163,11 +163,16 @@ int main (void)
     bit2->export_gpio();
     bit2->setdir_gpio("in");
     GPIOClass* LEDs[10];
+    int counter = 0;
     for(int i = 0; i < 10; ++i){
       LEDs[i] = new GPIOClass(PINS[i]);
       LEDs[i]->export_gpio();
       LEDs[i]->setdir_gpio("out");
-      LEDs[i]->setval_gpio("1");
+      if(i != counter)
+        LEDs[i]->setval_gpio("0");
+      else{
+        LEDs[i]->setval_gpio("1");
+      }
     }
     struct sigaction sig_struct;
     sig_struct.sa_handler = sig_handler;
@@ -192,7 +197,6 @@ int main (void)
     //gpio4->setdir_gpio("out");
 //
     //cout << " Set GPIO pin directions" << endl;
-    int counter = 0;
     bool on = false;
     int state = 0;
     while(1)
