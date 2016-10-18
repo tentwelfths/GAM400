@@ -3,13 +3,13 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <fstream>
 #include <string>
+#include <sstream>
 #include <signal.h>
 
 #ifndef GPIO_CLASS_H
 #define GPIO_CLASS_H
-
-#include <string>
 using namespace std;
 /* GPIO Class
  * Purpose: Each object instantiated from this class will control a GPIO pin
@@ -32,7 +32,6 @@ private:
 
 #endif
 
-using namespace std;
 
 GPIOClass::GPIOClass()
 {
@@ -134,7 +133,7 @@ bool ctrl_c_pressed = false;
 
 int main (void)
 {
-    int PINS = {27,17,18,23,24,25,12,16,20,21};
+    int PINS[] = {27,17,18,23,24,25,12,16,20,21};
     GPIOClass* LEDs[10];
     for(int i = 0; i < 10; ++i){
       LEDs[i] = new GPIOClass(std::to_string(PINS[i]));
