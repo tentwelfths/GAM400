@@ -133,10 +133,10 @@ bool ctrl_c_pressed = false;
 
 int main (void)
 {
-    int PINS[] = {27,17,18,23,24,25,12,16,20,21};
+    std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
     GPIOClass* LEDs[10];
     for(int i = 0; i < 10; ++i){
-      LEDs[i] = new GPIOClass(std::to_string(PINS[i]));
+      LEDs[i] = new GPIOClass(PINS[i]);
       LEDs[i]->export_gpio();
       LEDs[i]->setdir_gpio("out");
       LEDs[i]->setval_gpio("0");
