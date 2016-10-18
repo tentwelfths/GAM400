@@ -131,7 +131,7 @@ void sig_handler(int sig);
 
 bool ctrl_c_pressed = false;
 
-bool KnobTurned(int& counter, GPIOClass * bit1, GPIOClass * bit1, int& prevState)
+bool KnobTurned(int& counter, GPIOClass * bit1, GPIOClass * bit2, int& prevState)
 {
   std::string b1, b2;
   bit1->getval_gpio(b1);
