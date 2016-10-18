@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
 #include <signal.h>
 
 #ifndef GPIO_CLASS_H
