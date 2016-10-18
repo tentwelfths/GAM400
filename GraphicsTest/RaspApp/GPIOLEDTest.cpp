@@ -131,9 +131,37 @@ void sig_handler(int sig);
 
 bool ctrl_c_pressed = false;
 
+bool KnobTurned(int& counter, GPIOClass * bit1, GPIOClass * bit1, int& prevstate)
+{
+  std::string b1, b2;
+  bit1->getval_gpio(b1);
+  bit2->getval_gpio(b2);
+  int num = (b1 == "1") ? (1<<1) : (0<<1);
+  num |= (b2 == "1") ? (1) : (0);
+  if(num == prevState){
+    return false;
+  }
+  else{
+    if((prevState == 3 && num == 0) || num > prevState){
+      ++counter;
+    }
+    else if((prevState == 0 && num == 3) || num < prevState){
+      --counter;
+    }
+  }
+  prevState = num;
+  return true;
+}
+
 int main (void)
 {
     std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
+    GPIOClass * bit1 = new GPIOClass("19");
+    GPIOClass * bit2 = new GPIOClass("26");
+    bit1->export_gpio();
+    bit1->setdir_gpio("in");
+    bit2->export_gpio();
+    bit2->setdir_gpio("in");
     GPIOClass* LEDs[10];
     for(int i = 0; i < 10; ++i){
       LEDs[i] = new GPIOClass(PINS[i]);
@@ -166,14 +194,22 @@ int main (void)
     //cout << " Set GPIO pin directions" << endl;
     int counter = 0;
     bool on = false;
+    int state = 0;
     while(1)
     {
         usleep(500000);
         std::cout<<PINS[counter]<<std::endl;
-        LEDs[counter++]->setval_gpio( (on) ? "1" : "0");
-        if(counter == 10){
-          counter = 0;
-          on = !on;
+        int old = counter;
+        if(KnobTurned(counter, bit1, bit2, state)){
+
+          LEDs[old]->setval_gpio("0");
+          if(counter == 10){
+            counter = 0;
+          }
+          if(counter == -1){
+            counter = 9;
+          }
+          LEDs[counter]->setval_gpio("0");
         }
         //gpio17->getval_gpio(inputstate);
         //cout << "Current input pin state is " << inputstate  <<endl;
@@ -219,6 +255,12 @@ int main (void)
                           delete LEDs[i];
                           LEDs[i] = 0;
                         }
+                        bit1->unexport_gpio();
+                        delete bit1;
+                        bit1 = 0;
+                        bit2->unexport_gpio();
+                        delete bit2;
+                        bit2 = 0;
                         break;
 
                     }
