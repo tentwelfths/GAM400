@@ -157,8 +157,8 @@ bool KnobTurned(int& counter, GPIOClass * bit1, GPIOClass * bit2, int& prevState
 int main (void)
 {
     std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
-    GPIOClass * bit1 = new GPIOClass("19");
-    GPIOClass * bit2 = new GPIOClass("26");
+    GPIOClass * bit1 = new GPIOClass("06");
+    GPIOClass * bit2 = new GPIOClass("13");
     bit1->export_gpio();
     bit1->setdir_gpio("in");
     bit2->export_gpio();
@@ -202,7 +202,7 @@ int main (void)
     int state = 0;
     while(1)
     {
-        //usleep(500000);
+        usleep(500000);
         int old = counter;
         if(KnobTurned(counter, bit1, bit2, state)){
           std::cout<<"turned"<<std::endl;
