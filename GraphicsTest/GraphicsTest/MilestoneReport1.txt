@@ -1,0 +1,11 @@
+What I did:
+Got networking/graphics/level loading working on PC and Rasperry Pi
+Got input working on Raspberry Pi for keyboard, buttons, joysticks
+Built all hardware needed for milestone
+
+How I feel we are doing:
+I feel we are on schedule for how we expect to do this semester. Content-wise we met my expectations for the milestone, 
+but I would have personally liked to be further along.
+
+I feel we met instructor expectations for where we would be at this point in the semester.
+I feel we met instructor expectations for where we would be at this point in the semester.
