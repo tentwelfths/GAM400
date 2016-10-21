@@ -33,7 +33,7 @@ struct UDPConnection
   unsigned short lastFrameSeen;
   unsigned char clientNumber;
   bool update;
-  Object * parent;
+  char playerNum;
   int initstep;
   std::string unfinished;
   std::vector<unsigned int> unloaded;

@@ -210,7 +210,7 @@ void NetworkingSystem::Update(double dt)
     {
       std::string command = connections[i].commandsRec.front(); connections[i].commandsRec.pop();
       //std::cout <<command.length() <<"    " << command << std::endl;
-      if (command.find("HELLO") != std::string::npos)
+      if (command[0] == '+')
       {
         connections[i].update = (i % 2) ? true :false;
         if (openConnections.size() == 0){
@@ -220,11 +220,12 @@ void NetworkingSystem::Update(double dt)
           connections[i].clientNumber = openConnections.front();
           openConnections.pop_front();
         }
+        connections[i].playerNum = command[1];
         connections[i].initstep = 0;
         ++clientCount;
         ++connectionCount;
       }
-      else if (command.find("BYE") != std::string::npos)
+      else if (command[0] == '-')
       {
         //std::cout << "We lost a dude" << std::endl;
         openConnections.push_back(connections[i].clientNumber);
@@ -282,7 +283,7 @@ void NetworkingSystem::Update(double dt)
         buttons.push_back(0); 
         std::vector<bool> state;
         state.push_back(button);
-        input->updateController(0, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
+        input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
         //auto * obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
         //auto * trans = obj->GetComponent(TransformComponent);
         //trans->mPositionX(((x - 512) / 512.0f) * 4.f);

@@ -386,12 +386,35 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
 int main ( int argc, char *argv[] )
 {
+  if(argc < 2){
+    std::cout<<"Please identify which controller this is.( cone gun radar turret )"<<std::endl;
+    return 0;
+  }
+  char myID = -1;
+  
+  if(strcmp(argv[1], "cone")==0){
+    myID = 0;
+  }
+  else if(strcmp(argv[1], "gun")==0){
+    myID = 01;
+  }
+  else if(strcmp(argv[1], "radar")==0){
+    myID = 02;
+  }
+  else if(strcmp(argv[1], "turret")==0){
+    myID = 03;
+  }
+  else{
+    std::cout<<"Controller name not found.( cone gun radar turret )"<<std::endl;
+    return 0;
+  } 
+
   mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
   
   GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");
   std::cout<<"CONNECTED"<<std::endl;
-  int res = n.Send("HELLO", strlen("HELLO"));
+  int res = n.Send(std::string("+" + myID), 2);
   //std::cout<<res<<std::endl;
   //return 0;
   g.LoadTextures("../Assets/Textures.JSON");
