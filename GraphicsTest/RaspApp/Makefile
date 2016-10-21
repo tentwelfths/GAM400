@@ -6,7 +6,7 @@
 
 INCDIR=-I./Common -I$(SDKSTAGE)/opt/vc/include -I$(SDKSTAGE)/opt/vc/include/interface/vcos/pthreads -I$(SDKSTAGE)/opt/vc/include/interface/vmcs_host/linux
 
-LIBS=-lGLESv2 -lEGL -lpng -lm -lbcm_host -L$(SDKSTAGE)/opt/vc/lib
+LIBS=-lGLESv2 -lEGL -lpng -lm -lbcm_host -lfmod-3.75 -L$(SDKSTAGE)/opt/vc/lib
 
 CFLAGS+=-DRPI_NO_X
 
@@ -24,4 +24,4 @@ clean:
 	find . -name "CH??_*" | xargs rm -f
 
 ./SRC: ${MYSRC}
-	g++ -std=c++11 $(CFLAGS) ${COMMONSRC} ${MYSRC} -o ./$@ ${INCDIR} ${LIBS}
+	g++ -std=c++11 -I/usr/local/include -L/usr/local/lib  $(CFLAGS) ${COMMONSRC} ${MYSRC} -o ./$@ ${INCDIR} ${LIBS}
