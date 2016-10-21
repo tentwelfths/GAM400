@@ -33,9 +33,9 @@ void DemoController::Update(double dt)
   if (rigid)
   {
     Joystick j = input->getJoystick(0);
-    if (j.xStick > 0.1 || j.xStick < -0.1)
+    if (j.x1Stick > 0.1 || j.x1Stick < -0.1)
     {
-      newVel.x = j.xStick * speed;
+      newVel.x = j.x1Stick * speed;
     }
     if (rigid->GetBody())
     {
@@ -60,22 +60,22 @@ void DemoController::Update(double dt)
     rigid->GetBody()->SetTransform(b2Vec2(trans->mPositionX(), trans->mPositionY()), trans->mRotationZ());
   }
   if (input->isKeyPressed(GLFW_KEY_LEFT)){
-    graphics->mMainCamera.x -= 0.1;
+    graphics->mMainCamera.x -= 0.1f;
   }
   if (input->isKeyPressed(GLFW_KEY_RIGHT)){
-    graphics->mMainCamera.x += 0.1;
+    graphics->mMainCamera.x += 0.1f;
   }
   if (input->isKeyPressed(GLFW_KEY_DOWN)){
-    graphics->mMainCamera.y -= 0.1;
+    graphics->mMainCamera.y -= 0.1f;
   }
   if (input->isKeyPressed(GLFW_KEY_UP)){
-    graphics->mMainCamera.y += 0.1;
+    graphics->mMainCamera.y += 0.1f;
   }
   if (input->isKeyPressed(GLFW_KEY_PAGE_DOWN)){
-    graphics->mMainCamera.zoom -= 0.1;
+    graphics->mMainCamera.zoom -= 0.1f;
   }
   if (input->isKeyPressed(GLFW_KEY_PAGE_UP)){
-    graphics->mMainCamera.zoom += 0.1;
+    graphics->mMainCamera.zoom += 0.1f;
   }
 }
 

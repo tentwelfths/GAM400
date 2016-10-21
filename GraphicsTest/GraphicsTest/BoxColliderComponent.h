@@ -6,7 +6,7 @@
 using namespace glm;
 
 class b2Body;
-class b2BodyDef;
+struct b2BodyDef;
 class b2World;
 class b2PolygonShape;
 

@@ -55,7 +55,7 @@ void PhysicsSystem::Update(double dt)
     if (gCore->editor)continue;
     mComponents_[i]->Update(dt);
   }
-  theWorld->Step(dt, VECPASS, POSPASS);
+  theWorld->Step(static_cast<float>(dt), VECPASS, POSPASS);
   //}
 }
 

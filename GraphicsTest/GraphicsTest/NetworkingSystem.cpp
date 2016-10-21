@@ -266,11 +266,15 @@ void NetworkingSystem::Update(double dt)
       {
         int pos = 1;
         //std::cout << "GOT INPUT" << std::endl;
-        unsigned short x, y;
+        unsigned short x1, y1, x2, y2;
         bool button;
-        x = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
+        x1 = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
         pos += sizeof(unsigned short);
-        y = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
+        y1 = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
+        pos += sizeof(unsigned short);
+        x2 = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
+        pos += sizeof(unsigned short);
+        y2 = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
         pos += sizeof(unsigned short);
         //std::cout << "THE COMMAND SAYETH" << command[pos] << std::endl;
         button = (command[pos] == '1');
@@ -278,7 +282,7 @@ void NetworkingSystem::Update(double dt)
         buttons.push_back(0); 
         std::vector<bool> state;
         state.push_back(button);
-        input->updateController(0, buttons, state, (x - 512) / 512.f, (y - 512) / 512.f);
+        input->updateController(0, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
         //auto * obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
         //auto * trans = obj->GetComponent(TransformComponent);
         //trans->mPositionX(((x - 512) / 512.0f) * 4.f);

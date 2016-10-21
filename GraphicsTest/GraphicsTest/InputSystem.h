@@ -12,8 +12,10 @@
 struct Joystick
 {
   Joystick();
-  float xStick;
-  float yStick;
+  float x1Stick;
+  float y1Stick;
+  float x2Stick;
+  float y2Stick;
 };
 
 
@@ -36,10 +38,10 @@ class InputSystem : public System
     void Shutdown();
     void setKey(int key, bool val);
     void setButton(int contNum, int key, bool val);
-    void setJoystick(int contNum, float xNewStick, float yNewStick);
+    void setJoystick(int contNum, float x1NewStick, float y1NewStick, float x2NewStick, float y2NewStick);
     void setRaspKey(int key, bool val, int clientNumber);
     void setMousePos(double xMouse, double yMouse);
-    void updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float xNewStick, float yNewStick);
+    void updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float x1NewStick, float y1NewStick, float x2NewStick, float y2NewStick);
     bool isKeyPressed(int key);
     bool isKeyJustPressed(int key);
     bool isKeyUp(int key);

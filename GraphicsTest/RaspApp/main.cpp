@@ -436,15 +436,23 @@ int main ( int argc, char *argv[] )
     toSend = !toSend;
     inputstream = "~";
     gettimeofday ( &tStart , &tz );
-    unsigned short x = a2d.GetChannelData(0);
-    unsigned short y = a2d.GetChannelData(1);
+    unsigned short x1 = a2d.GetChannelData(0);
+    unsigned short y1 = a2d.GetChannelData(1);
+    unsigned short x2 = a2d.GetChannelData(2);
+    unsigned short y2 = a2d.GetChannelData(3);
     for(unsigned i = 0; i < sizeof(unsigned short); ++i){
-      inputstream += static_cast<char *>(static_cast<void *>(&x))[i];
+      inputstream += static_cast<char *>(static_cast<void *>(&x1))[i];
     }
     for(unsigned i = 0; i < sizeof(unsigned short); ++i){
-      inputstream += static_cast<char *>(static_cast<void *>(&y))[i];
+      inputstream += static_cast<char *>(static_cast<void *>(&y1))[i];
     }
-    inputstream += (a2d.GetChannelData(2) > 15) ? '0' : '1';
+    for(unsigned i = 0; i < sizeof(unsigned short); ++i){
+      inputstream += static_cast<char *>(static_cast<void *>(&x2))[i];
+    }
+    for(unsigned i = 0; i < sizeof(unsigned short); ++i){
+      inputstream += static_cast<char *>(static_cast<void *>(&y2))[i];
+    }
+    inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     if(toSend && inputstream.length() > 0){
       
       //inputstream = "~" + inputstream + "!";

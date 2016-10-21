@@ -27,7 +27,7 @@ Controller::Controller() : numController(controllerTracker), isPluggedIn(true)
   ++controllerTracker;
 }
 
-Joystick::Joystick() : xStick(0.0f), yStick(0.0f)
+Joystick::Joystick() : x1Stick(0.0f), y1Stick(0.0f), x2Stick(0.0f), y2Stick(0.0f)
 {
   
 }
@@ -97,10 +97,12 @@ void InputSystem::setMousePos(double xMouse, double yMouse)
   //std::cout << xMouse << ":" << yMouse << std::endl;
 }
 
-void InputSystem::setJoystick(int contNum, float xNewStick, float yNewStick)
+void InputSystem::setJoystick(int contNum, float x1NewStick, float y1NewStick, float x2NewStick, float y2NewStick)
 {
-  theControllers[contNum].theJoystick.xStick = xNewStick;
-  theControllers[contNum].theJoystick.yStick = yNewStick;
+  theControllers[contNum].theJoystick.x1Stick = x1NewStick;
+  theControllers[contNum].theJoystick.y1Stick = y1NewStick;
+  theControllers[contNum].theJoystick.x2Stick = x2NewStick;
+  theControllers[contNum].theJoystick.y2Stick = y2NewStick;
 }
 
 bool InputSystem::isKeyJustPressed(int key)
@@ -156,7 +158,7 @@ Controller InputSystem::getController(int contNum)
   return theControllers[contNum];
 }
 
-void InputSystem::updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float xNewStick, float yNewStick)
+void InputSystem::updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float x1NewStick, float y1NewStick, float x2NewStick, float y2NewStick)
 {
   int j = 0;
   for (auto & iter : theButtons)
@@ -164,7 +166,7 @@ void InputSystem::updateController(int contNum, std::vector<int> theButtons, std
     setButton(contNum, iter, theVal[j]);
     ++j;
   }
-  setJoystick(contNum, xNewStick, yNewStick);
+  setJoystick(contNum,  x1NewStick,  y1NewStick,  x2NewStick,  y2NewStick);
 }
 
 void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)

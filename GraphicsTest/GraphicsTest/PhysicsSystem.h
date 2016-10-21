@@ -5,7 +5,7 @@
 
 class PhysicsComponent;
 class b2Body;
-class b2BodyDef;
+struct b2BodyDef;
 class b2World;
 class MyListen;
 
