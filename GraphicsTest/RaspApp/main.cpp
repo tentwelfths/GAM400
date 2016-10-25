@@ -361,7 +361,20 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         }
       }
       break;
-
+      case '(': //Move camera
+      {
+        unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
+        pos += sizeof(unsigned int);
+        const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        pos += sizeof(float);
+        const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        pos += sizeof(float);
+        g->mMainCamera.x = xPos;
+        g->mMainCamera.y = yPos;
+      }
+      break;
       case '$': //Object texture changed
       {
         ++pos;

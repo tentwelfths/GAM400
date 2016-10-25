@@ -39,7 +39,7 @@ struct UDPConnection
   std::vector<unsigned int> unloaded;
   std::queue<std::string> commandsRec;
   std::queue<Command> commandsSend;
-  UDPConnection(sockaddr_in a) :addr(a), frameCount(0), lastFrameSeen(0), clientNumber(0), parent(nullptr), initstep(0){}
+  UDPConnection(sockaddr_in a) :addr(a), frameCount(0), lastFrameSeen(0), clientNumber(0), initstep(0){}
 };
 
 
@@ -47,6 +47,8 @@ struct UDPConnection
 #define NUMCLIENTS 100
 
 class NetworkingComponent;
+
+enum class NETWORKMESSAGETYPE {CAMERA_MOVE, AMMO_BARGRAPH_UPDATE};
 
 class NetworkingSystem : public System
 {
@@ -58,6 +60,7 @@ public:
   void RegisterComponent(NetworkingComponent * comp);
   void AddCommand(char type, unsigned int ID);
   void AddCommand(int connectionNumber, char type, unsigned int ID);
+  void SendMessageToClient(int controllerNumber, NETWORKMESSAGETYPE type, Object * obj);
 private:
   Connection sockets[NUMCLIENTS];
   WSADATA wsaData;

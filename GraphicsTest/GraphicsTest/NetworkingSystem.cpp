@@ -350,6 +350,18 @@ void NetworkingSystem::Shutdown()
   WSACleanup();
 }
 
+void NetworkingSystem::SendMessageToClient(int controllerNumber, NETWORKMESSAGETYPE type, Object * obj)
+{
+  switch (type){
+  case NETWORKMESSAGETYPE::CAMERA_MOVE:
+    AddCommand('(', obj->ID);
+    break;
+  case NETWORKMESSAGETYPE::AMMO_BARGRAPH_UPDATE:
+    AddCommand('^', obj->ID);
+    break;
+  }
+}
+
 void NetworkingSystem::AddCommand(char com, unsigned int ID)
 {
   for (unsigned i = 0; i < connections.size(); ++i){
@@ -416,6 +428,17 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
     std::string data = gCore->GetSystem(ObjectSystem)->GetTextureData(ID);
     if (data == "") break;
     temp = "$";
+    for (unsigned i = 0; i < data.length(); ++i){
+      temp += data[i];
+    }
+  }
+    break;
+
+  case '(': //Update camera position
+  {
+    std::string data = gCore->GetSystem(ObjectSystem)->Get2DPositionData(ID);
+    if (data == "") break;
+    temp = "(";
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }

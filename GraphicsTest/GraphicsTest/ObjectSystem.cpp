@@ -52,10 +52,38 @@ std::string ObjectSystem::GetTransformData(unsigned int ID)
   return GetTransformData(mObjectMap_[ID]);
 }
 
+std::string ObjectSystem::Get2DPositionData(unsigned int ID)
+{
+  return Get2DPositionData(mObjectMap_[ID]);
+}
+
 std::string ObjectSystem::GetTextureData(unsigned int ID)
 {
   return GetTextureData(mObjectMap_[ID]);
 }
+
+
+std::string ObjectSystem::Get2DPositionData(Object * iter)
+{
+  if (iter == nullptr || iter->dead) return "";
+  TransformComponent * t = iter->GetComponent(TransformComponent);
+  std::string data = "";
+  for (int k = 0; k < sizeof(unsigned int); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.x)))[k];
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.y)))[k];
+  }
+  //std::cout << "LENGTH: " << i << " ---" << frameData.length() << std::endl;
+  return data;
+}
+
 
 std::string ObjectSystem::GetTransformData(Object * iter)
 {
@@ -213,9 +241,9 @@ void     ObjectSystem::Update(double dt)
           deadObjects.insert({ node->value->ID, { 1, 1 } });
           --numObjects;
 
-          for (auto iter = bornObjects.begin(); iter != bornObjects.end(); ++iter){
-            if (iter->first == node->value->ID){
-              bornObjects.erase(iter);
+          for (auto eiter = bornObjects.begin(); eiter != bornObjects.end(); ++eiter){
+            if (eiter->first == node->value->ID){
+              bornObjects.erase(eiter);
               break;
             }
           }
