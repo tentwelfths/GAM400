@@ -74,8 +74,8 @@ void DemoSpawner::Update(double dt)
     col->GetBody()->SetLinearVelocity(newVel);
     theRightCD = 0.0f;
   }
-  theLeftCD += dt;
-  theRightCD += dt;
+  theLeftCD  += (float)dt;
+  theRightCD += (float)dt;
 }
 
 void DemoSpawner::Shutdown()

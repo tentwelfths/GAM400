@@ -12,8 +12,8 @@ bool InputSystem::currInputs[NUMINPUTS] = { false };
 bool InputSystem::prevInputs[NUMINPUTS] = { false };
 bool Controller::currButt[NUMBUTT]      = { false };
 bool Controller::prevButt[NUMBUTT]      = { false };
-double InputSystem::xPos = 0;
-double InputSystem::yPos = 0;
+float InputSystem::xPos = 0;
+float InputSystem::yPos = 0;
 
 static int controllerTracker = 0;
 
@@ -90,7 +90,7 @@ void InputSystem::setButton(int contNum, int key, bool val)
   theControllers[contNum].currButt[key] = val;
 }
 
-void InputSystem::setMousePos(double xMouse, double yMouse)
+void InputSystem::setMousePos(float xMouse, float yMouse)
 {
   xPos = xMouse;
   yPos = yMouse;
@@ -206,7 +206,7 @@ void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse)
 
   winX = (float)xMouse;
   winY = (float)viewport[3] - (float)yMouse;
-  glReadPixels(xMouse, int(winY), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ);
+  glReadPixels((GLint)xMouse, int(winY), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ);
 
   //get the world coordinates from the screen coordinates
   for (int i = 0; i < 16; ++i){
@@ -215,7 +215,7 @@ void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse)
   }
   gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
   //std::cout << worldX << ", " << worldY << std::endl;
-  i->setMousePos(worldX + gSys->mMainCamera.x, worldY + gSys->mMainCamera.y);
+  i->setMousePos((float)worldX + gSys->mMainCamera.x, (float)worldY + gSys->mMainCamera.y);
 }
 
 void inputButtonCallback(GLFWwindow* window, int button, int action, int mods)

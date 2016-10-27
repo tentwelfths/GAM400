@@ -197,6 +197,7 @@
     <ClCompile Include="AudioComponent.cpp">
       <Filter>AudioSystem</Filter>
     </ClCompile>
+    <ClCompile Include="MessagingSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -441,6 +442,7 @@
     <ClInclude Include="fmod_studio.h">
       <Filter>FMOD</Filter>
     </ClInclude>
+    <ClInclude Include="MessagingSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />
