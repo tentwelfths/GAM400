@@ -1,7 +1,7 @@
 #pragma once
 #include "Standard.h"
 class IComponent;
-class IMessage;
+struct IMessage;
 
 #define GetComponent(compName) GetComponentA<compName>(#compName)
 

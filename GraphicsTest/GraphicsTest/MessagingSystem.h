@@ -3,7 +3,7 @@
 #include "System.h"
 
 class IComponent;
-class IMessage;
+struct IMessage;
 
 class MessagingSystem : public System
 {

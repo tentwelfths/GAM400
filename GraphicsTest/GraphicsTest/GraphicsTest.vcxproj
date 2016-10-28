@@ -349,6 +349,7 @@
     <ClInclude Include="JSONTranslator.h" />
     <ClInclude Include="KnifeComponent.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="Messages.h" />
     <ClInclude Include="MessagingSystem.h" />
     <ClInclude Include="Metadata.h" />
     <ClInclude Include="MyListen.h" />

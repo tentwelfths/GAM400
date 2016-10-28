@@ -1,7 +1,7 @@
 #pragma once
 #include "Standard.h"
 
-class IMessage;
+struct IMessage;
 
 class System
 {

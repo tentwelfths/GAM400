@@ -7,6 +7,7 @@
 #include "GraphicsSystem.h"
 #include "ObjectSystem.h"
 #include "Core.h"
+#include "Messages.h"
 #define var auto
 
 NetworkingSystem::NetworkingSystem()
@@ -152,6 +153,32 @@ void NetworkingSystem::Update(double dt)
   sockaddr_in addr;
   int fromlen = sizeof(sockaddr_in);
   int c = 0;
+
+  for (auto iter : mMessages_){
+    switch (iter->type){
+    case MessageType::CHANGELEDS:{
+      auto * msg = static_cast<ChangeLEDSMessage *>(iter);
+      char d[8] = { 0 };
+      for (int i = 0; i < 10; ++i) d[i / 4] = ((msg->state[i]) ? 1 : 0) << (i % 4);
+      for (unsigned i = 0; i < connections.size(); ++i){
+        if (connections[i].playerNum == msg->controllerNum){
+          AddCommand(i, '^', 0, d);
+        }
+      }
+      break;
+    }
+    case MessageType::CAMERAMOVE:{
+      auto * msg = static_cast<CameraMoveMessage *>(iter);
+      for (unsigned i = 0; i < connections.size(); ++i){
+        if (connections[i].playerNum == msg->controllerNum){
+          AddCommand(i, '(', msg->objID); 
+        }
+      }
+      
+      break;
+    }
+    }
+  }
   while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (sockaddr*)(&addr), &fromlen)) && iResult > 0)
   {
 
@@ -324,7 +351,7 @@ void NetworkingSystem::Update(double dt)
         connections[i].initstep = 1;
       }
       for (unsigned k = 0; connections[i].commandsSend.empty() == false && k < 30; ++k){
-        std::string temp = ConstructCommand(connections[i].commandsSend.front().comType, connections[i].commandsSend.front().ID);
+        std::string temp = ConstructCommand(connections[i].commandsSend.front().comType, connections[i].commandsSend.front().ID, connections[i].commandsSend.front().data);
         if (toSend.length() + temp.length() > 1023)break;
         connections[i].commandsSend.pop();
         toSend += temp;
@@ -350,32 +377,19 @@ void NetworkingSystem::Shutdown()
   WSACleanup();
 }
 
-void NetworkingSystem::SendMessageToClient(int controllerNumber, NETWORKMESSAGETYPE type, Object * obj)
-{
-  switch (type){
-  case NETWORKMESSAGETYPE::CAMERA_MOVE:
-    AddCommand('(', obj->ID);
-    break;
-  case NETWORKMESSAGETYPE::AMMO_BARGRAPH_UPDATE:
-    AddCommand('^', obj->ID);
-    break;
-  }
-}
-
-void NetworkingSystem::AddCommand(char com, unsigned int ID)
+void NetworkingSystem::AddCommand(char com, unsigned int ID, char data[8])
 {
   for (unsigned i = 0; i < connections.size(); ++i){
-
-    connections[i].commandsSend.push({ com, ID});
+    connections[i].commandsSend.push({ com, ID, data});
   }
 }
 
-void NetworkingSystem::AddCommand(int connectionNumber, char com, unsigned int ID)
+void NetworkingSystem::AddCommand(int connectionNumber, char com, unsigned int ID, char data[8])
 {
-  connections[connectionNumber].commandsSend.push({ com, ID });
+  connections[connectionNumber].commandsSend.push({ com, ID, data});
 }
 
-std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
+std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char data[8])
 {
   std::string temp;
   switch (com){
@@ -447,7 +461,10 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID)
 
   case '^': //Update led bar graph
   {
-
+    temp += "^";
+    temp += data[0];
+    temp += data[1];
+    temp += data[2];
   }
     break;
 

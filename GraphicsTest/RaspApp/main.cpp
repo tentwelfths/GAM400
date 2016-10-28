@@ -363,8 +363,6 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       break;
       case '(': //Move camera
       {
-        unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
-        pos += sizeof(unsigned int);
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
@@ -383,7 +381,16 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
       case '^': //Update led bar graph
       {
+        char d[3];
+        d[0] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
+        d[1] = *reinterpret_cast<const char*>(&(command[pos]));
+        ++pos;
+        d[2] = *reinterpret_cast<const char*>(&(command[pos]));
+        ++pos;
+        for(int i = 0; i < 10; ++i){
+          gpioPins.SetPinVal((d[i/4] & 1<<(i%4)) ? "1" : "0");
+        }
       }
       break;
 
