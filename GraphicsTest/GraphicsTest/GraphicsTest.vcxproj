@@ -205,6 +205,8 @@
     <ClCompile Include="common\vboindexer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="ConeControllerComponent.cpp" />
+    <ClCompile Include="ControllerControllerComponent.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="DemoController.cpp" />
     <ClCompile Include="DemoReload.cpp" />
@@ -316,6 +318,8 @@
     <ClInclude Include="common\vboindexer.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="ConeControllerComponent.h" />
+    <ClInclude Include="ControllerControllerComponent.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="DemoController.h" />
     <ClInclude Include="DemoReload.h" />
