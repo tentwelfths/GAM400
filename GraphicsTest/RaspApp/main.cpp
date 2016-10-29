@@ -1,6 +1,7 @@
 #include "GraphicsSystem.h"
 #include "NetworkingSystem.h"
 #include "Object.h"
+#include "GPIOPin.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -27,6 +28,8 @@ std::unordered_map<unsigned int, Object*> gObjectMap;
 unsigned int pID = -1;
 
 int count[50];
+
+GPIOPin *gpioPins[10];
 
 bool Input ( void )
 {
@@ -431,6 +434,26 @@ int main ( int argc, char *argv[] )
 
   mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
   
+  std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
+  GPIOPin * bit1 = new GPIOPin("5");
+  GPIOPin * bit2 = new GPIOPin("6");
+  bit1->export_gpio();
+  bit1->setdir_gpio("in");
+  bit2->export_gpio();
+  bit2->setdir_gpio("in");
+  int counter = 0;
+  for(int i = 0; i < 10; ++i){
+    gpioPins[i] = new GPIOPin(PINS[i]);
+    gpioPins[i]->export_gpio();
+    gpioPins[i]->setdir_gpio("out");
+    if(i % 2)
+      gpioPins[i]->setval_gpio("0");
+    else{
+      gpioPins[i]->setval_gpio("1");
+    }
+  }
+
+
   GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");
   std::cout<<"CONNECTED"<<std::endl;
