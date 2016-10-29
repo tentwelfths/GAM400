@@ -1,4 +1,7 @@
 #include "GPIOPin.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 GPIOPin::GPIOPin(std::string pinNum_) : pinNum(pinNum_){
 }
