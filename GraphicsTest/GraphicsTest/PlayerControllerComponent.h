@@ -11,6 +11,8 @@ public:
   void Shutdown();
   virtual void Movement(InputSystem* input);
   float GetSpeed() { return speed; }
+  int GetHealth() { return health; }
+  void Damage(int damage) { health -= damage; }
 private:
   float speed;
   int playerID;

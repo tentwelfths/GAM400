@@ -46,7 +46,7 @@ bool BoxColliderComponent::Initialize()
 
 void BoxColliderComponent::Update(double dt)
 {
-  justCollided = false;
+  //justCollided = false;
   auto* trans = mParent_->GetComponent(TransformComponent);
 
   vec3 newPos;
@@ -56,16 +56,6 @@ void BoxColliderComponent::Update(double dt)
   if (!(newPos.x < trans->mPositionX() + EPIFORTRANS && newPos.x > trans->mPositionX() - EPIFORTRANS) || !(newPos.y < trans->mPositionY() + EPIFORTRANS && newPos.y > trans->mPositionY() - EPIFORTRANS))
   {
     trans->mPosition(newPos);
-  }
-
-  for (auto iter : mParent()->mMessages_)
-  {
-    if (iter.type == MessageType::COLLISIONSTARTED)
-    {
-    }
-    if (iter.type == MessageType::COLLISIONENDED)
-    {
-    }
   }
 }
 

@@ -8,7 +8,7 @@
 #include "TransformComponent.h"
 #include "BoxColliderComponent.h"
 
-KnifeComponent::KnifeComponent() : GameLogicComponent(GameLogicType::KNIFE), offset(0.0, 0.0, 0.0), attackTimer(0.5f), timeTillNextAttack(0.5f), dist(1.5f)
+KnifeComponent::KnifeComponent() : GameLogicComponent(GameLogicType::KNIFE), offset(0.0, 0.0, 0.0), attackTimer(0.5f), timeTillNextAttack(0.5f), dist(5.0f)
 {
   auto * o = gCore->GetSystem(ObjectSystem);
   thePlayer = o->GetFirstItemByName("Player");
@@ -26,26 +26,31 @@ void KnifeComponent::Update(double dt)
   auto* trans = mParent()->GetComponent(TransformComponent);
   auto* box = mParent()->GetComponent(BoxColliderComponent);
   auto* playerTrans = thePlayer->GetComponent(TransformComponent);
+  b2Vec2 check;
+  check.x = 0;
+  check.y = 0;
   if (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_LEFT))
   {
     if (timeTillNextAttack >= attackTimer)
     {
       float x = input->GetMouseX() - trans->mPositionX();
       float y = input->GetMouseY() - trans->mPositionY();
-      b2Vec2 check(x, y);
+      check.x = x, check.y = y;
       check.Normalize();
-      offset.x = check.x;
-      offset.y = check.y;
-      offset *= dist;
+      check.x *= dist;
+      check.y *= dist;
+      //offset.x = check.x;
+      //offset.y = check.y;
+      //offset *= dist;
+      box->GetBody()->SetLinearVelocity(check);
       timeTillNextAttack = 0.0f;
     }
   }
-  trans->mPosition(playerTrans->mPosition() + offset);
-  b2Vec2 physicsPos(playerTrans->mPositionX() + offset.x, playerTrans->mPositionY() + offset.y);
-  box->GetBody()->SetTransform(physicsPos, playerTrans->mRotationZ());
   if (timeTillNextAttack > 0.2f)
   {
-    offset = vec3(0.0, 0.0, 0.0);
+    trans->mPosition(playerTrans->mPosition() + offset);
+    b2Vec2 physicsPos(playerTrans->mPositionX() + offset.x, playerTrans->mPositionY() + offset.y);
+    box->GetBody()->SetTransform(physicsPos, playerTrans->mRotationZ());
   }
   timeTillNextAttack += dt;
 }
