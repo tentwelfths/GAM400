@@ -6,7 +6,7 @@
 
 INCDIR=-I./Common -I$(SDKSTAGE)/opt/vc/include -I$(SDKSTAGE)/opt/vc/include/interface/vcos/pthreads -I$(SDKSTAGE)/opt/vc/include/interface/vmcs_host/linux
 
-LIBS=-lGLESv2 -lEGL -lpng -lm -lbcm_host -lfmod-3.75 -L$(SDKSTAGE)/opt/vc/lib
+LIBS=-lGLESv2 -lEGL -lpng -lm -lbcm_host -lfmod  -L$(SDKSTAGE)/opt/vc/lib
 
 CFLAGS+=-DRPI_NO_X
 
@@ -14,7 +14,7 @@ CFLAGS+=-DRPI_NO_X
 
 
 
-MYSRC=./main.cpp GraphicsSystem.cpp NetworkingSystem.cpp MCP3008SPI.cpp
+MYSRC=./main.cpp GraphicsSystem.cpp NetworkingSystem.cpp MCP3008SPI.cpp GPIOPin.cpp
 
 default: all
 
