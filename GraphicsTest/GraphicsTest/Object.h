@@ -1,7 +1,7 @@
 #pragma once
 #include "Standard.h"
 class IComponent;
-struct IMessage;
+#include "Messages.h"
 
 #define GetComponent(compName) GetComponentA<compName>(#compName)
 
@@ -23,7 +23,7 @@ public:
   T* GetComponentA(const char * compName);
 
   std::unordered_map<std::string, IComponent *> mComponents;
-  void ReceiveMessage(IMessage * msg){ mMessages_.push_back(msg); }
+  void ReceiveMessage(IMessage msg){ mMessages_.push_back(msg); }
 
   std::string name;
   unsigned int ID;
@@ -31,7 +31,7 @@ public:
   bool hasChanged;
   std::string source;
   bool dead;
-  std::vector<IMessage*> mMessages_;
+  std::vector<IMessage> mMessages_;
 };
 
 template <typename T>

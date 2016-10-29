@@ -3,7 +3,7 @@
 #include "System.h"
 
 class IComponent;
-struct IMessage;
+#include "Messages.h"
 
 class MessagingSystem : public System
 {
@@ -13,9 +13,9 @@ public:
   void Update(double dt);
   void Shutdown();
   void RegisterComponent(IComponent * comp);
-  void SendMessageToSystem(IMessage * msg, std::string systemName);
-  void SendMessageToSystem(IMessage * msg, System * sys);
-  void SendMessageToObject(IMessage * msg, unsigned int ID);
+  void SendMessageToSystem(IMessage  msg, std::string systemName);
+  void SendMessageToSystem(IMessage  msg, System * sys);
+  void SendMessageToObject(IMessage msg, unsigned int ID);
 private:
   
 };

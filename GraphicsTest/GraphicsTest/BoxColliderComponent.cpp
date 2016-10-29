@@ -4,6 +4,7 @@
 #include "Core.h"
 #include "Globals.h"
 #include "Object.h"
+#include "Messages.h"
 
 #define EPIFORTRANS 0.00001
 
@@ -55,6 +56,16 @@ void BoxColliderComponent::Update(double dt)
   if (!(newPos.x < trans->mPositionX() + EPIFORTRANS && newPos.x > trans->mPositionX() - EPIFORTRANS) || !(newPos.y < trans->mPositionY() + EPIFORTRANS && newPos.y > trans->mPositionY() - EPIFORTRANS))
   {
     trans->mPosition(newPos);
+  }
+
+  for (auto iter : mParent()->mMessages_)
+  {
+    if (iter.type == MessageType::COLLISIONSTARTED)
+    {
+    }
+    if (iter.type == MessageType::COLLISIONENDED)
+    {
+    }
   }
 }
 

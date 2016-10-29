@@ -155,9 +155,9 @@ void NetworkingSystem::Update(double dt)
   int c = 0;
 
   for (auto iter : mMessages_){
-    switch (iter->type){
+    switch (iter.type){
     case MessageType::CHANGELEDS:{
-      auto * msg = static_cast<ChangeLEDSMessage *>(iter);
+      auto * msg = reinterpret_cast<ChangeLEDSMessage *>(iter.data);
       char d[8] = { 0 };
       for (int i = 0; i < 10; ++i) d[i / 4] = ((msg->state[i]) ? 1 : 0) << (i % 4);
       for (unsigned i = 0; i < connections.size(); ++i){
@@ -168,7 +168,7 @@ void NetworkingSystem::Update(double dt)
       break;
     }
     case MessageType::CAMERAMOVE:{
-      auto * msg = static_cast<CameraMoveMessage *>(iter);
+      auto * msg = reinterpret_cast<CameraMoveMessage *>(iter.data);
       for (unsigned i = 0; i < connections.size(); ++i){
         if (connections[i].playerNum == msg->controllerNum){
           AddCommand(i, '(', msg->objID); 
