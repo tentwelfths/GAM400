@@ -391,7 +391,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         d[2] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
         for(int i = 0; i < 10; ++i){
-          gpioPins.SetPinVal((d[i/4] & 1<<(i%4)) ? "1" : "0");
+          gpioPins[i]->SetPinVal((d[i/4] & 1<<(i%4)) ? "1" : "0");
         }
       }
       break;

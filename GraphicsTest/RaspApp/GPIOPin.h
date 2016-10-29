@@ -18,4 +18,4 @@ class GPIOPin
   std::string prevVal;
   std::string pinNum;
   std::string pinDir;
-}
+};
