@@ -436,19 +436,19 @@ int main ( int argc, char *argv[] )
   std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
   GPIOPin * bit1 = new GPIOPin("5");
   GPIOPin * bit2 = new GPIOPin("6");
-  bit1->export_gpio();
-  bit1->setdir_gpio("in");
-  bit2->export_gpio();
-  bit2->setdir_gpio("in");
+  bit1->ExportPin();
+  bit1->SetPinDir("in");
+  bit2->ExportPin();
+  bit2->SetPinDir("in");
   int counter = 0;
   for(int i = 0; i < 10; ++i){
     gpioPins[i] = new GPIOPin(PINS[i]);
-    gpioPins[i]->export_gpio();
-    gpioPins[i]->setdir_gpio("out");
+    gpioPins[i]->ExportPin();
+    gpioPins[i]->SetPinDir("out");
     if(i % 2)
-      gpioPins[i]->setval_gpio("0");
+      gpioPins[i]->SetPinVal("0");
     else{
-      gpioPins[i]->setval_gpio("1");
+      gpioPins[i]->SetPinVal("1");
     }
   }
 
