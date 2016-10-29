@@ -65,7 +65,7 @@ std::string ObjectSystem::GetTextureData(unsigned int ID)
 
 std::string ObjectSystem::Get2DPositionData(Object * iter)
 {
-  if (iter == nullptr || iter->dead) return "";
+  if (iter == nullptr || iter->dead) return "";0
   TransformComponent * t = iter->GetComponent(TransformComponent);
   std::string data = "";
   //for (int k = 0; k < sizeof(unsigned int); ++k)

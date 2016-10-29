@@ -136,7 +136,7 @@ bool KnobTurned(int& counter, GPIOClass * bit1, GPIOClass * bit2, int& prevState
   std::string b1, b2;
   bit1->getval_gpio(b1);
   bit2->getval_gpio(b2);
-  std::cout<<b1<<"  "<<b2<<std::endl;
+  //std::cout<<b1<<"  "<<b2<<std::endl;
   int num = (b1 == "1") ? (1<<1) : (0<<1);
   num |= (b2 == "1") ? (1) : (0);
   if(num == prevState){
@@ -232,7 +232,7 @@ int main (void)
         int old = counter;
         if(KnobTurned(counter, bit1, bit2, state))
         {
-          std::cout<<"turned"<<std::endl;
+          std::cout<<"turned "<<counter<<std::endl;
           LEDs[old]->setval_gpio("0");
           if(counter == 10){
             counter = 0;
