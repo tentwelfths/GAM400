@@ -1,7 +1,5 @@
 #include "ControllerControllerComponent.h"
 
-struct b2Vec2;
-
 class ConeControllerComponent : public ControllerControllerComponent
 {
   public:
@@ -12,7 +10,8 @@ class ConeControllerComponent : public ControllerControllerComponent
     void SpecialFunctionality(InputSystem* input);
     void UpdateCone();
   private:
-    b2Vec2 mDir;
+    float mDirX;
+    float mDirY;
     float mAngle;
     float mSightRadius;
     Object* mPCPlayer;

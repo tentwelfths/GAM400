@@ -6,8 +6,9 @@
 #include "Object.h"
 #include "Globals.h"
 #include "ObjectSystem.h"
+#include "PCControllerComponent.h"
 
-ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDir(b2Vec2(0.0, 0.0)), mAngle(0.0f), mSightRadius(30.0f)
+ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(0.0), mDirY(0.0), mAngle(0.0f), mSightRadius(30.0f)
 {
   mName_ = "ConeControllerComponent";
 }
@@ -25,6 +26,32 @@ void ConeControllerComponent::Update(double dt)
   Movement(input);
   SpecialFunctionality(input);
   UpdateCone();
+
+  for (auto iter : mParent()->mMessages_)
+  {
+    if (iter.type == MessageType::COLLISIONSTARTED)
+    {
+      CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+      if (col->obj1 == mParent())
+      {
+        if (col->obj2->name == "Knife")
+        {
+          Damage(1);
+        }
+      }
+      else
+      {
+        if (col->obj1->name == "Knife")
+        {
+          Damage(1);
+        }
+      }
+    }
+    //if (iter.type == MessageType::COLLISIONENDED)
+    //{
+    //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
+    //}
+  }
 }
 
 void ConeControllerComponent::Shutdown()
@@ -38,10 +65,14 @@ void ConeControllerComponent::UpdateCone()
   auto * otherRigid = mPCPlayer->GetComponent(BoxColliderComponent);
 
   b2Vec2 theDistance(rigid->GetBody()->GetPosition().x - otherRigid->GetBody()->GetPosition().x, rigid->GetBody()->GetPosition().y - otherRigid->GetBody()->GetPosition().y);
-  float theCosine = mDir.x * theDistance.x + mDir.y * theDistance.y;
+  float theCosine = mDirX * theDistance.x + mDirY * theDistance.y;
   if (theCosine < mSightRadius)
   {
-
+    mPCPlayer->mVisable = true;
+  }
+  else
+  {
+    mPCPlayer->mVisable = false;
   }
 
 }

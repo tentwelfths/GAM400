@@ -20,6 +20,7 @@
 #include "DemoReload.h"
 #include "PCControllerComponent.h"
 #include "KnifeComponent.h"
+#include "ConeControllerComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -39,6 +40,8 @@ int main( void )
   RegisterComponentType(DemoReload);
   RegisterComponentType(PCControllerComponent);
   RegisterComponentType(KnifeComponent);
+  RegisterComponentType(ControllerControllerComponent);
+  RegisterComponentType(ConeControllerComponent);
 
   gCore->LoadLevel("DemoLevel.json");
 

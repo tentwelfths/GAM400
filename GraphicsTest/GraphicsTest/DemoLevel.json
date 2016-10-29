@@ -44,11 +44,11 @@
 		"dynamicState": 2
 		"mDensity" : 1.000000
 		"mFriction" : 1.000000
-		"mGhost" : true
+		"mGhost" : false
 		}
 	}
 		File: blah
-	Name: Timer
+	Name: Knife
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
@@ -57,8 +57,8 @@
 			z: 1.000000
 			},
 		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
+			x: 0.500000,
+			y: 0.500000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -69,8 +69,8 @@
 		},
 		BoxColliderComponent: {
 		"mHalfSize": {
-							x: 0.500000,
-							y: 0.500000,
+							x: 0.250000,
+							y: 0.250000,
 							z: 1.000000
 							},
 		"mOffset": {
@@ -89,6 +89,54 @@
 		"mTextureName": player.png
 		},
 		KnifeComponent: {
+		}
+	}
+	File: Coneman.json
+	Name: Coneman
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.000000,
+			y: 4.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Key.png
+		},
+	EditorComponent: {
+		},
+	ConeControllerComponent: {
+		"speed": 5.000000
+		"playerID": 0
+		"health": 10
+		"controllerID": 0
+		},
+	BoxColliderComponent: {
+		"mHalfSize": {
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							}
+		"dynamicState": 2
+		"mDensity" : 1.000000
+		"mFriction" : 1.000000
+		"mGhost" : false
 		}
 	}
 }
