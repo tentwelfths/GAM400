@@ -40,7 +40,7 @@ class InputSystem : public System
     void setButton(int contNum, int key, bool val);
     void setJoystick(int contNum, float x1NewStick, float y1NewStick, float x2NewStick, float y2NewStick);
     void setRaspKey(int key, bool val, int clientNumber);
-    void setMousePos(double xMouse, double yMouse);
+    void setMousePos(float xMouse, float yMouse);
     void updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float x1NewStick, float y1NewStick, float x2NewStick, float y2NewStick);
     bool isKeyPressed(int key);
     bool isKeyJustPressed(int key);
@@ -52,13 +52,13 @@ class InputSystem : public System
     bool isButtonReleased(int contNum, int key);
     Joystick getJoystick(int contNum);
     Controller getController(int contNum);
-    double GetMouseX(){ return xPos; }
-    double GetMouseY(){ return yPos; }
+    float GetMouseX(){ return xPos; }
+    float GetMouseY(){ return yPos; }
   private:
     static bool currInputs[NUMINPUTS];
     static bool prevInputs[NUMINPUTS];
-    static double xPos;
-    static double yPos;
+    static float xPos;
+    static float yPos;
     Controller theControllers[NUMCONT];
 };
 void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);

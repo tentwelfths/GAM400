@@ -99,3 +99,7 @@ void Core::UnloadLevel(){
   unloading = true;
   static_cast<ObjectSystem*>(mSystems["ObjectSystem"])->ClearSystem();
 }
+System * Core::GetSystemByName(std::string systemName)
+{
+  return (mSystems.find(systemName) == mSystems.end()) ? nullptr : mSystems[systemName];
+}

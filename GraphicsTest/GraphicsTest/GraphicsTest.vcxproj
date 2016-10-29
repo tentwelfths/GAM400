@@ -225,6 +225,7 @@
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="JSONTranslator.cpp" />
     <ClCompile Include="KnifeComponent.cpp" />
+    <ClCompile Include="MessagingSystem.cpp" />
     <ClCompile Include="MyListen.cpp" />
     <ClCompile Include="NetworkingComponent.cpp" />
     <ClCompile Include="NetworkingSystem.cpp" />
@@ -352,6 +353,8 @@
     <ClInclude Include="JSONTranslator.h" />
     <ClInclude Include="KnifeComponent.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="Messages.h" />
+    <ClInclude Include="MessagingSystem.h" />
     <ClInclude Include="Metadata.h" />
     <ClInclude Include="MyListen.h" />
     <ClInclude Include="NetworkingComponent.h" />

@@ -18,6 +18,7 @@ public:
   void LoadTextures(std::string filename, GraphicsSystem * g);
   template <typename T>
   T * GetSystemA(const char * systemName);
+  System * GetSystemByName(std::string systemName);
   bool editor;
 
 private:

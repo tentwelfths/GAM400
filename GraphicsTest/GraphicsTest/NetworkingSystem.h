@@ -24,6 +24,9 @@ struct Command
 {
   char comType;
   unsigned int ID;
+  char data[8];
+  Command() {}
+  Command(char c, unsigned int I, char d[8]) :comType(c), ID(I){ for (unsigned i = 0; i < 8; ++i)data[i] = d[i]; }
 };
 
 struct UDPConnection
@@ -48,8 +51,6 @@ struct UDPConnection
 
 class NetworkingComponent;
 
-enum class NETWORKMESSAGETYPE {CAMERA_MOVE, AMMO_BARGRAPH_UPDATE};
-
 class NetworkingSystem : public System
 {
 public:
@@ -58,9 +59,8 @@ public:
   void Update(double dt);
   void Shutdown();
   void RegisterComponent(NetworkingComponent * comp);
-  void AddCommand(char type, unsigned int ID);
-  void AddCommand(int connectionNumber, char type, unsigned int ID);
-  void SendMessageToClient(int controllerNumber, NETWORKMESSAGETYPE type, Object * obj);
+  void AddCommand(char type, unsigned int ID, char data[8] = {0});
+  void AddCommand(int connectionNumber, char type, unsigned int ID, char data[8] = { 0 });
 private:
   Connection sockets[NUMCLIENTS];
   WSADATA wsaData;
@@ -73,5 +73,5 @@ private:
   std::vector<NetworkingComponent *> mComponents_;
   std::vector<UDPConnection> connections;
   bool even;
-  std::string ConstructCommand(char type, unsigned int ID);
+  std::string ConstructCommand(char type, unsigned int ID, char data[8]);
 };
