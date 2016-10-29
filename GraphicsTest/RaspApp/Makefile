@@ -14,7 +14,7 @@ CFLAGS+=-DRPI_NO_X
 
 
 
-MYSRC=./main.cpp GraphicsSystem.cpp NetworkingSystem.cpp MCP3008SPI.cpp
+MYSRC=./main.cpp GraphicsSystem.cpp NetworkingSystem.cpp MCP3008SPI.cpp GPIOPin.cpp
 
 default: all
 
