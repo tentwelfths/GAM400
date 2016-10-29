@@ -16,6 +16,6 @@ class GPIOPin
   private:
   std::string val;
   std::string prevVal;
-  std::string pinNum;
+  std::string pinNum_;
   std::string pinDir;
 };

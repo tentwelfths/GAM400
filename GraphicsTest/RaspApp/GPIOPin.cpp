@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 
-GPIOPin::GPIOPin(std::string pinNum_) : pinNum(pinNum_){
+GPIOPin::GPIOPin(std::string pinNum) : pinNum_(pinNum){
 }
 
 GPIOPin::~GPIOPin(){
