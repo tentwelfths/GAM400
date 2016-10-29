@@ -1,8 +1,3 @@
-#include "GraphicsSystem.h"
-#include "NetworkingSystem.h"
-#include "Object.h"
-#include "GPIOPin.h"
-
 #include <stdio.h>
 #include <unistd.h>
 #include <errno.h>
@@ -18,6 +13,10 @@
 #include <memory>
 #include <queue>
 #include "MCP3008SPI.h"
+#include "GraphicsSystem.h"
+#include "NetworkingSystem.h"
+#include "Object.h"
+#include "GPIOPin.h"
 
 std::string inputstream = "";
 //mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
