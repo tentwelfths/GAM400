@@ -232,7 +232,6 @@ int main (void)
         int old = counter;
         if(KnobTurned(counter, bit1, bit2, state))
         {
-          std::cout<<"turned "<<counter<<std::endl;
           LEDs[old]->setval_gpio("0");
           if(counter == 10){
             counter = 0;
@@ -240,6 +239,7 @@ int main (void)
           if(counter <= -1){
             counter = 9;
           }
+          std::cout<<"turned "<<counter<<std::endl;
           LEDs[counter]->setval_gpio("1");
         }
         //gpio17->getval_gpio(inputstate);
