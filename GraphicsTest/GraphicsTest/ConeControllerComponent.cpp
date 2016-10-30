@@ -99,11 +99,11 @@ void ConeControllerComponent::UpdateCone()
   float theCosine = mDirX * theDistance.x + mDirY * theDistance.y;
   if (theCosine < mSightRadius)
   {
-    mPCPlayer->mVisable = true;
+    mPCPlayer->mVisible = true;
   }
   else
   {
-    mPCPlayer->mVisable = false;
+    mPCPlayer->mVisible = false;
   }
 
 }

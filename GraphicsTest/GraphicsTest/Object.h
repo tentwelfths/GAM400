@@ -32,7 +32,7 @@ public:
   std::string source;
   bool dead;
   std::vector<IMessage> mMessages_;
-  bool mVisable;
+  bool mVisible;
 };
 
 template <typename T>

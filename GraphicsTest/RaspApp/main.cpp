@@ -342,6 +342,15 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         //std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
+        char isVis = command[pos];
+        if(isVis == '1'){
+          gObjectMap[objectID]->inUse = false;
+          break;
+        }
+        else{
+          gObjectMap[objectID]->inUse = true;
+        }
+        ++pos;
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
