@@ -18,6 +18,16 @@ ControllerControllerComponent::ControllerControllerComponent() : PlayerControlle
 
 bool ControllerControllerComponent::Initialize()
 {
+  IMessage msg(MessageType::CHANGELEDS);
+  ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
+  msgData->controllerNum = mParent()->ID;
+  for (int i = 0; i < maxAmmo; ++i)
+  {
+    msgData->state[i] = true;
+  }
+
+  MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+  m->SendMessageToSystem(msg, "NetworkingSystem");
   currAmmo = maxAmmo;
   return true;
 }
@@ -87,7 +97,17 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
         IMessage msg(MessageType::CHANGELEDS);
         ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
         msgData->controllerNum = mParent()->ID;
-        msgData->state[currAmmo - 1] = false;
+        for (int i = 0; i < maxAmmo; ++i)
+        {
+          if (i < currAmmo)
+          {
+            msgData->state[i] = true;
+          }
+          else
+          {
+            msgData->state[i] = false;
+          }
+        }
         
         MessagingSystem* m = gCore->GetSystem(MessagingSystem);
         m->SendMessageToSystem(msg, "NetworkingSystem");
