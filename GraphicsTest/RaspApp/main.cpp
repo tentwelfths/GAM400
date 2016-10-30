@@ -497,9 +497,6 @@ int main ( int argc, char *argv[] )
   while(true){
 
     for(int i = 0; i < 10; ++i){
-      gpioPins[i] = new GPIOPin(PINS[i]);
-      gpioPins[i]->ExportPin();
-      gpioPins[i]->SetPinDir("out");
       if(i == counter)
         gpioPins[i]->SetPinVal("1");
       else{
