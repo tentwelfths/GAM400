@@ -9,7 +9,7 @@
 #include "MessagingSystem.h"
 #include "Messages.h"
 
-ControllerControllerComponent::ControllerControllerComponent() : PlayerControllerComponent(), bulletSpeed(0.0f), shotTimer(1.0f), shotCD(1.0f), controllerID(0)
+ControllerControllerComponent::ControllerControllerComponent() : PlayerControllerComponent(), maxAmmo(10), bulletSpeed(0.0f), shotTimer(1.0f), shotCD(1.0f), controllerID(0)
 {
   AddMember(ControllerControllerComponent, bulletSpeed);
   AddMember(ControllerControllerComponent, controllerID);
