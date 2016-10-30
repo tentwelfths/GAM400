@@ -495,6 +495,19 @@ int main ( int argc, char *argv[] )
   struct timezone tz;
   float deltatime, gDt, rDt,sDt,iDt;
   while(true){
+
+    for(int i = 0; i < 10; ++i){
+      gpioPins[i] = new GPIOPin(PINS[i]);
+      gpioPins[i]->ExportPin();
+      gpioPins[i]->SetPinDir("out");
+      if(i % 2 == counter)
+        gpioPins[i]->SetPinVal("0");
+      else{
+        gpioPins[i]->SetPinVal("1");
+      }
+    }
+    counter++;
+    if(counter == 2) counter = 0;
     //std::cout<<"loop"<<std::endl;
     gettimeofday ( &t1 , &tz );
     bool updated = false;
