@@ -8,9 +8,13 @@
 #include "ObjectSystem.h"
 #include "PCControllerComponent.h"
 #include "SpriteComponent.h"
+#include "MessagingSystem.h"
+#include "Messages.h"
 
 ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(0.0), mDirY(0.0), mAngle(0.0f), mSightRadius(30.0f)
 {
+  for (int i = 0; i < 10; ++i) leds[i] = 0;
+  garbage = 0;
   mName_ = "ConeControllerComponent";
 }
 
@@ -34,7 +38,25 @@ void ConeControllerComponent::Update(double dt)
     auto c = input->getController(0);
     char knobDelta = c.knobDelta;
 
-    
+    if (knobDelta != 0){
+      if (knobDelta > 0){
+        leds[garbage % 10] = false;
+        ++garbage;
+        leds[garbage % 10] = true;
+      }
+      else if (knobDelta < 0){
+        leds[garbage % 10] = false;
+        --garbage;
+        leds[garbage % 10] = true;
+      }
+      IMessage col(MessageType::CHANGELEDS);
+      ChangeLEDSMessage * msgData = reinterpret_cast<ChangeLEDSMessage *>(col.data);
+      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+      msgData->controllerNum = 0;
+      for (int i = 0; i < 10; ++i) msgData->state[i] = leds[i];
+      m->SendMessageToSystem(col, "NetworkingSystem");
+
+    }
 
 
     for (auto iter : mParent()->mMessages_)

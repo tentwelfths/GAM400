@@ -16,4 +16,5 @@ class ConeControllerComponent : public ControllerControllerComponent
     float mSightRadius;
     Object* mPCPlayer;
     bool leds[10];
+    int garbage;
 };
