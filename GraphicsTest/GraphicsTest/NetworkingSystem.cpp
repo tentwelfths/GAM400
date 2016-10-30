@@ -184,6 +184,7 @@ void NetworkingSystem::Update(double dt)
     }
     }
   }
+  mMessages_.clear();
   while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (sockaddr*)(&addr), &fromlen)) && iResult > 0)
   {
 
