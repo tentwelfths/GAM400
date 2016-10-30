@@ -12,6 +12,8 @@ public:
   virtual void SpecialFunctionality(InputSystem* input);
   float GetBulletSpeed() { return bulletSpeed; }
 private:
+  int currAmmo;
+  int maxAmmo;
   float bulletSpeed;
   float shotTimer;
   float shotCD;

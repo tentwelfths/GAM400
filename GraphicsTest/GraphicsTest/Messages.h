@@ -35,5 +35,4 @@ struct CameraMoveMessage {
 struct ChangeTextureMessage {
   ChangeTextureMessage(){}
   unsigned int objID;
-  unsigned int texID;
 };

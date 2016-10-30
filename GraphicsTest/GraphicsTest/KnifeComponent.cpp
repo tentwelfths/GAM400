@@ -17,6 +17,7 @@ KnifeComponent::KnifeComponent() : GameLogicComponent(GameLogicType::KNIFE), off
 
 bool KnifeComponent::Initialize()
 {
+  mParent()->mVisable = false;
   return true;
 }
 

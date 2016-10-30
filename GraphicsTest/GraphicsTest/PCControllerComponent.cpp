@@ -14,6 +14,7 @@ PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), cu
 
 bool PCControllerComponent::Initialize()
 {
+  mParent()->mVisable = false;
   return true;
 }
 

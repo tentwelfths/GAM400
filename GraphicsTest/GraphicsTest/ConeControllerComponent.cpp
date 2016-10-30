@@ -34,29 +34,12 @@ void ConeControllerComponent::Update(double dt)
     Shoot(input, dt);
     SpecialFunctionality(input);
     UpdateCone();
-
-    auto c = input->getController(0);
-    char knobDelta = c.knobDelta;
-
-    if (knobDelta != 0){
-      if (knobDelta > 0){
-        leds[garbage % 10] = false;
-        ++garbage;
-        leds[garbage % 10] = true;
-      }
-      else if (knobDelta < 0){
-        leds[garbage % 10] = false;
-        --garbage;
-        leds[garbage % 10] = true;
-      }
-      IMessage col(MessageType::CHANGELEDS);
-      ChangeLEDSMessage * msgData = reinterpret_cast<ChangeLEDSMessage *>(col.data);
-      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
-      msgData->controllerNum = 0;
-      for (int i = 0; i < 10; ++i) msgData->state[i] = leds[i];
-      m->SendMessageToSystem(col, "NetworkingSystem");
-
-    }
+      //IMessage col(MessageType::CHANGELEDS);
+      //ChangeLEDSMessage * msgData = reinterpret_cast<ChangeLEDSMessage *>(col.data);
+      //MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+      //msgData->controllerNum = 0;
+      //for (int i = 0; i < 10; ++i) msgData->state[i] = leds[i];
+      //m->SendMessageToSystem(col, "NetworkingSystem");
 
 
     for (auto iter : mParent()->mMessages_)
@@ -91,6 +74,12 @@ void ConeControllerComponent::Update(double dt)
       sprite->SetTexture("bolt.png");
       auto * box = mParent()->GetComponent(BoxColliderComponent);
       box->GetBody()->GetFixtureList()->SetSensor(true);
+      IMessage msg(MessageType::CHANGETEXTURE);
+      ChangeTextureMessage* msgData = reinterpret_cast<ChangeTextureMessage*>(msg.data);
+
+      msgData->objID = mParent()->ID;
+      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+      m->SendMessageToSystem(msg, "NetworkingSystem");
     }
   }
   

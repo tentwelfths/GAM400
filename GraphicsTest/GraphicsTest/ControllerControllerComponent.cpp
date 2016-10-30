@@ -56,12 +56,14 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
     b2Vec2 bulletVel(0.0f, 0.0f);
     Joystick joy = input->getJoystick(0);
     if (joy.x2Stick > 0.1 || joy.x2Stick < -0.1){
-      bulletVel.x = joy.x2Stick * bulletSpeed;
+      bulletVel.x = joy.x2Stick;
     }
     if (joy.y2Stick > 0.1 || joy.y2Stick < -0.1){
-      bulletVel.y = joy.y2Stick * bulletSpeed;
+      bulletVel.y = joy.y2Stick;
     }
     bulletVel.Normalize();
+    bulletVel.x *= bulletSpeed;
+    bulletVel.y *= bulletSpeed;
     if (bulletVel.x > 0.1f || bulletVel.x < -0.1f || bulletVel.y > 0.1f || bulletVel.y < -0.1f)
     {
       JSONTranslator j;
