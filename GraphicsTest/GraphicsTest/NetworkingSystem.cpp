@@ -162,7 +162,7 @@ void NetworkingSystem::Update(double dt)
       for (int i = 0; i < 10; ++i) d[i / 4] = ((msg->state[i]) ? 1 : 0) << (i % 4);
       for (unsigned i = 0; i < connections.size(); ++i){
         if (connections[i].playerNum == msg->controllerNum){
-          AddCommand(i, '^', 0, d);
+          //AddCommand(i, '^', 0, d);
         }
       }
       break;
