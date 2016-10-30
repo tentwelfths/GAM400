@@ -120,6 +120,7 @@
 		"speed": 5.000000
 		"playerID": 0
 		"health": 2
+		"bulletSpeed" : 20.000000
 		"controllerID": 0
 		},
 	BoxColliderComponent: {

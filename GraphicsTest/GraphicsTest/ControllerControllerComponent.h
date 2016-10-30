@@ -10,6 +10,8 @@ public:
   void Movement(InputSystem* input);
   virtual void Shoot(InputSystem* input);
   virtual void SpecialFunctionality(InputSystem* input);
+  float GetBulletSpeed() { return bulletSpeed; }
 private:
+  float bulletSpeed;
   int controllerID;
 };

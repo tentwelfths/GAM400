@@ -7,8 +7,9 @@
 #include "Globals.h"
 #include "JSONTranslator.h"
 
-ControllerControllerComponent::ControllerControllerComponent() : PlayerControllerComponent()
+ControllerControllerComponent::ControllerControllerComponent() : PlayerControllerComponent(), bulletSpeed(0.0f), controllerID(0)
 {
+  AddMember(ControllerControllerComponent, bulletSpeed);
   AddMember(ControllerControllerComponent, controllerID);
   mName_ = "ControllerControllerComponent";
 }
@@ -48,16 +49,21 @@ void ControllerControllerComponent::Shoot(InputSystem* input)
 {
   b2Vec2 bulletVel(0.0f, 0.0f);
   Joystick joy = input->getJoystick(0);
-  bulletVel.x = joy.x2Stick;
-  bulletVel.y = joy.y2Stick;
+  bulletVel.x = joy.x2Stick * bulletSpeed;
+  bulletVel.y = joy.y2Stick * bulletSpeed;
   bulletVel.Normalize();
 
   JSONTranslator j;
   Object * b;
   b = j.CreateObjectFromFile("Bullet.json");
   b->Initialize();
-  auto trans = b->GetComponent(TransformComponent);
-  auto box = b->GetComponent(BoxColliderComponent);
+  auto bTrans = b->GetComponent(TransformComponent);
+  auto bBox = b->GetComponent(BoxColliderComponent);
+  auto trans = mParent()->GetComponent(TransformComponent);
+  bTrans->mPosition(trans->mPosition());
+  b2Vec2 boxPos(bTrans->mPositionX(), bTrans->mPositionY());
+  bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
+  bBox->GetBody()->SetLinearVelocity(bulletVel);
 }
 
 void ControllerControllerComponent::SpecialFunctionality(InputSystem* input)
