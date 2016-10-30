@@ -7,7 +7,7 @@
 #include "Globals.h"
 #include "JSONTranslator.h"
 
-ControllerControllerComponent::ControllerControllerComponent() : PlayerControllerComponent(), bulletSpeed(0.0f), controllerID(0)
+ControllerControllerComponent::ControllerControllerComponent() : PlayerControllerComponent(), bulletSpeed(0.0f), shotTimer(1.0f), shotCD(1.0f), controllerID(0)
 {
   AddMember(ControllerControllerComponent, bulletSpeed);
   AddMember(ControllerControllerComponent, controllerID);
@@ -36,8 +36,12 @@ void ControllerControllerComponent::Movement(InputSystem* input)
   if (rigid)
   {
     Joystick dir = input->getJoystick(controllerID);
-    newVel.x = dir.x1Stick * GetSpeed();
-    newVel.y = dir.y1Stick * GetSpeed();
+    if (dir.x1Stick > 0.1 || dir.x1Stick < -0.1){
+      newVel.x = dir.x1Stick * GetSpeed();
+    }
+    if (dir.y1Stick > 0.1 || dir.y1Stick < -0.1){
+      newVel.y = dir.y1Stick * GetSpeed();
+    }
     if (rigid->GetBody())
     {
       rigid->GetBody()->SetLinearVelocity(newVel);
@@ -45,25 +49,36 @@ void ControllerControllerComponent::Movement(InputSystem* input)
   }
 }
 
-void ControllerControllerComponent::Shoot(InputSystem* input)
+void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
 {
-  b2Vec2 bulletVel(0.0f, 0.0f);
-  Joystick joy = input->getJoystick(0);
-  bulletVel.x = joy.x2Stick * bulletSpeed;
-  bulletVel.y = joy.y2Stick * bulletSpeed;
-  bulletVel.Normalize();
-
-  JSONTranslator j;
-  Object * b;
-  b = j.CreateObjectFromFile("Bullet.json");
-  b->Initialize();
-  auto bTrans = b->GetComponent(TransformComponent);
-  auto bBox = b->GetComponent(BoxColliderComponent);
-  auto trans = mParent()->GetComponent(TransformComponent);
-  bTrans->mPosition(trans->mPosition());
-  b2Vec2 boxPos(bTrans->mPositionX(), bTrans->mPositionY());
-  bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
-  bBox->GetBody()->SetLinearVelocity(bulletVel);
+  if (shotTimer >= shotCD)
+  {
+    b2Vec2 bulletVel(0.0f, 0.0f);
+    Joystick joy = input->getJoystick(0);
+    if (joy.x2Stick > 0.1 || joy.x2Stick < -0.1){
+      bulletVel.x = joy.x2Stick * bulletSpeed;
+    }
+    if (joy.y2Stick > 0.1 || joy.y2Stick < -0.1){
+      bulletVel.y = joy.y2Stick * bulletSpeed;
+    }
+    bulletVel.Normalize();
+    if (bulletVel.x > 0.1f || bulletVel.x < -0.1f || bulletVel.y > 0.1f || bulletVel.y < -0.1f)
+    {
+      JSONTranslator j;
+      Object * b;
+      b = j.CreateObjectFromFile("Bullet.json");
+      b->Initialize();
+      auto bTrans = b->GetComponent(TransformComponent);
+      auto bBox = b->GetComponent(BoxColliderComponent);
+      auto trans = mParent()->GetComponent(TransformComponent);
+      bTrans->mPosition(trans->mPosition());
+      b2Vec2 boxPos(bTrans->mPositionX(), bTrans->mPositionY());
+      bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
+      bBox->GetBody()->SetLinearVelocity(bulletVel);
+      shotTimer = 0.0f;
+    }
+  }
+  shotTimer += dt;
 }
 
 void ControllerControllerComponent::SpecialFunctionality(InputSystem* input)

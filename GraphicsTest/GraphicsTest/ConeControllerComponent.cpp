@@ -31,7 +31,7 @@ void ConeControllerComponent::Update(double dt)
   {
     auto * input = gCore->GetSystem(InputSystem);
     Movement(input);
-    Shoot(input);
+    Shoot(input, dt);
     SpecialFunctionality(input);
     UpdateCone();
 
