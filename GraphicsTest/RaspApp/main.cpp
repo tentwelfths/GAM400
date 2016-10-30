@@ -420,7 +420,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         d[3] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
         for(int i = 0; i < 10; ++i){
-          gpioPins[i]->SetPinVal((d[i/4] & 1<<( 3 - (i%4))) ? "1" : "0");
+          gpioPins[i]->SetPinVal((d[i/4] & 1<<((i%4)) != 0) ? "1" : "0");
         }
       }
       break;

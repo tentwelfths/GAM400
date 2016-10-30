@@ -142,7 +142,7 @@ bool NetworkingSystem::Initialize()
 
   return true;
 }
-
+#include <bitset>
 void NetworkingSystem::Update(double dt)
 {
   int iResult;
@@ -159,7 +159,12 @@ void NetworkingSystem::Update(double dt)
     case MessageType::CHANGELEDS:{
       auto * msg = reinterpret_cast<ChangeLEDSMessage *>(iter.data);
       char d[8] = { 0 };
-      for (int i = 0; i < 10; ++i) d[i / 4] |= ((msg->state[i]) ? 1 : 0) << (3 - (i % 4));
+
+      for (int i = 0; i < 10; ++i) d[i / 4] |= ((msg->state[i]) ? 1 : 0) << ((i % 4));
+      for (int i = 0; i < 4; ++i){
+        std::cout << std::bitset<8>(d[i]);
+      }
+      std::cout << std::endl;
       for (unsigned i = 0; i < connections.size(); ++i){
         if (connections[i].playerNum == msg->controllerNum){
           AddCommand(i, '^', 0, d);
