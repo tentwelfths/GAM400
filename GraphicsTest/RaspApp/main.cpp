@@ -428,7 +428,7 @@ int main ( int argc, char *argv[] )
   sigemptyset(&sig_struct.sa_mask);
 
   if (sigaction(SIGINT, &sig_struct, NULL) == -1) {
-      cout << "Problem with sigaction" << endl;
+      std::cout << "Problem with sigaction" << std::endl;
       exit(1);
   }
 
@@ -583,8 +583,8 @@ int main ( int argc, char *argv[] )
     //}while(deltatime < 1.0f/30.0f);
       if(ctrl_c_pressed)
       {
-          cout << "Ctrl^C Pressed" << endl;
-          cout << "unexporting pins" << endl;
+          std::cout << "Ctrl^C Pressed" << std::endl;
+          std::cout << "unexporting pins" <<std::endl;
           //gpio4->unexport_gpio();
           //gpio17->unexport_gpio();
           //cout << "deallocating GPIO Objects" << endl;
