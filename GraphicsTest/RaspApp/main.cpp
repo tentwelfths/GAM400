@@ -414,7 +414,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   }
 }
 
-int KnobTurned(GPIOClass * bit1, GPIOClass * bit2, int& prevState)
+int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState)
 {
   std::string b1, b2;
   int counter = 0;
@@ -424,7 +424,7 @@ int KnobTurned(GPIOClass * bit1, GPIOClass * bit2, int& prevState)
   int num = (b1 == "1") ? (1<<1) : (0<<1);
   num |= (b2 == "1") ? (1) : (0);
   if(num == prevState){
-    return false;
+    return 0;
   }
   switch(num){
     case 0b00:
