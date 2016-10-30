@@ -6,6 +6,7 @@
 #include "GraphicsSystem.h"
 #include "Globals.h"
 #include "NetworkingSystem.h"
+#include "JSONTranslator.h"
 
 ObjectSystem::ObjectSystem()
 {
@@ -25,7 +26,10 @@ bool     ObjectSystem::Initialize()
 }
 
 Object * ObjectSystem::CreateObjectFromFile(std::string filename){
-  return nullptr;
+  JSONTranslator j;
+  Object * obj = j.CreateObjectFromFile(filename);
+  obj->Initialize();
+  return obj;
 }
 void ObjectSystem::CreateArchetypeFromObject(Object * obj){
 
@@ -141,7 +145,7 @@ std::string ObjectSystem::GetTextureData(Object * iter)
   {
     data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
   }
-  unsigned char len = gCore->GetSystem(GraphicsSystem)->mTextureMap_[(static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName)].index;
+  unsigned char len = gCore->GetSystem(GraphicsSystem)->mTextureMap_.find((static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName))->second.index;
   data += len;
   return data;
 }
@@ -158,7 +162,7 @@ std::string ObjectSystem::GetData(Object * iter)
     data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
     ++i;
   }
-  unsigned char len = gCore->GetSystem(GraphicsSystem)->mTextureMap_[(static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName)].index;
+  unsigned char len = gCore->GetSystem(GraphicsSystem)->mTextureMap_.find((static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName))->second.index;
   data += len;
   for (int k = 0; k < sizeof(float); ++k)
   {

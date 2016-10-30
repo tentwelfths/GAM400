@@ -50,6 +50,7 @@ class Member<std::string> : public Mem
 {
 public:
   std::string * val;
+  char temp[64];
   Member(std::string * v) : Mem(), val(static_cast<std::string *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
@@ -60,8 +61,13 @@ public:
   }
   void GetUI(std::string name){
     //std::array<char, 128> arr = (const_cast<char *>(val->data()));
-    ImGui::InputText(name.c_str(), const_cast<char*>(val->data()), 128);
+    //if (val->size() <= val->length() + 2){
+    //  val->resize(val->size() * 2);
+    //}
+    strcpy(temp, val->c_str());
+    ImGui::InputText(name.c_str(), temp, 64);
     //*val = (arr.data());
+    *val = temp;
   }
 };
 

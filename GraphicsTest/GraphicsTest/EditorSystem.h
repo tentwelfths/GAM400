@@ -18,4 +18,9 @@ private:
   Object * selected;
   std::vector<EditorComponent *> mComponents_;
   bool showfilter;
+  std::vector <std::pair< std::string, void(*)()>> actions;
+  static void SetCreateObj();
+  void CreateObjectByName(const char * name);
+  static bool mCreateObjectMenu;
+  char str[64];
 };

@@ -68,7 +68,7 @@ bool GraphicsSystem::Initialize()
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE); //We don't want the old OpenGL 
 
   // Open a window and create its OpenGL context
-  width = 160, height = 90;
+  width = 800, height = 640;
   mWindow = glfwCreateWindow(width, height, "Tutorial 03 - Matrices", /*glfwGetPrimaryMonitor()*/NULL, NULL);
   if (mWindow == NULL){
     return false;
@@ -247,8 +247,13 @@ void GraphicsSystem::GatherFrameData(GraphicsComponent * iter)
 void GraphicsSystem::Update(double dt)
 {
   GLfloat color[3] = { 1, 1, 0 };
-
+  
   float fov = 45.f;
+
+  if (mTextureMap_.find("") != mTextureMap_.end())
+  {
+    int b = 10;
+  }
 
   // Dark blue background
   glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
@@ -318,7 +323,7 @@ void GraphicsSystem::Update(double dt)
       --i;
       continue;
     }
-
+    mComponents_[i]->Update(dt);
     TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
     glm::mat4 Position;
     Position[3][0] = t->mPositionX();
@@ -351,12 +356,15 @@ void GraphicsSystem::Update(double dt)
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &Rotation[0][0]);
     if (iter->mType() == GraphicsType::SPRITE)
     {
-      GLuint tex = mTextureMap_[static_cast<SpriteComponent *>(iter)->mTextureName].textureID;
-      glActiveTexture(GL_TEXTURE0);
-      glBindTexture(GL_TEXTURE_2D, tex);
+      auto & ref = mTextureMap_.find(static_cast<SpriteComponent *>(iter)->mTextureName);
+      if (ref != mTextureMap_.end()){
+        GLuint tex = ref->second.textureID;
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, tex);
 
-      // Set our "myTextureSampler" sampler to user Texture Unit 0
-      glUniform1i(mTextureID, 0);
+        // Set our "myTextureSampler" sampler to user Texture Unit 0
+        glUniform1i(mTextureID, 0);
+      }
     }
     
 
