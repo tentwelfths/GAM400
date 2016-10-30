@@ -510,7 +510,7 @@ int main ( int argc, char *argv[] )
   bit1->SetPinDir("in");
   bit2->ExportPin();
   bit2->SetPinDir("in");
-  int counter = 5;
+  char counter = 5;
   for(int i = 0; i < 10; ++i){
     gpioPins[i] = new GPIOPin(PINS[i]);
     gpioPins[i]->ExportPin();
@@ -547,16 +547,16 @@ int main ( int argc, char *argv[] )
   float deltatime, gDt, rDt,sDt,iDt;
   while(true){
 
-    for(int i = 0; i < 10; ++i){
-      if(i == counter)
-        gpioPins[i]->SetPinVal("1");
-      else{
-        gpioPins[i]->SetPinVal("0");
-      }
-    }
-    if(counter >= 10) counter = 0;
-    if(counter <= -1) counter = 9;
-    counter+=KnobTurned(bit1, bit2, state);
+    //for(int i = 0; i < 10; ++i){
+    //  if(i == counter)
+    //    gpioPins[i]->SetPinVal("1");
+    //  else{
+    //    gpioPins[i]->SetPinVal("0");
+    //  }
+    //}
+    //if(counter >= 10) counter = 0;
+    //if(counter <= -1) counter = 9;
+    counter = KnobTurned(bit1, bit2, state);
     //std::cout<<"loop"<<std::endl;
     gettimeofday ( &t1 , &tz );
     bool updated = false;
@@ -600,6 +600,7 @@ int main ( int argc, char *argv[] )
       inputstream += static_cast<char *>(static_cast<void *>(&y2))[i];
     }
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
+    inputstream += counter;
     if(toSend && inputstream.length() > 0){
       
       //inputstream = "~" + inputstream + "!";
