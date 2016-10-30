@@ -465,10 +465,10 @@ int main ( int argc, char *argv[] )
     gpioPins[i] = new GPIOPin(PINS[i]);
     gpioPins[i]->ExportPin();
     gpioPins[i]->SetPinDir("out");
-    if(i % 2)
-      gpioPins[i]->SetPinVal("0");
-    else{
+    if(i == counter)
       gpioPins[i]->SetPinVal("1");
+    else{
+      gpioPins[i]->SetPinVal("0");
     }
   }
 
@@ -500,14 +500,14 @@ int main ( int argc, char *argv[] )
       gpioPins[i] = new GPIOPin(PINS[i]);
       gpioPins[i]->ExportPin();
       gpioPins[i]->SetPinDir("out");
-      if(i % 2 == counter)
-        gpioPins[i]->SetPinVal("0");
-      else{
+      if(i == counter)
         gpioPins[i]->SetPinVal("1");
+      else{
+        gpioPins[i]->SetPinVal("0");
       }
     }
     counter++;
-    if(counter == 2) counter = 0;
+    if(counter == 10) counter = 0;
     //std::cout<<"loop"<<std::endl;
     gettimeofday ( &t1 , &tz );
     bool updated = false;
