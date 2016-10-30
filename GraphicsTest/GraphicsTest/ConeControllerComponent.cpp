@@ -30,6 +30,12 @@ void ConeControllerComponent::Update(double dt)
     SpecialFunctionality(input);
     UpdateCone();
 
+    auto c = input->getController(0);
+    char knobDelta = c.knobDelta;
+
+    
+
+
     for (auto iter : mParent()->mMessages_)
     {
       if (iter.type == MessageType::COLLISIONSTARTED)

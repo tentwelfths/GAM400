@@ -296,6 +296,7 @@ void NetworkingSystem::Update(double dt)
         //std::cout << "GOT INPUT" << std::endl;
         unsigned short x1, y1, x2, y2;
         bool button;
+        char knobDelta;
         x1 = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
         pos += sizeof(unsigned short);
         y1 = *static_cast<const unsigned short*>(static_cast<const void *>(&(command.c_str()[pos])));
@@ -306,11 +307,24 @@ void NetworkingSystem::Update(double dt)
         pos += sizeof(unsigned short);
         //std::cout << "THE COMMAND SAYETH" << command[pos] << std::endl;
         button = (command[pos] == '1');
-        std::vector<int> buttons;
-        buttons.push_back(0); 
-        std::vector<bool> state;
-        state.push_back(button);
-        input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
+        ++pos;
+        if (connections[i].playerNum == 0)//coneman
+        {
+          char knobDelta = command[pos];
+          ++pos;
+          std::vector<int> buttons;
+          buttons.push_back(0);
+          std::vector<bool> state;
+          state.push_back(button);
+          input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f, knobDelta);
+        }
+        else{
+          std::vector<int> buttons;
+          buttons.push_back(0);
+          std::vector<bool> state;
+          state.push_back(button);
+          input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
+        }
         //auto * obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
         //auto * trans = obj->GetComponent(TransformComponent);
         //trans->mPositionX(((x - 512) / 512.0f) * 4.f);

@@ -158,7 +158,9 @@ Controller InputSystem::getController(int contNum)
   return theControllers[contNum];
 }
 
-void InputSystem::updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float x1NewStick, float y1NewStick, float x2NewStick, float y2NewStick)
+void InputSystem::updateController(int contNum, std::vector<int> theButtons, 
+  std::vector<bool> theVal, float x1NewStick, float y1NewStick, float x2NewStick, 
+  float y2NewStick)
 {
   int j = 0;
   for (auto & iter : theButtons)
@@ -167,6 +169,19 @@ void InputSystem::updateController(int contNum, std::vector<int> theButtons, std
     ++j;
   }
   setJoystick(contNum,  x1NewStick,  y1NewStick,  x2NewStick,  y2NewStick);
+}
+void InputSystem::updateController(int contNum, std::vector<int> theButtons, 
+  std::vector<bool> theVal, float x1NewStick, float y1NewStick, float x2NewStick, 
+  float y2NewStick, char knobDelta)
+{
+  int j = 0;
+  for (auto & iter : theButtons)
+  {
+    setButton(contNum, iter, theVal[j]);
+    ++j;
+  }
+  setJoystick(contNum, x1NewStick, y1NewStick, x2NewStick, y2NewStick);
+  theControllers[contNum].knobDelta = knobDelta;
 }
 
 void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)

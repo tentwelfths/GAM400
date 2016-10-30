@@ -27,6 +27,7 @@ struct Controller
   static bool currButt[NUMBUTT];
   static bool prevButt[NUMBUTT];
   Joystick theJoystick;
+  char knobDelta;
 };
 
 class InputSystem : public System
@@ -42,6 +43,7 @@ class InputSystem : public System
     void setRaspKey(int key, bool val, int clientNumber);
     void setMousePos(float xMouse, float yMouse);
     void updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float x1NewStick, float y1NewStick, float x2NewStick, float y2NewStick);
+    void updateController(int contNum, std::vector<int> theButtons, std::vector<bool> theVal, float x1NewStick, float y1NewStick, float x2NewStick, float y2NewStick, char knobDelta);
     bool isKeyPressed(int key);
     bool isKeyJustPressed(int key);
     bool isKeyUp(int key);
