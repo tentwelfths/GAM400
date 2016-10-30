@@ -10,6 +10,7 @@ public:
   void Movement(InputSystem* input);
   virtual void Shoot(InputSystem* input, double dt);
   virtual void SpecialFunctionality(InputSystem* input);
+  virtual void Reload(InputSystem* input);
   float GetBulletSpeed() { return bulletSpeed; }
 private:
   int currAmmo;

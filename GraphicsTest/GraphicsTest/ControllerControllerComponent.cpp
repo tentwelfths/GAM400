@@ -6,6 +6,8 @@
 #include "Object.h"
 #include "Globals.h"
 #include "JSONTranslator.h"
+#include "MessagingSystem.h"
+#include "Messages.h"
 
 ControllerControllerComponent::ControllerControllerComponent() : PlayerControllerComponent(), bulletSpeed(0.0f), shotTimer(1.0f), shotCD(1.0f), controllerID(0)
 {
@@ -16,6 +18,7 @@ ControllerControllerComponent::ControllerControllerComponent() : PlayerControlle
 
 bool ControllerControllerComponent::Initialize()
 {
+  currAmmo = maxAmmo;
   return true;
 }
 
@@ -64,20 +67,32 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
     bulletVel.Normalize();
     bulletVel.x *= bulletSpeed;
     bulletVel.y *= bulletSpeed;
-    if (bulletVel.x > 0.1f || bulletVel.x < -0.1f || bulletVel.y > 0.1f || bulletVel.y < -0.1f)
+    if (currAmmo > 0)
     {
-      JSONTranslator j;
-      Object * b;
-      b = j.CreateObjectFromFile("Bullet.json");
-      b->Initialize();
-      auto bTrans = b->GetComponent(TransformComponent);
-      auto bBox = b->GetComponent(BoxColliderComponent);
-      auto trans = mParent()->GetComponent(TransformComponent);
-      bTrans->mPosition(trans->mPosition());
-      b2Vec2 boxPos(bTrans->mPositionX(), bTrans->mPositionY());
-      bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
-      bBox->GetBody()->SetLinearVelocity(bulletVel);
-      shotTimer = 0.0f;
+      if (bulletVel.x > 0.1f || bulletVel.x < -0.1f || bulletVel.y > 0.1f || bulletVel.y < -0.1f)
+      {
+        JSONTranslator j;
+        Object * b;
+        b = j.CreateObjectFromFile("Bullet.json");
+        b->Initialize();
+        auto bTrans = b->GetComponent(TransformComponent);
+        auto bBox = b->GetComponent(BoxColliderComponent);
+        auto trans = mParent()->GetComponent(TransformComponent);
+        bTrans->mPosition(trans->mPosition());
+        b2Vec2 boxPos(bTrans->mPositionX(), bTrans->mPositionY());
+        bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
+        bBox->GetBody()->SetLinearVelocity(bulletVel);
+        shotTimer = 0.0f;
+        
+        IMessage msg(MessageType::CHANGELEDS);
+        ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
+        msgData->controllerNum = mParent()->ID;
+        msgData->state[currAmmo - 1] = false;
+        
+        MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+        m->SendMessageToSystem(msg, "NetworkingSystem");
+        currAmmo -= 1;
+      }
     }
   }
   shotTimer += dt;
@@ -86,4 +101,22 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
 void ControllerControllerComponent::SpecialFunctionality(InputSystem* input)
 {
 
+}
+
+void ControllerControllerComponent::Reload(InputSystem* input)
+{
+  if(input->isButtonJustPressed(controllerID, 0))
+  {
+    IMessage msg(MessageType::CHANGELEDS);
+    ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
+    msgData->controllerNum = mParent()->ID;
+    for (int i = 0; i < maxAmmo; ++i)
+    {
+      msgData->state[i] = true;
+    }
+
+    MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+    m->SendMessageToSystem(msg, "NetworkingSystem");
+    currAmmo = maxAmmo;
+  }
 }
