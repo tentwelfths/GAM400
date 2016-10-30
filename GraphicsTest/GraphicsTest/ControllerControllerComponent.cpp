@@ -99,7 +99,7 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
         msgData->controllerNum = controllerID;
         for (int i = 0; i < maxAmmo; ++i)
         {
-          if (i < currAmmo)
+          if (i == currAmmo)
           {
             msgData->state[i] = true;
           }
