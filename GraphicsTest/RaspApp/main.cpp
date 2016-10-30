@@ -420,7 +420,7 @@ int main ( int argc, char *argv[] )
     std::cout<<"Please identify which controller this is.( cone gun radar turret )"<<std::endl;
     return 0;
   }
-
+  int incremented = 1;
   
   struct sigaction sig_struct;
   sig_struct.sa_handler = sig_handler;
@@ -506,8 +506,8 @@ int main ( int argc, char *argv[] )
         gpioPins[i]->SetPinVal("0");
       }
     }
-    counter++;
-    if(counter == 10) counter = 0;
+    if(counter == 9 || counter == 0) incrementer *= -1;
+    counter+=incrementer;
     //std::cout<<"loop"<<std::endl;
     gettimeofday ( &t1 , &tz );
     bool updated = false;
