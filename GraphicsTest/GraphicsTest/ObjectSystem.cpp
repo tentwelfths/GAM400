@@ -102,7 +102,7 @@ std::string ObjectSystem::GetTransformData(Object * iter)
     ++i;
   }
   data += (iter->mVisible) ? '1' : '0';
-  if (!iter->mVisible) return data;
+  //if (!iter->mVisible) return data;
   for (int k = 0; k < sizeof(float); ++k)
   {
     data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.x)))[k];
