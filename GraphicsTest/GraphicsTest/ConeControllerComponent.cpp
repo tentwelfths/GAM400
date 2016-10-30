@@ -22,6 +22,7 @@ bool ConeControllerComponent::Initialize()
 {
   auto * o = gCore->GetSystem(ObjectSystem);
   mPCPlayer = o->GetFirstItemByName("Player");
+  ControllerControllerComponent::Initialize();
   return true;
 }
 

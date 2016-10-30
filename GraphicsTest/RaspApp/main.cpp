@@ -339,7 +339,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '#': //Object moved
       {
         ++pos;
-        std::cout<<"GOT MOVE MESSAGE"<<std::endl;
+        //std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         //char isVis = command[pos];
