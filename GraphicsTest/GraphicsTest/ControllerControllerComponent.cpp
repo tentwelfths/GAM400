@@ -20,7 +20,7 @@ bool ControllerControllerComponent::Initialize()
 {
   IMessage msg(MessageType::CHANGELEDS);
   ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
-  msgData->controllerNum = mParent()->ID;
+  msgData->controllerNum = controllerID;
   for (int i = 0; i < maxAmmo; ++i)
   {
     msgData->state[i] = true;
@@ -96,7 +96,7 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
         
         IMessage msg(MessageType::CHANGELEDS);
         ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
-        msgData->controllerNum = mParent()->ID;
+        msgData->controllerNum = controllerID;
         for (int i = 0; i < maxAmmo; ++i)
         {
           if (i < currAmmo)
@@ -129,7 +129,7 @@ void ControllerControllerComponent::Reload(InputSystem* input)
   {
     IMessage msg(MessageType::CHANGELEDS);
     ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
-    msgData->controllerNum = mParent()->ID;
+    msgData->controllerNum = controllerID;
     for (int i = 0; i < maxAmmo; ++i)
     {
       msgData->state[i] = true;
