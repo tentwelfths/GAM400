@@ -460,7 +460,7 @@ int main ( int argc, char *argv[] )
   bit1->SetPinDir("in");
   bit2->ExportPin();
   bit2->SetPinDir("in");
-  int counter = 0;
+  int counter = 5;
   for(int i = 0; i < 10; ++i){
     gpioPins[i] = new GPIOPin(PINS[i]);
     gpioPins[i]->ExportPin();
