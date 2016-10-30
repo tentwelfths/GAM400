@@ -119,7 +119,7 @@
 	ConeControllerComponent: {
 		"speed": 5.000000
 		"playerID": 0
-		"health": 10
+		"health": 2
 		"controllerID": 0
 		},
 	BoxColliderComponent: {

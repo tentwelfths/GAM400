@@ -7,6 +7,7 @@
 #include "Globals.h"
 #include "ObjectSystem.h"
 #include "PCControllerComponent.h"
+#include "SpriteComponent.h"
 
 ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(0.0), mDirY(0.0), mAngle(0.0f), mSightRadius(30.0f)
 {
@@ -22,36 +23,48 @@ bool ConeControllerComponent::Initialize()
 
 void ConeControllerComponent::Update(double dt)
 {
-  auto * input = gCore->GetSystem(InputSystem);
-  Movement(input);
-  SpecialFunctionality(input);
-  UpdateCone();
-
-  for (auto iter : mParent()->mMessages_)
+  if (GetAlive())
   {
-    if (iter.type == MessageType::COLLISIONSTARTED)
+    auto * input = gCore->GetSystem(InputSystem);
+    Movement(input);
+    SpecialFunctionality(input);
+    UpdateCone();
+
+    for (auto iter : mParent()->mMessages_)
     {
-      CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
-      if (col->obj1 == mParent())
+      if (iter.type == MessageType::COLLISIONSTARTED)
       {
-        if (col->obj2->name == "Knife")
+        CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+        if (col->obj1 == mParent())
         {
-          Damage(1);
+          if (col->obj2->name == "Knife")
+          {
+            Damage(1);
+          }
+        }
+        else
+        {
+          if (col->obj1->name == "Knife")
+          {
+            Damage(1);
+          }
         }
       }
-      else
-      {
-        if (col->obj1->name == "Knife")
-        {
-          Damage(1);
-        }
-      }
+      //if (iter.type == MessageType::COLLISIONENDED)
+      //{
+      //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
+      //}
     }
-    //if (iter.type == MessageType::COLLISIONENDED)
-    //{
-    //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
-    //}
+    if (GetHealth() <= 0)
+    {
+      Kill();
+      auto * sprite = mParent()->GetComponent(SpriteComponent);
+      sprite->SetTexture("bolt.png");
+      auto * box = mParent()->GetComponent(BoxColliderComponent);
+      box->GetBody()->GetFixtureList()->SetSensor(true);
+    }
   }
+  
 }
 
 void ConeControllerComponent::Shutdown()

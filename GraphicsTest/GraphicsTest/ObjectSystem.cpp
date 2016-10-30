@@ -65,7 +65,7 @@ std::string ObjectSystem::GetTextureData(unsigned int ID)
 
 std::string ObjectSystem::Get2DPositionData(Object * iter)
 {
-  if (iter == nullptr || iter->dead) return "";0
+  if (iter == nullptr || iter->dead) return "";
   TransformComponent * t = iter->GetComponent(TransformComponent);
   std::string data = "";
   //for (int k = 0; k < sizeof(unsigned int); ++k)
@@ -252,6 +252,7 @@ void     ObjectSystem::Update(double dt)
           node = iter->second.Remove(node);
         }
         else{
+          node->value->Update(dt);
           node = node->next;
         }
         continue;
@@ -268,6 +269,7 @@ void     ObjectSystem::Update(double dt)
         //std::cout << node->value->age << std::endl;
         node->value->age += 1;
       }
+      node->value->Update(dt);
       node = node->next;
     }
   }

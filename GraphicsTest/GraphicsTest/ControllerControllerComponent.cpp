@@ -5,6 +5,7 @@
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
+#include "JSONTranslator.h"
 
 ControllerControllerComponent::ControllerControllerComponent() : PlayerControllerComponent()
 {
@@ -41,6 +42,22 @@ void ControllerControllerComponent::Movement(InputSystem* input)
       rigid->GetBody()->SetLinearVelocity(newVel);
     }
   }
+}
+
+void ControllerControllerComponent::Shoot(InputSystem* input)
+{
+  b2Vec2 bulletVel(0.0f, 0.0f);
+  Joystick joy = input->getJoystick(0);
+  bulletVel.x = joy.x2Stick;
+  bulletVel.y = joy.y2Stick;
+  bulletVel.Normalize();
+
+  JSONTranslator j;
+  Object * b;
+  b = j.CreateObjectFromFile("Bullet.json");
+  b->Initialize();
+  auto trans = b->GetComponent(TransformComponent);
+  auto box = b->GetComponent(BoxColliderComponent);
 }
 
 void ControllerControllerComponent::SpecialFunctionality(InputSystem* input)

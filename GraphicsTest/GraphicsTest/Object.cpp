@@ -24,7 +24,7 @@ bool Object::Initialize()
 
 void Object::Update(double dt)
 {
-
+  mMessages_.clear();
 }
 
 void Object::Destroy(){

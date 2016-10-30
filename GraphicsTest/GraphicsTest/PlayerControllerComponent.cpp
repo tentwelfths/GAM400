@@ -6,11 +6,10 @@
 #include "IComponent.h"
 #include "SpriteComponent.h"
 #include "TransformComponent.h"
-#include "JSONTranslator.h"
 #include "PlayerControllerComponent.h"
 #include "InputSystem.h"
 
-PlayerControllerComponent::PlayerControllerComponent() : GameLogicComponent(GameLogicType::PLAYER), speed(1.1f), playerID(0), health(2)
+PlayerControllerComponent::PlayerControllerComponent() : GameLogicComponent(GameLogicType::PLAYER), alive(true), speed(1.1f), playerID(0), health(2)
 {
   AddMember(PlayerControllerComponent, speed);
   AddMember(PlayerControllerComponent, playerID);
