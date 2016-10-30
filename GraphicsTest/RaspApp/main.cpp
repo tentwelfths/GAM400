@@ -414,6 +414,56 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   }
 }
 
+int KnobTurned(GPIOClass * bit1, GPIOClass * bit2, int& prevState)
+{
+  std::string b1, b2;
+  int counter = 0;
+  b1 = bit1->GetPinVal();
+  b2 = bit2->GetPinVal();
+  //std::cout<<b1<<"  "<<b2<<std::endl;
+  int num = (b1 == "1") ? (1<<1) : (0<<1);
+  num |= (b2 == "1") ? (1) : (0);
+  if(num == prevState){
+    return false;
+  }
+  switch(num){
+    case 0b00:
+    if(prevState == 0b01){
+      --counter;
+    }
+    else{
+      ++counter;
+    }
+    break;
+    case 0b01:
+    if(prevState == 0b11){
+      --counter;
+    }
+    else{
+      ++counter;
+    }
+    break;
+    case 0b11:
+    if(prevState == 0b10){
+      --counter;
+    }
+    else{
+      ++counter;
+    }
+    break;
+    case 0b10:
+    if(prevState == 0b00){
+      --counter;
+    }
+    else{
+      ++counter;
+    }
+    break;
+  }
+  prevState = num;
+  return counter;
+}
+
 int main ( int argc, char *argv[] )
 {
   if(argc < 2){
@@ -493,6 +543,7 @@ int main ( int argc, char *argv[] )
   struct timeval t1, t2;
   struct timeval tStart,tEnd;
   struct timezone tz;
+  int state = 0;
   float deltatime, gDt, rDt,sDt,iDt;
   while(true){
 
@@ -503,8 +554,9 @@ int main ( int argc, char *argv[] )
         gpioPins[i]->SetPinVal("0");
       }
     }
-    if(counter == 9 || counter == 0) incrementer *= -1;
-    counter+=incrementer;
+    if(counter >= 10) counter = 0;
+    if(counter <= -1) counter = 9;
+    counter+=KnobTurned(bit1, bit2, state);
     //std::cout<<"loop"<<std::endl;
     gettimeofday ( &t1 , &tz );
     bool updated = false;
