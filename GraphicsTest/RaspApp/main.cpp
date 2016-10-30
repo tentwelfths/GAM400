@@ -581,34 +581,34 @@ int main ( int argc, char *argv[] )
     //  gettimeofday(&t2, &tz);
     //  deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec) * 1e-6);
     //}while(deltatime < 1.0f/30.0f);
-      if(ctrl_c_pressed)
-      {
-          std::cout << "Ctrl^C Pressed" << std::endl;
-          std::cout << "unexporting pins" <<std::endl;
-          //gpio4->unexport_gpio();
-          //gpio17->unexport_gpio();
-          //cout << "deallocating GPIO Objects" << endl;
-          //delete gpio4;
-          //gpio4 = 0;
-          //delete gpio17;
-          //gpio17 =0;
-          for(int i = 0; i < 10; ++i){
-            LEDs[i]->SetPinVal("0");
-            LEDs[i]->UnexportPin();
-            delete LEDs[i];
-            LEDs[i] = 0;
-          }
-          bit1->UnexportPin();
-          delete bit1;
-          bit1 = 0;
-          bit2->UnexportPin();
-          delete bit2;
-          bit2 = 0;
-          break;
-
-      }
+    if(ctrl_c_pressed)
+    {
+        std::cout << "Ctrl^C Pressed" << std::endl;
+        std::cout << "unexporting pins" <<std::endl;
+        //gpio4->unexport_gpio();
+        //gpio17->unexport_gpio();
+        //cout << "deallocating GPIO Objects" << endl;
+        //delete gpio4;
+        //gpio4 = 0;
+        //delete gpio17;
+        //gpio17 =0;
+        for(int i = 0; i < 10; ++i){
+          gpioPins[i]->SetPinVal("0");
+          gpioPins[i]->UnexportPin();
+          delete gpioPins[i];
+          gpioPins[i] = 0;
+        }
+        bit1->UnexportPin();
+        delete bit1;
+        bit1 = 0;
+        bit2->UnexportPin();
+        delete bit2;
+        bit2 = 0;
+        break;
 
     }
+
   }
+  
   return 0;
 }
