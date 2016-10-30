@@ -30,6 +30,14 @@ int count[50];
 
 GPIOPin *gpioPins[10];
 
+bool ctrl_c_pressed = false;
+
+void sig_handler(int sig)
+{
+    write(0,"nCtrl^C pressed in sig handlern",32);
+    ctrl_c_pressed = true;
+}
+
 bool Input ( void )
 {
   static int first = 1;
@@ -412,6 +420,18 @@ int main ( int argc, char *argv[] )
     std::cout<<"Please identify which controller this is.( cone gun radar turret )"<<std::endl;
     return 0;
   }
+
+  
+  struct sigaction sig_struct;
+  sig_struct.sa_handler = sig_handler;
+  sig_struct.sa_flags = 0;
+  sigemptyset(&sig_struct.sa_mask);
+
+  if (sigaction(SIGINT, &sig_struct, NULL) == -1) {
+      cout << "Problem with sigaction" << endl;
+      exit(1);
+  }
+
   char myID = -1;
   
   if(strcmp(argv[1], "cone")==0){
@@ -548,6 +568,34 @@ int main ( int argc, char *argv[] )
     //  gettimeofday(&t2, &tz);
     //  deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec) * 1e-6);
     //}while(deltatime < 1.0f/30.0f);
+      if(ctrl_c_pressed)
+      {
+          cout << "Ctrl^C Pressed" << endl;
+          cout << "unexporting pins" << endl;
+          //gpio4->unexport_gpio();
+          //gpio17->unexport_gpio();
+          //cout << "deallocating GPIO Objects" << endl;
+          //delete gpio4;
+          //gpio4 = 0;
+          //delete gpio17;
+          //gpio17 =0;
+          for(int i = 0; i < 10; ++i){
+            LEDs[i]->setval_gpio("0");
+            LEDs[i]->unexport_gpio();
+            delete LEDs[i];
+            LEDs[i] = 0;
+          }
+          bit1->unexport_gpio();
+          delete bit1;
+          bit1 = 0;
+          bit2->unexport_gpio();
+          delete bit2;
+          bit2 = 0;
+          break;
+
+      }
+
+    }
   }
   return 0;
 }
