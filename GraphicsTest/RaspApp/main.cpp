@@ -420,7 +420,7 @@ int main ( int argc, char *argv[] )
     std::cout<<"Please identify which controller this is.( cone gun radar turret )"<<std::endl;
     return 0;
   }
-  int incremented = 1;
+  int incrementer = 1;
   
   struct sigaction sig_struct;
   sig_struct.sa_handler = sig_handler;
