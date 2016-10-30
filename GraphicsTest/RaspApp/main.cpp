@@ -386,6 +386,14 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '$': //Object texture changed
       {
         ++pos;
+        unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
+        pos += sizeof(unsigned int);
+        char textureID = command[pos];
+        ++pos;
+        Object * obj = gObjects[gObjectMap[objectID]->textureID][objectID];
+        gObjects[gObjectMap[objectID]->textureID].erase(gObjects[gObjectMap[objectID]->textureID].find(objectID));
+        obj->textureID = textureID;
+        gObjects[textureID].insert({objectID, obj});
       }
       break;
 

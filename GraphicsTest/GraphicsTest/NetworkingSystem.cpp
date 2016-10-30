@@ -177,6 +177,11 @@ void NetworkingSystem::Update(double dt)
       
       break;
     }
+    case MessageType::CHANGETEXTURE:{
+      auto * msg = reinterpret_cast<ChangeTextureMessage *>(iter.data);
+      AddCommand('$', msg->objID);
+      break;
+    }
     }
   }
   while ((iResult = recvfrom(ListenSocket, buf, 255, 0, (sockaddr*)(&addr), &fromlen)) && iResult > 0)

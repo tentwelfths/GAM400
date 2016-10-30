@@ -1,6 +1,6 @@
 #pragma once
 
-enum class MessageType{COLLISIONSTARTED, COLLISIONENDED, CHANGELEDS, CAMERAMOVE};
+enum class MessageType{COLLISIONSTARTED, COLLISIONENDED, CHANGELEDS, CAMERAMOVE, CHANGETEXTURE};
 
 class Object;
 
@@ -28,7 +28,12 @@ struct ChangeLEDSMessage{
 
 struct CameraMoveMessage {
   CameraMoveMessage(){}
-  MessageType type;
   unsigned int objID;
   char controllerNum;
+};
+
+struct ChangeTextureMessage {
+  ChangeTextureMessage(){}
+  unsigned int objID;
+  unsigned int texID;
 };
