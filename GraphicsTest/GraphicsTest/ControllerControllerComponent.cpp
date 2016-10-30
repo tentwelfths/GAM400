@@ -62,7 +62,7 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
       bulletVel.y = joy.y2Stick * bulletSpeed;
     }
     bulletVel.Normalize();
-    if (bulletVel.x > 0.0f || bulletVel.x < 0.0f || bulletVel.y > 0.0f || bulletVel.y < 0.0f)
+    if (bulletVel.x > 0.1f || bulletVel.x < -0.1f || bulletVel.y > 0.1f || bulletVel.y < -0.1f)
     {
       JSONTranslator j;
       Object * b;
