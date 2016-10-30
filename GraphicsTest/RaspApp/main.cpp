@@ -593,15 +593,15 @@ int main ( int argc, char *argv[] )
           //delete gpio17;
           //gpio17 =0;
           for(int i = 0; i < 10; ++i){
-            LEDs[i]->setval_gpio("0");
-            LEDs[i]->unexport_gpio();
+            LEDs[i]->SetPinVal("0");
+            LEDs[i]->UnexportPin();
             delete LEDs[i];
             LEDs[i] = 0;
           }
-          bit1->unexport_gpio();
+          bit1->UnexportPin();
           delete bit1;
           bit1 = 0;
-          bit2->unexport_gpio();
+          bit2->UnexportPin();
           delete bit2;
           bit2 = 0;
           break;
