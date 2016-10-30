@@ -4,7 +4,7 @@
 #include "Core.h"
 #include "IComponent.h"
 
-Object::Object() : mVisible(false), age(0), hasChanged(true)
+Object::Object() : mVisible(true), age(0), hasChanged(true)
 {
 
 }
