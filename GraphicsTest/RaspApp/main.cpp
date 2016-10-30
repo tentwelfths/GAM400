@@ -343,42 +343,42 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         char isVis = command[pos];
+        ++pos;
         if(isVis == '1'){
           gObjectMap[objectID]->inUse = false;
           
         }
         else{
           gObjectMap[objectID]->inUse = true;
-        
-          ++pos;
-          const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-          //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
-          pos += sizeof(float);
-          const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-          //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
-          pos += sizeof(float);
-          const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-          //std::cout<<pos<<"]"<<len <<" zPos: "<< zPos <<std::endl;
-          pos += sizeof(float);
-          const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
-          //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
-          pos += sizeof(float);
-          const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
-          //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
-          pos += sizeof(float);
-          const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
-          //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
-          pos += sizeof(float);
-          auto temp = gObjectMap.find(objectID);
-          if(temp != gObjectMap.end()){
-            (temp)->second->position[0] = xPos;
-            (temp)->second->position[1] = yPos;
-            (temp)->second->position[2] = zPos;
-            (temp)->second->scale[0] = xSca;
-            (temp)->second->scale[1] = ySca;
-            (temp)->second->rotation[2] = rot;
-          }
         }
+        const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        pos += sizeof(float);
+        const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        pos += sizeof(float);
+        const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"]"<<len <<" zPos: "<< zPos <<std::endl;
+        pos += sizeof(float);
+        const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
+        pos += sizeof(float);
+        const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
+        pos += sizeof(float);
+        const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        pos += sizeof(float);
+        auto temp = gObjectMap.find(objectID);
+        if(temp != gObjectMap.end()){
+          (temp)->second->position[0] = xPos;
+          (temp)->second->position[1] = yPos;
+          (temp)->second->position[2] = zPos;
+          (temp)->second->scale[0] = xSca;
+          (temp)->second->scale[1] = ySca;
+          (temp)->second->rotation[2] = rot;
+        }
+        
       }
       break;
       case '(': //Move camera
