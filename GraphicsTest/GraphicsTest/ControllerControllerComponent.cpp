@@ -77,6 +77,7 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
     bulletVel.Normalize();
     bulletVel.x *= bulletSpeed;
     bulletVel.y *= bulletSpeed;
+    
     if (currAmmo > 0)
     {
       if (bulletVel.x > 0.1f || bulletVel.x < -0.1f || bulletVel.y > 0.1f || bulletVel.y < -0.1f)
@@ -108,7 +109,7 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
             msgData->state[i] = false;
           }
         }
-        
+
         MessagingSystem* m = gCore->GetSystem(MessagingSystem);
         m->SendMessageToSystem(msg, "NetworkingSystem");
         currAmmo -= 1;

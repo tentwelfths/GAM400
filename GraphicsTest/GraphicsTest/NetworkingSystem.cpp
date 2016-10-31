@@ -489,7 +489,6 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
     temp += "^";
     temp += data[0];
     temp += data[1];
-    temp += data[2];
   }
     break;
 
