@@ -103,3 +103,8 @@ System * Core::GetSystemByName(std::string systemName)
 {
   return (mSystems.find(systemName) == mSystems.end()) ? nullptr : mSystems[systemName];
 }
+
+void Core::SaveLevel(std::string filename){
+  JSONTranslator j;
+  j.SaveLevelToFile(filename, GetSystem(ObjectSystem));
+}

@@ -19,41 +19,41 @@
 			z: 0.000000
 			}
 		},
+	PCControllerComponent: {
+		"sprintSpeed": 2.000000,
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 10
+		},
 	SpriteComponent: {
 		"mTextureName": Key.png
 		},
 	EditorComponent: {
 		},
-	PCControllerComponent: {
-		"speed": 5.000000
-		"playerID": 0
-		"health": 10
-		"sprintSpeed" : 2.000000
-		},
 	BoxColliderComponent: {
+		"mDensity": 1.000000,
 		"mHalfSize": {
 							x: 0.500000,
 							y: 0.500000,
 							z: 1.000000
 							},
+		"dynamicState": 2,
 		"mOffset": {
 							x: 0.000000,
 							y: 0.000000,
 							z: 0.000000
-							}
-		"dynamicState": 2
-		"mDensity" : 1.000000
-		"mFriction" : 1.000000
-		"mGhost" : false
+							},
+		"mFriction": 1.000000,
+		"mGhost": false
 		}
-	}
-		File: blah
+	},
+	File: blah
 	Name: Knife
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
 			x: 0.000000,
-			y: -10.000000,
+			y: -4.000000,
 			z: 1.000000
 			},
 		"mScale_": {
@@ -67,30 +67,30 @@
 			z: 0.000000
 			}
 		},
-		BoxColliderComponent: {
+	KnifeComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
 		"mHalfSize": {
-							x: 0.250000,
-							y: 0.250000,
-							z: 1.000000
-							},
+					x: 0.250000,
+					y: 0.250000,
+					z: 1.000000
+					},
+		"dynamicState": 2,
 		"mOffset": {
-							x: 0.000000,
-							y: 0.000000,
-							z: 0.000000
-							}
-		"dynamicState": 2
-		"mDensity" : 1.000000
-		"mFriction" : 1.000000
-		"mGhost" : true
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
+		"mFriction": 1.000000,
+		"mGhost": true
 		},
-		EditorComponent: {
+	EditorComponent: {
 		},
-		SpriteComponent: {
+	SpriteComponent: {
 		"mTextureName": player.png
-		},
-		KnifeComponent: {
 		}
-	}
+	},
 	File: Coneman.json
 	Name: Coneman
 	Object: {
@@ -116,28 +116,28 @@
 		},
 	EditorComponent: {
 		},
-	ConeControllerComponent: {
-		"speed": 5.000000
-		"playerID": 0
-		"health": 2
-		"bulletSpeed" : 20.000000
-		"controllerID": 0
-		},
 	BoxColliderComponent: {
+		"mDensity": 1.000000,
 		"mHalfSize": {
-							x: 0.500000,
-							y: 0.500000,
-							z: 1.000000
-							},
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
 		"mOffset": {
-							x: 0.000000,
-							y: 0.000000,
-							z: 0.000000
-							}
-		"dynamicState": 2
-		"mDensity" : 1.000000
-		"mFriction" : 1.000000
-		"mGhost" : false
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	ConeControllerComponent: {
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 2,
+		"controllerID": 0,
+		"bulletSpeed": 20.000000
 		}
 	}
 }

@@ -14,6 +14,7 @@ public:
   void Shutdown();
   void RegisterSystem(System * s);
   void UnloadLevel();
+  void SaveLevel(std::string filename);
   void LoadLevel(std::string filename);
   void LoadTextures(std::string filename, GraphicsSystem * g);
   template <typename T>

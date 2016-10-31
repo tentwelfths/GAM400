@@ -41,3 +41,16 @@ void Object::AddComponent(IComponent * comp)
   comp->mParent(this);
   mComponents.insert({ comp->mName(), comp });
 }
+
+void Object::AddComponent(std::string name)
+{
+  if (components.find(name) == components.end()) return;
+  AddComponent(components[name]());
+}
+
+void Object::RemoveComponent(IComponent * comp)
+{
+  comp->dead = true;
+  mComponents.erase(mComponents.find(comp->mName()));
+  comp->Shutdown();
+}

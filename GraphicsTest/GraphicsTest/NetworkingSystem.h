@@ -10,13 +10,14 @@ struct Connection
   SOCKET client;
   bool active;
   int initstep;
-  Object * parent;
+  float x, y;
   unsigned char clientNumber;
   Connection(){
     client = INVALID_SOCKET;
     active = false;
     initstep = 0;
     clientNumber = 0;
+    x = 0; y = 0;
   }
 };
 
@@ -38,11 +39,12 @@ struct UDPConnection
   bool update;
   char playerNum;
   int initstep;
+  float x, y;
   std::string unfinished;
   std::vector<unsigned int> unloaded;
   std::queue<std::string> commandsRec;
   std::queue<Command> commandsSend;
-  UDPConnection(sockaddr_in a) :addr(a), frameCount(0), lastFrameSeen(0), clientNumber(0), initstep(0){}
+  UDPConnection(sockaddr_in a) :addr(a), frameCount(0), lastFrameSeen(0), clientNumber(0), initstep(0), x(0.f), y(0.f){}
 };
 
 

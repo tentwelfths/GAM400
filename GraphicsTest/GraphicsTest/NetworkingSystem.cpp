@@ -187,6 +187,8 @@ void NetworkingSystem::Update(double dt)
       for (unsigned i = 0; i < connections.size(); ++i){
         if (connections[i].playerNum == msg->controllerNum){
           AddCommand(i, '(', msg->objID); 
+          connections[i].x = gCore->GetSystem(ObjectSystem)->mObjectMap_[msg->objID]->GetComponent(TransformComponent)->mPositionX();
+          connections[i].y = gCore->GetSystem(ObjectSystem)->mObjectMap_[msg->objID]->GetComponent(TransformComponent)->mPositionY();
         }
       }
       
@@ -415,6 +417,15 @@ void NetworkingSystem::Shutdown()
 void NetworkingSystem::AddCommand(char com, unsigned int ID, char data[8])
 {
   for (unsigned i = 0; i < connections.size(); ++i){
+    if (com == '#'){
+      auto * trans = gCore->GetSystem(ObjectSystem)->mObjectMap_[ID]->GetComponent(TransformComponent);
+      if (trans->mPositionX() >= connections[i].x - trans->mScaleX() - 15 &&
+        trans->mPositionY() >= connections[i].y - trans->mScaleY() - 15 &&
+        trans->mPositionX() <= connections[i].x - trans->mScaleX() + 15 &&
+        trans->mPositionY() <= connections[i].y + trans->mScaleY() + 15){
+        continue;
+      }
+    }
     connections[i].commandsSend.push({ com, ID, data});
   }
 }
@@ -486,6 +497,7 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
   case '(': //Update camera position
   {
     std::string data = gCore->GetSystem(ObjectSystem)->Get2DPositionData(ID);
+    
     if (data == "") break;
     temp = "(";
     for (unsigned i = 0; i < data.length(); ++i){

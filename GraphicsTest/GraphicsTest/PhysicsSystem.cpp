@@ -45,7 +45,7 @@ void PhysicsSystem::Update(double dt)
   for (unsigned i = 0; i < mComponents_.size(); ++i)
   {
     auto iter = mComponents_[i];
-    if (iter->mParent()->dead)
+    if (iter->dead)
     {
       mComponents_[i]->clean = true;
       mComponents_.erase(mComponents_.begin() + i);

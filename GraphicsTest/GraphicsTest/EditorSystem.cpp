@@ -5,21 +5,32 @@
 #include "Globals.h"
 #include "EditorComponent.h"
 #include "ObjectSystem.h"
+#include "GraphicsSystem.h"
 #include "JSONTranslator.h"
 #include <imgui.h>
+#include <math.h>   
 
-EditorSystem::EditorSystem(){
+EditorSystem::EditorSystem() : showfilter(false), mShowAddComponent(false)
+{
+  str[0] = 0;
   mName_ = "EditorSystem";
+  tileEditorActive = false;
 }
 
 
-bool EditorSystem::mCreateObjectMenu;
+bool EditorSystem::mCreateObjectMenu = false;
+bool EditorSystem::mSaveLevelMenu = false;
+bool EditorSystem::mLoadLevelMenu = false;
+bool EditorSystem::mTileEditorStart = false;
 void EditorSystem::RegisterComponent(EditorComponent*comp){
   mComponents_.push_back(comp);
 }
 bool EditorSystem::Initialize(){
   showfilter = false;
   actions.push_back({ "Create Object", EditorSystem::SetCreateObj });
+  actions.push_back({ "Load Level", EditorSystem::SetLoadLevel });
+  actions.push_back({ "Save Level", EditorSystem::SetSaveLevel });
+  actions.push_back({ "Tile Editor", EditorSystem::SetTileEditor });
   return true;
 }
 void EditorSystem::Update(double dt){
@@ -33,19 +44,38 @@ void EditorSystem::Update(double dt){
   //}
   if (input->isKeyJustPressed(GLFW_KEY_GRAVE_ACCENT)){
     gCore->editor = !gCore->editor;
+    tileEditorActive = false;
   }
   if (!gCore->editor)return;
-  if (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_1)){
+  if ((input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && tileEditorActive) || (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_1) && !tileEditorActive)){
     selected = nullptr;
   }
   
+  if (tileEditorActive){
+    if (input->isKeyJustPressed(GLFW_KEY_ESCAPE)){
+      tileEditorActive = false;
+      tileArchetype = "";
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_T)){
+      tileEditorActive = false;
+      tileArchetype = "";
+      mTileEditorStart = true;
+    }
+  }
+
   if (input->isKeyJustPressed(GLFW_KEY_SPACE) && !showfilter){
     showfilter = true;
+    mShowAddComponent = false;
+    mCreateObjectMenu = false;
+    mLoadLevelMenu = false;
+    mSaveLevelMenu = false;
+    tileEditorActive = false;
+    selected = nullptr;
   }
   for (unsigned i = 0; i < mComponents_.size(); ++i)
   {
     auto iter = mComponents_[i];
-    if (iter->mParent()->dead){
+    if (iter->dead){
       mComponents_[i]->clean = true;
       mComponents_.erase(mComponents_.begin() + i);
       --i;
@@ -54,9 +84,36 @@ void EditorSystem::Update(double dt){
     
     mComponents_[i]->Update(dt);
   }
-  if (input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && selected != nullptr){
-    selected->GetComponent(TransformComponent)->mPosition(input->GetMouseX(), input->GetMouseY(), selected->GetComponent(TransformComponent)->mPositionZ());
+  if (input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && selected != nullptr && !tileEditorActive){
+    float x = input->GetMouseX(), y = input->GetMouseY(), z = selected->GetComponent(TransformComponent)->mPositionZ();
+    if (input->isKeyPressed(GLFW_KEY_LEFT_SHIFT) || input->isKeyPressed(GLFW_KEY_RIGHT_SHIFT))
+    {
+      x = round(x);
+      y = round(y);
+    }
+    selected->GetComponent(TransformComponent)->mPosition(x, y, z);
   }
+
+  if (input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && selected == nullptr && tileEditorActive){
+    Object * obj = gCore->GetSystem(ObjectSystem)->CreateObjectFromFile(tileArchetype);
+    obj->GetComponent(TransformComponent)->mPosition(round(input->GetMouseX()), round(input->GetMouseY()), 0);
+    obj->GetComponent(TransformComponent)->mScale(1,1,1);
+  }
+
+  auto * g = gCore->GetSystem(GraphicsSystem);
+  if (input->isKeyPressed(GLFW_KEY_LEFT)){
+    g->mMainCamera.x -= g->mMainCamera.zoom / 2.f;
+  }
+  if (input->isKeyPressed(GLFW_KEY_RIGHT)){
+    g->mMainCamera.x += g->mMainCamera.zoom / 2.f;
+  }
+  if (input->isKeyPressed(GLFW_KEY_DOWN)){
+    g->mMainCamera.y -= g->mMainCamera.zoom / 2.f;
+  }
+  if (input->isKeyPressed(GLFW_KEY_UP)){
+    g->mMainCamera.y += g->mMainCamera.zoom / 2.f;
+  }
+  g->mMainCamera.zoom -= input->GetScrollDelta() * 0.25;
 
   //if (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_1) && selected == nullptr){
   //  JSONTranslator j;
@@ -80,8 +137,16 @@ void EditorSystem::Select(Object * obj){
 void EditorSystem::DisplayImGUI(){
   if (gCore->editor == false){
     selected = nullptr;
+    mShowAddComponent = false;
+    showfilter = false;
+    mCreateObjectMenu = false;
+    mLoadLevelMenu = false;
+    mSaveLevelMenu = false;
+    str[0] = 0;
     return;
   }
+  //bool b = true;
+  //ImGui::ShowTestWindow(&b);
   if (selected != nullptr){
     ImGui::Begin("Inspector");
     ImGui::Text(selected->name.c_str());
@@ -90,9 +155,20 @@ void EditorSystem::DisplayImGUI(){
         for (auto & memIter : iter.second->members){
           memIter.second->GetUI(memIter.first);
         }
+        if (ImGui::Button(std::string("Remove " + iter.second->mName()).c_str())){
+          selected->RemoveComponent(iter.second);
+          break;
+        }
       }
     }
+
+    if (ImGui::Button(std::string("Add Component").c_str())){
+      mShowAddComponent = true;
+    }
     ImGui::End();
+  }
+  else{
+    mShowAddComponent = false;
   }
 
   if (showfilter){
@@ -121,6 +197,62 @@ void EditorSystem::DisplayImGUI(){
     }
     ImGui::End();
   }
+
+  if (mLoadLevelMenu){
+    ImGui::Begin("Load Level Menu");
+    ImGui::InputText("Level Name", str, 64);
+    if (ImGui::Button("Load Level")){
+      gCore->UnloadLevel();
+      gCore->LoadLevel(str);
+      str[0] = 0;
+      mLoadLevelMenu = false;
+      selected = nullptr;
+    }
+    ImGui::End();
+  }
+  if (mSaveLevelMenu){
+    ImGui::Begin("Save Level Menu");
+    ImGui::InputText("Level Name", str, 64);
+    if (ImGui::Button("Save Level")){
+      gCore->SaveLevel(str);
+      str[0] = 0;
+      mSaveLevelMenu = false;
+      selected = nullptr;
+    }
+    ImGui::End();
+  }
+  if (mTileEditorStart){
+    ImGui::Begin("Start Tile Editor");
+    ImGui::InputText("Tile Archetype", str, 64);
+    if (ImGui::Button("Start Tiling!")){
+      tileEditorActive = true;
+      tileArchetype = str;
+      str[0] = 0;
+      mTileEditorStart = false;
+      selected = nullptr;
+    }
+    ImGui::End();
+  }
+
+
+  if (mShowAddComponent){
+    const char* items[128];
+    int i = 0;
+    for (auto & iter : components){
+      items[i] = iter.first.c_str();
+      ++i;
+    }
+    static int item2 = -1;
+    ImGui::Begin("Add Component Menu");
+    ImGui::Combo("combo scroll", &item2, items, components.size());   // Combo using proper array. You can also pass a callback to retrieve array value, no need to create/copy an array just for that.
+    //ImGui::InputText("Component Name", str, 64);
+    if (ImGui::Button("Add Component")){
+      selected->AddComponent(items[item2]);
+      str[0] = 0;
+      mShowAddComponent = false;
+    }
+    ImGui::End();
+  }
 }
 
 //ACTIONS DOWN HERE
@@ -128,6 +260,20 @@ void EditorSystem::SetCreateObj()
 {
   mCreateObjectMenu = true;
 }
+void EditorSystem::SetLoadLevel()
+{
+  mLoadLevelMenu = true;
+}
+void EditorSystem::SetSaveLevel()
+{
+  mSaveLevelMenu = true;
+}
+void EditorSystem::SetTileEditor()
+{
+  mTileEditorStart= true;
+}
+
+
 
 void EditorSystem::CreateObjectByName(const char * name)
 {

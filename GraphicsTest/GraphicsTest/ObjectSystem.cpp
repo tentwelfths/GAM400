@@ -232,7 +232,7 @@ void     ObjectSystem::Update(double dt)
       if (node->value->dead){
         bool removable = true;
         for (auto compiter = node->value->mComponents.begin(); compiter != node->value->mComponents.end();){
-          
+          compiter->second->dead = true;
           if (compiter->second->clean == false){
             removable = false;
             ++compiter;
