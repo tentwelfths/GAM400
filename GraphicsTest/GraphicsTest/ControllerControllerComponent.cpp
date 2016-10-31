@@ -94,6 +94,7 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
         bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
         bBox->GetBody()->SetLinearVelocity(bulletVel);
         shotTimer = 0.0f;
+        currAmmo -= 1;
         
         IMessage msg(MessageType::CHANGELEDS);
         ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
@@ -112,7 +113,6 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
 
         MessagingSystem* m = gCore->GetSystem(MessagingSystem);
         m->SendMessageToSystem(msg, "NetworkingSystem");
-        currAmmo -= 1;
       }
     }
   }
