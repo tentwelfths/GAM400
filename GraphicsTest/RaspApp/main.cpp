@@ -410,6 +410,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
       case '^': //Update led bar graph
       {
+        ++pos;
         char d[2];
         d[0] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
