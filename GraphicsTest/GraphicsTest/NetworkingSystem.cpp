@@ -160,11 +160,21 @@ void NetworkingSystem::Update(double dt)
       auto * msg = reinterpret_cast<ChangeLEDSMessage *>(iter.data);
       char d[8] = { 0 };
 
-      for (int i = 0; i < 10; ++i) d[(i > 7) ? 1 : 0] |= ((msg->state[i]) ? 1 : 0) << ((i % 8));
-      for (int i = 0; i < 2; ++i){
-        std::cout << std::bitset<8>(d[i]);
+      //for (int i = 0; i < 10; ++i) d[(i > 7) ? 1 : 0] |= ((msg->state[i]) ? 1 : 0) << ((i % 8));
+      //for (int i = 0; i < 2; ++i){
+      //  std::cout << std::bitset<8>(d[i]);
+      //}
+      //std::cout << std::endl;
+      std::bitset<8> d1;
+      std::bitset<8> d2;
+      for (int i = 0; i < 8; ++i){
+        d1[i] = msg->state[i];
       }
-      std::cout << std::endl;
+      for (int i = 0; i < 2; ++i){
+        d2[i] = msg->state[8 + i];
+      }
+      d[0] = (char)d1.to_ulong();
+      d[1] = (char)d2.to_ulong();
       for (unsigned i = 0; i < connections.size(); ++i){
         if (connections[i].playerNum == msg->controllerNum){
           AddCommand(i, '^', 0, d);
