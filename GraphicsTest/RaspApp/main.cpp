@@ -424,7 +424,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
 
         for(int i = 0; i < 10; ++i){
-          std::cout<<"SETTING GPIO PIN #"<<i<<" TO "<<(d[(i > 7) ? 1 : 0] & 1<<((i%8)) != 0) ? "1" : "0"<<std::endl;
+          std::cout<<"SETTING GPIO PIN #" << i <<" TO "<< ((d[(i > 7) ? 1 : 0] & 1<<((i%8)) != 0) ? "1" : "0") <<std::endl;
           gpioPins[i]->SetPinVal((d[(i > 7) ? 1 : 0] & 1<<((i%8)) != 0) ? "1" : "0");
         }
       }
