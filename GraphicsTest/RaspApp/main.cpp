@@ -421,7 +421,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
           std::cout << std::bitset<8>(d[i]);
         }
         std::cout << std::endl;
+
+
         for(int i = 0; i < 10; ++i){
+          std::cout<<"SETTING GPIO PIN #"<<i<<" TO "<<(d[(i > 7) ? 1 : 0] & 1<<((i%8)) != 0) ? "1" : "0"<<std::endl;
           gpioPins[i]->SetPinVal((d[(i > 7) ? 1 : 0] & 1<<((i%8)) != 0) ? "1" : "0");
         }
       }
