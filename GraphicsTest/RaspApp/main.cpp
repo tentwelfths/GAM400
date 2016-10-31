@@ -171,6 +171,7 @@ std::queue<std::string> commands;
 std::string unfinished = "";
 unsigned short lastFrameSeen = 0;
 
+#include <bitset>
 void ProcessResponse(int& pos, int & clientNumber, const char * command, int len, GraphicsSystem * g, NetworkingSystem * n)
 {
   //for (int i = 0; i < len; ++i)
@@ -416,6 +417,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         d[1] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
+        for (int i = 0; i < 2; ++i){
+          std::cout << std::bitset<8>(d[i]);
+        }
+        std::cout << std::endl;
         for(int i = 0; i < 10; ++i){
           gpioPins[i]->SetPinVal((d[(i > 7) ? 1 : 0] & 1<<((i%8)) != 0) ? "1" : "0");
         }
