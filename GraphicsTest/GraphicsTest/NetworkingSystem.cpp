@@ -160,8 +160,8 @@ void NetworkingSystem::Update(double dt)
       auto * msg = reinterpret_cast<ChangeLEDSMessage *>(iter.data);
       char d[8] = { 0 };
 
-      for (int i = 0; i < 10; ++i) d[i / 4] |= ((msg->state[i]) ? 1 : 0) << ((i % 4));
-      for (int i = 0; i < 4; ++i){
+      for (int i = 0; i < 10; ++i) d[(i > 7) ? 1 : 0] |= ((msg->state[i]) ? 1 : 0) << ((i % 8));
+      for (int i = 0; i < 2; ++i){
         std::cout << std::bitset<8>(d[i]);
       }
       std::cout << std::endl;

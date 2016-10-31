@@ -410,17 +410,13 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
       case '^': //Update led bar graph
       {
-        char d[4];
+        char d[2];
         d[0] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
         d[1] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
-        d[2] = *reinterpret_cast<const char*>(&(command[pos]));
-        ++pos;
-        d[3] = *reinterpret_cast<const char*>(&(command[pos]));
-        ++pos;
         for(int i = 0; i < 10; ++i){
-          gpioPins[i]->SetPinVal((d[i/4] & 1<<((i%4)) != 0) ? "1" : "0");
+          gpioPins[i]->SetPinVal((d[(i > 7) ? 1 : 0] & 1<<((i%8)) != 0) ? "1" : "0");
         }
       }
       break;
