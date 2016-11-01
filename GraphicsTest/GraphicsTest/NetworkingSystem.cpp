@@ -419,10 +419,10 @@ void NetworkingSystem::AddCommand(char com, unsigned int ID, char data[8])
   for (unsigned i = 0; i < connections.size(); ++i){
     if (com == '#'){
       auto * trans = gCore->GetSystem(ObjectSystem)->mObjectMap_[ID]->GetComponent(TransformComponent);
-      if (trans->mPositionX() >= connections[i].x - trans->mScaleX() - 15 &&
+      if (!(trans->mPositionX() >= connections[i].x - trans->mScaleX() - 15 &&
         trans->mPositionY() >= connections[i].y - trans->mScaleY() - 15 &&
         trans->mPositionX() <= connections[i].x - trans->mScaleX() + 15 &&
-        trans->mPositionY() <= connections[i].y + trans->mScaleY() + 15){
+        trans->mPositionY() <= connections[i].y + trans->mScaleY() + 15)){
         continue;
       }
     }
