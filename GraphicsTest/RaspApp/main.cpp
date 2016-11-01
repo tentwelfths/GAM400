@@ -347,10 +347,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         std::cout<<isVis<<std::endl;
         if(isVis == '0'){
-          gObjectMap[objectID]->inUse = false;
+          //gObjectMap[objectID]->inUse = false;
         }
         else{
-          gObjectMap[objectID]->inUse = true;
+          //gObjectMap[objectID]->inUse = true;
         }
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
