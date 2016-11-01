@@ -1,0 +1,323 @@
+{
+	File: DemoPlayer.json
+	Name: Player
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.000000,
+			y: -4.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Key.png
+		},
+	PCControllerComponent: {
+		"sprintSpeed": 2.000000,
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 10
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
+		"dynamicState": 2,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: blah
+	Name: Knife
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.000000,
+			y: -4.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 0.500000,
+			y: 0.500000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+				x: 0.250000,
+				y: 0.250000,
+				z: 1.000000
+				},
+		"dynamicState": 2,
+		"mOffset": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				},
+		"mFriction": 1.000000,
+		"mGhost": true
+		},
+	KnifeComponent: {
+		},
+	EditorComponent: {
+		},
+	SpriteComponent: {
+		"mTextureName": player.png
+		}
+	},
+	File: Coneman.json
+	Name: Coneman
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.000000,
+			y: 4.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Key.png
+		},
+	EditorComponent: {
+		},
+	ConeControllerComponent: {
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 2,
+		"controllerID": 0,
+		"bulletSpeed": 20.000000
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
+		"dynamicState": 2,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: DemoPlayer.json
+	Name: Rock
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -2.000000,
+			y: 2.000000,
+			z: 0.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	OutOfBounds: {
+		"deathHeight": -4.000000
+		},
+	SpriteComponent: {
+		"mTextureName": rock.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 0.250000,
+							y: 0.250000,
+							z: 1.000000
+							},
+		"dynamicState": 2,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: DemoPlayer.json
+	Name: Rock
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -2.000000,
+			y: 1.000000,
+			z: 0.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	OutOfBounds: {
+		"deathHeight": -4.000000
+		},
+	SpriteComponent: {
+		"mTextureName": rock.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 0.250000,
+							y: 0.250000,
+							z: 1.000000
+							},
+		"dynamicState": 2,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: DemoPlayer.json
+	Name: Rock
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -3.000000,
+			y: 1.000000,
+			z: 0.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	OutOfBounds: {
+		"deathHeight": -4.000000
+		},
+	SpriteComponent: {
+		"mTextureName": rock.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 0.250000,
+							y: 0.250000,
+							z: 1.000000
+							},
+		"dynamicState": 2,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: DemoPlayer.json
+	Name: Rock
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -3.000000,
+			y: 2.000000,
+			z: 0.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	OutOfBounds: {
+		"deathHeight": -4.000000
+		},
+	SpriteComponent: {
+		"mTextureName": rock.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 0.250000,
+							y: 0.250000,
+							z: 1.000000
+							},
+		"dynamicState": 2,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	}
+}

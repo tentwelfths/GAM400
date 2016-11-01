@@ -25,4 +25,18 @@
 	Frames:1,
 	Rows:1,
 	Cols:1
+},
+{
+	Name:Grass.png,
+	Index:4,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:Concrete.png,
+	Index:5,
+	Frames:1,
+	Rows:1,
+	Cols:1
 }

@@ -18,12 +18,15 @@ public:
   void Shutdown();
 
   void AddComponent(IComponent * comp);
+  void AddComponent(std::string name);
 
   template <typename T>
   T* GetComponentA(const char * compName);
 
   std::unordered_map<std::string, IComponent *> mComponents;
   void ReceiveMessage(IMessage msg){ mMessages_.push_back(msg); }
+
+  void RemoveComponent(IComponent * comp);
 
   std::string name;
   unsigned int ID;

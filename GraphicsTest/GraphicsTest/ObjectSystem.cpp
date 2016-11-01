@@ -28,7 +28,9 @@ bool     ObjectSystem::Initialize()
 Object * ObjectSystem::CreateObjectFromFile(std::string filename){
   JSONTranslator j;
   Object * obj = j.CreateObjectFromFile(filename);
-  obj->Initialize();
+  if (obj != nullptr){
+    obj->Initialize();
+  }
   return obj;
 }
 void ObjectSystem::CreateArchetypeFromObject(Object * obj){
@@ -232,7 +234,7 @@ void     ObjectSystem::Update(double dt)
       if (node->value->dead){
         bool removable = true;
         for (auto compiter = node->value->mComponents.begin(); compiter != node->value->mComponents.end();){
-          
+          compiter->second->dead = true;
           if (compiter->second->clean == false){
             removable = false;
             ++compiter;

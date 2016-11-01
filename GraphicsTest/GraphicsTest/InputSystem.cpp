@@ -14,6 +14,7 @@ bool Controller::currButt[NUMBUTT]      = { false };
 bool Controller::prevButt[NUMBUTT]      = { false };
 float InputSystem::xPos = 0;
 float InputSystem::yPos = 0;
+double InputSystem::mouseDelta = 0;
 
 static int controllerTracker = 0;
 
@@ -44,6 +45,7 @@ void InputSystem::Update(double dt)
   {
     memcpy(theControllers[i].prevButt, theControllers[i].currButt, sizeof(bool) * NUMBUTT);
   }
+  mouseDelta = 0;
 }
 
 void InputSystem::Shutdown()
@@ -248,4 +250,13 @@ void inputButtonCallback(GLFWwindow* window, int button, int action, int mods)
     i->setKey(button, true);
     break;
   }
+}
+
+void inputScrollCallback(GLFWwindow* window, double x, double y)
+{
+  InputSystem * i = gCore->GetSystem(InputSystem);
+  ImGuiIO& io = ImGui::GetIO();
+  if (io.WantCaptureMouse)
+    return;
+  i->SetScrollDelta(y);
 }

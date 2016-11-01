@@ -14,6 +14,7 @@ public:
   Object * mParent(){ return mParent_; }
   std::unordered_map<std::string, Mem *> members;
   bool clean;
+  bool dead;
 protected:
   Object * mParent_;
   std::string mName_;

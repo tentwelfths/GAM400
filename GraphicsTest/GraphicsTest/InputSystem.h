@@ -56,13 +56,17 @@ class InputSystem : public System
     Controller getController(int contNum);
     float GetMouseX(){ return xPos; }
     float GetMouseY(){ return yPos; }
+    void SetScrollDelta(double delta){ mouseDelta = delta; }
+    double GetScrollDelta(){ return mouseDelta; }
   private:
     static bool currInputs[NUMINPUTS];
     static bool prevInputs[NUMINPUTS];
     static float xPos;
     static float yPos;
+    static double mouseDelta;
     Controller theControllers[NUMCONT];
 };
 void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
 void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse);
 void inputButtonCallback(GLFWwindow* window, int button, int action, int mods);
+void inputScrollCallback(GLFWwindow* window, double x, double y);

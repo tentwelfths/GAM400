@@ -171,6 +171,7 @@ std::queue<std::string> commands;
 std::string unfinished = "";
 unsigned short lastFrameSeen = 0;
 
+#include <bitset>
 void ProcessResponse(int& pos, int & clientNumber, const char * command, int len, GraphicsSystem * g, NetworkingSystem * n)
 {
   //for (int i = 0; i < len; ++i)
@@ -410,15 +411,21 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
       case '^': //Update led bar graph
       {
-        char d[3];
+        ++pos;
+        char d[2];
         d[0] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
         d[1] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
-        d[2] = *reinterpret_cast<const char*>(&(command[pos]));
-        ++pos;
-        for(int i = 0; i < 10; ++i){
-          gpioPins[i]->SetPinVal((d[i/4] & 1<<(i%4)) ? "1" : "0");
+        
+        std::bitset<8> d1(d[0]);
+        std::bitset<8> d2(d[1]);
+
+        for(int i = 0; i < 8; ++i){
+          gpioPins[i]->SetPinVal((d1[i] != 0) ? "1" : "0");
+        }
+        for(int i = 0; i < 2; ++i){
+          gpioPins[8 + i]->SetPinVal((d2[i] != 0) ? "1" : "0");
         }
       }
       break;

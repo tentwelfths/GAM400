@@ -18,13 +18,14 @@ bool EditorComponent::Initialize(){
 }
 void EditorComponent::Update(double dt){
   auto * input = gCore->GetSystem(InputSystem);
+  auto * editor = gCore->GetSystem(EditorSystem);
   auto * trans = mParent_->GetComponent(TransformComponent);
   double mX = input->GetMouseX();
   double mY = input->GetMouseY();
-  if (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_1)){
+  if ((input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && editor->tileEditorActive) || (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_1) && !editor->tileEditorActive)){
     
-    if (mX > trans->mPositionX() - trans->mScaleX() / 2.f && mX < trans->mPositionX() + trans->mScaleX() / 2.f
-      && mY > trans->mPositionY() - trans->mScaleY() / 2.f && mY < trans->mPositionY() + trans->mScaleY() / 2.f){
+    if (mX >= trans->mPositionX() - trans->mScaleX() / 2.f && mX <= trans->mPositionX() + trans->mScaleX() / 2.f
+      && mY >= trans->mPositionY() - trans->mScaleY() / 2.f && mY <= trans->mPositionY() + trans->mScaleY() / 2.f){
       //std::cout << mX << "," << mY << std::endl;
       //std::cout << trans->mPositionX() - trans->mScaleX() / 2.f << "," << trans->mPositionX() + trans->mScaleX() / 2.f << std::endl;
       //std::cout << trans->mPositionY() - trans->mScaleY() / 2.f << "," << trans->mPositionY() + trans->mScaleY() / 2.f << std::endl << std::endl;
@@ -32,10 +33,10 @@ void EditorComponent::Update(double dt){
       editor->Select(mParent_);
     }
   }
-  else if (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_2)){
+  else if (input->isKeyPressed(GLFW_MOUSE_BUTTON_2)){
     
-    if (mX > trans->mPositionX() - trans->mScaleX() / 2.f && mX < trans->mPositionX() + trans->mScaleX() / 2.f
-      && mY > trans->mPositionY() - trans->mScaleY() / 2.f && mY < trans->mPositionY() + trans->mScaleY() / 2.f){
+    if (mX >= trans->mPositionX() - trans->mScaleX() / 2.f && mX <= trans->mPositionX() + trans->mScaleX() / 2.f
+      && mY >= trans->mPositionY() - trans->mScaleY() / 2.f && mY <= trans->mPositionY() + trans->mScaleY() / 2.f){
       //std::cout << mX << "," << mY << std::endl;
       //std::cout << trans->mPositionX() << "," << trans->mPositionY() << std::endl << std::endl;
       mParent_->Destroy();

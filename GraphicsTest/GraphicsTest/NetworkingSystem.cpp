@@ -142,7 +142,7 @@ bool NetworkingSystem::Initialize()
 
   return true;
 }
-
+#include <bitset>
 void NetworkingSystem::Update(double dt)
 {
   int iResult;
@@ -159,7 +159,22 @@ void NetworkingSystem::Update(double dt)
     case MessageType::CHANGELEDS:{
       auto * msg = reinterpret_cast<ChangeLEDSMessage *>(iter.data);
       char d[8] = { 0 };
-      for (int i = 0; i < 10; ++i) d[i / 4] |= ((msg->state[i]) ? 1 : 0) << (i % 4);
+
+      //for (int i = 0; i < 10; ++i) d[(i > 7) ? 1 : 0] |= ((msg->state[i]) ? 1 : 0) << ((i % 8));
+      //for (int i = 0; i < 2; ++i){
+      //  std::cout << std::bitset<8>(d[i]);
+      //}
+      //std::cout << std::endl;
+      std::bitset<8> d1;
+      std::bitset<8> d2;
+      for (int i = 0; i < 8; ++i){
+        d1[i] = msg->state[i];
+      }
+      for (int i = 0; i < 2; ++i){
+        d2[i] = msg->state[8 + i];
+      }
+      d[0] = (char)d1.to_ulong();
+      d[1] = (char)d2.to_ulong();
       for (unsigned i = 0; i < connections.size(); ++i){
         if (connections[i].playerNum == msg->controllerNum){
           AddCommand(i, '^', 0, d);
@@ -172,6 +187,8 @@ void NetworkingSystem::Update(double dt)
       for (unsigned i = 0; i < connections.size(); ++i){
         if (connections[i].playerNum == msg->controllerNum){
           AddCommand(i, '(', msg->objID); 
+          connections[i].x = gCore->GetSystem(ObjectSystem)->mObjectMap_[msg->objID]->GetComponent(TransformComponent)->mPositionX();
+          connections[i].y = gCore->GetSystem(ObjectSystem)->mObjectMap_[msg->objID]->GetComponent(TransformComponent)->mPositionY();
         }
       }
       
@@ -400,6 +417,15 @@ void NetworkingSystem::Shutdown()
 void NetworkingSystem::AddCommand(char com, unsigned int ID, char data[8])
 {
   for (unsigned i = 0; i < connections.size(); ++i){
+    if (com == '#'){
+      auto * trans = gCore->GetSystem(ObjectSystem)->mObjectMap_[ID]->GetComponent(TransformComponent);
+      if (trans->mPositionX() >= connections[i].x - trans->mScaleX() - 15 &&
+        trans->mPositionY() >= connections[i].y - trans->mScaleY() - 15 &&
+        trans->mPositionX() <= connections[i].x - trans->mScaleX() + 15 &&
+        trans->mPositionY() <= connections[i].y + trans->mScaleY() + 15){
+        continue;
+      }
+    }
     connections[i].commandsSend.push({ com, ID, data});
   }
 }
@@ -471,6 +497,7 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
   case '(': //Update camera position
   {
     std::string data = gCore->GetSystem(ObjectSystem)->Get2DPositionData(ID);
+    
     if (data == "") break;
     temp = "(";
     for (unsigned i = 0; i < data.length(); ++i){
@@ -484,7 +511,6 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
     temp += "^";
     temp += data[0];
     temp += data[1];
-    temp += data[2];
   }
     break;
 
