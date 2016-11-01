@@ -180,7 +180,6 @@
     <ClCompile Include="Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
     <ClCompile Include="Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="BoxColliderComponent.cpp" />
-    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="common\controls.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -238,7 +237,6 @@
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
     <ClCompile Include="PlayerControllerComponent.cpp" />
-    <ClCompile Include="RigidbodyComponent.cpp" />
     <ClCompile Include="SphereColliderComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -295,7 +293,6 @@
     <ClInclude Include="Box2D\Dynamics\Joints\b2WheelJoint.h" />
     <ClInclude Include="Box2D\Rope\b2Rope.h" />
     <ClInclude Include="BoxColliderComponent.h" />
-    <ClInclude Include="Collision.h" />
     <ClInclude Include="common\controls.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
@@ -369,7 +366,6 @@
     <ClInclude Include="PhysicsMaterialComponent.h" />
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="PlayerControllerComponent.h" />
-    <ClInclude Include="RigidbodyComponent.h" />
     <ClInclude Include="Socket.h" />
     <ClInclude Include="SphereColliderComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
