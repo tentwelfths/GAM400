@@ -20,4 +20,6 @@ class ConeControllerComponent : public ControllerControllerComponent
     Object* mPCPlayer;
     bool leds[10];
     int garbage;
+    int clockwise;
+    int counterclockwise;
 };
