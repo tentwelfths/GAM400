@@ -392,6 +392,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         pos += sizeof(float);
         g->mMainCamera.x = xPos;
         g->mMainCamera.y = yPos;
+        g->viewChanged = true;
       }
       break;
       case '$': //Object texture changed

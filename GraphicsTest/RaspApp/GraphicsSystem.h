@@ -118,9 +118,11 @@ public:
   
   GLushort indices_[6];
 
-  glm::mat4 Position,Scale, Rotation;
+  glm::mat4 Position,Scale, Rotation, View, Projection;
 
   Camera mMainCamera;
+
+  bool viewChanged;
 private:
   GLint loadpng(std::string filename);
   bool WinCreate();

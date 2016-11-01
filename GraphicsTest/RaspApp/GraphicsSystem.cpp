@@ -144,6 +144,7 @@ GLuint  esLoadShader ( GLenum type, const char *shaderSrc )
 
 GraphicsSystem::GraphicsSystem()
 {
+  viewChanged = true;
 #ifdef RPI_NO_X
    bcm_host_init();
 #endif
@@ -315,25 +316,24 @@ void GraphicsSystem::Draw()
   
   // Clear the color buffer
   glClear ( GL_COLOR_BUFFER_BIT );
-  float fov = 45.f;
-  // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-  glm::mat4 Projection = glm::ortho(-10.f * mMainCamera.zoom, 10.f* mMainCamera.zoom, -6.f* mMainCamera.zoom, 6.f* mMainCamera.zoom, 0.1f, 100.0f);//glm::perspective(fov, (float)width / (float)height, 0.1f, 100.0f);
-  //glm::mat4 Projection = glm::ortho(-4, 4, 4, -4);
-  // Or, for an ortho camera :
-  //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
+  if(viewChanged){
+    // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
+    Projection = glm::ortho(-10.f * mMainCamera.zoom, 10.f* mMainCamera.zoom, -6.f* mMainCamera.zoom, 6.f* mMainCamera.zoom, 0.1f, 100.0f);//glm::perspective(fov, (float)width / (float)height, 0.1f, 100.0f);
+    //glm::mat4 Projection = glm::ortho(-4, 4, 4, -4);
+    // Or, for an ortho camera :
+    //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
 
-  // Camera matrix
-  glm::mat4 View = glm::lookAt(
-    glm::vec3(mMainCamera.x, mMainCamera.y, 10), // Camera is at (4,3,3), in World Space
-    glm::vec3(mMainCamera.x, mMainCamera.y, 0), // and looks at the origin
-    glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
-    );
+    // Camera matrix
+    View = glm::lookAt(
+      glm::vec3(mMainCamera.x, mMainCamera.y, 10), // Camera is at (4,3,3), in World Space
+      glm::vec3(mMainCamera.x, mMainCamera.y, 0), // and looks at the origin
+      glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
+      );
 
-  glUniformMatrix4fv(View_, 1, GL_FALSE, &View[0][0]);
-  glUniformMatrix4fv(Projection_, 1, GL_FALSE, &Projection[0][0]);
-  glUniformMatrix4fv(Position_worldspace, 1, GL_FALSE, &Position[0][0]);
-  glUniformMatrix4fv(Scale_, 1, GL_FALSE, &Scale[0][0]);
-  glUniformMatrix4fv(Rotation_, 1, GL_FALSE, &Rotation[0][0]);
+    glUniformMatrix4fv(View_, 1, GL_FALSE, &View[0][0]);
+    glUniformMatrix4fv(Projection_, 1, GL_FALSE, &Projection[0][0]);
+    viewChanged = false;
+  }
   for(int i = 0; i < 50; ++i)
   {
     bool done = false;
@@ -367,7 +367,9 @@ void GraphicsSystem::Draw()
       //Rotation = setUpRotationMatrix(Rotation, iter->second->rotation[1], 0, 1, 0);
       Rotation = setUpRotationMatrix(Rotation, iter->second->rotation[2], 0, 0, 1);
       
-      
+      glUniformMatrix4fv(Position_worldspace, 1, GL_FALSE, &Position[0][0]);
+      glUniformMatrix4fv(Scale_, 1, GL_FALSE, &Scale[0][0]);
+      glUniformMatrix4fv(Rotation_, 1, GL_FALSE, &Rotation[0][0]);
 
       glDrawElements ( GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices_ );
     }
