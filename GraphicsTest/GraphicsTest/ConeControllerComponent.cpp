@@ -33,60 +33,60 @@ void ConeControllerComponent::Update(double dt)
   if (GetAlive())
   {
     auto * input = gCore->GetSystem(InputSystem);
-    Movement(input);
-    Shoot(input, dt);
-    Reload(input);
-    SpecialFunctionality(input);
-    UpdateCone();
-      //IMessage col(MessageType::CHANGELEDS);
-      //ChangeLEDSMessage * msgData = reinterpret_cast<ChangeLEDSMessage *>(col.data);
-      //MessagingSystem* m = gCore->GetSystem(MessagingSystem);
-      //msgData->controllerNum = 0;
-      //for (int i = 0; i < 10; ++i) msgData->state[i] = leds[i];
-      //m->SendMessageToSystem(col, "NetworkingSystem");
+Movement(input);
+Shoot(input, dt);
+Reload(input);
+SpecialFunctionality(input);
+UpdateCone();
+//IMessage col(MessageType::CHANGELEDS);
+//ChangeLEDSMessage * msgData = reinterpret_cast<ChangeLEDSMessage *>(col.data);
+//MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+//msgData->controllerNum = 0;
+//for (int i = 0; i < 10; ++i) msgData->state[i] = leds[i];
+//m->SendMessageToSystem(col, "NetworkingSystem");
 
 
-    for (auto iter : mParent()->mMessages_)
+for (auto iter : mParent()->mMessages_)
+{
+  if (iter.type == MessageType::COLLISIONSTARTED)
+  {
+    CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+    if (col->obj1 == mParent())
     {
-      if (iter.type == MessageType::COLLISIONSTARTED)
+      if (col->obj2->name == "Knife")
       {
-        CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
-        if (col->obj1 == mParent())
-        {
-          if (col->obj2->name == "Knife")
-          {
-            Damage(1);
-          }
-        }
-        else
-        {
-          if (col->obj1->name == "Knife")
-          {
-            Damage(1);
-          }
-        }
+        Damage(1);
       }
-      //if (iter.type == MessageType::COLLISIONENDED)
-      //{
-      //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
-      //}
     }
-    if (GetHealth() <= 0)
+    else
     {
-      Kill();
-      auto * sprite = mParent()->GetComponent(SpriteComponent);
-      sprite->SetTexture("bolt.png");
-      auto * box = mParent()->GetComponent(BoxColliderComponent);
-      box->GetBody()->GetFixtureList()->SetSensor(true);
-      IMessage msg(MessageType::CHANGETEXTURE);
-      ChangeTextureMessage* msgData = reinterpret_cast<ChangeTextureMessage*>(msg.data);
-
-      msgData->objID = mParent()->ID;
-      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
-      m->SendMessageToSystem(msg, "NetworkingSystem");
+      if (col->obj1->name == "Knife")
+      {
+        Damage(1);
+      }
     }
   }
-  
+  //if (iter.type == MessageType::COLLISIONENDED)
+  //{
+  //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
+  //}
+}
+if (GetHealth() <= 0)
+{
+  Kill();
+  auto * sprite = mParent()->GetComponent(SpriteComponent);
+  sprite->SetTexture("bolt.png");
+  auto * box = mParent()->GetComponent(BoxColliderComponent);
+  box->GetBody()->GetFixtureList()->SetSensor(true);
+  IMessage msg(MessageType::CHANGETEXTURE);
+  ChangeTextureMessage* msgData = reinterpret_cast<ChangeTextureMessage*>(msg.data);
+
+  msgData->objID = mParent()->ID;
+  MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+  m->SendMessageToSystem(msg, "NetworkingSystem");
+}
+  }
+
 }
 
 void ConeControllerComponent::Shutdown()
@@ -112,12 +112,29 @@ void ConeControllerComponent::UpdateCone()
 
 }
 
+#define SOMENUMBER 6
+
 void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
 {
   Controller* coneCon = &input->getController(GetControllerID());
   if (coneCon->knobDelta != 0)
   {
-    mAngle += coneCon->knobDelta * ADJUSTANGLE;
+    if (coneCon->knobDelta < 0){
+      counterclockwise += coneCon->knobDelta;
+    }
+    if (coneCon->knobDelta > 0){
+      clockwise += coneCon->knobDelta;
+    }
+  }
+  if (clockwise > SOMENUMBER)
+  {
+    mAngle += clockwise* ADJUSTANGLE;
+    float rads = radians(mAngle);
+    mDirX = cos(rads);
+    mDirY = sin(rads);
+  }
+  else if (counterclockwise < -SOMENUMBER){
+    mAngle += counterclockwise * ADJUSTANGLE;
     float rads = radians(mAngle);
     mDirX = cos(rads);
     mDirY = sin(rads);
