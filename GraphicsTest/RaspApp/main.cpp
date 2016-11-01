@@ -452,8 +452,8 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
 void KnobTurned(ThreadInfo * t)
 {
-  std::cout<<"CALLED"<<std::endl;
   while(!ctrl_c_pressed){
+    std::cout<<"CALLED"<<std::endl;
     std::string b1, b2;
     b1 = t->bit1->GetPinVal();
     b2 = t->bit2->GetPinVal();
@@ -461,6 +461,7 @@ void KnobTurned(ThreadInfo * t)
     int num = (b1 == "1") ? (1<<1) : (0<<1);
     num |= (b2 == "1") ? (1) : (0);
     if(num == t->prevState){
+      std::cout<<"No mov";
       return;
     }
     switch(num){
