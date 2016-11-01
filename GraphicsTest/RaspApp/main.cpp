@@ -449,74 +449,76 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
 void KnobTurned()
 {
-  std::string b1, b2;
-  b1 = bit1->GetPinVal();
-  b2 = bit2->GetPinVal();
-  //std::cout<<b1<<"  "<<b2<<std::endl;
-  int num = (b1 == "1") ? (1<<1) : (0<<1);
-  num |= (b2 == "1") ? (1) : (0);
-  if(num == prevState){
-    return;
+  while(!ctrl_c_pressed){
+    std::string b1, b2;
+    b1 = bit1->GetPinVal();
+    b2 = bit2->GetPinVal();
+    //std::cout<<b1<<"  "<<b2<<std::endl;
+    int num = (b1 == "1") ? (1<<1) : (0<<1);
+    num |= (b2 == "1") ? (1) : (0);
+    if(num == prevState){
+      return;
+    }
+    switch(num){
+      case 0b00:
+      if(prevState == 0b01){// && prevprev == 0b11){
+        --counter;
+      }
+      else if(prevState == 0b10){// && prevprev == 0b11){
+        ++counter;
+      }
+      else{
+        if(counter > 0)
+          ++counter;
+        if(counter < 0)
+          --counter;
+      }
+      break;
+      case 0b01:
+      if(prevState == 0b11){// && prevprev == 0b10){
+        --counter;
+      }
+      else if(prevState == 0b00){// && prevprev == 0b10){
+        ++counter;
+      }
+      else{
+        if(counter > 0)
+          ++counter;
+        if(counter < 0)
+          --counter;
+      }
+      break;
+      case 0b11:
+      if(prevState == 0b10){// && prevprev == 0b00){
+        --counter;
+      }
+      else if(prevState == 0b01){// && prevprev == 0b00){
+        ++counter;
+      }
+      else{
+        if(counter > 0)
+          ++counter;
+        if(counter < 0)
+          --counter;
+      }
+      break;
+      case 0b10:
+      if(prevState == 0b00){// && prevprev == 0b01){
+        --counter;
+      }
+      else if(prevState == 0b11){// && prevprev == 0b01){
+        ++counter;
+      }
+      else{
+        if(counter > 0)
+          ++counter;
+        if(counter < 0)
+          --counter;
+      }
+      break;
+    }
+    prevState = num;
   }
-  switch(num){
-    case 0b00:
-    if(prevState == 0b01){// && prevprev == 0b11){
-      --counter;
-    }
-    else if(prevState == 0b10){// && prevprev == 0b11){
-      ++counter;
-    }
-    else{
-      if(counter > 0)
-        ++counter;
-      if(counter < 0)
-        --counter;
-    }
-    break;
-    case 0b01:
-    if(prevState == 0b11){// && prevprev == 0b10){
-      --counter;
-    }
-    else if(prevState == 0b00){// && prevprev == 0b10){
-      ++counter;
-    }
-    else{
-      if(counter > 0)
-        ++counter;
-      if(counter < 0)
-        --counter;
-    }
-    break;
-    case 0b11:
-    if(prevState == 0b10){// && prevprev == 0b00){
-      --counter;
-    }
-    else if(prevState == 0b01){// && prevprev == 0b00){
-      ++counter;
-    }
-    else{
-      if(counter > 0)
-        ++counter;
-      if(counter < 0)
-        --counter;
-    }
-    break;
-    case 0b10:
-    if(prevState == 0b00){// && prevprev == 0b01){
-      --counter;
-    }
-    else if(prevState == 0b11){// && prevprev == 0b01){
-      ++counter;
-    }
-    else{
-      if(counter > 0)
-        ++counter;
-      if(counter < 0)
-        --counter;
-    }
-    break;
-  }
-  prevState = num;
   return;
 }
 
@@ -602,6 +604,7 @@ int main ( int argc, char *argv[] )
   int state = 0;
   int prevState = 0;
   float deltatime, gDt, rDt,sDt,iDt;
+  std::thread t1(KnobTurned);
   while(true){
     start = clock();
     //for(int i = 0; i < 10; ++i){
@@ -657,7 +660,6 @@ int main ( int argc, char *argv[] )
     }
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     
-    KnobTurned();
     inputstream += counter;
     counter = 0;
     if(toSend && inputstream.length() > 0){
@@ -698,6 +700,7 @@ int main ( int argc, char *argv[] )
     {
         std::cout << "Ctrl^C Pressed" << std::endl;
         std::cout << "unexporting pins" <<std::endl;
+        t1.join();
         //gpio4->unexport_gpio();
         //gpio17->unexport_gpio();
         //cout << "deallocating GPIO Objects" << endl;
