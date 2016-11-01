@@ -12,6 +12,7 @@
 #include <cstring>
 #include <memory>
 #include <queue>
+#include <time.h>
 #include "MCP3008SPI.h"
 #include "GraphicsSystem.h"
 #include "NetworkingSystem.h"
@@ -497,7 +498,7 @@ int main ( int argc, char *argv[] )
     return 0;
   }
   int incrementer = 1;
-  
+  clock_t start, end;
   struct sigaction sig_struct;
   sig_struct.sa_handler = sig_handler;
   sig_struct.sa_flags = 0;
@@ -572,7 +573,7 @@ int main ( int argc, char *argv[] )
   int state = 0;
   float deltatime, gDt, rDt,sDt,iDt;
   while(true){
-
+    start = clock();
     //for(int i = 0; i < 10; ++i){
     //  if(i == counter)
     //    gpioPins[i]->SetPinVal("1");
@@ -583,7 +584,7 @@ int main ( int argc, char *argv[] )
     //if(counter >= 10) counter = 0;
     //if(counter <= -1) counter = 9;
     //std::cout<<"loop"<<std::endl;
-    gettimeofday ( &t1 , &tz );
+    //gettimeofday ( &t1 , &tz );
     bool updated = false;
     //gettimeofday ( &tStart , &tz );
     do{
@@ -642,8 +643,10 @@ int main ( int argc, char *argv[] )
     //gettimeofday ( &tEnd , &tz );
     //iDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     
-    gettimeofday(&t2, &tz);
-    deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/100000.f);
+    //gettimeofday(&t2, &tz);
+    //deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/100000.f);
+    
+    deltatime = clock() - start;
     std::cout<<deltatime<<std::endl;
     if(deltatime >= 1.0f/30.f)
     {
