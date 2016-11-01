@@ -299,7 +299,9 @@ void EditorSystem::SetTileEditor()
 void EditorSystem::CreateObjectByName(const char * name)
 {
   Object * obj = gCore->GetSystem(ObjectSystem)->CreateObjectFromFile(name);
-  auto * g = gCore->GetSystem(GraphicsSystem);
+  if (obj != nullptr){
+    auto * g = gCore->GetSystem(GraphicsSystem);
 
-  obj->GetComponent(TransformComponent)->mPosition(g->mMainCamera.x, g->mMainCamera.y, 0);
+    obj->GetComponent(TransformComponent)->mPosition(g->mMainCamera.x, g->mMainCamera.y, 0);
+  }
 }

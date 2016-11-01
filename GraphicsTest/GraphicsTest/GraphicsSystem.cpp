@@ -68,7 +68,7 @@ bool GraphicsSystem::Initialize()
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE); //We don't want the old OpenGL 
 
   // Open a window and create its OpenGL context
-  width = 800, height = 640;
+  width = 800, height = 480;
   mWindow = glfwCreateWindow(width, height, "Tutorial 03 - Matrices", /*glfwGetPrimaryMonitor()*/NULL, NULL);
   if (mWindow == NULL){
     return false;
@@ -247,6 +247,7 @@ void GraphicsSystem::GatherFrameData(GraphicsComponent * iter)
 
 void GraphicsSystem::Update(double dt)
 {
+  if (mMainCamera.zoom < 0.25f) mMainCamera.zoom = 0.25f;
   GLfloat color[3] = { 1, 1, 0 };
   
   float fov = 45.f;
@@ -268,7 +269,7 @@ void GraphicsSystem::Update(double dt)
 
   // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
   //Projection = glm::perspective(fov, width / height, 0.1f, 100.0f);
-  Projection = glm::ortho(-5.f * mMainCamera.zoom, 5.f* mMainCamera.zoom, -5.f* mMainCamera.zoom, 5.f* mMainCamera.zoom, 0.1f, 100.0f);
+  Projection = glm::ortho(-10.f * mMainCamera.zoom, 10.f* mMainCamera.zoom, -6.f* mMainCamera.zoom, 6.f* mMainCamera.zoom, 0.1f, 100.0f);
   //glm::mat4 Projection = glm::ortho(-4, 4, 4, -4);
   // Or, for an ortho camera :
   //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates

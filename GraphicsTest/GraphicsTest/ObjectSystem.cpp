@@ -28,7 +28,9 @@ bool     ObjectSystem::Initialize()
 Object * ObjectSystem::CreateObjectFromFile(std::string filename){
   JSONTranslator j;
   Object * obj = j.CreateObjectFromFile(filename);
-  obj->Initialize();
+  if (obj != nullptr){
+    obj->Initialize();
+  }
   return obj;
 }
 void ObjectSystem::CreateArchetypeFromObject(Object * obj){
