@@ -8,7 +8,9 @@
 #include "TransformComponent.h"
 #include "BoxColliderComponent.h"
 
-KnifeComponent::KnifeComponent() : GameLogicComponent(GameLogicType::KNIFE), offset(0.0, 0.0, 0.0), attackTimer(0.5f), timeTillNextAttack(0.5f), dist(5.0f)
+#define EPIFORTRANS 0.00001
+
+KnifeComponent::KnifeComponent() : GameLogicComponent(GameLogicType::KNIFE), offset(0.0, 0.0, 0.0), attackTimer(0.5f), timeTillNextAttack(0.5f), dist(20.0f)
 {
   auto * o = gCore->GetSystem(ObjectSystem);
   thePlayer = o->GetFirstItemByName("Player");
@@ -47,10 +49,12 @@ void KnifeComponent::Update(double dt)
       timeTillNextAttack = 0.0f;
     }
   }
-  if (timeTillNextAttack > 0.2f)
+  bool xCheck = trans->mPositionX() > playerTrans->mPositionX() - EPIFORTRANS && trans->mPositionX() < playerTrans->mPositionX() + EPIFORTRANS;
+  bool yCheck = trans->mPositionX() > playerTrans->mPositionY() - EPIFORTRANS && trans->mPositionX() < playerTrans->mPositionY() + EPIFORTRANS;
+  if (timeTillNextAttack > 0.1f && (!xCheck || !yCheck))
   {
-    trans->mPosition(playerTrans->mPosition() + offset);
-    b2Vec2 physicsPos(playerTrans->mPositionX() + offset.x, playerTrans->mPositionY() + offset.y);
+    trans->mPosition(playerTrans->mPosition());
+    b2Vec2 physicsPos(playerTrans->mPositionX(), playerTrans->mPositionY());
     box->GetBody()->SetTransform(physicsPos, playerTrans->mRotationZ());
   }
   timeTillNextAttack += dt;
