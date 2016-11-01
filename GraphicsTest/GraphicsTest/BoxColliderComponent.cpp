@@ -6,7 +6,6 @@
 #include "Object.h"
 #include "Messages.h"
 
-#define EPIFORTRANS 0.00001
 
 BoxColliderComponent::BoxColliderComponent() : PhysicsComponent(PhysicsType::BOXCOLLIDER), justCollided(false), isColliding(false)
 {

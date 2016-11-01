@@ -4,6 +4,7 @@
 #include "TransformComponent.h"
 #include "SpriteComponent.h"
 
+#define EPIFORTRANS 0.0001
 
 template<typename T>
 IComponent * CreateComponent(){
