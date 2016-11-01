@@ -28,7 +28,7 @@ char counter = 0;
 GPIOPin * bit1;
 GPIOPin * bit2;
 int prevState = 0;
-}
+};
 //mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
 
 std::unordered_map<unsigned int, Object*> gObjects[50];
