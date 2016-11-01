@@ -129,18 +129,15 @@ void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
   if (clockwise > SOMENUMBER)
   {
     mAngle += ADJUSTANGLE;
-    float rads = radians(mAngle);
-    mDirX = cos(rads);
-    mDirY = sin(rads);
-    clockwise = 0;
-    counterclockwise = 0;
+    
   }
   else if (counterclockwise < -SOMENUMBER){
     mAngle -= ADJUSTANGLE;
-    float rads = radians(mAngle);
-    mDirX = cos(rads);
-    mDirY = sin(rads);
-    clockwise = 0;
-    counterclockwise = 0;
   }
+  mAngle += 0.1f;
+  float rads = radians(mAngle);
+  mDirX = cosf(rads);
+  mDirY = sinf(rads);
+  clockwise = 0;
+  counterclockwise = 0;
 }
