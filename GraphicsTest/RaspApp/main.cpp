@@ -452,6 +452,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
 void KnobTurned(ThreadInfo * t)
 {
+  std::cout<<"CALLED"<<std::endl;
   while(!ctrl_c_pressed){
     std::string b1, b2;
     b1 = t->bit1->GetPinVal();
