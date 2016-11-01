@@ -638,10 +638,10 @@ int main ( int argc, char *argv[] )
       inputstream = "";
     }
     gettimeofday ( &tEnd , &tz );
-    iDt = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec) * 1e-6);
+    iDt = (float)(tEnd.tv_sec - t1.tv_sec + (tEnd.tv_usec - t1.tv_usec) * 1e-6);
     
     gettimeofday(&t2, &tz);
-    deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/1000.f);
+    deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/100000.f);
     if(deltatime >= 1.0f/30.f)
     {
       //Frame took too long
