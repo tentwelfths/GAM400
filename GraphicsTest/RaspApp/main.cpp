@@ -543,6 +543,7 @@ int main ( int argc, char *argv[] )
       exit(1);
   }
 
+  ThreadInfo threadInfo;
   char myID = -1;
   
   if(strcmp(argv[1], "cone")==0){
@@ -565,18 +566,18 @@ int main ( int argc, char *argv[] )
   mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
   
   std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
-  bit1 = new GPIOPin("5");
-  bit2 = new GPIOPin("6");
-  bit1->ExportPin();
-  bit1->SetPinDir("in");
-  bit2->ExportPin();
-  bit2->SetPinDir("in");
+  threadInfo.bit1 = new GPIOPin("5");
+  threadInfo.bit2 = new GPIOPin("6");
+  threadInfo.bit1->ExportPin();
+  threadInfo.bit1->SetPinDir("in");
+  threadInfo.bit2->ExportPin();
+  threadInfo.bit2->SetPinDir("in");
   
   for(int i = 0; i < 10; ++i){
     gpioPins[i] = new GPIOPin(PINS[i]);
     gpioPins[i]->ExportPin();
     gpioPins[i]->SetPinDir("out");
-    if(i == counter)
+    if(i == threadInfo->counter)
       gpioPins[i]->SetPinVal("1");
     else{
       gpioPins[i]->SetPinVal("0");
@@ -604,7 +605,6 @@ int main ( int argc, char *argv[] )
   int state = 0;
   int prevState = 0;
   float deltatime, gDt, rDt,sDt,iDt;
-  ThreadInfo threadInfo;
   std::thread t1(KnobTurned, &threadInfo);
   while(true){
     start = clock();
@@ -661,7 +661,7 @@ int main ( int argc, char *argv[] )
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     
     inputstream += threadInfo.counter;
-    counter = 0;
+    threadInfo->counter = 0;
     if(toSend && inputstream.length() > 0){
       
       //inputstream = "~" + inputstream + "!";
