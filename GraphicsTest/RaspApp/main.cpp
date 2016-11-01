@@ -18,8 +18,14 @@
 #include "NetworkingSystem.h"
 #include "Object.h"
 #include "GPIOPin.h"
+#include <thread>
 
 std::string inputstream = "";
+
+char counter = 0;
+GPIOPin * bit1;
+GPIOPin * bit2;
+int prevState = 0;
 //mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
 
 std::unordered_map<unsigned int, Object*> gObjects[50];
@@ -441,7 +447,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   }
 }
 
-int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState, int& prevprev)
+void KnobTurned()
 {
   std::string b1, b2;
   int counter = 0;
@@ -455,10 +461,10 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState, int& prevprev)
   }
   switch(num){
     case 0b00:
-    if(prevState == 0b01 && prevprev == 0b11){
+    if(prevState == 0b01){// && prevprev == 0b11){
       --counter;
     }
-    else if(prevState == 0b10 && prevprev == 0b11){
+    else if(prevState == 0b10){// && prevprev == 0b11){
       ++counter;
     }
     else{
@@ -469,10 +475,10 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState, int& prevprev)
     }
     break;
     case 0b01:
-    if(prevState == 0b11 && prevprev == 0b10){
+    if(prevState == 0b11){// && prevprev == 0b10){
       --counter;
     }
-    else if(prevState == 0b00 && prevprev == 0b10){
+    else if(prevState == 0b00){// && prevprev == 0b10){
       ++counter;
     }
     else{
@@ -483,10 +489,10 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState, int& prevprev)
     }
     break;
     case 0b11:
-    if(prevState == 0b10 && prevprev == 0b00){
+    if(prevState == 0b10){// && prevprev == 0b00){
       --counter;
     }
-    else if(prevState == 0b01 && prevprev == 0b00){
+    else if(prevState == 0b01){// && prevprev == 0b00){
       ++counter;
     }
     else{
@@ -497,10 +503,10 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState, int& prevprev)
     }
     break;
     case 0b10:
-    if(prevState == 0b00 && prevprev == 0b01){
+    if(prevState == 0b00){// && prevprev == 0b01){
       --counter;
     }
-    else if(prevState == 0b11 && prevprev == 0b01){
+    else if(prevState == 0b11){// && prevprev == 0b01){
       ++counter;
     }
     else{
@@ -556,13 +562,13 @@ int main ( int argc, char *argv[] )
   mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
   
   std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
-  GPIOPin * bit1 = new GPIOPin("5");
-  GPIOPin * bit2 = new GPIOPin("6");
+  bit1 = new GPIOPin("5");
+  bit2 = new GPIOPin("6");
   bit1->ExportPin();
   bit1->SetPinDir("in");
   bit2->ExportPin();
   bit2->SetPinDir("in");
-  char counter = 5;
+  
   for(int i = 0; i < 10; ++i){
     gpioPins[i] = new GPIOPin(PINS[i]);
     gpioPins[i]->ExportPin();
@@ -653,8 +659,9 @@ int main ( int argc, char *argv[] )
     }
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     
-    counter = KnobTurned(bit1, bit2, state, prevState);
+    KnobTurned();
     inputstream += counter;
+    counter = 0;
     if(toSend && inputstream.length() > 0){
       
       //inputstream = "~" + inputstream + "!";
