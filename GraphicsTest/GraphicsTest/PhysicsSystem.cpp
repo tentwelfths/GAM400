@@ -5,7 +5,6 @@
 #include "Globals.h"
 #include "Object.h"
 #include "PhysicsComponent.h"
-#include "RigidbodyComponent.h"
 #include "BoxColliderComponent.h"
 #include "SphereColliderComponent.h"
 #include "TransformComponent.h"

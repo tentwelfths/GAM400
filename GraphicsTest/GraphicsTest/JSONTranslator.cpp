@@ -3,7 +3,6 @@
 #include "Object.h"
 #include "Standard.h"
 #include "SpriteComponent.h"
-#include "RigidbodyComponent.h"
 #include "TransformComponent.h"
 #include "BoxColliderComponent.h"
 #include "ObjectSystem.h"
