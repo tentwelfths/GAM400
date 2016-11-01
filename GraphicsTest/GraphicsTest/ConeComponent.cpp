@@ -25,9 +25,9 @@ bool ConeComponent::Initialize()
 
 void ConeComponent::Update(double dt)
 {
-  auto trans = mParent()->GetComponent(TransformComponent);
-  auto transPlayer = thePlayer->GetComponent(TransformComponent);
-  auto theCone = thePlayer->GetComponent(ConeControllerComponent);
+  auto * trans = mParent()->GetComponent(TransformComponent);
+  auto * transPlayer = thePlayer->GetComponent(TransformComponent);
+  auto * theCone = thePlayer->GetComponent(ConeControllerComponent);
 
   float x = transPlayer->mPositionX() + theCone->GetX();
   float y = transPlayer->mPositionY() + theCone->GetY();
