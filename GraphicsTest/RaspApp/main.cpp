@@ -581,7 +581,6 @@ int main ( int argc, char *argv[] )
     //}
     //if(counter >= 10) counter = 0;
     //if(counter <= -1) counter = 9;
-    counter = KnobTurned(bit1, bit2, state);
     //std::cout<<"loop"<<std::endl;
     gettimeofday ( &t1 , &tz );
     bool updated = false;
@@ -600,11 +599,11 @@ int main ( int argc, char *argv[] )
       }
     }while(netResult > 0);
     gettimeofday ( &tEnd , &tz );
-    rDt = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec) * 1e-6);
+    rDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     gettimeofday ( &tStart , &tz );
     g.Draw();
     gettimeofday ( &tEnd , &tz );
-    gDt = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec) * 1e-6);
+    gDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     toSend = !toSend;
     inputstream = "~";
     gettimeofday ( &tStart , &tz );
@@ -625,6 +624,8 @@ int main ( int argc, char *argv[] )
       inputstream += static_cast<char *>(static_cast<void *>(&y2))[i];
     }
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
+    
+    counter = KnobTurned(bit1, bit2, state);
     inputstream += counter;
     if(toSend && inputstream.length() > 0){
       
@@ -638,7 +639,7 @@ int main ( int argc, char *argv[] )
       inputstream = "";
     }
     gettimeofday ( &tEnd , &tz );
-    iDt = (float)(tEnd.tv_sec - t1.tv_sec + (tEnd.tv_usec - t1.tv_usec) * 1e-6);
+    iDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     
     gettimeofday(&t2, &tz);
     deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/100000.f);
