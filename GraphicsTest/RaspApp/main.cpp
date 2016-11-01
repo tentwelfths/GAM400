@@ -602,7 +602,7 @@ int main ( int argc, char *argv[] )
     //gettimeofday ( &tEnd , &tz );
     //rDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     //gettimeofday ( &tStart , &tz );
-    g.Draw();
+    //g.Draw();
     //gettimeofday ( &tEnd , &tz );
     //gDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     toSend = !toSend;
@@ -647,7 +647,7 @@ int main ( int argc, char *argv[] )
     if(deltatime >= 1.0f/30.f)
     {
       //Frame took too long
-      float total = gDt + rDt + iDt;
+      //float total = gDt + rDt + iDt;
       std::cout<<"Frame took too long ";
       std::cout<<deltatime<<std::endl;
       //std::cout<<"Graphics: " << (gDt / total) * 100.f <<"%"<<std::endl
