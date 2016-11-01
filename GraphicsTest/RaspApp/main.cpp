@@ -521,6 +521,10 @@ void KnobTurned(ThreadInfo * t)
       break;
     }
     t->prevState = num;
+    if(t->counter != 0)
+    {
+      std::cout<<"asdg"<<std::endl;
+    }
   }
   return;
 }
