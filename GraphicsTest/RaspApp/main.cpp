@@ -645,7 +645,7 @@ int main ( int argc, char *argv[] )
     if(deltatime >= 1.0f/30.f)
     {
       //Frame took too long
-      //float total = gDt + rDt + iDt;
+      float total = gDt + rDt + iDt;
       std::cout<<"Frame took too long ";
       std::cout<<deltatime<<std::endl;
       std::cout<<"Graphics: " << (gDt / total) * 100.f <<"%"<<std::endl
