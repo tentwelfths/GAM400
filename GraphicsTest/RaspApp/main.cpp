@@ -647,6 +647,7 @@ int main ( int argc, char *argv[] )
     {
       //Frame took too long
       //float total = gDt + rDt + iDt;
+      std::cout<<"Frame took too long"<<std::endl;
       //std::cout<<"Graphics: " << (gDt / total) * 100.f <<"%"<<std::endl
       //<<"Input: " << (iDt / total) * 100.f <<"%"<<std::endl
       //<<"Receiving: " << (rDt / total) * 100.f <<"%"<<std::endl<<std::endl;
