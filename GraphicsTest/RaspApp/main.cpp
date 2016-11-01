@@ -517,7 +517,7 @@ void KnobTurned()
     break;
   }
   prevState = num;
-  return counter;
+  return;
 }
 
 int main ( int argc, char *argv[] )
