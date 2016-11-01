@@ -598,9 +598,6 @@ int main ( int argc, char *argv[] )
   int pos = 0;
   int clientNumber = -1;
   int netResult = 0;
-  struct timeval t1, t2;
-  struct timeval tStart,tEnd;
-  struct timezone tz;
   int state = 0;
   int prevState = 0;
   float deltatime, gDt, rDt,sDt,iDt;
@@ -617,7 +614,6 @@ int main ( int argc, char *argv[] )
     //if(counter >= 10) counter = 0;
     //if(counter <= -1) counter = 9;
     //std::cout<<"loop"<<std::endl;
-    //gettimeofday ( &t1 , &tz );
     bool updated = false;
     //gettimeofday ( &tStart , &tz );
     do{
@@ -673,29 +669,15 @@ int main ( int argc, char *argv[] )
       //std::cout<<"Bytes sent: "<<sentbytes<<inputstream<<std::endl;
       inputstream = "";
     }
-    //gettimeofday ( &tEnd , &tz );
-    //iDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
-    
-    //gettimeofday(&t2, &tz);
-    //deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/100000.f);
     
     deltatime = clock() - start;
     deltatime /= CLOCKS_PER_SEC;
     std::cout<<deltatime<<std::endl;
     if(deltatime >= 1.0f/30.f)
     {
-      //Frame took too long
-      //float total = gDt + rDt + iDt;
       std::cout<<"Frame took too long ";
-      //std::cout<<"Graphics: " << (gDt / total) * 100.f <<"%"<<std::endl
-      //<<"Input: " << (iDt / total) * 100.f <<"%"<<std::endl
-      //<<"Receiving: " << (rDt / total) * 100.f <<"%"<<std::endl<<std::endl;
       
     }
-    //do{
-    //  gettimeofday(&t2, &tz);
-    //  deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec) * 1e-6);
-    //}while(deltatime < 1.0f/30.0f);
     if(ctrl_c_pressed)
     {
         std::cout << "Ctrl^C Pressed" << std::endl;
