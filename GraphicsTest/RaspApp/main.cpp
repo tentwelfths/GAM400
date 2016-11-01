@@ -660,7 +660,7 @@ int main ( int argc, char *argv[] )
     }
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     
-    inputstream += threadInfo->counter;
+    inputstream += threadInfo.counter;
     counter = 0;
     if(toSend && inputstream.length() > 0){
       
@@ -700,12 +700,12 @@ int main ( int argc, char *argv[] )
           delete gpioPins[i];
           gpioPins[i] = 0;
         }
-        bit1->UnexportPin();
-        delete bit1;
-        bit1 = 0;
-        bit2->UnexportPin();
-        delete bit2;
-        bit2 = 0;
+        threadInfo.bit1->UnexportPin();
+        delete threadInfo.bit1;
+        threadInfo.bit1 = 0;
+        threadInfo.bit2->UnexportPin();
+        delete threadInfo.bit2;
+        threadInfo.bit2 = 0;
         break;
 
     }
