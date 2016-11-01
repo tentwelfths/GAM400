@@ -371,7 +371,7 @@ void GraphicsSystem::Draw()
       glUniformMatrix4fv(Scale_, 1, GL_FALSE, &Scale[0][0]);
       glUniformMatrix4fv(Rotation_, 1, GL_FALSE, &Rotation[0][0]);
 
-      glDrawElements ( GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices_ );
+      //glDrawElements ( GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices_ );
     }
     //std::cout<<"err: "<<glGetError()<<std::endl;
   }
