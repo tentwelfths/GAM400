@@ -441,7 +441,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   }
 }
 
-int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState)
+int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState, int& prevprev)
 {
   std::string b1, b2;
   int counter = 0;
@@ -455,10 +455,10 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState)
   }
   switch(num){
     case 0b00:
-    if(prevState == 0b01){
+    if(prevState == 0b01 && prevprev == 0b11){
       --counter;
     }
-    else if(prevState == 0b10){
+    else if(prevState == 0b10 && prevprev == 0b11){
       ++counter;
     }
     else{
@@ -469,10 +469,10 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState)
     }
     break;
     case 0b01:
-    if(prevState == 0b11){
+    if(prevState == 0b11 && prevprev == 0b10){
       --counter;
     }
-    else if(prevState == 0b00){
+    else if(prevState == 0b00 && prevprev == 0b10){
       ++counter;
     }
     else{
@@ -483,10 +483,10 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState)
     }
     break;
     case 0b11:
-    if(prevState == 0b10){
+    if(prevState == 0b10 && prevprev == 0b00){
       --counter;
     }
-    else if(prevState == 0b01){
+    else if(prevState == 0b01 && prevprev = 0b00){
       ++counter;
     }
     else{
@@ -497,10 +497,10 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState)
     }
     break;
     case 0b10:
-    if(prevState == 0b00){
+    if(prevState == 0b00 && prevprev == 0b01){
       --counter;
     }
-    else if(prevState == 0b11){
+    else if(prevState == 0b11 && prevprev = 0b01){
       ++counter;
     }
     else{
@@ -511,6 +511,7 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState)
     }
     break;
   }
+  prevprev = prevState;
   prevState = num;
   return counter;
 }
@@ -595,6 +596,7 @@ int main ( int argc, char *argv[] )
   struct timeval tStart,tEnd;
   struct timezone tz;
   int state = 0;
+  int prevState = 0;
   float deltatime, gDt, rDt,sDt,iDt;
   while(true){
     start = clock();
@@ -651,7 +653,7 @@ int main ( int argc, char *argv[] )
     }
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     
-    counter = KnobTurned(bit1, bit2, state);
+    counter = KnobTurned(bit1, bit2, state, prevState);
     inputstream += counter;
     if(toSend && inputstream.length() > 0){
       
