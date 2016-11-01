@@ -118,6 +118,8 @@ public:
   
   GLushort indices_[6];
 
+  glm::mat4 Position,Scale, Rotation;
+
   Camera mMainCamera;
 private:
   GLint loadpng(std::string filename);
