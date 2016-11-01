@@ -647,6 +647,7 @@ int main ( int argc, char *argv[] )
     //deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/100000.f);
     
     deltatime = clock() - start;
+    deltatime /= CLOCKS_PER_SEC;
     std::cout<<deltatime<<std::endl;
     if(deltatime >= 1.0f/30.f)
     {
