@@ -120,6 +120,6 @@ void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
     mAngle += coneCon->knobDelta * ADJUSTANGLE;
     float rads = radians(mAngle);
     mDirX = cos(rads);
-    mDirX = sin(rads);
+    mDirY = sin(rads);
   }
 }
