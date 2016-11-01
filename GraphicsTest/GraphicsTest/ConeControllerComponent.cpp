@@ -116,6 +116,7 @@ void ConeControllerComponent::UpdateCone()
 
 void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
 {
+  static int test = 1;
   Controller* coneCon = &input->getController(GetControllerID());
   if (coneCon->knobDelta != 0)
   {
@@ -134,7 +135,10 @@ void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
   else if (counterclockwise < -SOMENUMBER){
     mAngle -= ADJUSTANGLE;
   }
-  mAngle += 0.1f;
+  if (mAngle > 360 || mAngle< 0){
+    test *= -1;
+  }
+  mAngle -= ADJUSTANGLE * test;
   float rads = radians(mAngle);
   mDirX = cosf(rads);
   mDirY = sinf(rads);

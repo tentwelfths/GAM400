@@ -458,32 +458,56 @@ int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState)
     if(prevState == 0b01){
       --counter;
     }
-    else{
+    else if(prevState == 0b10){
       ++counter;
+    }
+    else{
+      if(counter > 0)
+        ++counter;
+      if(counter < 0)
+        --counter;
     }
     break;
     case 0b01:
     if(prevState == 0b11){
       --counter;
     }
-    else{
+    else if(prevState == 0b00){
       ++counter;
+    }
+    else{
+      if(counter > 0)
+        ++counter;
+      if(counter < 0)
+        --counter;
     }
     break;
     case 0b11:
     if(prevState == 0b10){
       --counter;
     }
-    else{
+    else if(prevState == 0b01){
       ++counter;
+    }
+    else{
+      if(counter > 0)
+        ++counter;
+      if(counter < 0)
+        --counter;
     }
     break;
     case 0b10:
     if(prevState == 0b00){
       --counter;
     }
-    else{
+    else if(prevState == 0b11){
       ++counter;
+    }
+    else{
+      if(counter > 0)
+        ++counter;
+      if(counter < 0)
+        --counter;
     }
     break;
   }
