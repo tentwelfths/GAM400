@@ -11,8 +11,6 @@
 #include "Globals.h"
 #include "ObjectSystem.h"
 
-#define EPIFORTRANS 0.00001
-
 ConeComponent::ConeComponent() : GameLogicComponent(GameLogicType::CONE)
 {
   auto * o = gCore->GetSystem(ObjectSystem);

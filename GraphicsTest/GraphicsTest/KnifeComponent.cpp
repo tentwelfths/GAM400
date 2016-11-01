@@ -8,8 +8,6 @@
 #include "TransformComponent.h"
 #include "BoxColliderComponent.h"
 
-#define EPIFORTRANS 0.00001
-
 KnifeComponent::KnifeComponent() : GameLogicComponent(GameLogicType::KNIFE), offset(0.0, 0.0, 0.0), attackTimer(0.5f), timeTillNextAttack(0.5f), dist(20.0f)
 {
   auto * o = gCore->GetSystem(ObjectSystem);
