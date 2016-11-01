@@ -54,6 +54,7 @@ void KnifeComponent::Update(double dt)
     trans->mPosition(playerTrans->mPosition());
     b2Vec2 physicsPos(playerTrans->mPositionX(), playerTrans->mPositionY());
     box->GetBody()->SetTransform(physicsPos, playerTrans->mRotationZ());
+    box->GetBody()->SetLinearVelocity(b2Vec2(0.0f, 0.0f));
   }
   timeTillNextAttack += dt;
 }

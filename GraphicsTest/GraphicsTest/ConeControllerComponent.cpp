@@ -14,7 +14,7 @@
 #define SOMENUMBER 3
 #define ADJUSTANGLE 5
 
-ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(0.0), mDirY(-1.0), mAngle(0.0f), mSightRadius(30.0f)
+ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(1.0), mDirY(0.0), mAngle(0.0f), mSightRadius(30.0f)
 {
   for (int i = 0; i < 10; ++i) leds[i] = 0;
   garbage = 0;
@@ -101,8 +101,9 @@ void ConeControllerComponent::UpdateCone()
   auto * otherRigid = mPCPlayer->GetComponent(BoxColliderComponent);
 
   b2Vec2 theDistance(rigid->GetBody()->GetPosition().x - otherRigid->GetBody()->GetPosition().x, rigid->GetBody()->GetPosition().y - otherRigid->GetBody()->GetPosition().y);
+  theDistance.Normalize();
   float theCosine = mDirX * theDistance.x + mDirY * theDistance.y;
-  if (theCosine < mSightRadius)
+  if (-theCosine > 0.9f)
   {
     mPCPlayer->mVisible = true;
   }
