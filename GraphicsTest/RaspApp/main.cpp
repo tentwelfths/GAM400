@@ -577,7 +577,7 @@ int main ( int argc, char *argv[] )
     gpioPins[i] = new GPIOPin(PINS[i]);
     gpioPins[i]->ExportPin();
     gpioPins[i]->SetPinDir("out");
-    if(i == threadInfo->counter)
+    if(i == threadInfo.counter)
       gpioPins[i]->SetPinVal("1");
     else{
       gpioPins[i]->SetPinVal("0");
@@ -661,7 +661,7 @@ int main ( int argc, char *argv[] )
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     
     inputstream += threadInfo.counter;
-    threadInfo->counter = 0;
+    threadInfo.counter = 0;
     if(toSend && inputstream.length() > 0){
       
       //inputstream = "~" + inputstream + "!";
