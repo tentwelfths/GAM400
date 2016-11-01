@@ -50,7 +50,7 @@ void KnifeComponent::Update(double dt)
     }
   }
   bool xCheck = trans->mPositionX() > playerTrans->mPositionX() - EPIFORTRANS && trans->mPositionX() < playerTrans->mPositionX() + EPIFORTRANS;
-  bool yCheck = trans->mPositionX() > playerTrans->mPositionY() - EPIFORTRANS && trans->mPositionX() < playerTrans->mPositionY() + EPIFORTRANS;
+  bool yCheck = trans->mPositionY() > playerTrans->mPositionY() - EPIFORTRANS && trans->mPositionY() < playerTrans->mPositionY() + EPIFORTRANS;
   if (timeTillNextAttack > 0.1f && (!xCheck || !yCheck))
   {
     trans->mPosition(playerTrans->mPosition());

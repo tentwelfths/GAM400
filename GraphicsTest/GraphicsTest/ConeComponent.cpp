@@ -33,7 +33,7 @@ void ConeComponent::Update(double dt)
   float x = transPlayer->mPositionX() + theCone->GetX();
   float y = transPlayer->mPositionY() + theCone->GetY();
   bool xCheck = trans->mPositionX() > x - EPIFORTRANS && trans->mPositionX() < x + EPIFORTRANS;
-  bool yCheck = trans->mPositionX() > y - EPIFORTRANS && trans->mPositionX() < y + EPIFORTRANS;
+  bool yCheck = trans->mPositionY() > y - EPIFORTRANS && trans->mPositionY() < y + EPIFORTRANS;
 
   if (!xCheck || !yCheck)
   {
