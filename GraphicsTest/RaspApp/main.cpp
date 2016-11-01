@@ -348,7 +348,6 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         std::cout<<isVis<<std::endl;
         if(isVis == '0'){
           gObjectMap[objectID]->inUse = false;
-          
         }
         else{
           gObjectMap[objectID]->inUse = true;

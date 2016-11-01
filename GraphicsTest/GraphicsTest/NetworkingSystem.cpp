@@ -474,6 +474,7 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
 
   case '#': //Object moved
   {
+    std::cout << "MOVE MESSAGE" << std::endl;
     std::string data = gCore->GetSystem(ObjectSystem)->GetTransformData(ID);
     if (data == "") break;
     temp = "#";
