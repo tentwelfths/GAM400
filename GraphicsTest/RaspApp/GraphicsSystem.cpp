@@ -361,7 +361,7 @@ void GraphicsSystem::Draw()
 
       Scale[0][0] = iter->second->scale[0];
       Scale[1][1] = iter->second->scale[1];
-      Scale[2][2] = iter->second->scale[2];
+      //Scale[2][2] = iter->second->scale[2];
       //Scale[1][1] = x * 1.5;
       //Rotation = setUpRotationMatrix(Rotation, iter->second->rotation[0], 1, 0, 0);
       //Rotation = setUpRotationMatrix(Rotation, iter->second->rotation[1], 0, 1, 0);

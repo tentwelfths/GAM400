@@ -585,7 +585,7 @@ int main ( int argc, char *argv[] )
     //std::cout<<"loop"<<std::endl;
     gettimeofday ( &t1 , &tz );
     bool updated = false;
-    gettimeofday ( &tStart , &tz );
+    //gettimeofday ( &tStart , &tz );
     do{
       memset((void*)buf, 0, 1024);
       //std::cout<<"Tryna recv"<<std::endl;
@@ -599,15 +599,15 @@ int main ( int argc, char *argv[] )
         ProcessResponse(pos, clientNumber, buf, netResult, &g, &n);
       }
     }while(netResult > 0);
-    gettimeofday ( &tEnd , &tz );
-    rDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
-    gettimeofday ( &tStart , &tz );
+    //gettimeofday ( &tEnd , &tz );
+    //rDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
+    //gettimeofday ( &tStart , &tz );
     g.Draw();
-    gettimeofday ( &tEnd , &tz );
-    gDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
+    //gettimeofday ( &tEnd , &tz );
+    //gDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     toSend = !toSend;
     inputstream = "~";
-    gettimeofday ( &tStart , &tz );
+    //gettimeofday ( &tStart , &tz );
     unsigned short x1 = a2d.GetChannelData(0);
     unsigned short y1 = a2d.GetChannelData(1);
     unsigned short x2 = a2d.GetChannelData(2);
@@ -639,8 +639,8 @@ int main ( int argc, char *argv[] )
       //std::cout<<"Bytes sent: "<<sentbytes<<inputstream<<std::endl;
       inputstream = "";
     }
-    gettimeofday ( &tEnd , &tz );
-    iDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
+    //gettimeofday ( &tEnd , &tz );
+    //iDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     
     gettimeofday(&t2, &tz);
     deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/100000.f);
@@ -650,9 +650,9 @@ int main ( int argc, char *argv[] )
       float total = gDt + rDt + iDt;
       std::cout<<"Frame took too long ";
       std::cout<<deltatime<<std::endl;
-      std::cout<<"Graphics: " << (gDt / total) * 100.f <<"%"<<std::endl
-      <<"Input: " << (iDt / total) * 100.f <<"%"<<std::endl
-      <<"Receiving: " << (rDt / total) * 100.f <<"%"<<std::endl<<std::endl;
+      //std::cout<<"Graphics: " << (gDt / total) * 100.f <<"%"<<std::endl
+      //<<"Input: " << (iDt / total) * 100.f <<"%"<<std::endl
+      //<<"Receiving: " << (rDt / total) * 100.f <<"%"<<std::endl<<std::endl;
       
     }
     //do{
