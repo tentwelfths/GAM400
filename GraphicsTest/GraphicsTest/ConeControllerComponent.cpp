@@ -12,7 +12,7 @@
 #include "Messages.h"
 
 #define SOMENUMBER 20
-#define ADJUSTANGLE 80
+#define ADJUSTANGLE 15
 
 ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(1.0), mDirY(0.0), mAngle(0.0f), mSightRadius(30.0f)
 {
@@ -128,7 +128,7 @@ void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
   }
   if (clockwise > SOMENUMBER)
   {
-    mAngle += clockwise* ADJUSTANGLE;
+    mAngle += ADJUSTANGLE;
     float rads = radians(mAngle);
     mDirX = cos(rads);
     mDirY = sin(rads);
@@ -136,7 +136,7 @@ void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
     counterclockwise = 0;
   }
   else if (counterclockwise < -SOMENUMBER){
-    mAngle += counterclockwise * ADJUSTANGLE;
+    mAngle -= ADJUSTANGLE;
     float rads = radians(mAngle);
     mDirX = cos(rads);
     mDirY = sin(rads);
