@@ -183,8 +183,8 @@ void InputSystem::updateController(int contNum, std::vector<int> theButtons,
     ++j;
   }
   setJoystick(contNum, x1NewStick, y1NewStick, x2NewStick, y2NewStick);
-  if (knobDelta != 0)
-    std::cout << (int)knobDelta << std::endl;
+  //if (knobDelta != 0)
+  //  std::cout << (int)knobDelta << std::endl;
   theControllers[contNum].knobDelta = knobDelta;
 }
 
