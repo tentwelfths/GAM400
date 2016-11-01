@@ -680,7 +680,7 @@ int main ( int argc, char *argv[] )
     
     deltatime = clock() - start;
     deltatime /= CLOCKS_PER_SEC;
-    std::cout<<deltatime<<std::endl;
+    //std::cout<<deltatime<<std::endl;
     if(deltatime >= 1.0f/30.f)
     {
       std::cout<<"Frame took too long ";
