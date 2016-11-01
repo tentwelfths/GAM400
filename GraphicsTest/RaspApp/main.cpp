@@ -642,12 +642,12 @@ int main ( int argc, char *argv[] )
     
     gettimeofday(&t2, &tz);
     deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/1000.f);
-    //std::cout<<deltatime<<std::endl;
     if(deltatime >= 1.0f/30.f)
     {
       //Frame took too long
       //float total = gDt + rDt + iDt;
-      std::cout<<"Frame took too long"<<std::endl;
+      std::cout<<"Frame took too long ";
+      std::cout<<deltatime<<std::endl;
       //std::cout<<"Graphics: " << (gDt / total) * 100.f <<"%"<<std::endl
       //<<"Input: " << (iDt / total) * 100.f <<"%"<<std::endl
       //<<"Receiving: " << (rDt / total) * 100.f <<"%"<<std::endl<<std::endl;
