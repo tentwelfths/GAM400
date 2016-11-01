@@ -149,7 +149,10 @@ void EditorSystem::DisplayImGUI(){
   //ImGui::ShowTestWindow(&b);
   if (selected != nullptr){
     ImGui::Begin("Inspector");
-    ImGui::Text(selected->name.c_str());
+    char name[64];
+    strcpy(name, selected->name.c_str());
+    ImGui::InputText("Name",name, 64);
+    selected->name = name;
     for (auto & iter : selected->mComponents){
       if (ImGui::CollapsingHeader(iter.second->mName().c_str())){
         for (auto & memIter : iter.second->members){
@@ -164,6 +167,9 @@ void EditorSystem::DisplayImGUI(){
 
     if (ImGui::Button(std::string("Add Component").c_str())){
       mShowAddComponent = true;
+    }
+    if (ImGui::Button(std::string("Save Archetype").c_str())){
+      mShowSaveArchetype = true;
     }
     ImGui::End();
   }
@@ -253,6 +259,21 @@ void EditorSystem::DisplayImGUI(){
     }
     ImGui::End();
   }
+  if (mShowSaveArchetype){
+    ImGui::Begin("Save Archetype Menu");
+    ImGui::InputText("Archetype name", str, 64);
+    if (ImGui::Button("Save Archetype")){
+      
+      JSONTranslator j;
+      selected->source = str;
+      j.CreateFileFromObject(selected);
+      str[0] = 0;
+      mShowSaveArchetype = false;
+      selected = nullptr;
+    }
+    ImGui::End();
+  }
+
 }
 
 //ACTIONS DOWN HERE
@@ -277,7 +298,8 @@ void EditorSystem::SetTileEditor()
 
 void EditorSystem::CreateObjectByName(const char * name)
 {
-  Object * obj;
-  
-  gCore->GetSystem(ObjectSystem)->CreateObjectFromFile(name);
+  Object * obj = gCore->GetSystem(ObjectSystem)->CreateObjectFromFile(name);
+  auto * g = gCore->GetSystem(GraphicsSystem);
+
+  obj->GetComponent(TransformComponent)->mPosition(g->mMainCamera.x, g->mMainCamera.y, 0);
 }

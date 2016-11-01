@@ -31,5 +31,6 @@ private:
   static bool mTileEditorStart;
   std::string tileArchetype;
   bool mShowAddComponent;
+  bool mShowSaveArchetype;
   char str[64];
 };
