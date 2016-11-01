@@ -11,8 +11,8 @@
 #include "MessagingSystem.h"
 #include "Messages.h"
 
-#define SOMENUMBER 3
-#define ADJUSTANGLE 5
+#define SOMENUMBER 20
+#define ADJUSTANGLE 80
 
 ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(0.0), mDirY(-1.0), mAngle(0.0f), mSightRadius(30.0f)
 {
