@@ -450,14 +450,13 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 void KnobTurned()
 {
   std::string b1, b2;
-  int counter = 0;
   b1 = bit1->GetPinVal();
   b2 = bit2->GetPinVal();
   //std::cout<<b1<<"  "<<b2<<std::endl;
   int num = (b1 == "1") ? (1<<1) : (0<<1);
   num |= (b2 == "1") ? (1) : (0);
   if(num == prevState){
-    return 0;
+    return;
   }
   switch(num){
     case 0b00:
@@ -517,7 +516,6 @@ void KnobTurned()
     }
     break;
   }
-  prevprev = prevState;
   prevState = num;
   return counter;
 }
