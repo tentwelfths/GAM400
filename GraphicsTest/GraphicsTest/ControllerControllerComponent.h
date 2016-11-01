@@ -12,6 +12,7 @@ public:
   virtual void SpecialFunctionality(InputSystem* input);
   virtual void Reload(InputSystem* input);
   float GetBulletSpeed() { return bulletSpeed; }
+  int GetControllerID() { return controllerID; }
 private:
   int currAmmo;
   int maxAmmo;

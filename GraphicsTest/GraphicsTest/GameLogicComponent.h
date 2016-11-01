@@ -1,7 +1,7 @@
 #pragma once
 #include "IComponent.h"
 
-enum class GameLogicType { PLAYER, DEMOPLAYER, DEMODROPPER, OUTOFBOUNDS, RELOAD, KNIFE };
+enum class GameLogicType { PLAYER, DEMOPLAYER, DEMODROPPER, OUTOFBOUNDS, RELOAD, KNIFE, CONE };
 
 class GameLogicComponent : public IComponent
 {

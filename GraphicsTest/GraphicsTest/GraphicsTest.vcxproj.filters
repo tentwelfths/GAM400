@@ -200,6 +200,7 @@
     <ClCompile Include="ControllerControllerComponent.cpp" />
     <ClCompile Include="ConeControllerComponent.cpp" />
     <ClCompile Include="MessagingSystem.cpp" />
+    <ClCompile Include="ConeComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -447,6 +448,8 @@
     <ClInclude Include="ControllerControllerComponent.h" />
     <ClInclude Include="ConeControllerComponent.h" />
     <ClInclude Include="MessagingSystem.h" />
+    <ClInclude Include="Messages.h" />
+    <ClInclude Include="ConeComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

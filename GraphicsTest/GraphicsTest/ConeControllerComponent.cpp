@@ -11,7 +11,9 @@
 #include "MessagingSystem.h"
 #include "Messages.h"
 
-ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(0.0), mDirY(0.0), mAngle(0.0f), mSightRadius(30.0f)
+#define ADJUSTANGLE 15
+
+ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(0.0), mDirY(-1.0), mAngle(0.0f), mSightRadius(30.0f)
 {
   for (int i = 0; i < 10; ++i) leds[i] = 0;
   garbage = 0;
@@ -112,5 +114,12 @@ void ConeControllerComponent::UpdateCone()
 
 void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
 {
-
+  Controller* coneCon = &input->getController(GetControllerID());
+  if (coneCon->knobDelta != 0)
+  {
+    mAngle += coneCon->knobDelta * ADJUSTANGLE;
+    float rads = radians(mAngle);
+    mDirX = cos(rads);
+    mDirX = sin(rads);
+  }
 }

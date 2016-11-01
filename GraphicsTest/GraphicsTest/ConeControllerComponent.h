@@ -9,6 +9,9 @@ class ConeControllerComponent : public ControllerControllerComponent
     void Shutdown();
     void SpecialFunctionality(InputSystem* input);
     void UpdateCone();
+    float GetAngle(){ return mAngle; }
+    float GetX() { return mDirX; }
+    float GetY() { return mDirY; }
   private:
     float mDirX;
     float mDirY;
