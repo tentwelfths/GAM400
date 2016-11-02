@@ -380,6 +380,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         if(temp != gObjectMap.end()){
           if(isVis == '0'){
             (temp)->second->inUse = false;
+            std::cout<<"Something is invisible"<<std::endl;
           }
           else{
             (temp)->second->inUse = true;
