@@ -18,8 +18,17 @@
 #include "NetworkingSystem.h"
 #include "Object.h"
 #include "GPIOPin.h"
+#include <thread>
 
 std::string inputstream = "";
+
+struct ThreadInfo{
+
+char counter = 0;
+GPIOPin * bit1;
+GPIOPin * bit2;
+int prevState = 0;
+};
 //mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
 
 std::unordered_map<unsigned int, Object*> gObjects[50];
@@ -195,6 +204,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
+
+        char isVis = command[pos];
+        ++pos;
+        
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
         if(textureID == 3){
@@ -242,7 +255,12 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->scale[1] = ySca;
         temp->rotation[2] = rot;
         temp->textureID = textureID;
-        temp->inUse = true;
+        if(isVis == '0'){
+          (temp)->inUse = false;
+        }
+        else{
+          (temp)->inUse = true;
+        }
         
         std::string tempstring = "L";
         for(unsigned i = 0; i < sizeof(unsigned int); ++i)
@@ -258,6 +276,9 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
+        
+        char isVis = command[pos];
+        ++pos;
         
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
@@ -299,6 +320,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
           gObjectMap.insert({objectID, obj});
         }
         Object * temp = gObjects[textureID][objectID];
+
         temp->position[0] = xPos;
         temp->position[1] = yPos;
         temp->position[2] = zPos;
@@ -306,7 +328,12 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->scale[1] = ySca;
         temp->rotation[2] = rot;
         temp->textureID = textureID;
-        temp->inUse = true;
+        if(isVis == '0'){
+          (temp)->inUse = false;
+        }
+        else{
+          (temp)->inUse = true;
+        }
         
         std::string tempstring = "`";
         for(unsigned i = 0; i < sizeof(unsigned int); ++i)
@@ -347,12 +374,9 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         char isVis = command[pos];
         ++pos;
         //std::cout<<isVis<<std::endl;
-        if(isVis == '0'){
-          //gObjectMap[objectID]->inUse = false;
-        }
-        else{
-          //gObjectMap[objectID]->inUse = true;
-        }
+        
+        auto temp = gObjectMap.find(objectID);
+        
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
@@ -371,8 +395,14 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         pos += sizeof(float);
-        auto temp = gObjectMap.find(objectID);
         if(temp != gObjectMap.end()){
+          if(isVis == '0'){
+            (temp)->second->inUse = false;
+            std::cout<<"Something is invisible"<<std::endl;
+          }
+          else{
+            (temp)->second->inUse = true;
+          }
           (temp)->second->position[0] = xPos;
           (temp)->second->position[1] = yPos;
           (temp)->second->position[2] = zPos;
@@ -441,54 +471,81 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   }
 }
 
-int KnobTurned(GPIOPin * bit1, GPIOPin * bit2, int& prevState)
+void KnobTurned(ThreadInfo * t)
 {
-  std::string b1, b2;
-  int counter = 0;
-  b1 = bit1->GetPinVal();
-  b2 = bit2->GetPinVal();
-  //std::cout<<b1<<"  "<<b2<<std::endl;
-  int num = (b1 == "1") ? (1<<1) : (0<<1);
-  num |= (b2 == "1") ? (1) : (0);
-  if(num == prevState){
-    return 0;
+  while(!ctrl_c_pressed){
+    //std::cout<<"CALLED"<<std::endl;
+    std::string b1, b2;
+    b1 = t->bit1->GetPinVal();
+    b2 = t->bit2->GetPinVal();
+    //std::cout<<b1<<"  "<<b2<<std::endl;
+    int num = (b1 == "1") ? (1<<1) : (0<<1);
+    num |= (b2 == "1") ? (1) : (0);
+    if(num == t->prevState){
+      //std::cout<<"No mov";
+      continue;
+    }
+    switch(num){
+      case 0b00:
+      if(t->prevState == 0b01){// && prevprev == 0b11){
+        --t->counter;
+      }
+      else if(t->prevState == 0b10){// && prevprev == 0b11){
+        ++t->counter;
+      }
+      else{
+        if(t->counter > 0)
+          ++t->counter;
+        if(t->counter < 0)
+          --t->counter;
+      }
+      break;
+      case 0b01:
+      if(t->prevState == 0b11){// && prevprev == 0b10){
+        --t->counter;
+      }
+      else if(t->prevState == 0b00){// && prevprev == 0b10){
+        ++t->counter;
+      }
+      else{
+        if(t->counter > 0)
+          ++t->counter;
+        if(t->counter < 0)
+          --t->counter;
+      }
+      break;
+      case 0b11:
+      if(t->prevState == 0b10){// && prevprev == 0b00){
+        --t->counter;
+      }
+      else if(t->prevState == 0b01){// && prevprev == 0b00){
+        ++t->counter;
+      }
+      else{
+        if(t->counter > 0)
+          ++t->counter;
+        if(t->counter < 0)
+          --t->counter;
+      }
+      break;
+      case 0b10:
+      if(t->prevState == 0b00){// && prevprev == 0b01){
+        --t->counter;
+      }
+      else if(t->prevState == 0b11){// && prevprev == 0b01){
+        ++t->counter;
+      }
+      else{
+        if(t->counter > 0)
+          ++t->counter;
+        if(t->counter < 0)
+          --t->counter;
+      }
+      break;
+    }
+    t->prevState = num;
   }
-  switch(num){
-    case 0b00:
-    if(prevState == 0b01){
-      --counter;
-    }
-    else{
-      ++counter;
-    }
-    break;
-    case 0b01:
-    if(prevState == 0b11){
-      --counter;
-    }
-    else{
-      ++counter;
-    }
-    break;
-    case 0b11:
-    if(prevState == 0b10){
-      --counter;
-    }
-    else{
-      ++counter;
-    }
-    break;
-    case 0b10:
-    if(prevState == 0b00){
-      --counter;
-    }
-    else{
-      ++counter;
-    }
-    break;
-  }
-  prevState = num;
-  return counter;
+  return;
 }
 
 int main ( int argc, char *argv[] )
@@ -509,6 +566,7 @@ int main ( int argc, char *argv[] )
       exit(1);
   }
 
+  ThreadInfo threadInfo;
   char myID = -1;
   
   if(strcmp(argv[1], "cone")==0){
@@ -531,18 +589,18 @@ int main ( int argc, char *argv[] )
   mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
   
   std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
-  GPIOPin * bit1 = new GPIOPin("5");
-  GPIOPin * bit2 = new GPIOPin("6");
-  bit1->ExportPin();
-  bit1->SetPinDir("in");
-  bit2->ExportPin();
-  bit2->SetPinDir("in");
-  char counter = 5;
+  threadInfo.bit1 = new GPIOPin("5");
+  threadInfo.bit2 = new GPIOPin("6");
+  threadInfo.bit1->ExportPin();
+  threadInfo.bit1->SetPinDir("in");
+  threadInfo.bit2->ExportPin();
+  threadInfo.bit2->SetPinDir("in");
+  
   for(int i = 0; i < 10; ++i){
     gpioPins[i] = new GPIOPin(PINS[i]);
     gpioPins[i]->ExportPin();
     gpioPins[i]->SetPinDir("out");
-    if(i == counter)
+    if(i == threadInfo.counter)
       gpioPins[i]->SetPinVal("1");
     else{
       gpioPins[i]->SetPinVal("0");
@@ -567,11 +625,10 @@ int main ( int argc, char *argv[] )
   int pos = 0;
   int clientNumber = -1;
   int netResult = 0;
-  struct timeval t1, t2;
-  struct timeval tStart,tEnd;
-  struct timezone tz;
   int state = 0;
+  int prevState = 0;
   float deltatime, gDt, rDt,sDt,iDt;
+  std::thread t1(KnobTurned, &threadInfo);
   while(true){
     start = clock();
     //for(int i = 0; i < 10; ++i){
@@ -584,7 +641,6 @@ int main ( int argc, char *argv[] )
     //if(counter >= 10) counter = 0;
     //if(counter <= -1) counter = 9;
     //std::cout<<"loop"<<std::endl;
-    //gettimeofday ( &t1 , &tz );
     bool updated = false;
     //gettimeofday ( &tStart , &tz );
     do{
@@ -627,8 +683,8 @@ int main ( int argc, char *argv[] )
     }
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     
-    counter = KnobTurned(bit1, bit2, state);
-    inputstream += counter;
+    inputstream += threadInfo.counter;
+    threadInfo.counter = 0;
     if(toSend && inputstream.length() > 0){
       
       //inputstream = "~" + inputstream + "!";
@@ -640,33 +696,20 @@ int main ( int argc, char *argv[] )
       //std::cout<<"Bytes sent: "<<sentbytes<<inputstream<<std::endl;
       inputstream = "";
     }
-    //gettimeofday ( &tEnd , &tz );
-    //iDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
-    
-    //gettimeofday(&t2, &tz);
-    //deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/100000.f);
     
     deltatime = clock() - start;
     deltatime /= CLOCKS_PER_SEC;
-    std::cout<<deltatime<<std::endl;
+    //std::cout<<deltatime<<std::endl;
     if(deltatime >= 1.0f/30.f)
     {
-      //Frame took too long
-      //float total = gDt + rDt + iDt;
       std::cout<<"Frame took too long ";
-      //std::cout<<"Graphics: " << (gDt / total) * 100.f <<"%"<<std::endl
-      //<<"Input: " << (iDt / total) * 100.f <<"%"<<std::endl
-      //<<"Receiving: " << (rDt / total) * 100.f <<"%"<<std::endl<<std::endl;
       
     }
-    //do{
-    //  gettimeofday(&t2, &tz);
-    //  deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec) * 1e-6);
-    //}while(deltatime < 1.0f/30.0f);
     if(ctrl_c_pressed)
     {
         std::cout << "Ctrl^C Pressed" << std::endl;
         std::cout << "unexporting pins" <<std::endl;
+        t1.join();
         //gpio4->unexport_gpio();
         //gpio17->unexport_gpio();
         //cout << "deallocating GPIO Objects" << endl;
@@ -680,12 +723,12 @@ int main ( int argc, char *argv[] )
           delete gpioPins[i];
           gpioPins[i] = 0;
         }
-        bit1->UnexportPin();
-        delete bit1;
-        bit1 = 0;
-        bit2->UnexportPin();
-        delete bit2;
-        bit2 = 0;
+        threadInfo.bit1->UnexportPin();
+        delete threadInfo.bit1;
+        threadInfo.bit1 = 0;
+        threadInfo.bit2->UnexportPin();
+        delete threadInfo.bit2;
+        threadInfo.bit2 = 0;
         break;
 
     }

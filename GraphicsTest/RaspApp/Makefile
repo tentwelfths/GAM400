@@ -24,4 +24,4 @@ clean:
 	find . -name "CH??_*" | xargs rm -f
 
 ./SRC: ${MYSRC}
-	g++ -std=c++11 -I/usr/local/include -L/usr/local/lib  $(CFLAGS) ${COMMONSRC} ${MYSRC} -o ./$@ ${INCDIR} ${LIBS}
+	g++ -std=c++11 -I/usr/local/include -L/usr/local/lib  $(CFLAGS) ${COMMONSRC} ${MYSRC} -o ./$@ ${INCDIR} ${LIBS} -lpthread

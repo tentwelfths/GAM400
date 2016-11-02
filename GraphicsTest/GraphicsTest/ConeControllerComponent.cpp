@@ -11,9 +11,13 @@
 #include "MessagingSystem.h"
 #include "Messages.h"
 
-#define SOMENUMBER 20
-#define ADJUSTANGLE 15
+
+#define SOMENUMBER 1
+#define ADJUSTANGLE 5
 #define SIGHTDISTANCE 20.0f
+
+
+
 
 ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(1.0), mDirY(0.0), mAngle(0.0f), mSightRadius(30.0f)
 {
@@ -143,6 +147,7 @@ void ConeControllerComponent::UpdateVis(Object* theTarget)
 
 void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
 {
+  //static int test = 1;
   Controller* coneCon = &input->getController(GetControllerID());
   if (coneCon->knobDelta != 0)
   {
@@ -155,19 +160,26 @@ void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
   }
   if (clockwise > SOMENUMBER)
   {
-    mAngle += ADJUSTANGLE;
+    mAngle -= clockwise * ADJUSTANGLE;  
     float rads = radians(mAngle);
-    mDirX = cos(rads);
-    mDirY = sin(rads);
+    mDirX = cosf(rads);
+    mDirY = sinf(rads);
     clockwise = 0;
     counterclockwise = 0;
+    
   }
   else if (counterclockwise < -SOMENUMBER){
-    mAngle -= ADJUSTANGLE;
+    mAngle -= counterclockwise * ADJUSTANGLE;  
     float rads = radians(mAngle);
-    mDirX = cos(rads);
-    mDirY = sin(rads);
+    mDirX = cosf(rads);
+    mDirY = sinf(rads);
     clockwise = 0;
     counterclockwise = 0;
   }
+
+  //if (mAngle > 360 || mAngle< 0){
+  //  test *= -1;
+  //}
+  //mAngle -= ADJUSTANGLE * test;
+
 }
