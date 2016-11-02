@@ -207,7 +207,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
         char isVis = command[pos];
         ++pos;
-        
+
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
         if(textureID == 3){
@@ -600,11 +600,7 @@ int main ( int argc, char *argv[] )
     gpioPins[i] = new GPIOPin(PINS[i]);
     gpioPins[i]->ExportPin();
     gpioPins[i]->SetPinDir("out");
-    if(i == threadInfo.counter)
-      gpioPins[i]->SetPinVal("1");
-    else{
-      gpioPins[i]->SetPinVal("0");
-    }
+    gpioPins[i]->SetPinVal("1");
   }
 
 

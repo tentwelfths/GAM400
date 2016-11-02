@@ -14,7 +14,7 @@ void main()
 {
   vec2 pos = mod(UV.xy * 64,vec2(8));
   vec4 texel = texture( myTextureSampler, UV ).rgba;
-  if(texel.a < 0.5) discard;
+  //if(texel.a < 0.5) discard;
 	color = texel;
 
 }
