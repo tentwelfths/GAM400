@@ -356,12 +356,9 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         char isVis = command[pos];
         ++pos;
         //std::cout<<isVis<<std::endl;
-        if(isVis == '0'){
-          //gObjectMap[objectID]->inUse = false;
-        }
-        else{
-          //gObjectMap[objectID]->inUse = true;
-        }
+        
+        auto temp = gObjectMap.find(objectID);
+        
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
@@ -380,8 +377,13 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         pos += sizeof(float);
-        auto temp = gObjectMap.find(objectID);
         if(temp != gObjectMap.end()){
+          if(isVis == '0'){
+            (temp)->second->inUse = false;
+          }
+          else{
+            (temp)->second->inUse = true;
+          }
           (temp)->second->position[0] = xPos;
           (temp)->second->position[1] = yPos;
           (temp)->second->position[2] = zPos;
