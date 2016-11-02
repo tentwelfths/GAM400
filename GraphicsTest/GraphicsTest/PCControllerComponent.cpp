@@ -22,6 +22,28 @@ void PCControllerComponent::Update(double dt)
 {
   auto * input = gCore->GetSystem(InputSystem);
   Movement(input);
+
+  for (auto iter : mParent()->mMessages_)
+  {
+    if (iter.type == MessageType::COLLISIONSTARTED)
+    {
+      CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+      if (col->obj1 == mParent())
+      {
+        if (col->obj2->name == "Bullet")
+        {
+          Damage(1);
+        }
+      }
+      else
+      {
+        if (col->obj1->name == "Bullet")
+        {
+          Damage(1);
+        }
+      }
+    }
+  }
 }
 
 void PCControllerComponent::Shutdown()

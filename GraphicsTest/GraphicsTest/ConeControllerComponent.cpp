@@ -13,6 +13,7 @@
 
 #define SOMENUMBER 20
 #define ADJUSTANGLE 15
+#define SIGHTDISTANCE 20.0f
 
 ConeControllerComponent::ConeControllerComponent() : ControllerControllerComponent(), mDirX(1.0), mDirY(0.0), mAngle(0.0f), mSightRadius(30.0f)
 {
@@ -25,6 +26,7 @@ bool ConeControllerComponent::Initialize()
 {
   auto * o = gCore->GetSystem(ObjectSystem);
   mPCPlayer = o->GetFirstItemByName("Player");
+  mKnife = o->GetFirstItemByName("Knife");
   ControllerControllerComponent::Initialize();
   return true;
 }
@@ -97,21 +99,46 @@ void ConeControllerComponent::Shutdown()
 
 void ConeControllerComponent::UpdateCone()
 {
+  UpdateVis(mPCPlayer);
+  UpdateVis(mKnife);
+}
+
+void ConeControllerComponent::UpdateVis(Object* theTarget)
+{
   auto * rigid = mParent()->GetComponent(BoxColliderComponent);
-  auto * otherRigid = mPCPlayer->GetComponent(BoxColliderComponent);
+  auto * otherRigid = theTarget->GetComponent(BoxColliderComponent);
 
   b2Vec2 theDistance(rigid->GetBody()->GetPosition().x - otherRigid->GetBody()->GetPosition().x, rigid->GetBody()->GetPosition().y - otherRigid->GetBody()->GetPosition().y);
+  b2Vec2 absol;
+  absol.x = theDistance.x * theDistance.x;
+  absol.y = theDistance.y * theDistance.y;
+  if (absol.x + absol.y > SIGHTDISTANCE)
+  {
+    if (theTarget->mVisible == true)
+    {
+      theTarget->hasChanged = true;
+      theTarget->mVisible = false;
+    }
+    return;
+  }
   theDistance.Normalize();
   float theCosine = mDirX * theDistance.x + mDirY * theDistance.y;
   if (-theCosine > 0.9f)
   {
-    mPCPlayer->mVisible = true;
+    if (theTarget->mVisible == false)
+    {
+      theTarget->hasChanged = true;
+      theTarget->mVisible = true;
+    }
   }
   else
   {
-    mPCPlayer->mVisible = false;
+    if (theTarget->mVisible == true)
+    {
+      theTarget->hasChanged = true;
+      theTarget->mVisible = false;
+    }
   }
-
 }
 
 void ConeControllerComponent::SpecialFunctionality(InputSystem* input)
