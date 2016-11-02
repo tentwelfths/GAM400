@@ -28,12 +28,12 @@ bool AudioSystem::Initialize()
   attributes.up.z = 1.0f;
   ERRCHECK(system->setListenerAttributes(0, &attributes));
 
-  FMOD::Studio::EventInstance* eventInstance = NULL;
-  ERRCHECK(mSounds["Music"].desc->createInstance(&eventInstance));
-
-  ERRCHECK(eventInstance->start());
-  // Release will clean up the instance when it completes
-  ERRCHECK(eventInstance->release());
+  //FMOD::Studio::EventInstance* eventInstance = NULL;
+  //ERRCHECK(mSounds["Music"].desc->createInstance(&eventInstance));
+  //
+  //ERRCHECK(eventInstance->start());
+  //// Release will clean up the instance when it completes
+  //ERRCHECK(eventInstance->release());
 
 
   return true;
