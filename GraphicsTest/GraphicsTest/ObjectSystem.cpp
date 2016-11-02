@@ -164,6 +164,9 @@ std::string ObjectSystem::GetData(Object * iter)
     data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
     ++i;
   }
+
+  data += (iter->mVisible) ? '1' : '0';
+
   unsigned char len = gCore->GetSystem(GraphicsSystem)->mTextureMap_.find((static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName))->second.index;
   data += len;
   for (int k = 0; k < sizeof(float); ++k)

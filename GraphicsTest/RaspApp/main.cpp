@@ -204,6 +204,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
+
+        char isVis = command[pos];
+        ++pos;
+        
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
         if(textureID == 3){
@@ -251,7 +255,12 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->scale[1] = ySca;
         temp->rotation[2] = rot;
         temp->textureID = textureID;
-        temp->inUse = true;
+        if(isVis == '0'){
+          (temp)->inUse = false;
+        }
+        else{
+          (temp)->inUse = true;
+        }
         
         std::string tempstring = "L";
         for(unsigned i = 0; i < sizeof(unsigned int); ++i)
@@ -267,6 +276,9 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
+        
+        char isVis = command[pos];
+        ++pos;
         
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
@@ -308,6 +320,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
           gObjectMap.insert({objectID, obj});
         }
         Object * temp = gObjects[textureID][objectID];
+
         temp->position[0] = xPos;
         temp->position[1] = yPos;
         temp->position[2] = zPos;
@@ -315,7 +328,12 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->scale[1] = ySca;
         temp->rotation[2] = rot;
         temp->textureID = textureID;
-        temp->inUse = true;
+        if(isVis == '0'){
+          (temp)->inUse = false;
+        }
+        else{
+          (temp)->inUse = true;
+        }
         
         std::string tempstring = "`";
         for(unsigned i = 0; i < sizeof(unsigned int); ++i)
