@@ -115,16 +115,6 @@ void EditorSystem::Update(double dt){
   }
   g->mMainCamera.zoom -= input->GetScrollDelta() * 0.25;
 
-  //if (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_1) && selected == nullptr){
-  //  JSONTranslator j;
-  //  Object * b;
-  //  b = j.CreateObjectFromFile("B.json");
-  //  b->name = "Fuccboi2";
-  //  auto * trans2 = b->GetComponent(TransformComponent);
-  //  trans2->mPosition_.y = input->GetMouseY();
-  //  trans2->mPosition_.x = input->GetMouseX();
-  //  b->Initialize();
-  //}
 }
 void EditorSystem::Shutdown(){
 

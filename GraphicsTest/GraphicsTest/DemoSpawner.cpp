@@ -40,6 +40,7 @@ void DemoSpawner::Update(double dt)
     //b->AddComponent(new RigidbodyComponent);
     //b->AddComponent(new BoxColliderComponent);
     b->name = "Hazard";
+    b->Register();
     b->Initialize();
 
 
@@ -61,6 +62,7 @@ void DemoSpawner::Update(double dt)
     //b->AddComponent(new RigidbodyComponent);
     //b->AddComponent(new BoxColliderComponent);
     b->name = "Hazard";
+    b->Register();
     b->Initialize();
 
 

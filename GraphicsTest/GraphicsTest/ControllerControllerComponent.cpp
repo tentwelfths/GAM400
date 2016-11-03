@@ -85,6 +85,7 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
         JSONTranslator j;
         Object * b;
         b = j.CreateObjectFromFile("Bullet.json");
+        b->Register();
         b->Initialize();
         auto bTrans = b->GetComponent(TransformComponent);
         auto bBox = b->GetComponent(BoxColliderComponent);

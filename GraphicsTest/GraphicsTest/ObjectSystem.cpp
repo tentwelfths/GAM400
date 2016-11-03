@@ -29,6 +29,7 @@ Object * ObjectSystem::CreateObjectFromFile(std::string filename){
   JSONTranslator j;
   Object * obj = j.CreateObjectFromFile(filename);
   if (obj != nullptr){
+    obj->Register();
     obj->Initialize();
   }
   return obj;
