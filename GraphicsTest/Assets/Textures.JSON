@@ -68,3 +68,24 @@
 	Rows:1,
 	Cols:1
 },
+{
+	Name:HealthBar.png,
+	Index:10,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:ControllersWin.png,
+	Index:11,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PCWins.png,
+	Index:12,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},

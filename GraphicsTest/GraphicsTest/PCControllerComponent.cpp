@@ -6,6 +6,7 @@
 #include "Object.h"
 #include "Globals.h"
 #include "MessagingSystem.h"
+#include "ObjectSystem.h"
 
 PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), curCam(0), sprintSpeed(2.0f), isSprinting(false)
 {
@@ -15,6 +16,8 @@ PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), cu
 
 bool PCControllerComponent::Initialize()
 {
+  auto * o = gCore->GetSystem(ObjectSystem);
+  mHealthBar = o->GetFirstItemByName("PCHealth");
   mParent()->mVisible = false;
   return true;
 }
@@ -70,6 +73,15 @@ void PCControllerComponent::Update(double dt)
 void PCControllerComponent::Shutdown()
 {
 
+}
+
+void PCControllerComponent::Damage(int damage) 
+{ 
+  health -= damage; 
+  if (mHealthBar){
+    mHealthBar->GetComponent(TransformComponent)->mScaleX(health / 10.f);
+    mHealthBar->hasChanged = true;
+  }
 }
 
 void PCControllerComponent::Movement(InputSystem* input)

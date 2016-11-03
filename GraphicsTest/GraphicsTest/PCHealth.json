@@ -1,0 +1,26 @@
+File: PCHealth.json
+Name: PCHealthBar
+Object: {
+TransformComponent: {
+	"mPosition_": {
+		x: -7.385463,
+		y: -17.608130,
+		z: 0.000000
+		},
+	"mScale_": {
+		x: 0.500000,
+		y: 0.500000,
+		z: 1.000000
+		},
+	"mRotation_": {
+		x: 0.000000,
+		y: 0.000000,
+		z: 0.000000
+		}
+	},
+SpriteComponent: {
+	"mTextureName": HealthBar.png
+	},
+EditorComponent: {
+	}
+}

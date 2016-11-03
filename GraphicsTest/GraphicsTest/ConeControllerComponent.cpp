@@ -64,6 +64,8 @@ void ConeControllerComponent::Update(double dt)
             if (col->obj2->name == "Knife")
             {
               Damage(1);
+              auto * sprite = mParent()->GetComponent(SpriteComponent);
+              sprite->SetTexture("rock.png");
             }
           }
           else
@@ -71,6 +73,8 @@ void ConeControllerComponent::Update(double dt)
             if (col->obj1->name == "Knife")
             {
               Damage(1);
+              auto * sprite = mParent()->GetComponent(SpriteComponent);
+              sprite->SetTexture("rock.png");
             }
           }
         }

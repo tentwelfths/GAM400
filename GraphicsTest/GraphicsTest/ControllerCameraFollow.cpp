@@ -34,8 +34,11 @@ void ControllerCameraFollow::Update(double dt)
     ControllerControllerComponent * controller = mParent()->GetComponent(ConeControllerComponent);
     if (controller == nullptr){
       //try a different controller
+      msgData->controllerNum = 0;
     }
-    msgData->controllerNum = controller->GetControllerID();
+    else{
+      msgData->controllerNum = controller->GetControllerID();
+    }
     msgData->objID = mParent()->ID;
 
     MessagingSystem* m = gCore->GetSystem(MessagingSystem);

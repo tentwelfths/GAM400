@@ -14,11 +14,11 @@ public:
   float GetSpeed() { return speed; }
   int GetHealth() { return health; }
   bool GetKillable() { return killable; }
-  void Damage(int damage) { health -= damage; }
+  virtual void Damage(int damage) { health -= damage; }
   void Kill() { alive = false; }
   void Miracle() { alive = true; }
   void SetKillable(bool state) { killable = state; }
-private:
+protected:
   bool alive;
   float speed;
   int playerID;
