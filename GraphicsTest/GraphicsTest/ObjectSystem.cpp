@@ -261,6 +261,7 @@ void     ObjectSystem::Update(double dt)
           mObjectMap_.erase(mObjectMap_.find(node->value->ID));
           delete node->value;
           node = iter->second.Remove(node);
+          node = nullptr;
         }
         else{
           node->value->Update(dt);
