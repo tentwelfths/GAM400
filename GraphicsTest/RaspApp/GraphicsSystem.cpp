@@ -187,6 +187,7 @@ GraphicsSystem::GraphicsSystem()
   
   glEnable(GL_CULL_FACE);
   glEnable(GL_DEPTH_TEST);
+  glDepthFunc(GL_LESS);
   glEnable(GL_BLEND);
   glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -319,7 +320,7 @@ void GraphicsSystem::Draw()
   
     // Clear the color buffer
   glColorMask(false, false, false, true);
-  glClear(GL_COLOR_BUFFER_BIT);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glColorMask(true, true, true, true);
   if(viewChanged){
     // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
