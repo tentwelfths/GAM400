@@ -76,7 +76,7 @@
 	ConeComponent: {
 		}
 	},
-	File: blah
+	File: blah.json
 	Name: Knife
 	Object: {
 	TransformComponent: {
@@ -8436,7 +8436,6 @@
 		"mGhost": true
 		}
 	},
-,
 	File: Coneman.json
 	Name: Coneman
 	Object: {
