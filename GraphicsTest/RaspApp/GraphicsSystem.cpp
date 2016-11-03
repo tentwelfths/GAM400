@@ -191,8 +191,8 @@ GraphicsSystem::GraphicsSystem()
   glDepthFunc(GL_LESS);
   glEnable(GL_BLEND);
   glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
-  glSampleCoverage(1.f, GL_TRUE);
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  //glSampleCoverage(1.f, GL_TRUE);
+  glBlendFunc(GL_ONE, GL_ONE);
   glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
   //glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
   
