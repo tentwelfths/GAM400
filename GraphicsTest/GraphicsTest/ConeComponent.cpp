@@ -13,13 +13,13 @@
 
 ConeComponent::ConeComponent() : GameLogicComponent(GameLogicType::CONE)
 {
-  auto * o = gCore->GetSystem(ObjectSystem);
-  thePlayer = o->GetFirstItemByName("Coneman");
   mName_ = "Cone";
 }
 
 bool ConeComponent::Initialize()
 {
+  auto * o = gCore->GetSystem(ObjectSystem);
+  thePlayer = o->GetFirstItemByName("Coneman");
   return true;
 }
 
