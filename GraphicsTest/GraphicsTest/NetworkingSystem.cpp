@@ -501,7 +501,7 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
 
   case '(': //Update camera position
   {
-    std::string data = gCore->GetSystem(ObjectSystem)->Get2DPositionData(ID);
+    std::string data = gCore->GetSystem(ObjectSystem)->GetCameraData(ID);
     
     if (data == "") break;
     temp = "(";
