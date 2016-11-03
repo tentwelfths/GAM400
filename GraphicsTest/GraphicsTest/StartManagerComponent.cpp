@@ -85,6 +85,6 @@ void StartManagerComponent::SetBool(Object* thePlayer, bool state)
   }
   else if (thePlayer->name == "Coneman")
   {
-    mP1Ready = state;
+    mP2Ready = state;
   }
 }
