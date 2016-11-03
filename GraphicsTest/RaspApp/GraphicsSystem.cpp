@@ -181,8 +181,7 @@ GraphicsSystem::GraphicsSystem()
     "{                                                   \n"
     "  vec4 texel = texture2D( myTextureSampler, v_texCoord ).rgba;  \n"
     "  gl_FragColor.rgb = texel.rgb;\n"
-    //"if(texel.a < 0.5) texel.a = 0; else texel.a = 1;"
-    "  gl_FragColor.a = 1.0; \n"
+    "  gl_FragColor.a += texel.a; \n"
     "}                                                   \n";
   
 
@@ -322,8 +321,8 @@ void GraphicsSystem::Draw()
   
     // Clear the color buffer
   //glColorMask(false, false, false, true);
-  glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-  glClear(GL_COLOR_BUFFER_BIT);
+  //glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   //glColorMask(true, true, true, true);
   if(viewChanged){
     // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
