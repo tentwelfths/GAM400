@@ -3,7 +3,7 @@
 #include "Object.h"
 #include "Globals.h"
 
-BulletComponent::BulletComponent() : GameLogicComponent(GameLogicType::BULLET), currTime(0.0)
+BulletComponent::BulletComponent() : GameLogicComponent(GameLogicType::BULLET), contact(false), currTime(0.0f), contactDeathTime(0.0f), timeTillDead(0.1f)
 {
   AddMember(BulletComponent, lifeTime);
   mName_ = "BulletComponent";
@@ -30,14 +30,14 @@ void BulletComponent::Update(double dt)
       {
         if (col->obj2->name != "Knife" && col->obj2->name != "Coneman" && col->obj2->name != "Cone")
         {
-          mParent()->dead = true;
+          contact = true;
         }
       }
       else
       {
         if (col->obj1->name != "Knife" && col->obj1->name != "Coneman" && col->obj1->name != "Cone")
         {
-          mParent()->dead = true;
+          contact = true;
         }
       }
     }
@@ -45,6 +45,14 @@ void BulletComponent::Update(double dt)
     //{
     //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
     //}
+  }
+  if (contact)
+  {
+    contactDeathTime += dt;
+    if (contactDeathTime > timeTillDead)
+    {
+      mParent()->dead;
+    }
   }
 }
 void BulletComponent::Shutdown()

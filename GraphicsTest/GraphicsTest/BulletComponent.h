@@ -9,6 +9,9 @@ public:
   void Update(double dt);
   void Shutdown();
 private:
+  bool contact;
   float lifeTime;
   float currTime;
+  float contactDeathTime;
+  float timeTillDead;
 };
