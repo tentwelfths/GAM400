@@ -3,7 +3,7 @@
 #include "Object.h"
 #include "Globals.h"
 #include "GraphicsSystem.h"
-#include "ControllerControllerComponent.h"
+#include "ConeControllerComponent.h"
 #include "MessagingSystem.h"
 
 ControllerCameraFollow::ControllerCameraFollow() : GameLogicComponent(GameLogicType::CAMERA)
@@ -31,7 +31,11 @@ void ControllerCameraFollow::Update(double dt)
     mParent()->mCamera.y = mParent()->GetComponent(TransformComponent)->mPositionY();
     IMessage msg(MessageType::CAMERAMOVE);
     CameraMoveMessage* msgData = reinterpret_cast<CameraMoveMessage*>(msg.data);
-    msgData->controllerNum = mParent()->GetComponent(ControllerControllerComponent)->GetControllerID();
+    ControllerControllerComponent * controller = mParent()->GetComponent(ConeControllerComponent);
+    if (controller == nullptr){
+      //try a different controller
+    }
+    msgData->controllerNum = controller->GetControllerID();
     msgData->objID = mParent()->ID;
 
     MessagingSystem* m = gCore->GetSystem(MessagingSystem);
