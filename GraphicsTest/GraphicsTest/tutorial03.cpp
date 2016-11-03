@@ -54,7 +54,7 @@ int main( void )
   RegisterComponentType(PCCameraFollow);
   RegisterComponentType(ControllerCameraFollow);
 
-  gCore->LoadLevel("DemoLevel.json");
+  gCore->LoadLevel("Start.json");
 
   while (true)
   {
