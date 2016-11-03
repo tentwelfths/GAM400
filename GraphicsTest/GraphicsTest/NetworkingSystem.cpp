@@ -316,7 +316,7 @@ void NetworkingSystem::Update(double dt)
       else if (command[0] == '~')//input
       {
         int pos = 1;
-        //std::cout << "GOT INPUT" << std::endl;
+        std::cout << "GOT INPUT" << std::endl;
         unsigned short x1, y1, x2, y2;
         bool button;
         char knobDelta;
@@ -381,7 +381,11 @@ void NetworkingSystem::Update(double dt)
       //toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
       if (connections[i].initstep > 0) ++connections[i].initstep;
-      if (connections[i].unloaded.empty()) connections[i].initstep = -1;
+      if (connections[i].unloaded.empty())
+      {
+        connections[i].initstep = -1;
+        std::cout << "Done loading" << std::endl;
+      }
       else if (connections[i].initstep > 30){
         for (auto & iter : connections[i].unloaded)
           AddCommand(i, 'L', iter);
