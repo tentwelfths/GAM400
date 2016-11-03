@@ -51,7 +51,7 @@ void BulletComponent::Update(double dt)
     contactDeathTime += dt;
     if (contactDeathTime > timeTillDead)
     {
-      mParent()->dead;
+      mParent()->dead = true;
     }
   }
 }
