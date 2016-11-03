@@ -3,7 +3,7 @@
 #include "Object.h"
 #include "Globals.h"
 
-BulletComponent::BulletComponent() : GameLogicComponent(GameLogicType::BULLET), contact(false), currTime(0.0f), contactDeathTime(0.0f), timeTillDead(0.1f)
+BulletComponent::BulletComponent() : GameLogicComponent(GameLogicType::BULLET), contact(false), currTime(0.0f), contactDeathTime(0.0f), timeTillDead(0.05f)
 {
   AddMember(BulletComponent, lifeTime);
   mName_ = "BulletComponent";
