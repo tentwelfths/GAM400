@@ -415,6 +415,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       break;
       case '(': //Move camera
       {
+        ++pos;
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);

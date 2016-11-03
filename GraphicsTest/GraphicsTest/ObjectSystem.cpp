@@ -79,10 +79,10 @@ std::string ObjectSystem::Get2DPositionData(Object * iter)
   if (iter == nullptr || iter->dead) return "";
   TransformComponent * t = iter->GetComponent(TransformComponent);
   std::string data = "";
-  //for (int k = 0; k < sizeof(unsigned int); ++k)
-  //{
-  //  data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
-  //}
+  for (int k = 0; k < sizeof(unsigned int); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
+  }
   for (int k = 0; k < sizeof(float); ++k)
   {
     data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.x)))[k];
