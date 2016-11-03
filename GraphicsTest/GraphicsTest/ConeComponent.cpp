@@ -28,14 +28,15 @@ void ConeComponent::Update(double dt)
   auto * trans = mParent()->GetComponent(TransformComponent);
   auto * transPlayer = thePlayer->GetComponent(TransformComponent);
   auto * theCone = thePlayer->GetComponent(ConeControllerComponent);
-  float x = transPlayer->mPositionX() + theCone->GetX();
-  float y = transPlayer->mPositionY() + theCone->GetY();
+  float x = transPlayer->mPositionX() + theCone->GetX(); 
+  float y = transPlayer->mPositionY() + trans->mScaleY() / 2.f + theCone->GetY();
   bool xCheck = trans->mPositionX() > x - EPIFORTRANS && trans->mPositionX() < x + EPIFORTRANS;
   bool yCheck = trans->mPositionY() > y - EPIFORTRANS && trans->mPositionY() < y + EPIFORTRANS;
 
   if (!xCheck || !yCheck)
   {
     trans->mPosition(x, y, transPlayer->mPositionZ() + 1);
+    trans->mRotationZ(radians(thePlayer->GetComponent(ConeControllerComponent)->GetAngle()));
   }
 }
 
