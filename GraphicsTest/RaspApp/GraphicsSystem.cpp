@@ -181,8 +181,8 @@ GraphicsSystem::GraphicsSystem()
     "{                                                   \n"
     "  vec4 texel = texture2D( myTextureSampler, v_texCoord ).rgba;  \n"
     "  gl_FragColor.rgb = texel.rgb;\n"
-    "if(texel.a < 0.5) texel.a = 0; else texel.a = 1;"
-    "  gl_FragColor.a += texel.a; \n"
+    //"if(texel.a < 0.5) texel.a = 0; else texel.a = 1;"
+    //"  gl_FragColor.a += texel.a; \n"
     "}                                                   \n";
   
 
@@ -190,9 +190,9 @@ GraphicsSystem::GraphicsSystem()
   glEnable(GL_CULL_FACE);
   glEnable(GL_DEPTH_TEST);
   glDepthFunc(GL_LESS);
-  //glEnable(GL_BLEND);
-  //glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
-  //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  glEnable(GL_BLEND);
+  glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
   //glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
   
