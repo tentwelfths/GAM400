@@ -73,7 +73,7 @@
 	SpriteComponent: {
 		"mTextureName": player.png
 		},
-	Cone: {
+	ConeComponent: {
 		}
 	},
 	File: blah
