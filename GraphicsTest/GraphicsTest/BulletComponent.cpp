@@ -28,14 +28,14 @@ void BulletComponent::Update(double dt)
       CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
       if (col->obj1 == mParent())
       {
-        if (col->obj2->name != "Knife" || col->obj2->name != "Coneman")
+        if (col->obj2->name != "Knife" && col->obj2->name != "Coneman" && col->obj2->name != "Cone")
         {
           mParent()->dead = true;
         }
       }
       else
       {
-        if (col->obj1->name != "Knife" || col->obj2->name != "Coneman")
+        if (col->obj1->name != "Knife" && col->obj1->name != "Coneman" && col->obj1->name != "Cone")
         {
           mParent()->dead = true;
         }
