@@ -118,7 +118,7 @@ void ConeControllerComponent::UpdateVis(Object* theTarget)
   b2Vec2 absol;
   absol.x = theDistance.x * theDistance.x;
   absol.y = theDistance.y * theDistance.y;
-  if (absol.x + absol.y > SIGHTDISTANCE)
+  if (absol.x + absol.y > SIGHTDISTANCE - otherRigid->GetHalfSize().x)
   {
     if (theTarget->mVisible == true)
     {
