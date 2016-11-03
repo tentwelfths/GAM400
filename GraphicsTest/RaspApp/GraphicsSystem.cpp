@@ -179,7 +179,8 @@ GraphicsSystem::GraphicsSystem()
     "uniform sampler2D myTextureSampler;                        \n"
     "void main()                                         \n"
     "{                                                   \n"
-    "  gl_FragColor = texture2D( myTextureSampler, v_texCoord );\n"
+    "vec4 texel = texture( myTextureSampler, UV ).rgba;  \n"
+    "  gl_FragColor = texel;\n"
     "}                                                   \n";
   
 
