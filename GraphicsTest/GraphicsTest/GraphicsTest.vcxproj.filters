@@ -199,6 +199,9 @@
     <ClCompile Include="ConeControllerComponent.cpp" />
     <ClCompile Include="MessagingSystem.cpp" />
     <ClCompile Include="ConeComponent.cpp" />
+    <ClCompile Include="BulletComponent.cpp" />
+    <ClCompile Include="StartManagerComponent.cpp" />
+    <ClCompile Include="LevelManagerComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -446,6 +449,9 @@
     <ClInclude Include="MessagingSystem.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="ConeComponent.h" />
+    <ClInclude Include="BulletComponent.h" />
+    <ClInclude Include="StartManagerComponent.h" />
+    <ClInclude Include="LevelManagerComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

@@ -7,6 +7,7 @@
 #include "Object.h"
 #include "TransformComponent.h"
 #include "BoxColliderComponent.h"
+#include "PCControllerComponent.h"
 
 KnifeComponent::KnifeComponent() : GameLogicComponent(GameLogicType::KNIFE), offset(0.0, 0.0, 0.0), attackTimer(0.5f), timeTillNextAttack(0.5f), dist(20.0f)
 {
@@ -27,24 +28,28 @@ void KnifeComponent::Update(double dt)
   auto* trans = mParent()->GetComponent(TransformComponent);
   auto* box = mParent()->GetComponent(BoxColliderComponent);
   auto* playerTrans = thePlayer->GetComponent(TransformComponent);
-  b2Vec2 check;
-  check.x = 0;
-  check.y = 0;
-  if (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_LEFT))
+  auto* alive = thePlayer->GetComponent(PCControllerComponent);
+  if (alive->GetAlive())
   {
-    if (timeTillNextAttack >= attackTimer)
+    b2Vec2 check;
+    check.x = 0;
+    check.y = 0;
+    if (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_LEFT))
     {
-      float x = input->GetMouseX() - trans->mPositionX();
-      float y = input->GetMouseY() - trans->mPositionY();
-      check.x = x, check.y = y;
-      check.Normalize();
-      check.x *= dist;
-      check.y *= dist;
-      //offset.x = check.x;
-      //offset.y = check.y;
-      //offset *= dist;
-      box->GetBody()->SetLinearVelocity(check);
-      timeTillNextAttack = 0.0f;
+      if (timeTillNextAttack >= attackTimer)
+      {
+        float x = input->GetMouseX() - trans->mPositionX();
+        float y = input->GetMouseY() - trans->mPositionY();
+        check.x = x, check.y = y;
+        check.Normalize();
+        check.x *= dist;
+        check.y *= dist;
+        //offset.x = check.x;
+        //offset.y = check.y;
+        //offset *= dist;
+        box->GetBody()->SetLinearVelocity(check);
+        timeTillNextAttack = 0.0f;
+      }
     }
   }
   bool xCheck = trans->mPositionX() > playerTrans->mPositionX() - EPIFORTRANS && trans->mPositionX() < playerTrans->mPositionX() + EPIFORTRANS;

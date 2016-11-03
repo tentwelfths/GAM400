@@ -39,4 +39,7 @@ BoxColliderComponent: {
 	"mFriction" : 1.000000
 	"mGhost" : true
 	},
+BulletComponent: {
+	"lifeTime": 3.000000
+	}
 }

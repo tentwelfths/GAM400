@@ -5,6 +5,7 @@
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
+#include "MessagingSystem.h"
 
 PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), curCam(0), sprintSpeed(2.0f), isSprinting(false)
 {
@@ -20,27 +21,47 @@ bool PCControllerComponent::Initialize()
 
 void PCControllerComponent::Update(double dt)
 {
-  auto * input = gCore->GetSystem(InputSystem);
-  Movement(input);
-
-  for (auto iter : mParent()->mMessages_)
+  if (GetAlive())
   {
-    if (iter.type == MessageType::COLLISIONSTARTED)
+    auto * input = gCore->GetSystem(InputSystem);
+    Movement(input);
+    if (GetKillable())
     {
-      CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
-      if (col->obj1 == mParent())
+      for (auto iter : mParent()->mMessages_)
       {
-        if (col->obj2->name == "Bullet")
+        if (iter.type == MessageType::COLLISIONSTARTED)
         {
-          Damage(1);
+          CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+          if (col->obj1 == mParent())
+          {
+            if (col->obj2->name == "Bullet")
+            {
+              Damage(1);
+            }
+          }
+          else
+          {
+            if (col->obj1->name == "Bullet")
+            {
+              Damage(1);
+            }
+          }
         }
       }
-      else
+
+      if (GetHealth() <= 0)
       {
-        if (col->obj1->name == "Bullet")
-        {
-          Damage(1);
-        }
+        Kill();
+        auto * sprite = mParent()->GetComponent(SpriteComponent);
+        sprite->SetTexture("bolt.png");
+        auto * box = mParent()->GetComponent(BoxColliderComponent);
+        box->GetBody()->GetFixtureList()->SetSensor(true);
+        IMessage msg(MessageType::CHANGETEXTURE);
+        ChangeTextureMessage* msgData = reinterpret_cast<ChangeTextureMessage*>(msg.data);
+
+        msgData->objID = mParent()->ID;
+        MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+        m->SendMessageToSystem(msg, "NetworkingSystem");
       }
     }
   }

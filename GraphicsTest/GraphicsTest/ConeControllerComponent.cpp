@@ -52,45 +52,47 @@ void ConeControllerComponent::Update(double dt)
     //for (int i = 0; i < 10; ++i) msgData->state[i] = leds[i];
     //m->SendMessageToSystem(col, "NetworkingSystem");
 
-
-    for (auto iter : mParent()->mMessages_)
+    if (GetKillable())
     {
-      if (iter.type == MessageType::COLLISIONSTARTED)
+      for (auto iter : mParent()->mMessages_)
       {
-        CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
-        if (col->obj1 == mParent())
+        if (iter.type == MessageType::COLLISIONSTARTED)
         {
-          if (col->obj2->name == "Knife")
+          CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+          if (col->obj1 == mParent())
           {
-            Damage(1);
+            if (col->obj2->name == "Knife")
+            {
+              Damage(1);
+            }
+          }
+          else
+          {
+            if (col->obj1->name == "Knife")
+            {
+              Damage(1);
+            }
           }
         }
-        else
-        {
-          if (col->obj1->name == "Knife")
-          {
-            Damage(1);
-          }
-        }
+        //if (iter.type == MessageType::COLLISIONENDED)
+        //{
+        //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
+        //}
       }
-      //if (iter.type == MessageType::COLLISIONENDED)
-      //{
-      //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
-      //}
-    }
-    if (GetHealth() <= 0)
-    {
-      Kill();
-      auto * sprite = mParent()->GetComponent(SpriteComponent);
-      sprite->SetTexture("bolt.png");
-      auto * box = mParent()->GetComponent(BoxColliderComponent);
-      box->GetBody()->GetFixtureList()->SetSensor(true);
-      IMessage msg(MessageType::CHANGETEXTURE);
-      ChangeTextureMessage* msgData = reinterpret_cast<ChangeTextureMessage*>(msg.data);
+      if (GetHealth() <= 0)
+      {
+        Kill();
+        auto * sprite = mParent()->GetComponent(SpriteComponent);
+        sprite->SetTexture("bolt.png");
+        auto * box = mParent()->GetComponent(BoxColliderComponent);
+        box->GetBody()->GetFixtureList()->SetSensor(true);
+        IMessage msg(MessageType::CHANGETEXTURE);
+        ChangeTextureMessage* msgData = reinterpret_cast<ChangeTextureMessage*>(msg.data);
 
-      msgData->objID = mParent()->ID;
-      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
-      m->SendMessageToSystem(msg, "NetworkingSystem");
+        msgData->objID = mParent()->ID;
+        MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+        m->SendMessageToSystem(msg, "NetworkingSystem");
+      }
     }
   }
 

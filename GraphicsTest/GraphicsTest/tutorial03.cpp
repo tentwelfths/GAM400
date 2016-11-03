@@ -21,6 +21,9 @@
 #include "KnifeComponent.h"
 #include "ConeControllerComponent.h"
 #include "ConeComponent.h"
+#include "BulletComponent.h"
+#include "StartManagerComponent.h"
+#include "LevelManagerComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -43,8 +46,11 @@ int main( void )
   RegisterComponentType(ControllerControllerComponent);
   RegisterComponentType(ConeControllerComponent);
   RegisterComponentType(ConeComponent);
+  RegisterComponentType(BulletComponent);
+  RegisterComponentType(StartManagerComponent);
+  RegisterComponentType(LevelManagerComponent);
 
-  gCore->LoadLevel("DemoLevel.json");
+  gCore->LoadLevel("Start.json");
 
   while (true)
   {
