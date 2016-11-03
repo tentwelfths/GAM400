@@ -179,19 +179,19 @@ GraphicsSystem::GraphicsSystem()
     "uniform sampler2D myTextureSampler;                        \n"
     "void main()                                         \n"
     "{                                                   \n"
-    "  vec4 texel = texture2D( myTextureSampler, v_texCoord ).rgba;  \n"
-    "  gl_FragColor = texel;\n"
+    "  gl_FragColor = texture2D( myTextureSampler, v_texCoord );\n"
     "}                                                   \n";
   
 
   
-  glEnable(GL_CULL_FACE);
-  glEnable(GL_DEPTH_TEST);
-  glDepthFunc(GL_LESS);
   glEnable(GL_BLEND);
   glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+  glBlendEquation(GL_FUNC_ADD);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  glClearColor(0.0f, 1.0f, 0.3f, 1.0f);
+  glDisable(GL_CULL_FACE);
+  glEnable(GL_DEPTH_TEST);
+  glDepthFunc(GL_LESS);
+  glClearColor(0.0f, 0.4f, 0.03f, 1.0f);
   //glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
   
   
@@ -318,10 +318,9 @@ void GraphicsSystem::LoadTextures(std::string filename){
 void GraphicsSystem::Draw()
 {
   
-    // Clear the color buffer
-  glColorMask(false, false, false, true);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  glColorMask(true, true, true, true);
+  // Clear the color buffer
+  glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT );
+  glFlush();
   if(viewChanged){
     // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
     Projection = glm::ortho(-10.f * mMainCamera.zoom, 10.f* mMainCamera.zoom, -6.f* mMainCamera.zoom, 6.f* mMainCamera.zoom, 0.1f, 100.0f);//glm::perspective(fov, (float)width / (float)height, 0.1f, 100.0f);
