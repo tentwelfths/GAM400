@@ -30,13 +30,13 @@ BoxColliderComponent: {
 					y: 0.500000,
 					z: 1.000000
 					},
-	"dynamicState": 2,
+	"dynamicState": 0,
 	"mOffset": {
 					x: 0.000000,
 					y: 0.000000,
 					z: 0.000000
 					},
 	"mFriction": 1.000000,
-	"mGhost": true
+	"mGhost": false
 	}
 }
