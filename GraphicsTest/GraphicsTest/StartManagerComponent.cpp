@@ -44,14 +44,14 @@ void StartManagerComponent::Update(double dt)
       CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
       if (col->obj1 == mParent())
       {
-        if (col->obj2->name == "Player" || col->obj2->name == "Coneman")
+        if (col->obj2 != nullptr && (col->obj2->name == "Player" || col->obj2->name == "Coneman"))
         {
           SetBool(col->obj2, false);
         }
       }
       else if (col->obj2 == mParent())
       {
-        if (col->obj1->name == "Player" || col->obj1->name == "Coneman")
+        if (col->obj1 != nullptr && (col->obj1->name == "Player" || col->obj1->name == "Coneman"))
         {
           SetBool(col->obj1, false);
         }
