@@ -19,15 +19,15 @@
 			z: 0.000000
 			}
 		},
-	SpriteComponent: {
-		"mTextureName": Key.png
-		},
 	PCControllerComponent: {
 		"sprintSpeed": 2.000000,
 		"speed": 5.000000,
 		"playerID": 0,
 		"health": 10,
 		"killable": true
+		},
+	SpriteComponent: {
+		"mTextureName": Key.png
 		},
 	EditorComponent: {
 		},
