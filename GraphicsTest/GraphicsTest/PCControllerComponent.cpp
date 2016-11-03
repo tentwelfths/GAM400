@@ -68,6 +68,11 @@ void PCControllerComponent::Update(double dt)
       }
     }
     if (mHealthBar){
+      if (mParent()->hasChanged)
+      {
+        if (mHealthBar->mVisible != mParent()->mVisible) mHealthBar->hasChanged = true;
+        mHealthBar->mVisible = mParent()->mVisible;
+      }
       auto * trans = mHealthBar->GetComponent(TransformComponent);
       auto * transPlayer = mParent()->GetComponent(TransformComponent);
       float x = transPlayer->mPositionX();
