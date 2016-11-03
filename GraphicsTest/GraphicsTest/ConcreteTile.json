@@ -26,8 +26,8 @@ EditorComponent: {
 BoxColliderComponent: {
 	"mDensity": 1.000000,
 	"mHalfSize": {
-					x: 0.250000,
-					y: 0.250000,
+					x: 0.500000,
+					y: 0.500000,
 					z: 1.000000
 					},
 	"dynamicState": 2,

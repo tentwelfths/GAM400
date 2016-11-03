@@ -50,7 +50,7 @@ int main( void )
   RegisterComponentType(StartManagerComponent);
   RegisterComponentType(LevelManagerComponent);
 
-  gCore->LoadLevel("Start.json");
+  gCore->LoadLevel("DemoLevel.json");
 
   while (true)
   {
