@@ -36,6 +36,7 @@ void LevelManagerComponent::Update(double dt)
     mCountDown += dt;
     if (mCountDown > mTarget)
     {
+      gCore->UnloadLevel();
       gCore->LoadLevel("Start.json");
     }
   }
