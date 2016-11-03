@@ -17,7 +17,7 @@ PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), cu
 bool PCControllerComponent::Initialize()
 {
   auto * o = gCore->GetSystem(ObjectSystem);
-  mHealthBar = o->GetFirstItemByName("PCHealth");
+  mHealthBar = o->GetFirstItemByName("PCHealthBar");
   mParent()->mVisible = false;
   return true;
 }
@@ -67,6 +67,19 @@ void PCControllerComponent::Update(double dt)
         m->SendMessageToSystem(msg, "NetworkingSystem");
       }
     }
+    if (mHealthBar){
+      auto * trans = mHealthBar->GetComponent(TransformComponent);
+      auto * transPlayer = mParent()->GetComponent(TransformComponent);
+      float x = transPlayer->mPositionX();
+      float y = transPlayer->mPositionY() - 0.9f;
+      bool xCheck = trans->mPositionX() > x - EPIFORTRANS && trans->mPositionX() < x + EPIFORTRANS;
+      bool yCheck = trans->mPositionY() > y - EPIFORTRANS && trans->mPositionY() < y + EPIFORTRANS;
+
+      if (!xCheck || !yCheck)
+      {
+        trans->mPosition(x, y, 0);
+      }
+    }
   }
 }
 
@@ -79,7 +92,7 @@ void PCControllerComponent::Damage(int damage)
 { 
   health -= damage; 
   if (mHealthBar){
-    mHealthBar->GetComponent(TransformComponent)->mScaleX(health / 10.f);
+    mHealthBar->GetComponent(TransformComponent)->mScaleX(2.f * (health / 10.f));
     mHealthBar->hasChanged = true;
   }
 }

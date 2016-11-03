@@ -3,12 +3,12 @@ Name: PCHealthBar
 Object: {
 TransformComponent: {
 	"mPosition_": {
-		x: -7.460463,
-		y: -17.583130,
+		x: -7.360463,
+		y: -17.583128,
 		z: 0.000000
 		},
 	"mScale_": {
-		x: 0.500000,
+		x: 2.000000,
 		y: 0.500000,
 		z: 1.000000
 		},
@@ -19,7 +19,7 @@ TransformComponent: {
 		}
 	},
 SpriteComponent: {
-	"mTextureName": rock.png
+	"mTextureName": HealthBar.png
 	},
 EditorComponent: {
 	}
