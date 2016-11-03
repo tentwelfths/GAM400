@@ -21,8 +21,6 @@ TransformComponent: {
 SpriteComponent: {
 	"mTextureName": rock.png
 	},
-EditorComponent: {
-	},
 BoxColliderComponent: {
 	"mHalfSize": {
 						x: 0.125000,
