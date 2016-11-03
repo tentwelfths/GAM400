@@ -4,7 +4,9 @@ class IComponent;
 #include "Messages.h"
 
 #define GetComponent(compName) GetComponentA<compName>(#compName)
-
+struct ControllerCamera{
+  float x, y;
+};
 class Object
 {
 public:
@@ -19,6 +21,8 @@ public:
 
   void AddComponent(IComponent * comp);
   void AddComponent(std::string name);
+
+  void Register();
 
   template <typename T>
   T* GetComponentA(const char * compName);
@@ -36,6 +40,7 @@ public:
   bool dead;
   std::vector<IMessage> mMessages_;
   bool mVisible;
+  ControllerCamera mCamera;
 };
 
 template <typename T>

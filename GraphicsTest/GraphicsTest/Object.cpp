@@ -6,7 +6,11 @@
 
 Object::Object() : mVisible(true), age(0), hasChanged(true)
 {
+}
 
+void Object::Register()
+{
+  gCore->GetSystem(ObjectSystem)->AddObject(this);
 }
 
 bool Object::Initialize()
@@ -18,7 +22,6 @@ bool Object::Initialize()
   {
     iter.second->Initialize();
   }
-  gCore->GetSystem(ObjectSystem)->AddObject(this);
   return true;
 }
 

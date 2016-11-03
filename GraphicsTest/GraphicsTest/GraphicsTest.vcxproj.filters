@@ -202,6 +202,12 @@
     <ClCompile Include="BulletComponent.cpp" />
     <ClCompile Include="StartManagerComponent.cpp" />
     <ClCompile Include="LevelManagerComponent.cpp" />
+    <ClCompile Include="ControllerCameraFollow.cpp">
+      <Filter>CameraFollow</Filter>
+    </ClCompile>
+    <ClCompile Include="PCCameraFollow.cpp">
+      <Filter>CameraFollow</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -452,6 +458,12 @@
     <ClInclude Include="BulletComponent.h" />
     <ClInclude Include="StartManagerComponent.h" />
     <ClInclude Include="LevelManagerComponent.h" />
+    <ClInclude Include="ControllerCameraFollow.h">
+      <Filter>CameraFollow</Filter>
+    </ClInclude>
+    <ClInclude Include="PCCameraFollow.h">
+      <Filter>CameraFollow</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />
@@ -469,6 +481,9 @@
     </Filter>
     <Filter Include="AudioSystem">
       <UniqueIdentifier>{a6ec0757-1a6f-4ce4-9ba2-8b99c8a48c71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CameraFollow">
+      <UniqueIdentifier>{86126516-064f-483a-8b8a-a6eef7ed4162}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

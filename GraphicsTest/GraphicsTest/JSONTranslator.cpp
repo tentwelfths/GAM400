@@ -149,6 +149,7 @@ void JSONTranslator::LoadLevelFromFile(std::string filename)
 {
   std::ifstream file;
   file.open(filename);
+  std::vector<Object *> levelObjs;
   if (!file.is_open()) return;
   while (!file.eof())
   {
@@ -161,7 +162,11 @@ void JSONTranslator::LoadLevelFromFile(std::string filename)
     if (line == "}" || line == "},")
       break;
     Object * obj = DeserializeObject(file);
-    obj->Initialize();
+    levelObjs.push_back(obj);
+    obj->Register();
+  }
+  for (auto & iter : levelObjs){
+    iter->Initialize();
   }
 }
 

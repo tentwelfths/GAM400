@@ -68,6 +68,11 @@ std::string ObjectSystem::GetTextureData(unsigned int ID)
   return GetTextureData(mObjectMap_[ID]);
 }
 
+std::string ObjectSystem::GetCameraData(unsigned int ID)
+{
+  return GetCameraData(mObjectMap_[ID]);
+}
+
 
 std::string ObjectSystem::Get2DPositionData(Object * iter)
 {
@@ -85,6 +90,26 @@ std::string ObjectSystem::Get2DPositionData(Object * iter)
   for (int k = 0; k < sizeof(float); ++k)
   {
     data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.y)))[k];
+  }
+  //std::cout << "LENGTH: " << i << " ---" << frameData.length() << std::endl;
+  return data;
+}
+
+std::string ObjectSystem::GetCameraData(Object * iter)
+{
+  if (iter == nullptr || iter->dead) return "";
+  std::string data = "";
+  //for (int k = 0; k < sizeof(unsigned int); ++k)
+  //{
+  //  data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
+  //}
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(iter->mCamera.x)))[k];
+  }
+  for (int k = 0; k < sizeof(float); ++k)
+  {
+    data += static_cast<char *>(static_cast<void *>(&(iter->mCamera.y)))[k];
   }
   //std::cout << "LENGTH: " << i << " ---" << frameData.length() << std::endl;
   return data;

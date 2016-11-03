@@ -13,7 +13,7 @@
 
 ConeComponent::ConeComponent() : GameLogicComponent(GameLogicType::CONE)
 {
-  mName_ = "Cone";
+  mName_ = "ConeComponent";
 }
 
 bool ConeComponent::Initialize()

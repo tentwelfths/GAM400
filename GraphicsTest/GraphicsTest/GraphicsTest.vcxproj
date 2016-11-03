@@ -207,6 +207,7 @@
     </ClCompile>
     <ClCompile Include="ConeComponent.cpp" />
     <ClCompile Include="ConeControllerComponent.cpp" />
+    <ClCompile Include="ControllerCameraFollow.cpp" />
     <ClCompile Include="ControllerControllerComponent.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="DemoController.cpp" />
@@ -234,6 +235,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectSystem.cpp" />
     <ClCompile Include="OutOfBounds.cpp" />
+    <ClCompile Include="PCCameraFollow.cpp" />
     <ClCompile Include="PCControllerComponent.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
@@ -323,6 +325,7 @@
     </ClInclude>
     <ClInclude Include="ConeComponent.h" />
     <ClInclude Include="ConeControllerComponent.h" />
+    <ClInclude Include="ControllerCameraFollow.h" />
     <ClInclude Include="ControllerControllerComponent.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="DemoController.h" />
@@ -366,6 +369,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectSystem.h" />
     <ClInclude Include="OutOfBounds.h" />
+    <ClInclude Include="PCCameraFollow.h" />
     <ClInclude Include="PCControllerComponent.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="PhysicsMaterialComponent.h" />

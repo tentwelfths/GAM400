@@ -2,24 +2,22 @@
 	File: DemoPlayer.json
 	Name: Player
 	Object: {
-	PCCameraFollow: {
-		},
 	TransformComponent: {
 		"mPosition_": {
-				x: -6.935463,
-				y: -16.658129,
-				z: 1.000000
-				},
+			x: 1.125000,
+			y: -14.156250,
+			z: 1.000000
+			},
 		"mScale_": {
-				x: 1.000000,
-				y: 1.000000,
-				z: 1.000000
-				},
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
 		"mRotation_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 		},
 	PCControllerComponent: {
 		"sprintSpeed": 2.000000,
@@ -36,16 +34,16 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-								x: 0.500000,
-								y: 0.500000,
-								z: 1.000000
-								},
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
 		"dynamicState": 2,
 		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
 		"mFriction": 1.000000,
 		"mGhost": false
 		}
@@ -55,8 +53,8 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 43.481251,
-			y: 13.396100,
+			x: 43.375000,
+			y: 13.262500,
 			z: 2.000000
 			},
 		"mScale_": {
@@ -83,8 +81,8 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -6.935463,
-			y: -16.658129,
+			x: 1.562500,
+			y: -14.125000,
 			z: 1.000000
 			},
 		"mScale_": {
@@ -8443,8 +8441,8 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 42.481251,
-			y: 13.396100,
+			x: 42.612499,
+			y: 13.325000,
 			z: 1.000000
 			},
 		"mScale_": {
@@ -8461,8 +8459,6 @@
 	SpriteComponent: {
 		"mTextureName": Key.png
 		},
-	ControllerCameraFollow: {
-		},
 	EditorComponent: {
 		},
 	ConeControllerComponent: {
@@ -8476,16 +8472,16 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-								x: 0.500000,
-								y: 0.500000,
-								z: 1.000000
-								},
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
 		"dynamicState": 2,
 		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
 		"mFriction": 1.000000,
 		"mGhost": false
 		}

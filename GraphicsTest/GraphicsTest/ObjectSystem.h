@@ -32,11 +32,13 @@ public:
   std::string Get2DPositionData(unsigned int ID);
   std::string GetTextureData(unsigned int ID);
   std::unordered_map<unsigned int, Object *> mObjectMap_;
+  std::string GetCameraData(unsigned int ID);
 private:
   std::string GetData(Object * iter);
   std::string GetTransformData(Object * iter);
   std::string Get2DPositionData(Object * iter);
   std::string GetTextureData(Object * iter);
+  std::string GetCameraData(Object * iter);
 
   std::unordered_map<unsigned int, std::pair<char, char>> deadObjects;
   std::unordered_map<unsigned int, std::pair<char, char>> bornObjects;
