@@ -39,4 +39,32 @@
 	Frames:1,
 	Rows:1,
 	Cols:1
-}
+},
+{
+	Name:Monster.png,
+	Index:6,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:Knife.png,
+	Index:7,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:Coneman.png,
+	Index:8,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:Cone.png,
+	Index:9,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
