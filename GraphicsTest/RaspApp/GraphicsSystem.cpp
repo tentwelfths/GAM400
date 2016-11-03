@@ -181,7 +181,7 @@ GraphicsSystem::GraphicsSystem()
     "{                                                   \n"
     "  vec4 texel = texture2D( myTextureSampler, v_texCoord ).rgba;  \n"
     "  gl_FragColor.rgb = texel.rgb;\n"
-    "  gl_FragColor.a += texel.a; \n"
+    "  gl_FragColor.a = 1.0; \n"
     "}                                                   \n";
   
 
