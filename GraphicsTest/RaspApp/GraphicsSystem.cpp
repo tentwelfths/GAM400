@@ -181,7 +181,7 @@ GraphicsSystem::GraphicsSystem()
     "{                                                   \n"
     "  vec4 texel = texture2D( myTextureSampler, v_texCoord ).rgba;  \n"
     "  gl_FragColor.rgb = texel.rgb;\n"
-    "  gl_FragColor.a = 1.0; \n"
+    "  gl_FragColor.a += texel.a; \n"
     "}                                                   \n";
   
 
@@ -320,10 +320,10 @@ void GraphicsSystem::Draw()
 {
   
     // Clear the color buffer
-  glColorMask(false, false, false, true);
-  glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+  //glColorMask(false, false, false, true);
+  glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  glColorMask(true, true, true, true);
+  //glColorMask(true, true, true, true);
   if(viewChanged){
     // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
     Projection = glm::ortho(-10.f * mMainCamera.zoom, 10.f* mMainCamera.zoom, -6.f* mMainCamera.zoom, 6.f* mMainCamera.zoom, 0.1f, 100.0f);//glm::perspective(fov, (float)width / (float)height, 0.1f, 100.0f);
