@@ -2,6 +2,8 @@
 
 #include "GameLogicComponent.h"
 
+class Object;
+
 class PCCameraFollow : public GameLogicComponent
 {
 public:
@@ -10,4 +12,6 @@ public:
   void Update(double dt);
   void Shutdown();
 private:
+  std::vector<std::string> mTargets;
+  int mTargetIndex;
 };
