@@ -200,6 +200,7 @@
     <ClCompile Include="PCCameraFollow.cpp">
       <Filter>CameraFollow</Filter>
     </ClCompile>
+    <ClCompile Include="GoHomeComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -448,6 +449,7 @@
     <ClInclude Include="PCCameraFollow.h">
       <Filter>CameraFollow</Filter>
     </ClInclude>
+    <ClInclude Include="GoHomeComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

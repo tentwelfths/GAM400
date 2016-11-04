@@ -26,6 +26,7 @@
 #include "LevelManagerComponent.h"
 #include "PCCameraFollow.h"
 #include "ControllerCameraFollow.h"
+#include "GoHomeComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -53,6 +54,7 @@ int main( void )
   RegisterComponentType(LevelManagerComponent);
   RegisterComponentType(PCCameraFollow);
   RegisterComponentType(ControllerCameraFollow);
+  RegisterComponentType(GoHomeComponent);
 
   gCore->LoadLevel("DemoLevel.json");
 

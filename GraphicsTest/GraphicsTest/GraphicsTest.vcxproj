@@ -194,6 +194,7 @@
     <ClCompile Include="FramerateController.cpp" />
     <ClCompile Include="GameLogicComponent.cpp" />
     <ClCompile Include="GameLogicSystem.cpp" />
+    <ClCompile Include="GoHomeComponent.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="GraphicsSystem.cpp" />
     <ClCompile Include="imgui.cpp" />
@@ -300,6 +301,7 @@
     <ClInclude Include="GameLogicComponent.h" />
     <ClInclude Include="GameLogicSystem.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="GoHomeComponent.h" />
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="GraphicsSystem.h" />
     <ClInclude Include="IComponent.h" />

@@ -1,0 +1,34 @@
+{
+	File: PCWins.json
+	Name: PCWins
+	Object: {
+	PCCameraFollow: {
+		},
+	TransformComponent: {
+		"mPosition_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				},
+		"mScale_": {
+				x: 5.000000,
+				y: 5.000000,
+				z: 1.000000
+				},
+		"mRotation_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	SpriteComponent: {
+		"mTextureName": PCWins.png
+		},
+	ControllerCameraFollow: {
+		},
+	EditorComponent: {
+		},
+	GoHomeComponent: {
+		}
+	},
+}

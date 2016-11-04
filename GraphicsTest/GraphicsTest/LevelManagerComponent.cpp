@@ -1,6 +1,7 @@
 #include "LevelManagerComponent.h"
 #include "PCControllerComponent.h"
 #include "ConeControllerComponent.h"
+#include "JSONTranslator.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
@@ -37,7 +38,14 @@ void LevelManagerComponent::Update(double dt)
     if (mCountDown > mTarget)
     {
       gCore->UnloadLevel();
-      gCore->LoadLevel("Start.json");
+      if (thePCComponent->GetHealth() <= 0)
+      {
+        gCore->LoadLevel("ControllersWinLevel.json");
+      }
+      else
+      {
+        gCore->LoadLevel("PCWinsLevel.json");
+      }
     }
   }
 }
