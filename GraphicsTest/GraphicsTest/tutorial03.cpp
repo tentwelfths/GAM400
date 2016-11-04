@@ -56,7 +56,7 @@ int main( void )
   RegisterComponentType(ControllerCameraFollow);
   RegisterComponentType(GoHomeComponent);
 
-  gCore->LoadLevel("DemoLevel.json");
+  gCore->LoadLevel("Start.json");
 
   while (true)
   {
