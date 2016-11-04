@@ -8490,7 +8490,6 @@
 		"bulletSpeed": 20.000000
 		}
 	},
-,
 	File: PCHealthBar.json
 	Name: PCHealthBar
 	Object: {
@@ -8517,7 +8516,6 @@
 	EditorComponent: {
 		}
 	},
-,
 	File: GrassTile.json
 	Name: Grass
 	Object: {
