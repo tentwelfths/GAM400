@@ -13,13 +13,6 @@
 	Cols:1
 },
 {
-	Name:Key.png,
-	Index:3,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
 	Name:rock.png,
 	Index:2,
 	Frames:1,
@@ -98,7 +91,7 @@
 },
 {
 	Name:Tree.png,
-	Index:14,
+	Index:3,
 	Frames:1,
 	Rows:1,
 	Cols:1
