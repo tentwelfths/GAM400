@@ -6,6 +6,13 @@
 	Cols:1
 },
 {
+	Name:player.png,
+	Index:1,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
 	Name:rock.png,
 	Index:2,
 	Frames:1,
