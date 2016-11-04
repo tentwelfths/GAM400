@@ -41,6 +41,9 @@ void KnifeComponent::Update(double dt)
         float x = input->GetMouseX() - trans->mPositionX();
         float y = input->GetMouseY() - trans->mPositionY();
         check.x = x, check.y = y;
+        float rad = atan2f(y, x);
+        rad = degrees(rad);
+        trans->mRotationZ(rad);
         check.Normalize();
         check.x *= dist;
         check.y *= dist;
