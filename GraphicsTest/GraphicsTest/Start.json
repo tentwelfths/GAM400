@@ -218,7 +218,6 @@
 	StartManagerComponent: {
 		}
 	},
-,
 	File: GrassTile.json
 	Name: Grass
 	Object: {
