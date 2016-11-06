@@ -179,13 +179,13 @@ GraphicsSystem::GraphicsSystem()
     "uniform sampler2D myTextureSampler;                        \n"
     "void main()                                         \n"
     "{                                                   \n"
-    "  gl_FragColor.rgba = texture2D( myTextureSampler, v_texCoord ).rgba;\n"
+    "  gl_FragColor = texture2D( myTextureSampler, v_texCoord );\n"
     "}                                                   \n";
   
 
   
   glEnable(GL_BLEND);
-  //glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+  glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
   glBlendEquation(GL_FUNC_ADD);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   glDisable(GL_CULL_FACE);
@@ -321,8 +321,8 @@ void GraphicsSystem::Draw()
 {
   
   // Clear the color buffer
-  glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  //glFlush();
+  glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT );
+  glFlush();
   if(viewChanged){
     // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
     Projection = glm::ortho(-10.f * mMainCamera.zoom, 10.f* mMainCamera.zoom, -6.f* mMainCamera.zoom, 6.f* mMainCamera.zoom, 0.1f, 100.0f);//glm::perspective(fov, (float)width / (float)height, 0.1f, 100.0f);
