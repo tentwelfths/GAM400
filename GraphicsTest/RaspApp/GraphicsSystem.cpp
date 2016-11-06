@@ -321,7 +321,7 @@ void GraphicsSystem::Draw()
 {
   
   // Clear the color buffer
-  glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT );
+  glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT  |GL_MULTISAMPLE_BIT);
   glFlush();
   if(viewChanged){
     // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
