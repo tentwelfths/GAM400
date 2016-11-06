@@ -180,8 +180,6 @@ GraphicsSystem::GraphicsSystem()
     "void main()                                         \n"
     "{                                                   \n"
     "  gl_FragColor = texture2D( myTextureSampler, v_texCoord );\n"
-    "  if(gl_FragColor.a < 0.8)\n"
-    "  gl_FragColor.a =0;\n"
     "}                                                   \n";
   
 
@@ -193,7 +191,7 @@ GraphicsSystem::GraphicsSystem()
   glDisable(GL_CULL_FACE);
   glEnable(GL_DEPTH_TEST);
   glDepthFunc(GL_LESS);
-  glClearColor(0.0f, 0.4f, 0.03f, 1.0f);
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   //glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
   
   
@@ -448,7 +446,7 @@ GLuint GraphicsSystem::LoadProgram(const char * vertSrc, const char * fragSrc)
 
 GLboolean GraphicsSystem::CreateWindow()
 {
-  GLuint flags  = ES_WINDOW_RGB | ES_WINDOW_DEPTH;
+  GLuint flags  = ES_WINDOW_RGB | ES_WINDOW_ALPHA | ES_WINDOW_DEPTH;
   EGLint attribList[] =
    {
        EGL_RED_SIZE,       5,
