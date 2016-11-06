@@ -19,15 +19,15 @@
 			z: 0.000000
 			}
 		},
-	SpriteComponent: {
-		"mTextureName": Monster.png
-		},
 	PCControllerComponent: {
 		"sprintSpeed": 2.000000,
 		"speed": 5.000000,
 		"playerID": 0,
 		"health": 10,
 		"killable": false
+		},
+	SpriteComponent: {
+		"mTextureName": Monster.png
 		},
 	EditorComponent: {
 		},
@@ -46,6 +46,34 @@
 							},
 		"mFriction": 1.000000,
 		"mGhost": false
+		}
+	},
+	File: Cone.json
+	Name: Cone
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 2.500000,
+			y: 4.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 5.000000,
+			y: 5.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		},
+	SpriteComponent: {
+		"mTextureName": Cone.png
+		},
+	ConeComponent: {
 		}
 	},
 	File: blah
@@ -68,104 +96,28 @@
 			z: 0.000000
 			}
 		},
+	KnifeComponent: {
+		},
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-				x: 0.250000,
-				y: 0.250000,
-				z: 1.000000
-				},
+					x: 0.250000,
+					y: 0.250000,
+					z: 1.000000
+					},
 		"dynamicState": 2,
 		"mOffset": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				},
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
 		"mFriction": 1.000000,
 		"mGhost": true
-		},
-	KnifeComponent: {
 		},
 	EditorComponent: {
 		},
 	SpriteComponent: {
 		"mTextureName": Knife.png
-		}
-	},
-	File: Cone.json
-	Name: Cone
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 0.000000,
-			y: -10.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 5.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	EditorComponent: {
-		},
-	SpriteComponent: {
-		"mTextureName": Cone.png
-		},
-	ConeComponent: {
-		}
-	},
-	File: Goal.json
-	Name: Goal
-	Object: {
-	PCCameraFollow: {
-		},
-	TransformComponent: {
-		"mPosition_": {
-				x: 0.202037,
-				y: 0.048121,
-				z: 1.000000
-				},
-		"mScale_": {
-				x: 6.000000,
-				y: 4.000000,
-				z: 1.000000
-				},
-		"mRotation_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	ControllerCameraFollow: {
-		},
-	EditorComponent: {
-		},
-	SpriteComponent: {
-		"mTextureName": goal.png
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-								x: 3.000000,
-								y: 2.000000,
-								z: 1.000000
-								},
-		"dynamicState": 2,
-		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
-		"mFriction": 1.000000,
-		"mGhost": true
-		},
-	StartManagerComponent: {
 		}
 	},
 	File: Coneman.json
@@ -193,6 +145,22 @@
 		},
 	EditorComponent: {
 		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
 	ConeControllerComponent: {
 		"speed": 5.000000,
 		"playerID": 0,
@@ -200,22 +168,97 @@
 		"killable": false,
 		"controllerID": 0,
 		"bulletSpeed": 20.000000
+		}
+	},
+	File: Goal.json
+	Name: Goal
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.202037,
+			y: 0.048121,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 6.000000,
+			y: 4.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	PCCameraFollow: {
+		},
+	EditorComponent: {
+		},
+	ControllerCameraFollow: {
+		},
+	SpriteComponent: {
+		"mTextureName": goal.png
 		},
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-							x: 0.500000,
-							y: 0.500000,
-							z: 1.000000
-							},
+								x: 3.000000,
+								y: 2.000000,
+								z: 1.000000
+								},
 		"dynamicState": 2,
 		"mOffset": {
-							x: 0.000000,
-							y: 0.000000,
-							z: 0.000000
-							},
+								x: 0.000000,
+								y: 0.000000,
+								z: 0.000000
+								},
 		"mFriction": 1.000000,
-		"mGhost": false
+		"mGhost": true
+		},
+	StartManagerComponent: {
 		}
 	},
+,
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.127037,
+			y: 3.498121,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 5.000000,
+			y: 5.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	}
 }
