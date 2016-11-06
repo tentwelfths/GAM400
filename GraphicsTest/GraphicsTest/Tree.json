@@ -8,8 +8,8 @@ TransformComponent: {
 		z: 0.000000
 		},
 	"mScale_": {
-		x: 2.000000,
-		y: 2.000000,
+		x: 1.000000,
+		y: 1.000000,
 		z: 1.000000
 		},
 	"mRotation_": {
@@ -26,8 +26,8 @@ EditorComponent: {
 BoxColliderComponent: {
 	"mDensity": 1.000000,
 	"mHalfSize": {
-					x: 1.000000,
-					y: 1.000000,
+					x: 0.500000,
+					y: 0.500000,
 					z: 1.000000
 					},
 	"dynamicState": 0,
