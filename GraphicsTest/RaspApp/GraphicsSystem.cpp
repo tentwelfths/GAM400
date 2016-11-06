@@ -187,7 +187,7 @@ GraphicsSystem::GraphicsSystem()
   glEnable(GL_BLEND);
   //glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
   //glBlendEquation(GL_FUNC_ADD);
-  //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   glDisable(GL_CULL_FACE);
   glEnable(GL_DEPTH_TEST);
   glDepthFunc(GL_LESS);
