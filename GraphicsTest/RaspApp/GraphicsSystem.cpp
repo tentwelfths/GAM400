@@ -180,6 +180,8 @@ GraphicsSystem::GraphicsSystem()
     "void main()                                         \n"
     "{                                                   \n"
     "  gl_FragColor = texture2D( myTextureSampler, v_texCoord );\n"
+    "  if(gl_FragColor.a < 0.8)\n"
+    "  gl_FragColor.a =0;\n"
     "}                                                   \n";
   
 
