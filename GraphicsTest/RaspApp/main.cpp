@@ -427,7 +427,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         pos += sizeof(unsigned int);
         char textureID = command[pos];
         ++pos;
-        Object * obj = gObjectsMap[objectID];
+        Object * obj = gObjectMap[objectID];
         obj->textureID = textureID;
       }
       break;

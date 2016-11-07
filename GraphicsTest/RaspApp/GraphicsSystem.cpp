@@ -352,7 +352,7 @@ void GraphicsSystem::Draw()
       if(iter->second->inUse == false)continue;
       //if(!done)
       {
-        glBindTexture ( GL_TEXTURE_2D, mTextures[iter->seconds->textureID].textureID );  
+        glBindTexture ( GL_TEXTURE_2D, mTextures[iter->second->textureID].textureID );  
           // Bind the texture
         glActiveTexture ( GL_TEXTURE0 );
 
