@@ -241,13 +241,13 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         pos += sizeof(float);
-        if(gObjects[textureID].find(objectID) == gObjects[textureID].end())
+        if(gObjects[(int)zPos].find(objectID) == gObjects[(int)zPos].end())
         {
           Object * obj = new Object();
-          gObjects[textureID].insert({objectID, obj});
+          gObjects[(int)zPos].insert({objectID, obj});
           gObjectMap.insert({objectID, obj});
         }
-        Object * temp = gObjects[textureID][objectID];
+        Object * temp = gObjects[(int)zPos][objectID];
         temp->position[0] = xPos;
         temp->position[1] = yPos;
         temp->position[2] = zPos;
@@ -282,14 +282,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
-        if(textureID == 3){
-          std::cout<<"Found player " << objectID<<std::endl;
-          pID = objectID;
-        }
-        else if(objectID == pID){
-          std::cout<<"GOT CREATE MESSAGE" << objectID <<std::endl;
-          std::cout<<"GOT A FUCKIN DUPE! "<<textureID<<std::endl;
-        }
+        
         //std::string textureName = "";
         //for(unsigned char i = 0; i < textureNameLength; ++i){
         //  textureName += (char)command[pos++];
@@ -313,13 +306,13 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         pos += sizeof(float);
-        if(gObjects[textureID].find(objectID) == gObjects[textureID].end())
+        if(gObjects[(int)zPos].find(objectID) == gObjects[(int)zPos].end())
         {
           Object * obj = new Object();
-          gObjects[textureID].insert({objectID, obj});
+          gObjects[(int)zPos].insert({objectID, obj});
           gObjectMap.insert({objectID, obj});
         }
-        Object * temp = gObjects[textureID][objectID];
+        Object * temp = gObjects[(int)zPos][objectID];
 
         temp->position[0] = xPos;
         temp->position[1] = yPos;
@@ -434,10 +427,8 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         pos += sizeof(unsigned int);
         char textureID = command[pos];
         ++pos;
-        Object * obj = gObjects[gObjectMap[objectID]->textureID][objectID];
-        gObjects[gObjectMap[objectID]->textureID].erase(gObjects[gObjectMap[objectID]->textureID].find(objectID));
+        Object * obj = gObjectsMap[objectID];
         obj->textureID = textureID;
-        gObjects[textureID].insert({objectID, obj});
       }
       break;
 

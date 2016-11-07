@@ -350,9 +350,9 @@ void GraphicsSystem::Draw()
     {
       //std::cout<<"Drawing object #"<<j<<std::endl;
       if(iter->second->inUse == false)continue;
-      if(!done)
+      //if(!done)
       {
-        glBindTexture ( GL_TEXTURE_2D, mTextures[i].textureID );  
+        glBindTexture ( GL_TEXTURE_2D, mTextures[iter->seconds->textureID].textureID );  
           // Bind the texture
         glActiveTexture ( GL_TEXTURE0 );
 
@@ -364,7 +364,7 @@ void GraphicsSystem::Draw()
       
       Position[3][0] = iter->second->position[0];
       Position[3][1] = iter->second->position[1];
-      Position[3][2] = iter->second->position[2];
+      Position[3][2] = i;
 
       Scale[0][0] = iter->second->scale[0];
       Scale[1][1] = iter->second->scale[1];
