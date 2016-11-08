@@ -19,6 +19,7 @@
 #include "Object.h"
 #include "GPIOPin.h"
 #include <thread>
+#include <fmod.h>
 
 std::string inputstream = "";
 
