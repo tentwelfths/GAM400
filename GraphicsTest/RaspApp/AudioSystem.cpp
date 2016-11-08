@@ -1,8 +1,6 @@
 
 #include "AudioSystem.h"
 
-#include <fmod.h>
-#include <fmod_studio.h>
 
 AudioSystem::AudioSystem()
 {

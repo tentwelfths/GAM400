@@ -3,15 +3,8 @@
 #include <string>
 #include <iostream>
 
-namespace FMOD{
-  class System;
-  namespace Studio{
-    class System;
-    class Bank;
-    class EventDescription;
-    class EventInstance;
-  }
-}
+#include <fmod.h>
+#include <fmod_studio.h>
 
 struct SoundInstance{
   SoundInstance(FMOD::Studio::EventDescription * d):desc(d){}
