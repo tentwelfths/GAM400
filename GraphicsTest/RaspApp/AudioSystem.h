@@ -1,5 +1,7 @@
 #pragma once
-
+#include <unordered_map>
+#include <string>
+#include <iostream>
 namespace FMOD{
   class System;
   namespace Studio{
@@ -18,11 +20,6 @@ struct SoundInstance{
   }
   FMOD::Studio::EventDescription * desc;
 };
-
-
-class AudioComponent;
-class TransformComponent;
-
 
 void ERRCHECK_fn(int result, const char *file, int line);
 #define ERRCHECK(_result) ERRCHECK_fn(_result, __FILE__, __LINE__)
