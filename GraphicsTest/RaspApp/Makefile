@@ -23,4 +23,4 @@ all: ./SRC
 clean: all
 
 ./SRC: ${MYSRC}
-	g++ -std=c++11 -I/usr/local/include -L/usr/local/lib  $(CFLAGS) ${COMMONSRC} ${MYSRC} -o ./$@ ${INCDIR} ${LIBS} -lpthread -lfmod -lfmodstudio -Wl,-rpath=/usr/local/lib
+	g++ -std=c++11 -I/usr/local/include -L/usr/local/lib  $(CFLAGS) ${COMMONSRC} ${MYSRC} -o ./$@ ${INCDIR} ${LIBS} -lpthread -lfmod -lfmodstudio -Wl,-rpath,/usr/local/lib
