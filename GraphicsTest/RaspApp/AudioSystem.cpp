@@ -1,5 +1,5 @@
-#include <fmod.hpp>
-#include <fmod_studio.hpp>
+#include <fmod.h>
+#include <fmod_studio.h>
 #include "AudioSystem.h"
 
 AudioSystem::AudioSystem()
