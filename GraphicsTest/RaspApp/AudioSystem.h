@@ -3,8 +3,8 @@
 #include <string>
 #include <iostream>
 
-#include <fmod.h>
-#include <fmod_studio.h>
+#include <fmod.hpp>
+#include <fmod_studio.hpp>
 
 struct SoundInstance{
   SoundInstance(FMOD::Studio::EventDescription * d):desc(d){}
