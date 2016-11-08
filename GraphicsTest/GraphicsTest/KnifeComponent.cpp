@@ -18,7 +18,8 @@ KnifeComponent::KnifeComponent() : GameLogicComponent(GameLogicType::KNIFE), off
 
 bool KnifeComponent::Initialize()
 {
-  mParent()->mVisible = false;
+  for (int i = 0; i < 4; ++i)
+    mParent()->mVisibility[i] = false;
   return true;
 }
 

@@ -124,10 +124,13 @@ void ConeControllerComponent::UpdateVis(Object* theTarget)
   absol.y = theDistance.y * theDistance.y;
   if (absol.x + absol.y > SIGHTDISTANCE + otherRigid->GetHalfSize().x)
   {
-    if (theTarget->mVisible == true)
+    for (int i = 0; i < 4; ++i)
     {
-      theTarget->hasChanged = true;
-      theTarget->mVisible = false;
+      if (theTarget->mVisibility[i] == true)
+      {
+        theTarget->hasChanged = true;
+        theTarget->mVisibility[i] = false;
+      }
     }
     return;
   }
@@ -135,18 +138,24 @@ void ConeControllerComponent::UpdateVis(Object* theTarget)
   float theCosine = mDirX * theDistance.x + mDirY * theDistance.y;
   if (-theCosine > 0.9f)
   {
-    if (theTarget->mVisible == false)
+    for (int i = 0; i < 4; ++i)
     {
-      theTarget->hasChanged = true;
-      theTarget->mVisible = true;
+      if (theTarget->mVisibility[i] == false)
+      {
+        theTarget->hasChanged = true;
+        theTarget->mVisibility[i] = true;
+      }
     }
   }
   else
   {
-    if (theTarget->mVisible == true)
+    for (int i = 0; i < 4; ++i)
     {
-      theTarget->hasChanged = true;
-      theTarget->mVisible = false;
+      if (theTarget->mVisibility[i] == true)
+      {
+        theTarget->hasChanged = true;
+        theTarget->mVisibility[i] = false;
+      }
     }
   }
 }

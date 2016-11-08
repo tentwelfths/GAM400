@@ -27,15 +27,15 @@ public:
   unsigned int myCount;
   std::string frameData;
   unsigned int numObjects;
-  std::string GetData(unsigned int ID);
-  std::string GetTransformData(unsigned int ID);
+  std::string GetData(unsigned int ID, int num);
+  std::string GetTransformData(unsigned int ID, int num);
   std::string Get2DPositionData(unsigned int ID);
   std::string GetTextureData(unsigned int ID);
   std::unordered_map<unsigned int, Object *> mObjectMap_;
   std::string GetCameraData(unsigned int ID);
 private:
-  std::string GetData(Object * iter);
-  std::string GetTransformData(Object * iter);
+  std::string GetData(Object * iter, int num);
+  std::string GetTransformData(Object * iter, int num);
   std::string Get2DPositionData(Object * iter);
   std::string GetTextureData(Object * iter);
   std::string GetCameraData(Object * iter);

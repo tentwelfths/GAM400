@@ -75,5 +75,5 @@ private:
   std::vector<NetworkingComponent *> mComponents_;
   std::vector<UDPConnection> connections;
   bool even;
-  std::string ConstructCommand(char type, unsigned int ID, char data[8]);
+  std::string ConstructCommand(char type, unsigned int ID, char data[8], int num);
 };

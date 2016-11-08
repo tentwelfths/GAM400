@@ -18,7 +18,8 @@ bool PCControllerComponent::Initialize()
 {
   auto * o = gCore->GetSystem(ObjectSystem);
   mHealthBar = o->GetFirstItemByName("PCHealthBar");
-  mParent()->mVisible = false;
+  for (int i = 0; i < 4; ++i)
+    mParent()->mVisibility[i] = false;
   return true;
 }
 
@@ -70,8 +71,8 @@ void PCControllerComponent::Update(double dt)
     if (mHealthBar){
       if (mParent()->hasChanged)
       {
-        if (mHealthBar->mVisible != mParent()->mVisible) mHealthBar->hasChanged = true;
-        mHealthBar->mVisible = mParent()->mVisible;
+        if (mHealthBar->mVisibility[0] != mParent()->mVisibility[0]) mHealthBar->hasChanged = true;
+        mHealthBar->mVisibility[0] = mParent()->mVisibility[0];
       }
       auto * trans = mHealthBar->GetComponent(TransformComponent);
       auto * transPlayer = mParent()->GetComponent(TransformComponent);

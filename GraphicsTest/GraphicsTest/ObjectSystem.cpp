@@ -49,14 +49,14 @@ void ObjectSystem::ClearSystem(){
   }
 }
 
-std::string ObjectSystem::GetData(unsigned int ID)
+std::string ObjectSystem::GetData(unsigned int ID, int num)
 {
-  return GetData(mObjectMap_[ID]);
+  return GetData(mObjectMap_[ID],num);
 }
 
-std::string ObjectSystem::GetTransformData(unsigned int ID)
+std::string ObjectSystem::GetTransformData(unsigned int ID, int num)
 {
-  return GetTransformData(mObjectMap_[ID]);
+  return GetTransformData(mObjectMap_[ID], num);
 }
 
 std::string ObjectSystem::Get2DPositionData(unsigned int ID)
@@ -117,7 +117,7 @@ std::string ObjectSystem::GetCameraData(Object * iter)
 }
 
 
-std::string ObjectSystem::GetTransformData(Object * iter)
+std::string ObjectSystem::GetTransformData(Object * iter, int num)
 {
   if (iter == nullptr || iter->dead) return "";
   TransformComponent * t = iter->GetComponent(TransformComponent);
@@ -129,7 +129,7 @@ std::string ObjectSystem::GetTransformData(Object * iter)
     data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
     ++i;
   }
-  data += (iter->mVisible) ? '1' : '0';
+  data += (iter->mVisibility[num]) ? '1' : '0';
   //if (!iter->mVisible) return data;
   for (int k = 0; k < sizeof(float); ++k)
   {
@@ -178,7 +178,7 @@ std::string ObjectSystem::GetTextureData(Object * iter)
   return data;
 }
 
-std::string ObjectSystem::GetData(Object * iter)
+std::string ObjectSystem::GetData(Object * iter, int num)
 {
   std::string data = "";
   if (iter == nullptr || iter->dead) return data;
@@ -191,7 +191,7 @@ std::string ObjectSystem::GetData(Object * iter)
     ++i;
   }
 
-  data += (iter->mVisible) ? '1' : '0';
+  data += (iter->mVisibility[num]) ? '1' : '0';
 
   unsigned char len = gCore->GetSystem(GraphicsSystem)->mTextureMap_.find((static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName))->second.index;
   data += len;

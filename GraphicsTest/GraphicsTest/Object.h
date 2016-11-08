@@ -39,7 +39,7 @@ public:
   std::string source;
   bool dead;
   std::vector<IMessage> mMessages_;
-  bool mVisible;
+  bool mVisibility[5];
   ControllerCamera mCamera;
 };
 

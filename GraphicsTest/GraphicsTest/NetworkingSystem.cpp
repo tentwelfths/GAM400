@@ -392,7 +392,7 @@ void NetworkingSystem::Update(double dt)
         connections[i].initstep = 1;
       }
       for (unsigned k = 0; connections[i].commandsSend.empty() == false && k < 30; ++k){
-        std::string temp = ConstructCommand(connections[i].commandsSend.front().comType, connections[i].commandsSend.front().ID, connections[i].commandsSend.front().data);
+        std::string temp = ConstructCommand(connections[i].commandsSend.front().comType, connections[i].commandsSend.front().ID, connections[i].commandsSend.front().data, connections[i].playerNum);
         if (toSend.length() + temp.length() > 1023)break;
         connections[i].commandsSend.pop();
         toSend += temp;
@@ -439,14 +439,14 @@ void NetworkingSystem::AddCommand(int connectionNumber, char com, unsigned int I
   connections[connectionNumber].commandsSend.push({ com, ID, data});
 }
 
-std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char data[8])
+std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char data[8], int num)
 {
   std::string temp;
   switch (com){
   case '`': // Object created. 
   {
     temp = "`";
-    std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID);
+    std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID, num);
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }
@@ -456,7 +456,7 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
   case 'L':
   {
     temp = "L";
-    std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID);
+    std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID, num);
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }
@@ -479,7 +479,7 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
   case '#': //Object moved
   {
     std::cout << "MOVE MESSAGE" << gCore->GetSystem(ObjectSystem)->mObjectMap_[ID]->name << std::endl;
-    std::string data = gCore->GetSystem(ObjectSystem)->GetTransformData(ID);
+    std::string data = gCore->GetSystem(ObjectSystem)->GetTransformData(ID, num);
     if (data == "") break;
     temp = "#";
     for (unsigned i = 0; i < data.length(); ++i){
