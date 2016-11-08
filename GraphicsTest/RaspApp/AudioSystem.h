@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <string>
 #include <iostream>
+
 namespace FMOD{
   class System;
   namespace Studio{
@@ -28,7 +29,6 @@ class AudioSystem
 {
 public:
   AudioSystem();
-  virtual bool Initialize();
   virtual void Update(double dt);
   virtual void Shutdown();
   void PlaySoundEffect(std::string name);

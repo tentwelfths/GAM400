@@ -6,7 +6,6 @@
 
 AudioSystem::AudioSystem()
 {
-  mName_ = "AudioSystem";
 
   ERRCHECK(FMOD::Studio::System::create(&system));
 
