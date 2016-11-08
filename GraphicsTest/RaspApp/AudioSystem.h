@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 #include <fmod.hpp>
 #include <fmod_studio.hpp>
