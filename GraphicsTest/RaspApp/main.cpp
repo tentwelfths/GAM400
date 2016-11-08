@@ -15,6 +15,7 @@
 #include <time.h>
 #include "MCP3008SPI.h"
 #include "GraphicsSystem.h"
+#include "AudioSystem.h"
 #include "NetworkingSystem.h"
 #include "Object.h"
 #include "GPIOPin.h"
@@ -598,6 +599,7 @@ int main ( int argc, char *argv[] )
 
 
   GraphicsSystem g;
+  AudioSystem a;
   NetworkingSystem n(27015, "192.168.77.106");
   std::cout<<"CONNECTED"<<std::endl;
   int res = n.Send(std::string("+" + myID).c_str(), 2);

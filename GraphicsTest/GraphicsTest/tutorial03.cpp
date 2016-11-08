@@ -31,28 +31,28 @@
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
 
-int f(int n){
-  if (n>10000) return 0;
-  return (n*n) / (6 + f(n + 2));
-}
-
-float fIter(float n)
-{
-  float total = 0;
-  float max = n;
-  while (max < 9998) max += 2;
-  float denom = max * max / 6.f;
-  while (max >= n){
-    denom = max * max / (6.f + denom);
-    max -= 2;
-  }
-  return denom;
-}
+//int f(int n){
+//  if (n>10000) return 0;
+//  return (n*n) / (6 + f(n + 2));
+//}
+//
+//float fIter(float n)
+//{
+//  float total = 0;
+//  float max = n;
+//  while (max < 9998) max += 2;
+//  float denom = max * max / 6.f;
+//  while (max >= n){
+//    denom = max * max / (6.f + denom);
+//    max -= 2;
+//  }
+//  return denom;
+//}
 
 int main( void )
 {
-  std::cout << 3 + fIter(1);
-  std::cin.get();
+  //std::cout << 3 + fIter(1);
+  //std::cin.get();
   gCore = new Core();
   gCore->Initialize();
   RegisterComponentType(SpriteComponent);
