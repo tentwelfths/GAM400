@@ -26,8 +26,8 @@ AudioSystem::AudioSystem()
     lowLevelSystem->getDriverInfo(i, name, 128, &guids[i], &systemrate, NULL, &speakermodechannels);
     std::cout<<i<<" " <<name<<std::endl;
   }
-  lowLevelSystem->setDriver(2);
-  lowLevelSystem->setOutput(FMOD_OUTPUTTYPE_ALSA);
+  ERRCHECK(lowLevelSystem->setDriver(2));
+  ERRCHECK(lowLevelSystem->setOutput(FMOD_OUTPUTTYPE_ALSA));
   ERRCHECK(lowLevelSystem->setSoftwareFormat(0, FMOD_SPEAKERMODE_DEFAULT, 0));
   ERRCHECK(system->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, 0));
 
