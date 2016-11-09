@@ -624,7 +624,7 @@ int main ( int argc, char *argv[] )
   std::thread t1(KnobTurned, &threadInfo);
   while(true){
     start = clock();
-    a.Update();
+    a.Update(0.016);
     //for(int i = 0; i < 10; ++i){
     //  if(i == counter)
     //    gpioPins[i]->SetPinVal("1");
