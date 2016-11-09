@@ -21,7 +21,7 @@ AudioSystem::AudioSystem()
   int drivers = 0;
   lowLevelSystem->getNumDrivers(&drivers);
   std::cout<<drivers<<std::endl;
-  FMOD_GUID guids[11]
+  FMOD_GUID guids[11];
   for(int i = 0; i < drivers; ++i){
     char name[128];
     int sysemrate, speakermodechannels;
