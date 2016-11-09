@@ -598,8 +598,9 @@ int main ( int argc, char *argv[] )
   }
 
 
-  GraphicsSystem g;
   AudioSystem a;
+  return;
+  GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");
   std::cout<<"CONNECTED"<<std::endl;
   int res = n.Send(std::string("+" + myID).c_str(), 2);

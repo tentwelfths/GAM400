@@ -18,6 +18,9 @@ AudioSystem::AudioSystem()
   ERRCHECK(system->getLowLevelSystem(&lowLevelSystem));
   ERRCHECK(lowLevelSystem->setSoftwareFormat(0, FMOD_SPEAKERMODE_DEFAULT, 0));
   lowLevelSystem->setOutput(FMOD_OUTPUTTYPE_ALSA);
+  int drivers = 0;
+  lowLevelSystem->getNumDrivers(&drivers);
+  std::cout<<drivers<<std::endl;
   ERRCHECK(system->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, 0));
 
   ERRCHECK(system->loadBankFile(("../Assets/Master Bank.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank));
