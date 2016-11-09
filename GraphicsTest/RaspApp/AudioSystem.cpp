@@ -28,7 +28,7 @@ AudioSystem::AudioSystem()
     lowLevelSystem->getDriverInfo(i, name, 128, &guids[i], &systemrate, NULL, &speakermodechannels);
     std::cout<<i<<" " <<name<<std::endl;
   }
-  //lowLevelSystem->setDriver(1);
+  lowLevelSystem->setDriver(2);
   ERRCHECK(system->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, 0));
 
   ERRCHECK(system->loadBankFile(("../Assets/Master Bank.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank));
