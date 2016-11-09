@@ -599,6 +599,7 @@ int main ( int argc, char *argv[] )
 
 
   AudioSystem a;
+  a.Shutdown();
   return 0;
   GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");

@@ -57,7 +57,9 @@ void AudioSystem::Update(double dt)
 }
 void AudioSystem::Shutdown()
 {
-
+    lowLevelSystem->close();
+    lowLevelSystem->release();
+    system->release();
 }
 
 void ERRCHECK_fn(int result, const char *file, int line)
