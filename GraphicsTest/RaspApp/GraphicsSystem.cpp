@@ -278,7 +278,7 @@ void GraphicsSystem::LoadTextures(std::string filename){
       t.frames = frames;
       t.rows = rows;
       t.cols = cols;
-      std::cout<<name<<std::endl;
+      //std::cout<<name<<std::endl;
 
       t.textureID = loadpng("../Assets/"+name);
       mTextures.insert({t.index, t});
