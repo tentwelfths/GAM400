@@ -23,4 +23,4 @@ all: ./SRC
 clean: all
 
 ./SRC: ${MYSRC}
-	g++ -std=c++11 -I/usr/local/include $(CFLAGS) ${COMMONSRC} ${MYSRC} -o ./$@ ${INCDIR} ${LIBS} -lpthread -Wl,-rpath=~/fmodstudioapi10814linux/api/lowlevel/lib/arm/ /usr/local/lib/libfmod.so /usr/local/lib/libfmodstudio.so
+	g++ -std=c++11 -I/usr/local/include $(CFLAGS) ${COMMONSRC} ${MYSRC} -o ./$@ ${INCDIR} ${LIBS} -lpthread -Wl,-rpath=~/fmodstudioapi10814linux/api/lowlevel/lib/armhf/ /usr/local/lib/libfmod.so /usr/local/lib/libfmodstudio.so
