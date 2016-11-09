@@ -24,8 +24,8 @@ AudioSystem::AudioSystem()
   FMOD_GUID guids[11];
   for(int i = 0; i < drivers; ++i){
     char name[128];
-    int sysemrate, speakermodechannels;
-    FMOD_RESULT System::getDriverInfo(i, name, 128, &guids[i], &systemrate, NULL, &speakermodechannels);
+    int systemrate, speakermodechannels;
+    lowLevelSystem->getDriverInfo(i, name, 128, &guids[i], &systemrate, NULL, &speakermodechannels);
     std::cout<<i<<" " <<name<<std::endl;
   }
   ERRCHECK(system->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, 0));
