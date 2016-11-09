@@ -16,8 +16,7 @@ AudioSystem::AudioSystem()
   // The example Studio project is authored for 5.1 sound, so set up the system output mode to match
   //FMOD::System* lowLevelSystem = NULL;
   ERRCHECK(system->getLowLevelSystem(&lowLevelSystem));
-  ERRCHECK(lowLevelSystem->setSoftwareFormat(0, FMOD_SPEAKERMODE_DEFAULT, 0));
-  lowLevelSystem->setOutput(FMOD_OUTPUTTYPE_ALSA);
+  //lowLevelSystem->setOutput(FMOD_OUTPUTTYPE_ALSA);
   int drivers = 0;
   lowLevelSystem->getNumDrivers(&drivers);
   std::cout<<drivers<<std::endl;
@@ -29,6 +28,7 @@ AudioSystem::AudioSystem()
     std::cout<<i<<" " <<name<<std::endl;
   }
   lowLevelSystem->setDriver(2);
+  ERRCHECK(lowLevelSystem->setSoftwareFormat(0, FMOD_SPEAKERMODE_DEFAULT, 0));
   ERRCHECK(system->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, 0));
 
   ERRCHECK(system->loadBankFile(("../Assets/Master Bank.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank));
