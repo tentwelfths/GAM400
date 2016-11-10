@@ -326,7 +326,7 @@ void NetworkingSystem::Update(double dt)
       else if (command[0] == '~')//input
       {
         int pos = 1;
-        std::cout << "GOT INPUT" << std::endl;
+        //std::cout << "GOT INPUT" << std::endl;
         unsigned short x1, y1, x2, y2;
         bool button;
         char knobDelta;
@@ -488,7 +488,7 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
 
   case '#': //Object moved
   {
-    std::cout << "MOVE MESSAGE" << gCore->GetSystem(ObjectSystem)->mObjectMap_[ID]->name << std::endl;
+    //std::cout << "MOVE MESSAGE" << gCore->GetSystem(ObjectSystem)->mObjectMap_[ID]->name << std::endl;
     std::string data = gCore->GetSystem(ObjectSystem)->GetTransformData(ID, num);
     if (data == "") break;
     temp = "#";
