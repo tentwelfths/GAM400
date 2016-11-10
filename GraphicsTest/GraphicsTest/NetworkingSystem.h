@@ -27,7 +27,7 @@ struct Command
   unsigned int ID;
   char data[64];
   Command() {}
-  Command(char c, unsigned int I, char d[64]) :comType(c), ID(I){ if (d == nullptr)return; for (unsigned i = 0; i < 8; ++i)data[i] = d[i]; }
+  Command(char c, unsigned int I, char d[64]) :comType(c), ID(I){ if (d == nullptr)return; for (unsigned i = 0; i < 64; ++i)data[i] = d[i]; }
 };
 
 struct UDPConnection
