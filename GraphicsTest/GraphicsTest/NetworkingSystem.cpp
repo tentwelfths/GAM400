@@ -449,7 +449,7 @@ void NetworkingSystem::AddCommand(int connectionNumber, char com, unsigned int I
   connections[connectionNumber].commandsSend.push({ com, ID, data});
 }
 
-std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char data[8], int num)
+std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char data[64], int num)
 {
   std::string temp;
   switch (com){
