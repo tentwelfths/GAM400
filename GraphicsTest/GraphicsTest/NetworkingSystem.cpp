@@ -445,7 +445,7 @@ void NetworkingSystem::AddCommand(char com, unsigned int ID, char data[8])
   }
 }
 
-void NetworkingSystem::AddCommand(int connectionNumber, char com, unsigned int ID, char data[8])
+void NetworkingSystem::AddCommand(int connectionNumber, char com, unsigned int ID, char data[64])
 {
   connections[connectionNumber].commandsSend.push({ com, ID, data});
 }
