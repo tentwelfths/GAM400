@@ -555,10 +555,10 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
     {
       temp += static_cast<char *>(static_cast<void *>(&(temp)))[k];
     }
-    temp += (char)strlen(msg->name);
+    temp += (char)name.length();
     std::cout << name << " " << name.length() << std::endl;
-    for (int i = 0; i < strlen(msg->name); ++i){
-      temp += msg->name[i];
+    for (int i = 0; i < name.length(); ++i){
+      temp += name[i];
     }
   }
     break;

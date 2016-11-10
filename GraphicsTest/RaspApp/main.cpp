@@ -480,7 +480,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         for(int i = 0; i < length; ++i){
           name += command[pos++];
         }
-        std::cout<<name<<std::endl;
+        std::cout<<(int)length<<" "<<name<<std::endl;
         a->Play3DSoundEffect(name, sourcePosX, sourcePosY, g->mMainCamera.x, g->mMainCamera.y);
       }
       break;
