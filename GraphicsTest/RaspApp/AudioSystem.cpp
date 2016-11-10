@@ -41,12 +41,12 @@ AudioSystem::AudioSystem()
   attributes.up.z = 1.0f;
   ERRCHECK(system->setListenerAttributes(0, &attributes));
 
-  FMOD::Studio::EventInstance* eventInstance = NULL;
-  ERRCHECK(mSounds["Music"].desc->createInstance(&eventInstance));
-  
-  ERRCHECK(eventInstance->start());
-  // Release will clean up the instance when it completes
-  ERRCHECK(eventInstance->release());
+  //FMOD::Studio::EventInstance* eventInstance = NULL;
+  //ERRCHECK(mSounds["Music"].desc->createInstance(&eventInstance));
+  //
+  //ERRCHECK(eventInstance->start());
+  //// Release will clean up the instance when it completes
+  //ERRCHECK(eventInstance->release());
 
 }
 void AudioSystem::Update(double dt)
@@ -89,9 +89,6 @@ void AudioSystem::CreateEventDescriptions(std::string filename)
     std::cout<<line<<std::endl;
     mSounds.insert({line, SoundInstance(temp)});
   }
-  for (auto iter : mSounds){
-    std::cout << iter.first << std::endl;
-  }
 }
 
 void AudioSystem::PlaySoundEffect(std::string name)
@@ -99,6 +96,10 @@ void AudioSystem::PlaySoundEffect(std::string name)
   FMOD::Studio::EventInstance* eventInstance = NULL;
   if(mSounds.find(name) == mSounds.end()){
     std::cout<<"COULDNT FIND " <<name<<std::endl;
+    
+  for (auto iter : mSounds){
+    std::cout << iter.first << std::endl;
+  }
   }
   ERRCHECK(mSounds[name].desc->createInstance(&eventInstance));
 
@@ -110,6 +111,13 @@ void AudioSystem::PlaySoundEffect(std::string name)
 void AudioSystem::Play3DSoundEffect(std::string name, float x1, float y1, float x2, float y2)
 {
   FMOD::Studio::EventInstance* eventInstance = NULL;
+  if(mSounds.find(name) == mSounds.end()){
+    std::cout<<"COULDNT FIND " <<name<<std::endl;
+    
+    for (auto iter : mSounds){
+      std::cout << iter.first << std::endl;
+    }
+  }
   ERRCHECK(mSounds[name].desc->createInstance(&eventInstance));
   FMOD_3D_ATTRIBUTES attributes = { { 0 } };
   attributes.forward.z = 1.0f;
