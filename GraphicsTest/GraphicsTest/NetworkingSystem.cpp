@@ -545,12 +545,12 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
     temp += "*";
     auto * msg = reinterpret_cast<Play3DSoundMessage *>(data);
     std::string name = msg->name;
-    float tempNum = 5;// msg->source->mPositionX();
+    float tempNum = msg->source->mPositionX();
     for (int k = 0; k < sizeof(float); ++k)
     {
       temp += static_cast<char *>(static_cast<void *>(&(tempNum)))[k];
     }
-    tempNum = 8;// msg->source->mPositionY();
+    tempNum = msg->source->mPositionY();
     for (int k = 0; k < sizeof(float); ++k)
     {
       temp += static_cast<char *>(static_cast<void *>(&(tempNum)))[k];
