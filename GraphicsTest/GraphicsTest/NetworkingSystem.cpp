@@ -531,6 +531,7 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
 
   case '&': //play sound effect
   {
+    temp += "&";
     auto * msg = reinterpret_cast<PlaySoundMessage *>(data);
     temp += (char)strlen(msg->name);
     for (int i = 0; i < strlen(msg->name); ++i){
@@ -540,6 +541,7 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
     break;
   case '*': //play 3D sound effect
   {
+    temp += "*";
     auto * msg = reinterpret_cast<Play3DSoundMessage *>(data);
     float temp = msg->source->mPositionX();
     for (int k = 0; k < sizeof(float); ++k)
