@@ -184,7 +184,7 @@ std::string unfinished = "";
 unsigned short lastFrameSeen = 0;
 
 #include <bitset>
-void ProcessResponse(int& pos, int & clientNumber, const char * command, int len, GraphicsSystem * g, NetworkingSystem * n)
+void ProcessResponse(int& pos, int & clientNumber, const char * command, int len, GraphicsSystem * g, NetworkingSystem * n, AudioSystem * a)
 {
   //for (int i = 0; i < len; ++i)
   //{
@@ -458,9 +458,31 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '&': //play sound effect
       {
         ++pos;
+        const char length = command[pos++];
+        std::string name;
+        for(int i = 0; i < length; ++i){
+          name += command[pos++];
+        }
+        a->PlaySoundEffect(name);
       }
       break;
-
+      case '*':
+      {
+        ++pos;
+        const float sourcePosX = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        pos += sizeof(float);
+        const float sourcePosY = *reinterpret_cast<const float*>(&(command[pos]));
+        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        pos += sizeof(float);
+        const char length = command[pos++];
+        std::string name;
+        for(int i = 0; i < length; ++i){
+          name += command[pos++];
+        }
+        a->Play3DSoundEffect(name, sourcePosX, sourcePosY, g->mMainCamera.x, g->mMainCamera.y);
+      }
+      break;
     }
   }
 }
@@ -647,7 +669,7 @@ int main ( int argc, char *argv[] )
       if(netResult > 0)
       {
         //std::cout<<"netResult: "<<netResult<<std::endl;
-        ProcessResponse(pos, clientNumber, buf, netResult, &g, &n);
+        ProcessResponse(pos, clientNumber, buf, netResult, &g, &n, &a);
       }
     }while(netResult > 0);
     //gettimeofday ( &tEnd , &tz );

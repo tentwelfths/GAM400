@@ -1,8 +1,9 @@
 #pragma once
 
-enum class MessageType{COLLISIONSTARTED, COLLISIONENDED, CHANGELEDS, CAMERAMOVE, CHANGETEXTURE};
+enum class MessageType{COLLISIONSTARTED, COLLISIONENDED, CHANGELEDS, CAMERAMOVE, CHANGETEXTURE, PLAYSOUND, PLAY3DSOUND};
 
 class Object;
+class TransformComponent;
 
 struct IMessage{
   IMessage(MessageType t) : type(t){}
@@ -35,4 +36,15 @@ struct CameraMoveMessage {
 struct ChangeTextureMessage {
   ChangeTextureMessage(){}
   unsigned int objID;
+};
+
+struct PlaySoundMessage {
+  PlaySoundMessage(){}
+  char name[48];
+};
+
+struct Play3DSoundMessage {
+  Play3DSoundMessage(){}
+  TransformComponent * source,* listener;
+  char name[48];
 };

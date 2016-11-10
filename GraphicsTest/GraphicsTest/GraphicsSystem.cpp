@@ -325,6 +325,7 @@ void GraphicsSystem::Update(double dt)
       --i;
       continue;
     }
+    if (iter->mParent()->mVisibility[4] == false) continue;
     mComponents_[i]->Update(dt);
     TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
     glm::mat4 Position;

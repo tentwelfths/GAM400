@@ -199,6 +199,16 @@ void NetworkingSystem::Update(double dt)
       AddCommand('$', msg->objID);
       break;
     }
+    case MessageType::PLAYSOUND:{
+      //auto * msg = reinterpret_cast<PlaySoundMessage *>(iter.data);
+      AddCommand('&', 0, iter.data);
+      break;
+    }
+    case MessageType::PLAY3DSOUND:{
+      //auto * msg = reinterpret_cast<Play3DSoundMessage *>(iter.data);
+      AddCommand('*', 0, iter.data);
+      break;
+    }
     }
   }
   mMessages_.clear();
@@ -521,7 +531,30 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
 
   case '&': //play sound effect
   {
-
+    auto * msg = reinterpret_cast<PlaySoundMessage *>(data);
+    temp += (char)strlen(msg->name);
+    for (int i = 0; i < strlen(msg->name); ++i){
+      temp += msg->name[i];
+    }
+  }
+    break;
+  case '*': //play 3D sound effect
+  {
+    auto * msg = reinterpret_cast<Play3DSoundMessage *>(data);
+    float temp = msg->source->mPositionX();
+    for (int k = 0; k < sizeof(float); ++k)
+    {
+      temp += static_cast<char *>(static_cast<void *>(&(temp)))[k];
+    }
+    temp = msg->source->mPositionY();
+    for (int k = 0; k < sizeof(float); ++k)
+    {
+      temp += static_cast<char *>(static_cast<void *>(&(temp)))[k];
+    }
+    temp += (char)strlen(msg->name);
+    for (int i = 0; i < strlen(msg->name); ++i){
+      temp += msg->name[i];
+    }
   }
     break;
   }

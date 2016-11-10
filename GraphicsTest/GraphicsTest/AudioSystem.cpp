@@ -40,8 +40,22 @@ bool AudioSystem::Initialize()
 }
 void AudioSystem::Update(double dt)
 {
-
-
+  for (auto iter : mMessages_){
+    switch (iter.type){
+    case MessageType::PLAYSOUND:{
+      auto * msg = reinterpret_cast<PlaySoundMessage *>(iter.data);
+      PlaySoundEffect(msg->name);
+      break;
+    }
+    case MessageType::PLAY3DSOUND:{
+      auto * msg = reinterpret_cast<Play3DSoundMessage *>(iter.data);
+      
+      Play3DSoundEffect(msg->name, msg->source, msg->listener);
+      break;
+    }
+    }
+  }
+  mMessages_.clear();
   system->update();
 }
 void AudioSystem::Shutdown()

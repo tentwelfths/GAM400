@@ -25,7 +25,7 @@ struct Command
 {
   char comType;
   unsigned int ID;
-  char data[8];
+  char data[64];
   Command() {}
   Command(char c, unsigned int I, char d[8]) :comType(c), ID(I){ if (d == nullptr)return; for (unsigned i = 0; i < 8; ++i)data[i] = d[i]; }
 };
@@ -61,8 +61,8 @@ public:
   void Update(double dt);
   void Shutdown();
   void RegisterComponent(NetworkingComponent * comp);
-  void AddCommand(char type, unsigned int ID, char data[8] = {0});
-  void AddCommand(int connectionNumber, char type, unsigned int ID, char data[8] = { 0 });
+  void AddCommand(char type, unsigned int ID, char data[64] = {0});
+  void AddCommand(int connectionNumber, char type, unsigned int ID, char data[64] = { 0 });
 private:
   Connection sockets[NUMCLIENTS];
   WSADATA wsaData;

@@ -8,6 +8,7 @@
 #include "TransformComponent.h"
 #include "BoxColliderComponent.h"
 #include "PCControllerComponent.h"
+#include "MessagingSystem.h"
 
 KnifeComponent::KnifeComponent() : GameLogicComponent(GameLogicType::KNIFE), offset(0.0, 0.0, 0.0), attackTimer(0.5f), timeTillNextAttack(0.5f), dist(20.0f)
 {
@@ -53,6 +54,14 @@ void KnifeComponent::Update(double dt)
         //offset *= dist;
         box->GetBody()->SetLinearVelocity(check);
         timeTillNextAttack = 0.0f;
+        IMessage col(MessageType::PLAY3DSOUND);
+        Play3DSoundMessage * msgData = reinterpret_cast<Play3DSoundMessage *>(col.data);
+        strcpy(msgData->name, "Shoot");
+        msgData->listener = trans;
+        msgData->source = trans;
+        MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+        m->SendMessageToSystem(col, "NetworkingSystem");
+        m->SendMessageToSystem(col, "AudioSystem");
       }
     }
   }
@@ -66,6 +75,7 @@ void KnifeComponent::Update(double dt)
     box->GetBody()->SetLinearVelocity(b2Vec2(0.0f, 0.0f));
   }
   timeTillNextAttack += dt;
+
 }
 
 void KnifeComponent::Shutdown()
