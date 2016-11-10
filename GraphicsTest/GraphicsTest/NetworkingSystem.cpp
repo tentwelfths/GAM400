@@ -205,7 +205,8 @@ void NetworkingSystem::Update(double dt)
       break;
     }
     case MessageType::PLAY3DSOUND:{
-      //auto * msg = reinterpret_cast<Play3DSoundMessage *>(iter.data);
+      auto * msg = reinterpret_cast<Play3DSoundMessage *>(iter.data);
+      std::cout << msg->name << std::endl;
       AddCommand('*', 0, iter.data);
       break;
     }
