@@ -212,14 +212,14 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
-        if(textureID == 3){
-          std::cout<<"Found player " << objectID<<std::endl;
-          pID = objectID;
-        }
-        else if(objectID == pID){
-          std::cout<<"GOT LOAD MESSAGE" << objectID <<std::endl;
-          std::cout<<"GOT A FUCKIN DUPE! "<<textureID<<std::endl;
-        }
+        //if(textureID == 3){
+        //  //std::cout<<"Found player " << objectID<<std::endl;
+        //  pID = objectID;
+        //}
+        //else if(objectID == pID){
+        //  //std::cout<<"GOT LOAD MESSAGE" << objectID <<std::endl;
+        //  //std::cout<<"GOT A FUCKIN DUPE! "<<textureID<<std::endl;
+        //}
         //std::string textureName = "";
         //for(unsigned char i = 0; i < textureNameLength; ++i){
         //  textureName += (char)command[pos++];
@@ -232,7 +232,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        std::cout<<" zPos: "<< zPos <<std::endl;
+        //std::cout<<" zPos: "<< zPos <<std::endl;
         pos += sizeof(float);
         const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
@@ -297,7 +297,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        std::cout<<" zPos: "<< zPos <<std::endl;
+        //std::cout<<" zPos: "<< zPos <<std::endl;
         pos += sizeof(float);
         const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
@@ -344,9 +344,9 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         
-        std::cout<<objectID<<std::endl;
+        //std::cout<<objectID<<std::endl;
         if(pID == objectID){
-          std::cout<<"GOT DED MESSAGE -- PLAYER DED???????"<<std::endl;
+          //std::cout<<"GOT DED MESSAGE -- PLAYER DED???????"<<std::endl;
         }
         if(gObjectMap.find(objectID) != gObjectMap.end()){
           gObjectMap[objectID]->inUse = false;
@@ -379,7 +379,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        std::cout<<" zPos: "<< zPos <<std::endl;
+        //std::cout<<" zPos: "<< zPos <<std::endl;
         pos += sizeof(float);
         const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
@@ -393,7 +393,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         if(temp != gObjectMap.end()){
           if(isVis == '0'){
             (temp)->second->inUse = false;
-            std::cout<<"Something is invisible"<<std::endl;
+            //std::cout<<"Something is invisible"<<std::endl;
           }
           else{
             (temp)->second->inUse = true;
@@ -625,15 +625,15 @@ int main ( int argc, char *argv[] )
   //return 0;
   GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");
-  std::cout<<"CONNECTED"<<std::endl;
+  //std::cout<<"CONNECTED"<<std::endl;
   int res = n.Send(std::string("+" + myID).c_str(), 2);
   //std::cout<<res<<std::endl;
   //return 0;
   g.LoadTextures("../Assets/Textures.JSON");
 
-  for(auto & iter : g.mTextures){
-    std::cout<<iter.first<<"   "<<iter.second.name<<std::endl;
-  }
+  //for(auto & iter : g.mTextures){
+  // // std::cout<<iter.first<<"   "<<iter.second.name<<std::endl;
+  //}
   
   bool toSend = false;
   char buf[1024] = {0};
@@ -718,7 +718,7 @@ int main ( int argc, char *argv[] )
     //std::cout<<deltatime<<std::endl;
     if(deltatime >= 1.0f/30.f)
     {
-      std::cout<<"Frame took too long ";
+      //std::cout<<"Frame took too long ";
       
     }
     if(ctrl_c_pressed)

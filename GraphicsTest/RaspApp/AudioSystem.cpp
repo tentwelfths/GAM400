@@ -89,6 +89,9 @@ void AudioSystem::CreateEventDescriptions(std::string filename)
     std::cout<<line<<std::endl;
     mSounds.insert({line, SoundInstance(temp)});
   }
+  for (auto iter : mSounds){
+    std::cout << iter.first << std::endl;
+  }
 }
 
 void AudioSystem::PlaySoundEffect(std::string name)
