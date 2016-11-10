@@ -97,6 +97,9 @@ void AudioSystem::CreateEventDescriptions(std::string filename)
 void AudioSystem::PlaySoundEffect(std::string name)
 {
   FMOD::Studio::EventInstance* eventInstance = NULL;
+  if(mSounds.find(name) == mSounds.end()){
+    std::cout<<"COULDNT FIND " <<name<<std::endl;
+  }
   ERRCHECK(mSounds[name].desc->createInstance(&eventInstance));
 
   ERRCHECK(eventInstance->start());
