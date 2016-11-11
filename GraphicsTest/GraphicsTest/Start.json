@@ -6,7 +6,7 @@
 		"mPosition_": {
 			x: 0.227037,
 			y: -4.476879,
-			z: 1.000000
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -140,6 +140,34 @@
 	StartManagerComponent: {
 		}
 	},
+	File: Cone.json
+	Name: Cone
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 4.539537,
+			y: 2.460621,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 5.000000,
+			y: 5.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		},
+	SpriteComponent: {
+		"mTextureName": Cone.png
+		},
+	ConeComponent: {
+		}
+	},
 	File: Coneman.json
 	Name: Coneman
 	Object: {
@@ -147,12 +175,12 @@
 		"mPosition_": {
 			x: -0.460463,
 			y: 2.898121,
-			z: 1.000000
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
 			y: 1.000000,
-			z: 1.000000
+			z: 5.000000
 			},
 		"mRotation_": {
 			x: 0.000000,
@@ -165,12 +193,12 @@
 		},
 	EditorComponent: {
 		},
-	GunControllerComponent: {
+	ConeControllerComponent: {
 		"speed": 5.000000,
 		"playerID": 0,
 		"health": 2,
 		"killable": false,
-		"controllerID": 1,
+		"controllerID": 0,
 		"bulletSpeed": 20.000000
 		},
 	BoxColliderComponent: {
