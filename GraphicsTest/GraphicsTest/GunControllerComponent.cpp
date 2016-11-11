@@ -19,6 +19,7 @@ GunControllerComponent::GunControllerComponent() : mSpreadOrRapid(false), mBigOr
 
 bool GunControllerComponent::Initialize()
 {
+  ControllerControllerComponent::Initialize();
   return true;
 }
 
