@@ -273,6 +273,7 @@ void NetworkingSystem::Update(double dt)
       //std::cout <<command.length() <<"    " << command << std::endl;
       if (command[0] == '+')
       {
+        std::cout << "GOT A DUDE" << std::endl;
         connections[i].update = (i % 2) ? true :false;
         if (openConnections.size() == 0){
           connections[i].clientNumber = clientCount;
@@ -354,7 +355,7 @@ void NetworkingSystem::Update(double dt)
           input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f, knobDelta);
         }
         else{
-          std::cout << "Updating controller" << connections[i].playerNum << std::endl;
+          std::cout << "Updating controller" << (int)connections[i].playerNum << std::endl;
           std::vector<int> buttons;
           buttons.push_back(0);
           std::vector<bool> state;
