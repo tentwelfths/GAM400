@@ -242,17 +242,17 @@ void JSONTranslator::SaveLevelToFile(std::string filename, ObjectSystem * objSys
   int scope = 1;
   for (auto iter = objSys->mObjects.begin(); iter != objSys->mObjects.end(); ++iter)
   {
-    if (iter != objSys->mObjects.begin()){
-      file << "," << std::endl;
-    }
+    //if (iter != objSys->mObjects.begin()){
+    //  file << "," << std::endl;
+    //}
     auto node = iter->second.head;
     while (node){
       SerializeObject(node->value,file,1);
       node = node->next;
-      if (node){
+      //if (node){
         file << "," << std::endl;
-      }
+      //}
     }
   }
-  file <<std::endl << "}";
+  file  << "}";
 }
