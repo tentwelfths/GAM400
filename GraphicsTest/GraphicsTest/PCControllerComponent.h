@@ -14,6 +14,8 @@ class PCControllerComponent : public PlayerControllerComponent
   private:
     int curCam;
     float sprintSpeed;
+    float sprintTime;
+    float spawnTime;
     bool isSprinting;
     Object * mHealthBar;
 };

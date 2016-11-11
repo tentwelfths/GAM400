@@ -181,6 +181,7 @@
     <ClCompile Include="Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="BoxColliderComponent.cpp" />
     <ClCompile Include="BulletComponent.cpp" />
+    <ClCompile Include="CloudComponent.cpp" />
     <ClCompile Include="ConeComponent.cpp" />
     <ClCompile Include="ConeControllerComponent.cpp" />
     <ClCompile Include="ControllerCameraFollow.cpp" />
@@ -197,6 +198,7 @@
     <ClCompile Include="GoHomeComponent.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="GraphicsSystem.cpp" />
+    <ClCompile Include="GunControllerComponent.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="imgui_demo.cpp" />
     <ClCompile Include="imgui_draw.cpp" />
@@ -276,6 +278,7 @@
     <ClInclude Include="Box2D\Rope\b2Rope.h" />
     <ClInclude Include="BoxColliderComponent.h" />
     <ClInclude Include="BulletComponent.h" />
+    <ClInclude Include="CloudComponent.h" />
     <ClInclude Include="ConeComponent.h" />
     <ClInclude Include="ConeControllerComponent.h" />
     <ClInclude Include="ControllerCameraFollow.h" />
@@ -304,6 +307,7 @@
     <ClInclude Include="GoHomeComponent.h" />
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="GraphicsSystem.h" />
+    <ClInclude Include="GunControllerComponent.h" />
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />

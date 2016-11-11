@@ -7,8 +7,10 @@
 #include "Globals.h"
 #include "MessagingSystem.h"
 #include "ObjectSystem.h"
+#include "BulletComponent.h"
+#include "JSONTranslator.h"
 
-PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), curCam(0), sprintSpeed(2.0f), isSprinting(false)
+PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), curCam(0), sprintSpeed(2.0f), sprintTime(1.0f), spawnTime(0.125f), isSprinting(false)
 {
   AddMember(PCControllerComponent, sprintSpeed);
   mName_ = "PCControllerComponent";
@@ -29,6 +31,7 @@ void PCControllerComponent::Update(double dt)
   {
     auto * input = gCore->GetSystem(InputSystem);
     Movement(input);
+    sprintTime += dt;
     if (GetKillable())
     {
       for (auto iter : mParent()->mMessages_)
@@ -40,14 +43,14 @@ void PCControllerComponent::Update(double dt)
           {
             if (col->obj2->name == "Bullet")
             {
-              Damage(1);
+              Damage(col->obj2->GetComponent(BulletComponent)->GetDamage());
             }
           }
           else
           {
             if (col->obj1->name == "Bullet")
             {
-              Damage(1);
+              Damage(col->obj2->GetComponent(BulletComponent)->GetDamage());
             }
           }
         }
@@ -111,6 +114,18 @@ void PCControllerComponent::Movement(InputSystem* input)
   {
     if (input->isKeyPressed(GLFW_KEY_LEFT_SHIFT))
     {
+      if (sprintTime > spawnTime)
+      {
+        JSONTranslator j;
+        Object * b;
+        b = j.CreateObjectFromFile("CloudSprint.json");
+        b->Register();
+        b->Initialize();
+        auto* trans = mParent()->GetComponent(TransformComponent);
+        auto* bTrans = b->GetComponent(TransformComponent);
+        bTrans->mPosition(trans->mPosition());
+        sprintTime = 0.0f;
+      }
       isSprinting = true;
     }
     else

@@ -27,6 +27,7 @@
 #include "PCCameraFollow.h"
 #include "ControllerCameraFollow.h"
 #include "GoHomeComponent.h"
+#include "CloudComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -75,6 +76,7 @@ int main( void )
   RegisterComponentType(PCCameraFollow);
   RegisterComponentType(ControllerCameraFollow);
   RegisterComponentType(GoHomeComponent);
+  RegisterComponentType(CloudComponent);
 
   gCore->LoadLevel("Start.json");
 

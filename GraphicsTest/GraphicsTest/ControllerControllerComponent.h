@@ -13,7 +13,7 @@ public:
   virtual void Reload(InputSystem* input);
   float GetBulletSpeed() { return bulletSpeed; }
   int GetControllerID() { return controllerID; }
-private:
+protected:
   int currAmmo;
   int maxAmmo;
   float bulletSpeed;
