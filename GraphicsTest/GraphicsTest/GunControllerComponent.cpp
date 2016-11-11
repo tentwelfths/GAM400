@@ -7,6 +7,7 @@
 #include "JSONTranslator.h"
 #include "BoxColliderComponent.h"
 #include "BulletComponent.h"
+#include "MessagingSystem.h"
 
 #define RAPIDTIMER 0.7f
 #define PIFOURTH 0.78539816339
@@ -28,6 +29,52 @@ void GunControllerComponent::Update(double dt)
   Shoot(i, dt);
   Reload(i);
   SpecialFunctionality(i);
+  if (GetKillable())
+  {
+    for (auto iter : mParent()->mMessages_)
+    {
+      if (iter.type == MessageType::COLLISIONSTARTED)
+      {
+        CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+        if (col->obj1 == mParent())
+        {
+          if (col->obj2->name == "Knife")
+          {
+            Damage(1);
+            auto * sprite = mParent()->GetComponent(SpriteComponent);
+            sprite->SetTexture("rock.png");
+          }
+        }
+        else
+        {
+          if (col->obj1->name == "Knife")
+          {
+            Damage(1);
+            auto * sprite = mParent()->GetComponent(SpriteComponent);
+            sprite->SetTexture("rock.png");
+          }
+        }
+      }
+      //if (iter.type == MessageType::COLLISIONENDED)
+      //{
+      //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
+      //}
+    }
+    if (GetHealth() <= 0)
+    {
+      Kill();
+      auto * sprite = mParent()->GetComponent(SpriteComponent);
+      sprite->SetTexture("bolt.png");
+      auto * box = mParent()->GetComponent(BoxColliderComponent);
+      box->GetBody()->GetFixtureList()->SetSensor(true);
+      IMessage msg(MessageType::CHANGETEXTURE);
+      ChangeTextureMessage* msgData = reinterpret_cast<ChangeTextureMessage*>(msg.data);
+
+      msgData->objID = mParent()->ID;
+      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+      m->SendMessageToSystem(msg, "NetworkingSystem");
+    }
+  }
 }
 
 void GunControllerComponent::Shutdown()
@@ -70,6 +117,23 @@ void GunControllerComponent::Shoot(InputSystem* input, double dt)
           shotTimer = RAPIDTIMER;
         }
       }
+      IMessage msg(MessageType::CHANGELEDS);
+      ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
+      msgData->controllerNum = controllerID;
+      for (int i = 0; i < maxAmmo; ++i)
+      {
+        if (i < currAmmo)
+        {
+          msgData->state[i] = true;
+        }
+        else
+        {
+          msgData->state[i] = false;
+        }
+      }
+
+      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+      m->SendMessageToSystem(msg, "NetworkingSystem");
     }
   }
   shotTimer += dt;
