@@ -316,6 +316,10 @@ void GraphicsSystem::Update(double dt)
   //  0.0f, 1.f, 0.f, 0.0f,
   //  0.0f, 0.f, 1.f, 0.0f,
   //  x, y, z, 1.0f);
+  float maxCamX = mMainCamera.x + 10 * mMainCamera.zoom;
+  float maxCamY = mMainCamera.y + 6 * mMainCamera.zoom;
+  float minCamX = mMainCamera.x - 10 * mMainCamera.zoom;
+  float minCamY = mMainCamera.y - 6 * mMainCamera.zoom;
   for (unsigned i = 0; i < mComponents_.size(); ++i)
   {
     auto iter = mComponents_[i];
@@ -326,8 +330,18 @@ void GraphicsSystem::Update(double dt)
       continue;
     }
     if (iter->mParent()->mVisibility[4] == false) continue;
-    mComponents_[i]->Update(dt);
     TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
+    glm::vec3 pos = t->mPosition();
+    glm::vec3 scale = t->mScale();
+    float maxX = maxCamX + scale.x / 2.f;
+    float maxY = maxCamY + scale.y / 2.f;
+    float minX = minCamX - scale.x / 2.f;
+    float minY = minCamY - scale.y / 2.f;
+
+    if (!(pos.x < maxX && pos.y < maxY && pos.x > minX && pos.y > minY)){
+      continue;
+    }
+    mComponents_[i]->Update(dt);
     glm::mat4 Position;
     Position[3][0] = t->mPositionX();
     Position[3][1] = t->mPositionY();

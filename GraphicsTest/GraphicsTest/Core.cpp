@@ -65,7 +65,7 @@ void Core::Update(double dt)
 
   auto * frc = static_cast<FramerateController*>(mSystems["FramerateController"]);
   frc->StartFrame();
-  if (static_cast<ObjectSystem*>(mSystems["ObjectSystem"])->numObjects == 0){
+  if (unloading){
     unloading = false;
   }
   if (needToLoad != ""){
