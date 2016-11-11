@@ -112,26 +112,7 @@ void PCControllerComponent::Movement(InputSystem* input)
   b2Vec2 newVel(0.0f,0.0f);
   if (rigid)
   {
-    if (input->isKeyPressed(GLFW_KEY_LEFT_SHIFT))
-    {
-      if (sprintTime > spawnTime)
-      {
-        JSONTranslator j;
-        Object * b;
-        b = j.CreateObjectFromFile("CloudSprint.json");
-        b->Register();
-        b->Initialize();
-        auto* trans = mParent()->GetComponent(TransformComponent);
-        auto* bTrans = b->GetComponent(TransformComponent);
-        bTrans->mPosition(trans->mPosition());
-        sprintTime = 0.0f;
-      }
-      isSprinting = true;
-    }
-    else
-    {
-      isSprinting = false;
-    }
+
     if (input->isKeyPressed(GLFW_KEY_W))
     {
       newVel.y = GetSpeed();
@@ -147,6 +128,31 @@ void PCControllerComponent::Movement(InputSystem* input)
     else if (input->isKeyPressed(GLFW_KEY_D))
     {
       newVel.x = GetSpeed();
+    }
+    if (input->isKeyPressed(GLFW_KEY_LEFT_SHIFT))
+    {
+      if (sprintTime > spawnTime)
+      {
+        JSONTranslator j;
+        Object * b;
+        b = j.CreateObjectFromFile("CloudSprint.json");
+        b->Register();
+        b->Initialize();
+        auto* trans = mParent()->GetComponent(TransformComponent);
+        auto* bTrans = b->GetComponent(TransformComponent);
+        bTrans->mPosition(trans->mPosition());
+        float x = newVel.x;
+        float y = newVel.y;
+        float rad = atan2f(y, x);
+        rad = degrees(rad);
+        bTrans->mRotationZ(rad);
+        sprintTime = 0.0f;
+      }
+      isSprinting = true;
+    }
+    else
+    {
+      isSprinting = false;
     }
     if (rigid->GetBody())
     {
