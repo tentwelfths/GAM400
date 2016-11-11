@@ -17,25 +17,20 @@ bool EditorComponent::Initialize(){
   return true;
 }
 void EditorComponent::Update(double dt){
-  auto * input = gCore->GetSystem(InputSystem);
   auto * editor = gCore->GetSystem(EditorSystem);
-  auto * trans = mParent_->GetComponent(TransformComponent);
-  double mX = input->GetMouseX();
-  double mY = input->GetMouseY();
   if ((tile ^ editor->tileEditorActive)){
     return;
   }
-  if ((input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && editor->tileEditorActive) || (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_1) && !editor->tileEditorActive && !tile)){
-    
-    if (mX >= trans->mPositionX() - trans->mScaleX() / 2.f && mX <= trans->mPositionX() + trans->mScaleX() / 2.f
-      && mY >= trans->mPositionY() - trans->mScaleY() / 2.f && mY <= trans->mPositionY() + trans->mScaleY() / 2.f){
-      editor->Select(mParent_);
+  auto * input = gCore->GetSystem(InputSystem);
+  auto * trans = mParent_->GetComponent(TransformComponent);
+  double mX = input->GetMouseX();
+  double mY = input->GetMouseY();
+  if (mX >= trans->mPositionX() - trans->mScaleX() / 2.f && mX <= trans->mPositionX() + trans->mScaleX() / 2.f
+    && mY >= trans->mPositionY() - trans->mScaleY() / 2.f && mY <= trans->mPositionY() + trans->mScaleY() / 2.f){
+    if ((input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && editor->tileEditorActive) || (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_1) && !editor->tileEditorActive && !tile)){
+        editor->Select(mParent_);
     }
-  }
-  else if ((input->isKeyPressed(GLFW_MOUSE_BUTTON_2) && editor->tileEditorActive) || (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_2) && !editor->tileEditorActive && !tile)){
-    
-    if (mX >= trans->mPositionX() - trans->mScaleX() / 2.f && mX <= trans->mPositionX() + trans->mScaleX() / 2.f
-      && mY >= trans->mPositionY() - trans->mScaleY() / 2.f && mY <= trans->mPositionY() + trans->mScaleY() / 2.f){
+    else if ((input->isKeyPressed(GLFW_MOUSE_BUTTON_2) && editor->tileEditorActive) || (input->isKeyJustPressed(GLFW_MOUSE_BUTTON_2) && !editor->tileEditorActive && !tile)){
       mParent_->Destroy();
       editor->Select(nullptr);
     }
