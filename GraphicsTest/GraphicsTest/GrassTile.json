@@ -22,21 +22,5 @@ SpriteComponent: {
 	"mTextureName": Grass.png
 	},
 EditorComponent: {
-	},
-BoxColliderComponent: {
-	"mDensity": 1.000000,
-	"mHalfSize": {
-					x: 0.250000,
-					y: 0.250000,
-					z: 1.000000
-					},
-	"dynamicState": 2,
-	"mOffset": {
-					x: 0.000000,
-					y: 0.000000,
-					z: 0.000000
-					},
-	"mFriction": 1.000000,
-	"mGhost": true
 	}
 }
