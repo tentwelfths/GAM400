@@ -631,7 +631,8 @@ int main ( int argc, char *argv[] )
   GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");
   std::cout<<"CONNECTED"<<std::endl;
-  std::string hellomsg("+" + myID);
+  std::string hellomsg("+");
+  hellomsg += myID;
   int res = n.Send(hellomsg.c_str(), 2);
   std::cout<<hellomsg[0]<<(int)hellomsg[1]<<std::endl;
   //return 0;
