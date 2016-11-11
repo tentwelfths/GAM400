@@ -219,7 +219,7 @@
 		}
 	},
 	File: GrassTile.json
-	Name: Grass
+	Name: BigGrass
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
@@ -239,7 +239,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": Grass.png
+		"mTextureName": BigGrass.png
 		},
 	EditorComponent: {
 		}
