@@ -1,3 +1,4 @@
+#pragma once
 #include "PlayerControllerComponent.h"
 
 class ControllerControllerComponent : public PlayerControllerComponent

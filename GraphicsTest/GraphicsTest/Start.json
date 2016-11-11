@@ -92,34 +92,6 @@
 		"mTextureName": Knife.png
 		}
 	},
-	File: Cone.json
-	Name: Cone
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 4.539537,
-			y: 2.460621,
-			z: 2.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 5.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	EditorComponent: {
-		},
-	SpriteComponent: {
-		"mTextureName": Cone.png
-		},
-	ConeComponent: {
-		}
-	},
 	File: Goal.json
 	Name: Goal
 	Object: {
@@ -193,7 +165,7 @@
 		},
 	EditorComponent: {
 		},
-	ConeControllerComponent: {
+	GunControllerComponent: {
 		"speed": 5.000000,
 		"playerID": 0,
 		"health": 2,
