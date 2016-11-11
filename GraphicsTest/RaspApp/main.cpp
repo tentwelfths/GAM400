@@ -630,9 +630,9 @@ int main ( int argc, char *argv[] )
   //return 0;
   GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");
-  //std::cout<<"CONNECTED"<<std::endl;
+  std::cout<<"CONNECTED"<<std::endl;
   int res = n.Send(std::string("+" + myID).c_str(), 2);
-  //std::cout<<res<<std::endl;
+  std::cout<<res<<std::endl;
   //return 0;
   g.LoadTextures("../Assets/Textures.JSON");
 

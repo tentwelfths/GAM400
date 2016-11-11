@@ -18,14 +18,14 @@ AudioSystem::AudioSystem()
   ERRCHECK(system->getLowLevelSystem(&lowLevelSystem));
   int drivers = 0;
   lowLevelSystem->getNumDrivers(&drivers);
-  std::cout<<drivers<<std::endl;
-  FMOD_GUID guids[11];
-  for(int i = 0; i < drivers; ++i){
-    char name[128];
-    int systemrate, speakermodechannels;
-    lowLevelSystem->getDriverInfo(i, name, 128, &guids[i], &systemrate, NULL, &speakermodechannels);
-    std::cout<<i<<" " <<name<<std::endl;
-  }
+  //std::cout<<drivers<<std::endl;
+  //FMOD_GUID guids[11];
+  //for(int i = 0; i < drivers; ++i){
+  //  char name[128];
+  //  int systemrate, speakermodechannels;
+  //  lowLevelSystem->getDriverInfo(i, name, 128, &guids[i], &systemrate, NULL, &speakermodechannels);
+  //  std::cout<<i<<" " <<name<<std::endl;
+  //}
   ERRCHECK(lowLevelSystem->setDriver(2));
   ERRCHECK(lowLevelSystem->setOutput(FMOD_OUTPUTTYPE_ALSA));
   ERRCHECK(lowLevelSystem->setSoftwareFormat(0, FMOD_SPEAKERMODE_DEFAULT, 0));
