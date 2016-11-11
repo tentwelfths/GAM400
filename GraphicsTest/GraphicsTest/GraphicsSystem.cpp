@@ -367,6 +367,7 @@ void GraphicsSystem::Update(double dt)
 
         // Set our "myTextureSampler" sampler to user Texture Unit 0
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glUniform1i(mTextureID, 0);
       }
     }
