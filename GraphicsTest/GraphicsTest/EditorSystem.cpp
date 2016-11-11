@@ -98,6 +98,7 @@ void EditorSystem::Update(double dt){
     Object * obj = gCore->GetSystem(ObjectSystem)->CreateObjectFromFile(tileArchetype);
     obj->GetComponent(TransformComponent)->mPosition(round(input->GetMouseX()), round(input->GetMouseY()), obj->GetComponent(TransformComponent)->mPositionZ());
     obj->GetComponent(TransformComponent)->mScale(1,1,1);
+    obj->GetComponent(EditorComponent)->tile = true;
   }
 
   auto * g = gCore->GetSystem(GraphicsSystem);

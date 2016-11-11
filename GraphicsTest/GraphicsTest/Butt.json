@@ -1,0 +1,1523 @@
+{
+	File: DemoPlayer.json
+	Name: Player
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.227037,
+			y: -4.476879,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Monster.png
+		},
+	PCControllerComponent: {
+		"sprintSpeed": 2.000000,
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 10,
+		"killable": false
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
+		"dynamicState": 2,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Cone.json
+	Name: Cone
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 2.039537,
+			y: 2.898121,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 5.000000,
+			y: 5.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		},
+	SpriteComponent: {
+		"mTextureName": Cone.png
+		},
+	ConeComponent: {
+		}
+	},
+	File: blah
+	Name: Knife
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.227037,
+			y: -4.476879,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 0.500000,
+			y: 0.500000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 15.607824
+			}
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+				x: 0.250000,
+				y: 0.250000,
+				z: 1.000000
+				},
+		"dynamicState": 2,
+		"mOffset": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				},
+		"mFriction": 1.000000,
+		"mGhost": true
+		},
+	KnifeComponent: {
+		},
+	EditorComponent: {
+		},
+	SpriteComponent: {
+		"mTextureName": Knife.png
+		}
+	},
+	File: Coneman.json
+	Name: Coneman
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -0.460463,
+			y: 2.898121,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Coneman.png
+		},
+	EditorComponent: {
+		},
+	ConeControllerComponent: {
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 2,
+		"killable": false,
+		"controllerID": 0,
+		"bulletSpeed": 20.000000
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
+		"dynamicState": 2,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Goal.json
+	Name: Goal
+	Object: {
+	PCCameraFollow: {
+		},
+	TransformComponent: {
+		"mPosition_": {
+				x: 0.000000,
+				y: -1.000000,
+				z: 1.000000
+				},
+		"mScale_": {
+				x: 6.000000,
+				y: 4.000000,
+				z: 1.000000
+				},
+		"mRotation_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	ControllerCameraFollow: {
+		},
+	EditorComponent: {
+		},
+	SpriteComponent: {
+		"mTextureName": goal.png
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+								x: 3.000000,
+								y: 2.000000,
+								z: 1.000000
+								},
+		"dynamicState": 2,
+		"mOffset": {
+								x: 0.000000,
+								y: 0.000000,
+								z: 0.000000
+								},
+		"mFriction": 1.000000,
+		"mGhost": true
+		},
+	StartManagerComponent: {
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.000000,
+			y: -1.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.000000,
+			y: -2.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.000000,
+			y: -3.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: -4.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: -4.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 4.000000,
+			y: -4.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 4.000000,
+			y: -5.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: -5.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: -6.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: -6.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -0.000000,
+			y: -7.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -1.000000,
+			y: -7.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -1.000000,
+			y: -8.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -2.000000,
+			y: -8.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -3.000000,
+			y: -8.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -4.000000,
+			y: -8.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -5.000000,
+			y: -8.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -5.000000,
+			y: -7.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -5.000000,
+			y: -6.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -5.000000,
+			y: -5.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -5.000000,
+			y: -4.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -5.000000,
+			y: -3.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -7.000000,
+			y: 1.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -7.000000,
+			y: 2.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -6.000000,
+			y: 2.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -6.000000,
+			y: 1.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -6.000000,
+			y: 0.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -7.000000,
+			y: 0.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -8.000000,
+			y: 1.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -8.000000,
+			y: 2.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+	File: GrassTile.json
+	Name: Grass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -7.000000,
+			y: 3.000000,
+			z: -1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.250000,
+						y: 0.250000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": true
+		}
+	},
+}

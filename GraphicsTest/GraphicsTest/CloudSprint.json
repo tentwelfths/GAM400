@@ -19,7 +19,7 @@ TransformComponent: {
 	}
 },
 SpriteComponent: {
-	"mTextureName": sprintcloud.png
+	"mTextureName": FeetPrints.png
 },
 EditorComponent: {
 	},

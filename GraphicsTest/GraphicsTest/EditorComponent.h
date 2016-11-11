@@ -9,6 +9,7 @@ public:
   bool Initialize();
   void Update(double dt);
   void Shutdown();
+  bool tile;
 private:
 
 };
