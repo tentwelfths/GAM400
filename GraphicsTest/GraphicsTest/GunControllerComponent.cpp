@@ -88,7 +88,7 @@ void GunControllerComponent::Shoot(InputSystem* input, double dt)
   if (shotTimer >= shotCD)
   {
     b2Vec2 bulletVel(0.0f, 0.0f);
-    Joystick joy = input->getJoystick(0);
+    Joystick joy = input->getJoystick(controllerID);
     if (joy.x2Stick > 0.1 || joy.x2Stick < -0.1){
       bulletVel.x = joy.x2Stick;
     }
