@@ -366,6 +366,7 @@ void GraphicsSystem::Update(double dt)
         glBindTexture(GL_TEXTURE_2D, tex);
 
         // Set our "myTextureSampler" sampler to user Texture Unit 0
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glUniform1i(mTextureID, 0);
       }
     }
