@@ -267,13 +267,13 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         std::cout<<"CREATE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
-        std::cout<<"OID"<<std::end;
+        std::cout<<"OID"<<std::endl;
         char isVis = command[pos];
         ++pos;
-        std::cout<<"isVis"<<std::end;
+        std::cout<<"isVis"<<std::endl;
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
-        std::cout<<"TID"<<std::end;
+        std::cout<<"TID"<<std::endl;
         //std::string textureName = "";
         //for(unsigned char i = 0; i < textureNameLength; ++i){
         //  textureName += (char)command[pos++];
@@ -296,7 +296,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         pos += sizeof(float);
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
-        std::cout<<"PosScaRot"<<std::end;
+        std::cout<<"PosScaRot"<<std::endl;
         pos += sizeof(float);
         if(gObjects[(int)zPos].find(objectID) == gObjects[(int)zPos].end())
         {
@@ -304,7 +304,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
           gObjects[(int)zPos].insert({objectID, obj});
           gObjectMap.insert({objectID, obj});
         }
-        std::cout<<"OCreated"<<std::end;
+        std::cout<<"OCreated"<<std::endl;
         Object * temp = gObjects[(int)zPos][objectID];
 
         temp->position[0] = xPos;
@@ -314,7 +314,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->scale[1] = ySca;
         temp->rotation[2] = rot;
         temp->textureID = textureID;
-        std::cout<<"OSetup"<<std::end;
+        std::cout<<"OSetup"<<std::endl;
         if(isVis == '0'){
           (temp)->inUse = false;
         }
@@ -328,7 +328,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
           tempstring += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
         } 
         n->Send(tempstring.data(), tempstring.length());
-        std::cout<<"CreateAcks"<<std::end;
+        std::cout<<"CreateAcks"<<std::endl;
       }
       break;
       case '%': //Object died
