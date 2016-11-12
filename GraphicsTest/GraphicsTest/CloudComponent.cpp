@@ -17,7 +17,7 @@ void CloudComponent::Update(double dt)
 {
   if (lifeTime < 0)
   {
-    mParent()->dead = true;
+    mParent()->Destroy();
   }
   lifeTime -= dt;
 }

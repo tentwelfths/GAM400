@@ -19,7 +19,7 @@ void BulletComponent::Update(double dt)
   currTime += dt;
   if (currTime > lifeTime)
   {
-    mParent()->dead = true;
+    mParent()->Destroy();
   }
   for (auto iter : mParent()->mMessages_)
   {
@@ -51,7 +51,7 @@ void BulletComponent::Update(double dt)
     contactDeathTime += dt;
     if (contactDeathTime > timeTillDead)
     {
-      mParent()->dead = true;
+      mParent()->Destroy();
     }
   }
 }
