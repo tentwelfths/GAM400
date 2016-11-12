@@ -212,18 +212,6 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
 
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
-        //if(textureID == 3){
-        //  //std::cout<<"Found player " << objectID<<std::endl;
-        //  pID = objectID;
-        //}
-        //else if(objectID == pID){
-        //  //std::cout<<"GOT LOAD MESSAGE" << objectID <<std::endl;
-        //  //std::cout<<"GOT A FUCKIN DUPE! "<<textureID<<std::endl;
-        //}
-        //std::string textureName = "";
-        //for(unsigned char i = 0; i < textureNameLength; ++i){
-        //  textureName += (char)command[pos++];
-        //}
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
@@ -276,6 +264,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '`': // Object created. 
       {
         ++pos;
+        std::cout<<"CREATE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         
@@ -341,6 +330,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '%': //Object died
       {
         ++pos;
+        std::cout<<"DED"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         
