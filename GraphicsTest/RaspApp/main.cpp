@@ -243,7 +243,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->position[2] = zPos;
         temp->scale[0] = xSca;
         temp->scale[1] = ySca;
-        temp->rotation[2] = rot;
+        temp->rotation = rot;
         temp->textureID = textureID;
         if(isVis == '0'){
           (temp)->inUse = false;
@@ -274,10 +274,6 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
         pos += sizeof(unsigned char);
         std::cout<<"TID"<<std::endl;
-        //std::string textureName = "";
-        //for(unsigned char i = 0; i < textureNameLength; ++i){
-        //  textureName += (char)command[pos++];
-        //}
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
@@ -312,7 +308,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->position[2] = zPos;
         temp->scale[0] = xSca;
         temp->scale[1] = ySca;
-        temp->rotation[2] = rot;
+        temp->rotation = rot;
         temp->textureID = textureID;
         std::cout<<"OSetup"<<std::endl;
         if(isVis == '0'){
@@ -397,7 +393,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
           (temp)->second->position[2] = zPos;
           (temp)->second->scale[0] = xSca;
           (temp)->second->scale[1] = ySca;
-          (temp)->second->rotation[2] = rot;
+          (temp)->second->rotation = rot;
         }
         
       }
@@ -698,6 +694,7 @@ int main ( int argc, char *argv[] )
     for(unsigned i = 0; i < sizeof(unsigned short); ++i){
       inputstream += static_cast<char *>(static_cast<void *>(&y2))[i];
     }
+    inputstream += (a2d.GetChannelData(4) > 15) ? '0' : '1';
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     
     inputstream += threadInfo.counter;
