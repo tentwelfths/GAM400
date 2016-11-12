@@ -80,7 +80,7 @@ int main( void )
   RegisterComponentType(CloudComponent);
   RegisterComponentType(GunControllerComponent);
 
-  gCore->LoadLevel("DemoLevel.json");
+  gCore->LoadLevel("Start.json");
 
   while (true)
   {

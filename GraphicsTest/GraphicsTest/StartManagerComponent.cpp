@@ -42,7 +42,11 @@ void StartManagerComponent::Update(double dt)
     else if (iter.type == MessageType::COLLISIONENDED)
     {
       CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
-      if (col->obj1 != nullptr && col->obj1 == mParent())
+      if (col->obj1 != nullptr && col->obj2 != nullptr)
+      {
+
+      }
+      else if (col->obj1 != nullptr && col->obj1 == mParent())
       {
         if (col->obj2 != nullptr && (col->obj2->name == "Player" || col->obj2->name == "Coneman"))
         {
