@@ -127,7 +127,7 @@ void ControllerControllerComponent::SpecialFunctionality(InputSystem* input)
 
 void ControllerControllerComponent::Reload(InputSystem* input)
 {
-  if(input->isButtonJustPressed(controllerID, 0))
+  if(input->isButtonJustPressed(controllerID, 1))
   {
     IMessage msg(MessageType::CHANGELEDS);
     ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);

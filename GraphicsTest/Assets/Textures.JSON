@@ -117,3 +117,31 @@
 	Rows:1,
 	Cols:1
 },
+{
+	Name:WaterBarrel.png,
+	Index:17,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:riverpiece.png,
+	Index:18,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:sadface.png,
+	Index:19,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:rock.png,
+	Index:20,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
