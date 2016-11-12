@@ -352,6 +352,7 @@ void NetworkingSystem::Update(double dt)
           ++pos;
           std::vector<int> buttons;
           buttons.push_back(0);
+          buttons.push_back(1);
           std::vector<bool> state;
           state.push_back(button1);
           state.push_back(button2);
@@ -361,6 +362,7 @@ void NetworkingSystem::Update(double dt)
           std::cout << "Updating controller" << (int)connections[i].playerNum << std::endl;
           std::vector<int> buttons;
           buttons.push_back(0);
+          buttons.push_back(1);
           std::vector<bool> state;
           state.push_back(button1);
           state.push_back(button2);
