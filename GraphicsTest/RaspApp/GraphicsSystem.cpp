@@ -341,7 +341,7 @@ void GraphicsSystem::Draw()
     glUniformMatrix4fv(Projection_, 1, GL_FALSE, &Projection[0][0]);
     viewChanged = false;
   }
-  for(int i = 0; i < 50; ++i)
+  for(int i = 0; i < 10; ++i)
   {
     bool done = false;
     //if(gObjects[i][0].inUse == false)continue;
@@ -368,7 +368,7 @@ void GraphicsSystem::Draw()
 
       Scale[0][0] = iter->second->scale[0];
       Scale[1][1] = iter->second->scale[1];
-      
+
       Rotation = setUpRotationMatrix(Rotation, iter->second->rotation, 0, 0, 1);
       
       glUniformMatrix4fv(Position_worldspace, 1, GL_FALSE, &Position[0][0]);

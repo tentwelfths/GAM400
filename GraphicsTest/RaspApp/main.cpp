@@ -33,12 +33,12 @@ int prevState = 0;
 };
 //mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
 
-std::unordered_map<unsigned int, Object*> gObjects[50];
+std::unordered_map<unsigned int, Object*> gObjects[10];
 std::unordered_map<unsigned int, Object*> gObjectMap;
 
 unsigned int pID = -1;
 
-int count[50];
+int count[10];
 
 GPIOPin *gpioPins[10];
 
