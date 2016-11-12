@@ -50,7 +50,7 @@ void PCControllerComponent::Update(double dt)
           {
             if (col->obj1->name == "Bullet")
             {
-              Damage(col->obj2->GetComponent(BulletComponent)->GetDamage());
+              Damage(col->obj1->GetComponent(BulletComponent)->GetDamage());
             }
           }
         }

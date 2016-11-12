@@ -3,7 +3,7 @@
 #include "Object.h"
 #include "Globals.h"
 
-BulletComponent::BulletComponent() : GameLogicComponent(GameLogicType::BULLET), contact(false), pierce(false), homing(false), currTime(0.0f), contactDeathTime(0.0f), timeTillDead(0.05f), damage(1)
+BulletComponent::BulletComponent() : GameLogicComponent(GameLogicType::BULLET), contact(false), pierce(false), homing(false), currTime(0.0f), contactDeathTime(0.0f), timeTillDead(0.1f), damage(1)
 {
   AddMember(BulletComponent, lifeTime);
   mName_ = "BulletComponent";
@@ -19,7 +19,7 @@ void BulletComponent::Update(double dt)
   currTime += dt;
   if (currTime > lifeTime)
   {
-    mParent()->dead = true;
+    mParent()->Destroy();
   }
   for (auto iter : mParent()->mMessages_)
   {
@@ -51,7 +51,7 @@ void BulletComponent::Update(double dt)
     contactDeathTime += dt;
     if (contactDeathTime > timeTillDead)
     {
-      mParent()->dead = true;
+      mParent()->Destroy();
     }
   }
 }
