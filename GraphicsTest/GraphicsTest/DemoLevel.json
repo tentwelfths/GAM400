@@ -28,7 +28,7 @@
 		"sprintSpeed": 2.000000,
 		"speed": 5.000000,
 		"playerID": 0,
-		"health": 10,
+		"health": 6,
 		"killable": true
 		},
 	EditorComponent: {
@@ -11436,6 +11436,34 @@
 		},
 	SpriteComponent: {
 		"mTextureName": BigGrass.png
+		},
+	EditorComponent: {
+		}
+	},
+	File: GrassTile.json
+	Name: BigGrass
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 500.750000,
+			y: -0.200000,
+			z: 0.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Grass.png
+		},
+	LevelManagerComponent: {
 		},
 	EditorComponent: {
 		}

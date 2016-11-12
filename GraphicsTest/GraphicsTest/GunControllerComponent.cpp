@@ -142,7 +142,7 @@ void GunControllerComponent::Shoot(InputSystem* input, double dt)
 
 void GunControllerComponent::SpecialFunctionality(InputSystem* input)
 {
-  if (input->isButtonPressed(GetControllerID(),1))
+  if (input->isButtonPressed(GetControllerID(), 2))
   {
     mSpreadOrRapid = true;
   }
@@ -150,7 +150,7 @@ void GunControllerComponent::SpecialFunctionality(InputSystem* input)
   {
     mSpreadOrRapid = false;
   }
-  if (input->isButtonPressed(GetControllerID(), 2))
+  if (input->isButtonPressed(GetControllerID(), 3))
   {
     mBigOrPierce = true;
   }
@@ -158,7 +158,7 @@ void GunControllerComponent::SpecialFunctionality(InputSystem* input)
   {
     mBigOrPierce = false;
   }
-  if (input->isButtonPressed(GetControllerID(), 3))
+  if (input->isButtonPressed(GetControllerID(), 4))
   {
     mHomingOrDamage = true;
   }
@@ -194,10 +194,7 @@ Object* GunControllerComponent::CreateBullet(float x, float y)
   if (mHomingOrDamage)
   {
     b->GetComponent(BulletComponent)->SetHoming();
-  }
-  else
-  {
-    b->GetComponent(BulletComponent)->SetDamage(b->GetComponent(BulletComponent)->GetDamage());
+    b->GetComponent(BulletComponent)->SetDamage(1);
   }
   return b;
 }
