@@ -4,7 +4,7 @@
 #include "Core.h"
 #include "IComponent.h"
 
-Object::Object() : age(0), hasChanged(true)
+Object::Object() : age(0), hasChanged(true), save(true)
 {
   for (int i = 0; i < sizeof(mVisibility) /sizeof(mVisibility[0]); ++i){
     mVisibility[i] = true;

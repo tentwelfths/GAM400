@@ -31,6 +31,8 @@
 #include "GunControllerComponent.h"
 #include "ChargeObjective.h"
 #include "ObjectiveOne.h"
+#include "DamageLocatorComponent.h"
+#include "DamageArrowComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -83,6 +85,8 @@ int main( void )
   RegisterComponentType(GunControllerComponent);
   RegisterComponentType(ChargeObjective);
   RegisterComponentType(ObjectiveOne);
+  RegisterComponentType(DamageLocatorComponent);
+  RegisterComponentType(DamageArrowComponent);
 
   gCore->LoadLevel("Start.json");
 

@@ -1,3 +1,4 @@
+#pragma once
 #include "GameLogicComponent.h"
 
 class PlayerControllerComponent;

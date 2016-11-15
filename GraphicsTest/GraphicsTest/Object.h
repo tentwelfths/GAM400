@@ -41,6 +41,7 @@ public:
   std::vector<IMessage> mMessages_;
   bool mVisibility[5];
   ControllerCamera mCamera;
+  bool save;
 };
 
 template <typename T>

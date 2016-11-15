@@ -10,6 +10,7 @@
 #include "SpriteComponent.h"
 #include "MessagingSystem.h"
 #include "Messages.h"
+#include "DamageLocatorComponent.h"
 
 
 #define SOMENUMBER 1
@@ -32,6 +33,11 @@ bool ConeControllerComponent::Initialize()
   mPCPlayer = o->GetFirstItemByName("Player");
   mKnife = o->GetFirstItemByName("Knife");
   ControllerControllerComponent::Initialize();
+  bool vis[5] = { false, false, false, false, false };
+  vis[controllerID] = true;
+  auto * DLC = mParent()->GetComponent(DamageLocatorComponent);
+  if (DLC)
+    DLC->SetArrowVisibility(vis);
   return true;
 }
 
