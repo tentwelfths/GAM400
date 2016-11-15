@@ -15,6 +15,7 @@ bool PCCameraFollow::Initialize()
 {
   mTargets.push_back("Monster");
   mTargets.push_back("ObjectiveZone1");
+  mTargets.push_back("ObjectiveZone2");
   mTargetIndex = 0;
   return true;
 }
@@ -22,21 +23,35 @@ bool PCCameraFollow::Initialize()
 void PCCameraFollow::Update(double dt)
 {
   auto * input = gCore->GetSystem(InputSystem);
+  char dir = 0;
+
+  Object * target = nullptr;
+
   if (input->isKeyJustPressed(GLFW_KEY_Q)){
-    mTargetIndex = (mTargetIndex - 1) % mTargets.size();
+    dir = -1;
   }
   if (input->isKeyJustPressed(GLFW_KEY_E)){
-    mTargetIndex = (mTargetIndex - 1) % mTargets.size();
+    dir = 1;
   }
   auto * graphicsCamera = &gCore->GetSystem(GraphicsSystem)->mMainCamera;
-  if (mTargets[mTargetIndex] == "Monster"){
-    graphicsCamera->x = mParent()->GetComponent(TransformComponent)->mPositionX();
-    graphicsCamera->y = mParent()->GetComponent(TransformComponent)->mPositionY();
-  }
-  else{
-    Object * target = gCore->GetSystem(ObjectSystem)->GetFirstItemByName(mTargets[mTargetIndex]);
-    graphicsCamera->x = target->mCamera.x;
-    graphicsCamera->y = target->mCamera.y;
+  while (true){
+    mTargetIndex += dir;
+    if (mTargetIndex < 0) mTargetIndex += mTargets.size();
+    mTargetIndex = mTargetIndex % mTargets.size();
+
+    if (mTargets[mTargetIndex] == "Monster"){
+      graphicsCamera->x = mParent()->GetComponent(TransformComponent)->mPositionX();
+      graphicsCamera->y = mParent()->GetComponent(TransformComponent)->mPositionY();
+      break;
+    }
+    else{
+      target = gCore->GetSystem(ObjectSystem)->GetFirstItemByName(mTargets[mTargetIndex]);
+      if (target){
+        graphicsCamera->x = target->GetComponent(TransformComponent)->mPositionX();
+        graphicsCamera->y = target->GetComponent(TransformComponent)->mPositionY();
+        break;
+      }
+    }
   }
 }
 void PCCameraFollow::Shutdown()
