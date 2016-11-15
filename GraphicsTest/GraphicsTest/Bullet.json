@@ -39,5 +39,7 @@ BoxColliderComponent: {
 	},
 BulletComponent: {
 	"lifeTime": 3.000000
+	},
+EditorComponent:{
 	}
 }
