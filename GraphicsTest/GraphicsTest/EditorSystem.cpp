@@ -99,6 +99,7 @@ void EditorSystem::Update(double dt){
     obj->GetComponent(TransformComponent)->mPosition(round(input->GetMouseX()), round(input->GetMouseY()), obj->GetComponent(TransformComponent)->mPositionZ());
     obj->GetComponent(TransformComponent)->mScale(1,1,1);
     obj->GetComponent(EditorComponent)->tile = true;
+    obj->Initialize();
   }
 
   auto * g = gCore->GetSystem(GraphicsSystem);
@@ -290,6 +291,7 @@ void EditorSystem::SetTileEditor()
 void EditorSystem::CreateObjectByName(const char * name)
 {
   Object * obj = gCore->GetSystem(ObjectSystem)->CreateObjectFromFile(name);
+  obj->Initialize();
   if (obj != nullptr){
     auto * g = gCore->GetSystem(GraphicsSystem);
 
