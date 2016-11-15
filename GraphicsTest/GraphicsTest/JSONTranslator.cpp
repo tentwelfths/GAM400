@@ -97,6 +97,7 @@ Object * JSONTranslator::DeserializeObject(std::ifstream & file)
     DeserializeComponent(component, file);
     obj->AddComponent(component);
   }
+  obj->Register();
   return obj;
 
 }
