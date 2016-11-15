@@ -14,7 +14,7 @@ PCCameraFollow::PCCameraFollow() : GameLogicComponent(GameLogicType::CAMERA)
 bool PCCameraFollow::Initialize()
 {
   mTargets.push_back("Monster");
-  mTargets.push_back("Coneman");
+  mTargets.push_back("ObjectiveZone1");
   mTargetIndex = 0;
   return true;
 }

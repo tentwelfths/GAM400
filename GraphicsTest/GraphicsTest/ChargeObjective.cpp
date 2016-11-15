@@ -3,8 +3,10 @@
 #include "Object.h"
 #include "Globals.h"
 #include "InputSystem.h"
+#include "ObjectSystem.h"
+#include "LevelManagerComponent.h"
 
-ChargeObjective::ChargeObjective() : GameLogicComponent(GameLogicType::CHARGEOBJECTIVE), charge(0.0f), chargeCap(1.0f)
+ChargeObjective::ChargeObjective() : GameLogicComponent(GameLogicType::CHARGEOBJECTIVE), done(false), charge(0.0f), chargeCap(1.0f)
 {
   AddMember(ChargeObjective, chargeCap);
   for (auto iter : playersOn)
@@ -24,12 +26,29 @@ void ChargeObjective::Update(double dt)
   auto * input = gCore->GetSystem(InputSystem);
   for (int i = 0; i < 4; ++i)
   {
-    if (playersOn[i] && input->isButtonPressed(i,0))
+    if (playersOn[i] && input->isButtonPressed(i, 0))
     {
-      charge += dt;
+      if (charge < chargeCap)
+      {
+        charge += dt;
+      }
     }
   }
-
+  if (!done && charge > chargeCap)
+  {
+    done = true;
+    auto* o = gCore->GetSystem(ObjectSystem);
+    Object* manager = o->GetFirstItemByName("LevelManager");
+    auto* levelManager = manager->GetComponent(LevelManagerComponent);
+    for (int i = 0; i < 2; ++i)
+    {
+      if (levelManager->mObjectives[i] != true)
+      {
+        levelManager->mObjectives[i] = true;
+        break;
+      }
+    }
+  }
   for (auto iter : mParent()->mMessages_)
   {
     if (iter.type == MessageType::COLLISIONSTARTED)

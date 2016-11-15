@@ -10,6 +10,7 @@ public:
   void Shutdown();
 private:
   bool playersOn[4];
+  bool done;
   float charge;
   float chargeCap;
 };

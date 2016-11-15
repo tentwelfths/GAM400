@@ -9,6 +9,10 @@
 
 LevelManagerComponent::LevelManagerComponent() : GameLogicComponent(GameLogicType::START), mSpawn(false), mCountDown(0.0f), mTarget(1.5f)
 {
+  for (int i = 0; i < 2; ++i)
+  {
+    mObjectives[i] = false;
+  }
   mName_ = "LevelManagerComponent";
 }
 
@@ -22,9 +26,18 @@ bool LevelManagerComponent::Initialize()
 
 void LevelManagerComponent::Update(double dt)
 {
+  for (int i = 0; i < 2; ++i)
+  {
+    if (mObjectives[i] == false)
+    {
+      controlWins = false;
+      break;
+    }
+    controlWins = true;
+  }
   auto * thePCComponent = mPCPlayer->GetComponent(PCControllerComponent);
   auto * theConeComponent = mConeMan->GetComponent(ConeControllerComponent);
-  if ( thePCComponent->GetHealth() <=0 )
+  if ( controlWins )
   {
     SetBool(theConeComponent, false);
   }

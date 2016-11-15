@@ -25,7 +25,7 @@ bool ObjectiveOne::Initialize()
   auto * bColl = zone->GetComponent(BoxColliderComponent);
   auto * trans = mParent()->GetComponent(TransformComponent);
 
-  bTrans->mPosition(trans->mPosition());
+  bTrans->mPosition(trans->mPositionX(), trans->mPositionY(), trans->mPositionZ()-1.0f);
   b2Vec2 bodyVec(bTrans->mPositionX(), bTrans->mPositionY());
   bColl->GetBody()->SetTransform(bodyVec, 0);
 
