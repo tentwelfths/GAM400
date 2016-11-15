@@ -9,7 +9,7 @@
 EditorComponent::EditorComponent() : tile(false){
   EditorSystem * g = gCore->GetSystem(EditorSystem);
   g->RegisterComponent(this);
-
+  AddMember(EditorComponent, tile);
   mName_ = "EditorComponent";
 }
 bool EditorComponent::Initialize(){
