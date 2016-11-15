@@ -9,6 +9,7 @@
 #include "ObjectSystem.h"
 #include "BulletComponent.h"
 #include "JSONTranslator.h"
+#include "DamageLocatorComponent.h"
 
 PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), curCam(0), sprintSpeed(2.0f), sprintTime(1.0f), spawnTime(0.125f), isSprinting(false)
 {
@@ -22,6 +23,11 @@ bool PCControllerComponent::Initialize()
   mHealthBar = o->GetFirstItemByName("PCHealthBar");
   for (int i = 0; i < 4; ++i)
     mParent()->mVisibility[i] = false;
+
+  bool vis[5] = { false, false, false, false, true };
+  auto * DLC = mParent()->GetComponent(DamageLocatorComponent);
+  if (DLC)
+    DLC->SetArrowVisibility(vis);
   return true;
 }
 
