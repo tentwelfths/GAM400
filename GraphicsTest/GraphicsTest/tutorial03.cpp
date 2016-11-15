@@ -84,7 +84,7 @@ int main( void )
   RegisterComponentType(ChargeObjective);
   RegisterComponentType(ObjectiveOne);
 
-  gCore->LoadLevel("DemoLevel.json");
+  gCore->LoadLevel("Start.json");
 
   while (true)
   {
