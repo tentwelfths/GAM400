@@ -453,7 +453,8 @@ GLuint GraphicsSystem::LoadTexture(std::string filename)
   image = SOIL_load_image(filename.c_str(), &w, &h, 0, SOIL_LOAD_RGBA);
   if (!image)
   {
-    std::cout << "YA FUCKD UP" << std::endl;
+    std::cout << "YA FUCKD UP " << filename << std::endl;
+    return 0;
   }
   // pass this data to texID_
   glGenTextures(1, &texID);
