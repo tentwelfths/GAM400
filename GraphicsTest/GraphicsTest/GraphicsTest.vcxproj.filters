@@ -203,6 +203,8 @@
     <ClCompile Include="GoHomeComponent.cpp" />
     <ClCompile Include="GunControllerComponent.cpp" />
     <ClCompile Include="CloudComponent.cpp" />
+    <ClCompile Include="ChargeObjective.cpp" />
+    <ClCompile Include="ObjectiveOne.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -454,6 +456,8 @@
     <ClInclude Include="GoHomeComponent.h" />
     <ClInclude Include="GunControllerComponent.h" />
     <ClInclude Include="CloudComponent.h" />
+    <ClInclude Include="ChargeObjective.h" />
+    <ClInclude Include="ObjectiveOne.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

@@ -8490,6 +8490,1182 @@
 		"mGhost": false
 		}
 	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 18.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 17.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 16.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 12.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 11.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 10.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 9.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 8.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 7.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 6.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 5.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 4.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 3.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: 2.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -2.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -3.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -4.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -8.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -7.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -6.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -5.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -9.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -10.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -11.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -12.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -16.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -17.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Fence.json
+	Name: Fence
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 19.000000,
+			y: -18.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Fence.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
 	File: PCHealthBar.json
 	Name: PCHealthBar
 	Object: {
@@ -8521,13 +9697,181 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
+			x: -2.000000,
+			y: 12.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 7.000000,
+			y: 14.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 7.000000,
+			y: 9.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 1.000000,
+			y: 16.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
 			x: -7.000000,
 			y: 8.000000,
-			z: 1.000000
+			z: 2.000000
 			},
 		"mScale_": {
-			x: 5.000000,
-			y: 5.000000,
+			x: 1.000000,
+			y: 1.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -8544,8 +9888,8 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-						x: 2.500000,
-						y: 2.500000,
+						x: 0.500000,
+						y: 0.500000,
 						z: 1.000000
 						},
 		"dynamicState": 0,
@@ -8563,13 +9907,13 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 44.000000,
-			y: -13.000000,
-			z: 1.000000
+			x: -2.000000,
+			y: 4.000000,
+			z: 2.000000
 			},
 		"mScale_": {
-			x: 5.000000,
-			y: 5.000000,
+			x: 1.000000,
+			y: 1.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -8586,8 +9930,8 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-						x: 2.500000,
-						y: 2.500000,
+						x: 0.500000,
+						y: 0.500000,
 						z: 1.000000
 						},
 		"dynamicState": 0,
@@ -8605,13 +9949,97 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 33.000000,
-			y: 11.000000,
-			z: 1.000000
+			x: 0.000000,
+			y: -7.000000,
+			z: 2.000000
 			},
 		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: -3.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
 			x: 3.000000,
-			y: 3.000000,
+			y: 1.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -8628,8 +10056,8 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-						x: 1.500000,
-						y: 1.500000,
+						x: 0.500000,
+						y: 0.500000,
 						z: 1.000000
 						},
 		"dynamicState": 0,
@@ -8647,555 +10075,51 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 5.000000,
-			y: -12.000000,
-			z: 1.000000
+			x: 1.000000,
+			y: 7.000000,
+			z: 2.000000
 			},
 		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
 			x: 3.000000,
-			y: 3.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 1.500000,
-						y: 1.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -5.000000,
-			y: 15.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -5.000000,
-			y: 14.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 9.000000,
-			y: 9.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 5.000000,
-			y: 2.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 21.000000,
-			y: 12.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 27.000000,
-			y: 15.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 43.000000,
-			y: 3.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 42.000000,
-			y: -1.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 37.000000,
-			y: -6.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 36.000000,
-			y: -1.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 30.000000,
-			y: -6.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 29.000000,
-			y: -11.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 22.000000,
-			y: -14.000000,
-			z: 1.000000
+			y: 10.000000,
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -9236,764 +10160,8 @@
 	TransformComponent: {
 		"mPosition_": {
 			x: 12.000000,
-			y: -14.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -4.000000,
-			y: -3.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 11.000000,
-			y: 14.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 4.000000,
-			y: 16.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 2.000000,
-			y: 8.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -1.000000,
-			y: 4.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 3.000000,
-			y: -6.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -1.000000,
-			y: -7.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -1.000000,
-			y: -11.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 28.000000,
-			y: 9.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 28.000000,
-			y: 2.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 32.000000,
-			y: 3.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 16.000000,
-			y: -9.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 22.000000,
-			y: -9.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: -7.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 14.000000,
-			y: 4.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 14.000000,
-			y: 3.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 14.000000,
-			y: 0.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 14.000000,
 			y: -1.000000,
-			z: 1.000000
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -10033,1059 +10201,9 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 15.000000,
-			y: 4.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 17.000000,
-			y: 4.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 18.000000,
-			y: 4.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 18.000000,
-			y: 3.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 18.000000,
-			y: 0.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 18.000000,
-			y: -1.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 17.000000,
-			y: -1.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 15.000000,
-			y: -1.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 21.000000,
-			y: 4.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 20.000000,
-			y: 7.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 16.000000,
-			y: 7.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 16.000000,
-			y: -4.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 23.000000,
-			y: -5.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 8.000000,
-			y: -1.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: 4.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 11.000000,
-			y: -4.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 11.000000,
-			y: -1.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 23.000000,
-			y: -0.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 24.000000,
-			y: -2.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 20.000000,
-			y: -3.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 12.000000,
-			y: 7.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 14.000000,
-			y: -6.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 19.000000,
-			y: -5.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 21.000000,
-			y: 0.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 17.000000,
-			y: 14.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png
-		},
-	EditorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 38.000000,
+			x: 13.000000,
 			y: 6.000000,
-			z: 1.000000
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -11125,9 +10243,9 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 37.000000,
-			y: 16.000000,
-			z: 1.000000
+			x: 14.000000,
+			y: 15.000000,
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -11167,9 +10285,9 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 42.000000,
-			y: 8.000000,
-			z: 1.000000
+			x: 14.000000,
+			y: -10.000000,
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -11209,9 +10327,93 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -1.000000,
-			y: -16.000000,
+			x: 12.000000,
+			y: -14.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
 			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: -15.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 1.000000,
+			y: -11.000000,
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -11252,8 +10454,8 @@
 	TransformComponent: {
 		"mPosition_": {
 			x: -6.000000,
-			y: -10.000000,
-			z: 1.000000
+			y: -8.000000,
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -11293,9 +10495,9 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 38.000000,
-			y: 12.000000,
-			z: 1.000000
+			x: -7.000000,
+			y: -3.000000,
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -11335,9 +10537,261 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 24.000000,
-			y: 2.000000,
+			x: -4.000000,
+			y: -1.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
 			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -0.000000,
+			y: -3.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -7.000000,
+			y: 3.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -7.000000,
+			y: 16.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 1.000000,
+			y: -15.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 11.000000,
+			y: -7.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: -4.000000,
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -11378,8 +10832,92 @@
 	TransformComponent: {
 		"mPosition_": {
 			x: 9.000000,
-			y: 3.000000,
+			y: 2.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
 			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: 5.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Tree.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Tree.json
+	Name: Tree
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 11.000000,
+			y: 10.000000,
+			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
@@ -11419,8 +10957,8 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 17.750000,
-			y: -0.200000,
+			x: 10.000000,
+			y: -5.000000,
 			z: 0.000000
 			},
 		"mScale_": {
@@ -11466,6 +11004,96 @@
 	LevelManagerComponent: {
 		},
 	EditorComponent: {
+		}
+	},
+	File: ObjectiveOne.json
+	Name: ObjectiveOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 46.000000,
+			y: -15.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		},
+	ObjectiveOne: {
+		"zoneName": REPLACETHIS
+		},
+	SpriteComponent: {
+		"mTextureName": sadface.png
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
+		"dynamicState": 0,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ObjectiveZone.json
+	Name: ObjectiveZone
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 46.000000,
+			y: -15.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 2.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	ChargeObjective: {
+		"chargeCap": 1.000000
+		},
+	SpriteComponent: {
+		"mTextureName": whitesquare.png
+		},
+	EditorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+							x: 1.000000,
+							y: 1.000000,
+							z: 1.000000
+							},
+		"dynamicState": 0,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 1.000000,
+		"mGhost": true
 		}
 	},
 }

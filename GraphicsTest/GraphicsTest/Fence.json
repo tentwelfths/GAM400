@@ -1,5 +1,5 @@
-File: Tree.json
-Name: Tree
+File: Fence.json
+Name: Fence
 Object: {
 TransformComponent: {
 	"mPosition_": {
@@ -19,7 +19,7 @@ TransformComponent: {
 		}
 	},
 SpriteComponent: {
-	"mTextureName": Tree.png
+	"mTextureName": Fence.png
 	},
 EditorComponent: {
 	},

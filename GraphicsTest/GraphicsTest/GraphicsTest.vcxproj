@@ -181,6 +181,7 @@
     <ClCompile Include="Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="BoxColliderComponent.cpp" />
     <ClCompile Include="BulletComponent.cpp" />
+    <ClCompile Include="ChargeObjective.cpp" />
     <ClCompile Include="CloudComponent.cpp" />
     <ClCompile Include="ConeComponent.cpp" />
     <ClCompile Include="ConeControllerComponent.cpp" />
@@ -212,6 +213,7 @@
     <ClCompile Include="NetworkingComponent.cpp" />
     <ClCompile Include="NetworkingSystem.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectiveOne.cpp" />
     <ClCompile Include="ObjectSystem.cpp" />
     <ClCompile Include="OutOfBounds.cpp" />
     <ClCompile Include="PCCameraFollow.cpp" />
@@ -278,6 +280,7 @@
     <ClInclude Include="Box2D\Rope\b2Rope.h" />
     <ClInclude Include="BoxColliderComponent.h" />
     <ClInclude Include="BulletComponent.h" />
+    <ClInclude Include="ChargeObjective.h" />
     <ClInclude Include="CloudComponent.h" />
     <ClInclude Include="ConeComponent.h" />
     <ClInclude Include="ConeControllerComponent.h" />
@@ -325,6 +328,7 @@
     <ClInclude Include="NetworkingComponent.h" />
     <ClInclude Include="NetworkingSystem.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjectiveOne.h" />
     <ClInclude Include="ObjectSystem.h" />
     <ClInclude Include="OutOfBounds.h" />
     <ClInclude Include="PCCameraFollow.h" />

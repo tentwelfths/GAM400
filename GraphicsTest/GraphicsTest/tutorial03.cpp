@@ -29,6 +29,8 @@
 #include "GoHomeComponent.h"
 #include "CloudComponent.h"
 #include "GunControllerComponent.h"
+#include "ChargeObjective.h"
+#include "ObjectiveOne.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -79,8 +81,10 @@ int main( void )
   RegisterComponentType(GoHomeComponent);
   RegisterComponentType(CloudComponent);
   RegisterComponentType(GunControllerComponent);
+  RegisterComponentType(ChargeObjective);
+  RegisterComponentType(ObjectiveOne);
 
-  gCore->LoadLevel("Start.json");
+  gCore->LoadLevel("DemoLevel.json");
 
   while (true)
   {

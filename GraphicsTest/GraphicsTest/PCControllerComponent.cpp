@@ -86,7 +86,7 @@ void PCControllerComponent::Update(double dt)
 
       if (!xCheck || !yCheck)
       {
-        trans->mPosition(x, y, 0);
+        trans->mPosition(x, y, 2);
       }
     }
   }

@@ -1,11 +1,11 @@
-File: Tree.json
-Name: Tree
+File: ObjectiveOne.json
+Name: ObjectiveOne
 Object: {
 TransformComponent: {
 	"mPosition_": {
-		x: 5.570788,
-		y: 3.648120,
-		z: 2.000000
+		x: 7.902037,
+		y: -0.576879,
+		z: 0.000000
 		},
 	"mScale_": {
 		x: 1.000000,
@@ -18,10 +18,13 @@ TransformComponent: {
 		z: 0.000000
 		}
 	},
-SpriteComponent: {
-	"mTextureName": Tree.png
-	},
 EditorComponent: {
+	},
+ObjectiveOne: {
+	"zoneName": "REPLACETHIS"
+	},
+SpriteComponent: {
+	"mTextureName": sadface.png
 	},
 BoxColliderComponent: {
 	"mDensity": 1.000000,
@@ -30,7 +33,7 @@ BoxColliderComponent: {
 					y: 0.500000,
 					z: 1.000000
 					},
-	"dynamicState": 0,
+	"dynamicState": 2,
 	"mOffset": {
 					x: 0.000000,
 					y: 0.000000,
