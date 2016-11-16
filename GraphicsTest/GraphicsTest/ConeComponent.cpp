@@ -35,7 +35,7 @@ void ConeComponent::Update(double dt)
 
   if (!xCheck || !yCheck)
   {
-    trans->mPosition(x, y, transPlayer->mPositionZ() + 1);
+    trans->mPosition(x, y, trans->mPositionZ());
     trans->mRotationZ((thePlayer->GetComponent(ConeControllerComponent)->GetAngle()));
   }
 }

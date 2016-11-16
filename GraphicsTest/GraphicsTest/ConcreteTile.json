@@ -5,7 +5,7 @@ TransformComponent: {
 	"mPosition_": {
 		x: 0.075000,
 		y: 0.015625,
-		z: 0.000000
+		z: 3.000000
 		},
 	"mScale_": {
 		x: 1.000000,

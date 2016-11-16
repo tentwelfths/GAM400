@@ -51,7 +51,7 @@ void LevelManagerComponent::Update(double dt)
     if (mCountDown > mTarget)
     {
       gCore->UnloadLevel();
-      if (thePCComponent->GetHealth() <= 0)
+      if (controlWins)
       {
         gCore->LoadLevel("ControllersWinLevel.json");
       }
