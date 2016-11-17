@@ -45,6 +45,7 @@ void SpriteComponent::Update(double dt)
 
     MessagingSystem* m = gCore->GetSystem(MessagingSystem);
     m->SendMessageToSystem(msg, "NetworkingSystem");
+    hasChanged = false;
   }
 }
 
