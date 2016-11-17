@@ -210,8 +210,16 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         char isVis = command[pos];
         ++pos;
 
-        const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
-        pos += sizeof(unsigned char);
+        char textureID = command[pos];
+        ++pos;
+        char r = command[pos];
+        ++pos;
+        char g = command[pos];
+        ++pos;
+        char b = command[pos];
+        ++pos;
+        char a = command[pos];
+        ++pos;
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
@@ -271,8 +279,16 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         char isVis = command[pos];
         ++pos;
         std::cout<<"isVis"<<std::endl;
-        const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
-        pos += sizeof(unsigned char);
+        char textureID = command[pos];
+        ++pos;
+        char r = command[pos];
+        ++pos;
+        char g = command[pos];
+        ++pos;
+        char b = command[pos];
+        ++pos;
+        char a = command[pos];
+        ++pos;
         std::cout<<"TID"<<std::endl;
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
