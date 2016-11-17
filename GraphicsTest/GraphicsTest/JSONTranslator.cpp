@@ -248,11 +248,13 @@ void JSONTranslator::SaveLevelToFile(std::string filename, ObjectSystem * objSys
     auto node = iter->second.head;
     while (node){
       if (node->value->save)
-        SerializeObject(node->value,file,1);
-      node = node->next;
-      //if (node){
+      {
+        SerializeObject(node->value, file, 1);
+        node = node->next;
+        //if (node){
         file << "," << std::endl;
-      //}
+        //}
+      }
     }
   }
   file  << "}";

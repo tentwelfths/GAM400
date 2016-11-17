@@ -19,9 +19,6 @@
 			z: 0.000000
 			}
 		},
-	SpriteComponent: {
-		"mTextureName": Monster.png
-		},
 	PCControllerComponent: {
 		"sprintSpeed": 2.000000,
 		"speed": 5.000000,
@@ -29,71 +26,29 @@
 		"health": 10,
 		"killable": false
 		},
+	SpriteComponent: {
+		"mTextureName": Monster.png
+		},
 	EditorComponent: {
 		"tile": false
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-							x: 0.500000,
-							y: 0.500000,
-							z: 1.000000
-							},
-		"dynamicState": 2,
-		"mOffset": {
-							x: 0.000000,
-							y: 0.000000,
-							z: 0.000000
-							},
-		"mFriction": 1.000000,
-		"mGhost": false
 		},
 	DamageLocatorComponent: {
-		}
-	},
-	File: blah
-	Name: Knife
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 0.227037,
-			y: -4.476879,
-			z: 2.000000
-			},
-		"mScale_": {
-			x: 0.500000,
-			y: 0.500000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 15.607824
-			}
 		},
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-				x: 0.250000,
-				y: 0.250000,
-				z: 1.000000
-				},
+								x: 0.500000,
+								y: 0.500000,
+								z: 1.000000
+								},
 		"dynamicState": 2,
 		"mOffset": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				},
+								x: 0.000000,
+								y: 0.000000,
+								z: 0.000000
+								},
 		"mFriction": 1.000000,
-		"mGhost": true
-		},
-	KnifeComponent: {
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	SpriteComponent: {
-		"mTextureName": Knife.png
+		"mGhost": false
 		}
 	},
 	File: Cone.json
@@ -125,68 +80,64 @@
 	ConeComponent: {
 		}
 	},
-	File: Goal.json
-	Name: Goal
+	File: blah
+	Name: Knife
 	Object: {
-	PCCameraFollow: {
-		},
 	TransformComponent: {
 		"mPosition_": {
-				x: 0.000000,
-				y: -1.000000,
-				z: 1.000000
-				},
+			x: 0.227037,
+			y: -4.476879,
+			z: 2.000000
+			},
 		"mScale_": {
-				x: 6.000000,
-				y: 4.000000,
-				z: 1.000000
-				},
+			x: 0.500000,
+			y: 0.500000,
+			z: 1.000000
+			},
 		"mRotation_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
+			x: 0.000000,
+			y: 0.000000,
+			z: 15.607824
+			}
 		},
-	ControllerCameraFollow: {
+	KnifeComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+					x: 0.250000,
+					y: 0.250000,
+					z: 1.000000
+					},
+		"dynamicState": 2,
+		"mOffset": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
+		"mFriction": 1.000000,
+		"mGhost": true
 		},
 	EditorComponent: {
 		"tile": false
 		},
 	SpriteComponent: {
-		"mTextureName": goal.png
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-								x: 3.000000,
-								y: 2.000000,
-								z: 1.000000
-								},
-		"dynamicState": 2,
-		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
-		"mFriction": 1.000000,
-		"mGhost": true
-		},
-	StartManagerComponent: {
+		"mTextureName": Knife.png
 		}
 	},
-	File: Coneman.json
-	Name: Coneman
+	File: ConcreteTile.json
+	Name: Concrete
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -0.460463,
-			y: 2.898121,
+			x: -7.800000,
+			y: 3.275000,
 			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
 			y: 1.000000,
-			z: 5.000000
+			z: 1.000000
 			},
 		"mRotation_": {
 			x: 0.000000,
@@ -195,34 +146,24 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": Coneman.png
+		"mTextureName": Concrete.png
 		},
 	EditorComponent: {
 		"tile": false
 		},
-	ConeControllerComponent: {
-		"speed": 5.000000,
-		"playerID": 0,
-		"health": 2,
-		"killable": false,
-		"controllerID": 0,
-		"bulletSpeed": 20.000000
-		},
-	DamageLocatorComponent: {
-		},
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-								x: 0.500000,
-								y: 0.500000,
-								z: 1.000000
-								},
-		"dynamicState": 2,
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
 		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
 		"mFriction": 1.000000,
 		"mGhost": false
 		}
@@ -232,7 +173,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 2.000000,
+			x: 3.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -275,7 +216,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 1.000000,
+			x: 4.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -318,7 +259,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -0.000000,
+			x: 5.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -361,7 +302,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -1.000000,
+			x: 6.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -404,7 +345,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -2.000000,
+			x: 7.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -447,7 +388,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -3.000000,
+			x: 8.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -490,7 +431,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -4.000000,
+			x: 9.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -533,7 +474,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -5.000000,
+			x: 10.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -576,222 +517,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -6.000000,
-			y: 5.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -7.000000,
-			y: 5.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -8.000000,
-			y: 5.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -9.000000,
-			y: 5.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -10.000000,
-			y: 5.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -10.000000,
+			x: 10.000000,
 			y: 4.000000,
 			z: 3.000000
 			},
@@ -834,7 +560,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -10.000000,
+			x: 10.000000,
 			y: 3.000000,
 			z: 3.000000
 			},
@@ -877,7 +603,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -10.000000,
+			x: 10.000000,
 			y: 2.000000,
 			z: 3.000000
 			},
@@ -920,8 +646,1470 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -10.000000,
+			x: 10.000000,
 			y: 1.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: 0.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: -1.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: -2.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: -3.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: -4.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: -5.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: -6.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 9.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 7.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 4.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 3.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 2.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 1.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -1.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -2.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -3.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -4.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -5.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -6.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -7.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -8.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -9.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -10.000000,
+			y: -7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -10.000000,
+			y: -6.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -10.000000,
+			y: -5.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -10.000000,
+			y: -4.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -10.000000,
+			y: -3.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -10.000000,
+			y: -2.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -10.000000,
+			y: -1.000000,
 			z: 3.000000
 			},
 		"mScale_": {
@@ -1007,7 +2195,7 @@
 	TransformComponent: {
 		"mPosition_": {
 			x: -10.000000,
-			y: -1.000000,
+			y: 1.000000,
 			z: 3.000000
 			},
 		"mScale_": {
@@ -1050,1468 +2238,6 @@
 	TransformComponent: {
 		"mPosition_": {
 			x: -10.000000,
-			y: -2.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -10.000000,
-			y: -3.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -10.000000,
-			y: -4.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -10.000000,
-			y: -5.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -10.000000,
-			y: -6.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -10.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -9.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -8.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -7.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -6.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -5.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -4.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -3.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -2.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -1.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 0.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 1.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 2.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 3.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 4.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 5.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 6.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 7.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 8.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 9.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: -7.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: -6.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: -5.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: -4.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: -3.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: -2.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: -1.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: 0.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
-			y: 1.000000,
-			z: 3.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Concrete.png
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: ConcreteTile.json
-	Name: Concrete
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 10.000000,
 			y: 2.000000,
 			z: 3.000000
 			},
@@ -2554,7 +2280,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 10.000000,
+			x: -10.000000,
 			y: 3.000000,
 			z: 3.000000
 			},
@@ -2597,7 +2323,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 10.000000,
+			x: -10.000000,
 			y: 4.000000,
 			z: 3.000000
 			},
@@ -2640,7 +2366,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 12.000000,
+			x: -10.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -2683,7 +2409,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 11.000000,
+			x: -9.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -2726,7 +2452,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 10.000000,
+			x: -8.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -2769,7 +2495,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 9.000000,
+			x: -7.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -2812,7 +2538,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 8.000000,
+			x: -6.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -2855,7 +2581,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 7.000000,
+			x: -5.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -2898,7 +2624,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 6.000000,
+			x: -4.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -2941,7 +2667,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 5.000000,
+			x: -3.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -2984,7 +2710,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 4.000000,
+			x: -2.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -3027,7 +2753,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 3.000000,
+			x: -1.000000,
 			y: 5.000000,
 			z: 3.000000
 			},
@@ -3070,14 +2796,143 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -7.800000,
-			y: 3.275000,
+			x: -0.000000,
+			y: 5.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 1.000000,
+			y: 5.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ConcreteTile.json
+	Name: Concrete
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 2.000000,
+			y: 5.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Concrete.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Coneman.json
+	Name: Coneman
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -0.460463,
+			y: 2.898121,
 			z: 2.000000
 			},
 		"mScale_": {
 			x: 1.000000,
 			y: 1.000000,
-			z: 1.000000
+			z: 5.000000
 			},
 		"mRotation_": {
 			x: 0.000000,
@@ -3086,7 +2941,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": Concrete.png
+		"mTextureName": Coneman.png
 		},
 	EditorComponent: {
 		"tile": false
@@ -3098,7 +2953,7 @@
 						y: 0.500000,
 						z: 1.000000
 						},
-		"dynamicState": 0,
+		"dynamicState": 2,
 		"mOffset": {
 						x: 0.000000,
 						y: 0.000000,
@@ -3106,6 +2961,65 @@
 						},
 		"mFriction": 1.000000,
 		"mGhost": false
+		},
+	DamageLocatorComponent: {
+		},
+	ConeControllerComponent: {
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 2,
+		"killable": false,
+		"controllerID": 0,
+		"bulletSpeed": 20.000000
+		}
+	},
+	File: Goal.json
+	Name: Goal
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.000000,
+			y: -1.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 6.000000,
+			y: 4.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	PCCameraFollow: {
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	ControllerCameraFollow: {
+		},
+	SpriteComponent: {
+		"mTextureName": goal.png
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+								x: 3.000000,
+								y: 2.000000,
+								z: 1.000000
+								},
+		"dynamicState": 2,
+		"mOffset": {
+								x: 0.000000,
+								y: 0.000000,
+								z: 0.000000
+								},
+		"mFriction": 1.000000,
+		"mGhost": true
+		},
+	StartManagerComponent: {
 		}
 	},
 	File: GrassTile.json
@@ -3178,4 +3092,14 @@
 		"mGhost": false
 		}
 	},
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
 }
