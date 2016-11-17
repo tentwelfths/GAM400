@@ -2,6 +2,7 @@
 #include "ConeControllerComponent.h"
 #include "InputSystem.h"
 #include "BoxColliderComponent.h"
+#include "CircleColliderComponent.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
@@ -94,7 +95,7 @@ void ConeControllerComponent::Update(double dt)
         Kill();
         auto * sprite = mParent()->GetComponent(SpriteComponent);
         sprite->SetTexture("bolt.png");
-        auto * box = mParent()->GetComponent(BoxColliderComponent);
+        auto * box = mParent()->GetComponent(CircleColliderComponent);
         box->GetBody()->GetFixtureList()->SetSensor(true);
         IMessage msg(MessageType::CHANGETEXTURE);
         ChangeTextureMessage* msgData = reinterpret_cast<ChangeTextureMessage*>(msg.data);
@@ -121,7 +122,7 @@ void ConeControllerComponent::UpdateCone()
 
 void ConeControllerComponent::UpdateVis(Object* theTarget)
 {
-  auto * rigid = mParent()->GetComponent(BoxColliderComponent);
+  auto * rigid = mParent()->GetComponent(CircleColliderComponent);
   auto * otherRigid = theTarget->GetComponent(BoxColliderComponent);
 
   b2Vec2 theDistance(rigid->GetBody()->GetPosition().x - otherRigid->GetBody()->GetPosition().x, rigid->GetBody()->GetPosition().y - otherRigid->GetBody()->GetPosition().y);
