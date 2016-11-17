@@ -363,8 +363,8 @@ void GraphicsSystem::Draw()
         glBindTexture ( GL_TEXTURE_2D, mTextures[iter->second->textureID].textureID );  
           // Bind the texture
         glActiveTexture ( GL_TEXTURE0 );
-        glUniform3f(ColorID, sprComp->mTint().x, sprComp->mTint().y, sprComp->mTint().z);
-        glUniform1f(OpacityID, sprComp->mOpacity());
+        glUniform3f(Tint, iter->second->r, iter->second->g, iter->second->b);
+        glUniform1f(Opacity, iter->second->a);
         // Set the sampler texture unit to 0
         glUniform1i ( Texture, 0 );
         done = true;
