@@ -181,7 +181,7 @@ GraphicsSystem::GraphicsSystem()
     "uniform float Opacity;\n"
     "void main()                                         \n"
     "{                                                   \n"
-    "  vec4 texel = texture( myTextureSampler, v_texCoord ).rgba;"
+    "  vec4 texel = texture2D( myTextureSampler, v_texCoord ).rgba;"
     "texel.rgb += Tint.rgb;"
     "texel.a = min(Opacity, texel.a);"
     "clamp(texel.rgba, 0.0,1.0);"
@@ -363,7 +363,8 @@ void GraphicsSystem::Draw()
         glBindTexture ( GL_TEXTURE_2D, mTextures[iter->second->textureID].textureID );  
           // Bind the texture
         glActiveTexture ( GL_TEXTURE0 );
-
+        glUniform3f(ColorID, sprComp->mTint().x, sprComp->mTint().y, sprComp->mTint().z);
+        glUniform1f(OpacityID, sprComp->mOpacity());
         // Set the sampler texture unit to 0
         glUniform1i ( Texture, 0 );
         done = true;
