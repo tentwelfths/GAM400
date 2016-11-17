@@ -34,19 +34,15 @@
 		},
 	DamageLocatorComponent: {
 		},
-	BoxColliderComponent: {
+	CircleColliderComponent: {
 		"mDensity": 1.000000,
-		"mHalfSize": {
-								x: 0.500000,
-								y: 0.500000,
-								z: 1.000000
-								},
+		"mRadius": 0.500000,
 		"dynamicState": 2,
 		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": false
 		}
@@ -102,19 +98,15 @@
 		},
 	KnifeComponent: {
 		},
-	BoxColliderComponent: {
+	CircleColliderComponent: {
 		"mDensity": 1.000000,
-		"mHalfSize": {
-					x: 0.250000,
-					y: 0.250000,
-					z: 1.000000
-					},
+		"mRadius": 0.250000,
 		"dynamicState": 2,
 		"mOffset": {
-					x: 0.000000,
-					y: 0.000000,
-					z: 0.000000
-					},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": true
 		},
@@ -2946,19 +2938,15 @@
 	EditorComponent: {
 		"tile": false
 		},
-	BoxColliderComponent: {
+	CircleColliderComponent: {
 		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
+		"mRadius": 0.500000,
 		"dynamicState": 2,
 		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": false
 		},
@@ -3006,16 +2994,16 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-								x: 3.000000,
-								y: 2.000000,
-								z: 1.000000
-								},
+			x: 3.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
 		"dynamicState": 2,
 		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": true
 		},
@@ -3078,16 +3066,16 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
+			x: 0.500000,
+			y: 0.500000,
+			z: 1.000000
+			 },
 		"dynamicState": 0,
 		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": false
 		}

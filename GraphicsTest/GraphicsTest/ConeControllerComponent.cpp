@@ -117,13 +117,13 @@ void ConeControllerComponent::UpdateCone()
 void ConeControllerComponent::UpdateVis(Object* theTarget)
 {
   auto * rigid = mParent()->GetComponent(CircleColliderComponent);
-  auto * otherRigid = theTarget->GetComponent(BoxColliderComponent);
+  auto * otherRigid = theTarget->GetComponent(CircleColliderComponent);
 
   b2Vec2 theDistance(rigid->GetBody()->GetPosition().x - otherRigid->GetBody()->GetPosition().x, rigid->GetBody()->GetPosition().y - otherRigid->GetBody()->GetPosition().y);
   b2Vec2 absol;
   absol.x = theDistance.x * theDistance.x;
   absol.y = theDistance.y * theDistance.y;
-  if (absol.x + absol.y > SIGHTDISTANCE + otherRigid->GetHalfSize().x)
+  if (absol.x + absol.y > SIGHTDISTANCE + otherRigid->GetRadius())
   {
     for (int i = 0; i < 4; ++i)
     {

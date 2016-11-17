@@ -6,20 +6,20 @@
 		},
 	TransformComponent: {
 		"mPosition_": {
-				x: -6.956250,
-				y: -15.918750,
-				z: 1.000000
-				},
+			x: -6.956250,
+			y: -15.918750,
+			z: 1.000000
+			},
 		"mScale_": {
-				x: 1.000000,
-				y: 1.000000,
-				z: 1.000000
-				},
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
 		"mRotation_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 		},
 	PCControllerComponent: {
 		"sprintSpeed": 2.000000,
@@ -30,25 +30,25 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Monster.png,
-		"mOpacity": 1.000000,
-		"mTint": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						}
+		"mOpacity_": 1.000000,
+		"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 		},
 	EditorComponent: {
 		"tile": false
 		},
 	CircleColliderComponent: {
 		"mDensity": 1.000000,
-		"mRadius": 1.000000,
+		"mRadius": 0.500000,
 		"dynamicState": 2,
 		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": false
 		},
@@ -75,19 +75,15 @@
 			z: 0.000000
 			}
 		},
-	BoxColliderComponent: {
+	CircleColliderComponent: {
 		"mDensity": 1.000000,
-		"mHalfSize": {
-				x: 0.250000,
-				y: 0.250000,
-				z: 1.000000
-				},
+		"mRadius": 0.250000,
 		"dynamicState": 2,
 		"mOffset": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": true
 		},
@@ -98,12 +94,12 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Knife.png,
-		"mOpacity": 1.000000,
-		"mTint": {
-							x: 0.000000,
-							y: 0.000000,
-							z: 0.000000
-							}
+		"mOpacity_": 1.000000,
+		"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 		}
 	},
 	File: Cone.json
@@ -131,12 +127,12 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Cone.png,
-		"mOpacity": 1.000000,
-		"mTint": {
-					x: 0.000000,
-					y: 0.000000,
-					z: 0.000000
-					}
+		"mOpacity_": 1.000000,
+		"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 		},
 	ConeComponent: {
 		}
@@ -163,12 +159,12 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Coneman.png,
-		"mOpacity": 1.000000,
-		"mTint": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
+		"mOpacity_": 1.000000,
+		"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 		},
 	ControllerCameraFollow: {
 		},
@@ -185,13 +181,13 @@
 		},
 	CircleColliderComponent: {
 		"mDensity": 1.000000,
-		"mRadius": 1.000000,
+		"mRadius": 0.500000,
 		"dynamicState": 2,
 		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": false
 		},
@@ -220,12 +216,12 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
+		"mOpacity_": 1.000000,
+		"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 		},
 	EditorComponent: {
 		"tile": false
@@ -233,16 +229,16 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
+			x: 0.500000,
+			y: 0.500000,
+			z: 1.000000
+			},
 		"dynamicState": 0,
 		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": false
 		}
@@ -269,12 +265,12 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
+		"mOpacity_": 1.000000,
+		"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 		},
 	EditorComponent: {
 		"tile": false
@@ -282,16 +278,16 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
+			x: 0.500000,
+			y: 0.500000,
+			z: 1.000000
+			},
 		"dynamicState": 0,
 		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
 		"mFriction": 1.000000,
 		"mGhost": false
 		}
@@ -318,12 +314,12 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
+		"mOpacity_": 1.000000,
+		"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 		},
 	EditorComponent: {
 		"tile": false
@@ -367,8 +363,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -416,8 +412,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -465,8 +461,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -514,8 +510,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -563,8 +559,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -612,8 +608,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -661,8 +657,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -710,8 +706,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -759,8 +755,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -808,8 +804,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -857,8 +853,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -906,8 +902,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -955,8 +951,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1004,8 +1000,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1053,8 +1049,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1102,8 +1098,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1151,8 +1147,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1200,8 +1196,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1249,8 +1245,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1298,8 +1294,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1347,8 +1343,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1396,8 +1392,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1445,8 +1441,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1494,8 +1490,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1543,8 +1539,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1592,8 +1588,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1641,8 +1637,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1690,8 +1686,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1739,8 +1735,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1788,8 +1784,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1837,8 +1833,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1886,8 +1882,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1935,8 +1931,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -1984,8 +1980,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2033,8 +2029,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2082,8 +2078,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2131,8 +2127,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2180,8 +2176,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2229,8 +2225,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2278,8 +2274,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2327,8 +2323,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2376,8 +2372,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2425,8 +2421,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2474,8 +2470,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2523,8 +2519,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2572,8 +2568,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2621,8 +2617,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2670,8 +2666,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2719,8 +2715,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2768,8 +2764,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2817,8 +2813,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2866,8 +2862,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2915,8 +2911,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -2964,8 +2960,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3013,8 +3009,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3062,8 +3058,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3111,8 +3107,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3160,8 +3156,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3209,8 +3205,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3258,8 +3254,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3307,8 +3303,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3356,8 +3352,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3405,8 +3401,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3454,8 +3450,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3503,8 +3499,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3552,8 +3548,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3601,8 +3597,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3650,8 +3646,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3699,8 +3695,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3748,8 +3744,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3797,8 +3793,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3846,8 +3842,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3895,8 +3891,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3944,8 +3940,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -3993,8 +3989,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4042,8 +4038,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4091,8 +4087,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4140,8 +4136,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4189,8 +4185,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4238,8 +4234,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4287,8 +4283,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4336,8 +4332,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4385,8 +4381,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4434,8 +4430,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4483,8 +4479,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4532,8 +4528,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4581,8 +4577,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4630,8 +4626,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4679,8 +4675,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4728,8 +4724,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4777,8 +4773,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4826,8 +4822,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4875,8 +4871,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4924,8 +4920,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -4973,8 +4969,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5022,8 +5018,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5071,8 +5067,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5120,8 +5116,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5169,8 +5165,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5218,8 +5214,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5267,8 +5263,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5316,8 +5312,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5365,8 +5361,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5414,8 +5410,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5463,8 +5459,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5512,8 +5508,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5561,8 +5557,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5610,8 +5606,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5659,8 +5655,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5708,8 +5704,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5757,8 +5753,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5806,8 +5802,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5855,8 +5851,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5904,8 +5900,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -5953,8 +5949,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6002,8 +5998,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6051,8 +6047,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6100,8 +6096,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6149,8 +6145,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6198,8 +6194,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6247,8 +6243,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6296,8 +6292,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6345,8 +6341,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6394,8 +6390,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6443,8 +6439,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6492,8 +6488,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6541,8 +6537,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6590,8 +6586,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6639,8 +6635,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6688,8 +6684,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6737,8 +6733,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6786,8 +6782,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6835,8 +6831,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6884,8 +6880,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6933,8 +6929,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -6982,8 +6978,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7031,8 +7027,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7080,8 +7076,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7129,8 +7125,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7178,8 +7174,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7227,8 +7223,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7276,8 +7272,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7325,8 +7321,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7374,8 +7370,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7423,8 +7419,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7472,8 +7468,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7521,8 +7517,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7570,8 +7566,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7619,8 +7615,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7668,8 +7664,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7717,8 +7713,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7766,8 +7762,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7815,8 +7811,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7864,8 +7860,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7913,8 +7909,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -7962,8 +7958,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8011,8 +8007,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8060,8 +8056,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8109,8 +8105,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8158,8 +8154,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8207,8 +8203,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8256,8 +8252,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8305,8 +8301,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8354,8 +8350,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8403,8 +8399,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8452,8 +8448,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8501,8 +8497,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8550,8 +8546,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8599,8 +8595,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8648,8 +8644,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8697,8 +8693,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8746,8 +8742,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8795,8 +8791,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8844,8 +8840,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8893,8 +8889,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8942,8 +8938,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -8991,8 +8987,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9040,8 +9036,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9089,8 +9085,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9138,8 +9134,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9187,8 +9183,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9236,8 +9232,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9285,8 +9281,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9334,8 +9330,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9383,8 +9379,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9432,8 +9428,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9481,8 +9477,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9530,8 +9526,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9579,8 +9575,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9628,8 +9624,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9677,8 +9673,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9726,8 +9722,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9775,8 +9771,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9824,8 +9820,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9873,8 +9869,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Concrete.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9922,8 +9918,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": BigGrass.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -9955,8 +9951,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10004,8 +10000,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10053,8 +10049,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10102,8 +10098,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10151,8 +10147,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10200,8 +10196,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10249,8 +10245,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10298,8 +10294,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10347,8 +10343,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10396,8 +10392,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10445,8 +10441,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10494,8 +10490,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10543,8 +10539,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10592,8 +10588,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10641,8 +10637,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10690,8 +10686,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10739,8 +10735,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10788,8 +10784,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10837,8 +10833,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10886,8 +10882,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10935,8 +10931,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -10984,8 +10980,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11033,8 +11029,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11082,8 +11078,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11131,8 +11127,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11180,8 +11176,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11229,8 +11225,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11278,8 +11274,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11327,8 +11323,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11376,8 +11372,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Tree.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11425,8 +11421,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": HealthBar.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11458,8 +11454,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11507,8 +11503,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11556,8 +11552,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11605,8 +11601,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11654,8 +11650,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11703,8 +11699,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11752,8 +11748,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11801,8 +11797,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11850,8 +11846,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11899,8 +11895,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11948,8 +11944,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -11997,8 +11993,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12046,8 +12042,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12095,8 +12091,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12144,8 +12140,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12193,8 +12189,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12242,8 +12238,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12291,8 +12287,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12340,8 +12336,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12389,8 +12385,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12438,8 +12434,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12487,8 +12483,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12536,8 +12532,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12585,8 +12581,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12634,8 +12630,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12683,8 +12679,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12732,8 +12728,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12781,8 +12777,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Fence.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
@@ -12832,8 +12828,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Grass.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 					x: 0.000000,
 					y: 0.000000,
 					z: 0.000000
@@ -12868,8 +12864,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": blacksquare.png,
-		"mOpacity": 0.750000,
-		"mTint": {
+		"mOpacity_": 0.750000,
+		"mTint_": {
 					x: 255.000000,
 					y: 255.000000,
 					z: 255.000000
@@ -12920,8 +12916,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": blacksquare.png,
-		"mOpacity": 0.750000,
-		"mTint": {
+		"mOpacity_": 0.750000,
+		"mTint_": {
 					x: 255.000000,
 					y: 255.000000,
 					z: 255.000000
@@ -12975,8 +12971,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": sadface.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 						x: 0.000000,
 						y: 0.000000,
 						z: 0.000000
@@ -13027,8 +13023,8 @@
 		},
 	SpriteComponent: {
 		"mTextureName": sadface.png,
-		"mOpacity": 1.000000,
-		"mTint": {
+		"mOpacity_": 1.000000,
+		"mTint_": {
 						x: 0.000000,
 						y: 0.000000,
 						z: 0.000000

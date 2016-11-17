@@ -6,6 +6,7 @@
 #include "Globals.h"
 #include "JSONTranslator.h"
 #include "BoxColliderComponent.h"
+#include "CircleColliderComponent.h"
 #include "BulletComponent.h"
 #include "MessagingSystem.h"
 
@@ -66,7 +67,7 @@ void GunControllerComponent::Update(double dt)
       Kill();
       auto * sprite = mParent()->GetComponent(SpriteComponent);
       sprite->SetTexture("bolt.png");
-      auto * box = mParent()->GetComponent(BoxColliderComponent);
+      auto * box = mParent()->GetComponent(CircleColliderComponent);
       box->GetBody()->GetFixtureList()->SetSensor(true);
     }
   }

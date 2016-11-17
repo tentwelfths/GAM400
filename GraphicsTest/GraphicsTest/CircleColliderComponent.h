@@ -8,7 +8,7 @@ using namespace glm;
 class b2Body;
 struct b2BodyDef;
 class b2World;
-class b2PolygonShape;
+class b2CircleShape;
 
 class CircleColliderComponent : public PhysicsComponent
 {

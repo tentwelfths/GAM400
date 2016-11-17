@@ -182,6 +182,7 @@
     <ClCompile Include="BoxColliderComponent.cpp" />
     <ClCompile Include="BulletComponent.cpp" />
     <ClCompile Include="ChargeObjective.cpp" />
+    <ClCompile Include="CircleColliderComponent.cpp" />
     <ClCompile Include="CloudComponent.cpp" />
     <ClCompile Include="ConeComponent.cpp" />
     <ClCompile Include="ConeControllerComponent.cpp" />
@@ -190,7 +191,6 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="DamageArrowComponent.cpp" />
     <ClCompile Include="DamageLocatorComponent.cpp" />
-    <ClCompile Include="DemoController.cpp" />
     <ClCompile Include="DemoReload.cpp" />
     <ClCompile Include="DemoSpawner.cpp" />
     <ClCompile Include="EditorComponent.cpp" />
@@ -283,6 +283,7 @@
     <ClInclude Include="BoxColliderComponent.h" />
     <ClInclude Include="BulletComponent.h" />
     <ClInclude Include="ChargeObjective.h" />
+    <ClInclude Include="CircleColliderComponent.h" />
     <ClInclude Include="CloudComponent.h" />
     <ClInclude Include="ConeComponent.h" />
     <ClInclude Include="ConeControllerComponent.h" />
@@ -291,7 +292,6 @@
     <ClInclude Include="Core.h" />
     <ClInclude Include="DamageArrowComponent.h" />
     <ClInclude Include="DamageLocatorComponent.h" />
-    <ClInclude Include="DemoController.h" />
     <ClInclude Include="DemoReload.h" />
     <ClInclude Include="DemoSpawner.h" />
     <ClInclude Include="EditorComponent.h" />

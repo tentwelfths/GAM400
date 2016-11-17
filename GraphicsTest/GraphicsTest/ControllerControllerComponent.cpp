@@ -2,6 +2,7 @@
 #include "ControllerControllerComponent.h"
 #include "InputSystem.h"
 #include "BoxColliderComponent.h"
+#include "CircleColliderComponent.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
@@ -44,7 +45,7 @@ void ControllerControllerComponent::Shutdown()
 
 void ControllerControllerComponent::Movement(InputSystem* input)
 {
-  auto * rigid = mParent_->GetComponent(BoxColliderComponent);
+  auto * rigid = mParent_->GetComponent(CircleColliderComponent);
   b2Vec2 newVel(0.0f, 0.0f);
   if (rigid)
   {

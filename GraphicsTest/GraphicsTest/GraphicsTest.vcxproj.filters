@@ -175,7 +175,6 @@
     <ClCompile Include="imgui_impl_glfw_gl3.cpp">
       <Filter>NotOurCode</Filter>
     </ClCompile>
-    <ClCompile Include="DemoController.cpp" />
     <ClCompile Include="DemoSpawner.cpp" />
     <ClCompile Include="OutOfBounds.cpp" />
     <ClCompile Include="DemoReload.cpp" />
@@ -207,6 +206,7 @@
     <ClCompile Include="ObjectiveOne.cpp" />
     <ClCompile Include="DamageLocatorComponent.cpp" />
     <ClCompile Include="DamageArrowComponent.cpp" />
+    <ClCompile Include="CircleColliderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -396,7 +396,6 @@
     <ClInclude Include="imgui_internal.h">
       <Filter>NotOurCode</Filter>
     </ClInclude>
-    <ClInclude Include="DemoController.h" />
     <ClInclude Include="DemoSpawner.h" />
     <ClInclude Include="OutOfBounds.h" />
     <ClInclude Include="DemoReload.h" />
@@ -462,6 +461,7 @@
     <ClInclude Include="ObjectiveOne.h" />
     <ClInclude Include="DamageLocatorComponent.h" />
     <ClInclude Include="DamageArrowComponent.h" />
+    <ClInclude Include="CircleColliderComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />
