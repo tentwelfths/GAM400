@@ -12,9 +12,16 @@ public:
   void Shutdown();
   std::string mTextureName;
   unsigned char mTextureIndex;
-  glm::vec3 mTint;
-  float mOpacity;
+
+  void mTint(float r, float g, float b);
+  void mTint(glm::vec3 tint);
+  void mOpacity(float a);
+  glm::vec3 mTint();
+  float mOpacity();
   //GLuint mTexture_;
+
+  glm::vec3 mTint_;
+  float mOpacity_;
 
   bool hasChanged;
 };

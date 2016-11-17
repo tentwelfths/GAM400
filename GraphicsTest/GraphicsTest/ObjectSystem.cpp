@@ -173,8 +173,18 @@ std::string ObjectSystem::GetTextureData(Object * iter)
   {
     data += static_cast<char *>(static_cast<void *>(&(iter->ID)))[k];
   }
-  unsigned char len = gCore->GetSystem(GraphicsSystem)->mTextureMap_.find((static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent))->mTextureName))->second.index;
-  data += len;
+  auto * textureComp = static_cast<SpriteComponent *>(iter->GetComponent(SpriteComponent));
+  unsigned char texID = gCore->GetSystem(GraphicsSystem)->mTextureMap_.find((textureComp->mTextureName))->second.index;
+  data += texID;
+  unsigned char r, g, b, a;
+  r = (int)(textureComp->mTint().r * 255.f);
+  g = (int)(textureComp->mTint().g * 255.f);
+  b = (int)(textureComp->mTint().b * 255.f);
+  a = (int)(textureComp->mOpacity() * 255.f);
+  data += r;
+  data += g;
+  data += b;
+  data += a;
   return data;
 }
 

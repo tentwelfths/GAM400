@@ -177,9 +177,15 @@ GraphicsSystem::GraphicsSystem()
     "precision mediump float;                            \n"
     "varying vec2 v_texCoord;                            \n"
     "uniform sampler2D myTextureSampler;                        \n"
+    "uniform vec3 Tint;\n"
+    "uniform float Opacity;\n"
     "void main()                                         \n"
     "{                                                   \n"
-    "  gl_FragColor = texture2D( myTextureSampler, v_texCoord );\n"
+    "  vec4 texel = texture( myTextureSampler, v_texCoord ).rgba;"
+    "texel.rgb += Tint.rgb;"
+    "texel.a = min(Opacity, texel.a);"
+    "clamp(texel.rgba, 0.0,1.0);"
+    "  gl_FragColor = texel;\n"
     "}                                                   \n";
   
 
@@ -225,6 +231,8 @@ GraphicsSystem::GraphicsSystem()
   Position_modelspace = glGetAttribLocation(program, "vertexPosition_modelspace");
   VertexUV = glGetAttribLocation(program, "vertexUV");
   Texture = glGetUniformLocation(program, "myTextureSampler");
+  Tint = glGetUniformLocation(program, "Tint");
+  Opacity = glGetUniformLocation(program, "Opacity");
   if(Texture < 0){
     std::cout<<"FUUUUUUUUUUUTexture"<<std::endl;
   }
@@ -360,7 +368,8 @@ void GraphicsSystem::Draw()
         glUniform1i ( Texture, 0 );
         done = true;
       }
-      
+      glUniform3f(Tint, iter->second->r, iter->second->g, iter->second->b);
+      glUniform1f(Opacity, iter->second->a);
       
       Position[3][0] = iter->second->position[0];
       Position[3][1] = iter->second->position[1];

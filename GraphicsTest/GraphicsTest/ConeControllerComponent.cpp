@@ -96,12 +96,6 @@ void ConeControllerComponent::Update(double dt)
         sprite->SetTexture("bolt.png");
         auto * box = mParent()->GetComponent(BoxColliderComponent);
         box->GetBody()->GetFixtureList()->SetSensor(true);
-        IMessage msg(MessageType::CHANGETEXTURE);
-        ChangeTextureMessage* msgData = reinterpret_cast<ChangeTextureMessage*>(msg.data);
-
-        msgData->objID = mParent()->ID;
-        MessagingSystem* m = gCore->GetSystem(MessagingSystem);
-        m->SendMessageToSystem(msg, "NetworkingSystem");
       }
     }
   }

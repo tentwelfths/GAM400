@@ -419,8 +419,20 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         pos += sizeof(unsigned int);
         char textureID = command[pos];
         ++pos;
+        char r = command[pos];
+        ++pos;
+        char g = command[pos];
+        ++pos;
+        char b = command[pos];
+        ++pos;
+        char a = command[pos];
+        ++pos;
         Object * obj = gObjectMap[objectID];
         obj->textureID = textureID;
+        obj->r = r / 255.f;
+        obj->g = g / 255.f;
+        obj->b = b / 255.f;
+        obj->a = a / 255.f;
       }
       break;
 
