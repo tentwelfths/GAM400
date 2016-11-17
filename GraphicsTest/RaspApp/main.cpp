@@ -200,6 +200,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   pos = 0;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
+    std::cout<<(int)command[pos]<<std::endl;
     switch(command[pos]){
       case 'L': //INITIAL Load
       {
@@ -222,22 +223,22 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-        std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
         const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-        std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        std::cout<<" zPos: "<< zPos <<std::endl;
+        //std::cout<<" zPos: "<< zPos <<std::endl;
         pos += sizeof(float);
         const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
-        std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
+        //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
         pos += sizeof(float);
         const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
-        std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
+        //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
         pos += sizeof(float);
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
-        std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         pos += sizeof(float);
         if(gObjects[(int)zPos].find(objectID) == gObjects[(int)zPos].end())
         {
