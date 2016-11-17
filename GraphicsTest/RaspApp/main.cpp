@@ -444,12 +444,14 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         char a = command[pos];
         ++pos;
-        Object * obj = gObjectMap[objectID];
-        obj->textureID = textureID;
-        obj->r = r / 255.f;
-        obj->g = g / 255.f;
-        obj->b = b / 255.f;
-        obj->a = a / 255.f;
+        auto temp = gObjectMap.find(objectID);
+        if(temp != gObjectMap.end()){
+          temp->second->textureID = textureID;
+          temp->second->r = r / 255.f;
+          temp->second->g = g / 255.f;
+          temp->second->b = b / 255.f;
+          temp->second->a = a / 255.f;
+        }
       }
       break;
 
