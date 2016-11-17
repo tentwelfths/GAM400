@@ -200,6 +200,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   pos = 0;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
+    std::cout<<(int)command[pos]<<std::endl;
     switch(command[pos]){
       case 'L': //INITIAL Load
       {
@@ -210,8 +211,16 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         char isVis = command[pos];
         ++pos;
 
-        const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
-        pos += sizeof(unsigned char);
+        char textureID = command[pos];
+        ++pos;
+        char r = command[pos];
+        ++pos;
+        char g = command[pos];
+        ++pos;
+        char b = command[pos];
+        ++pos;
+        char a = command[pos];
+        ++pos;
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
@@ -271,8 +280,16 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         char isVis = command[pos];
         ++pos;
         std::cout<<"isVis"<<std::endl;
-        const unsigned char textureID = *reinterpret_cast<const unsigned char*>(&(command[pos]));
-        pos += sizeof(unsigned char);
+        char textureID = command[pos];
+        ++pos;
+        char r = command[pos];
+        ++pos;
+        char g = command[pos];
+        ++pos;
+        char b = command[pos];
+        ++pos;
+        char a = command[pos];
+        ++pos;
         std::cout<<"TID"<<std::endl;
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
@@ -419,8 +436,22 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         pos += sizeof(unsigned int);
         char textureID = command[pos];
         ++pos;
-        Object * obj = gObjectMap[objectID];
-        obj->textureID = textureID;
+        char r = command[pos];
+        ++pos;
+        char g = command[pos];
+        ++pos;
+        char b = command[pos];
+        ++pos;
+        char a = command[pos];
+        ++pos;
+        auto temp = gObjectMap.find(objectID);
+        if(temp != gObjectMap.end()){
+          temp->second->textureID = textureID;
+          temp->second->r = r / 255.f;
+          temp->second->g = g / 255.f;
+          temp->second->b = b / 255.f;
+          temp->second->a = a / 255.f;
+        }
       }
       break;
 

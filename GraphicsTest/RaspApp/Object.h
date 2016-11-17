@@ -10,6 +10,7 @@ class Object
   float rotation;
   unsigned int textureID;
   bool inUse;
+  float r,g,b,a;
 };
 
 extern std::unordered_map<unsigned int, Object*> gObjects[10];

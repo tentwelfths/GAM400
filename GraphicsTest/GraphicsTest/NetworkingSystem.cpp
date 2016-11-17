@@ -194,8 +194,8 @@ void NetworkingSystem::Update(double dt)
       
       break;
     }
-    case MessageType::CHANGETEXTURE:{
-      auto * msg = reinterpret_cast<ChangeTextureMessage *>(iter.data);
+    case MessageType::SPRITECHANGED:{
+      auto * msg = reinterpret_cast<SpriteChangeMessage *>(iter.data);
       AddCommand('$', msg->objID);
       break;
     }

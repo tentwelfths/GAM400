@@ -97,7 +97,7 @@ public:
   /// Window height
   GLint       height;
 
-  GLuint View_, Projection_, Position_modelspace, Position_worldspace, Scale_, Rotation_, Texture, VertexUV;
+  GLuint View_, Projection_, Position_modelspace, Position_worldspace, Scale_, Rotation_, Texture, VertexUV, Tint, Opacity;
   
   /// Window handle
   EGLNativeWindowType  hWnd;
