@@ -9,11 +9,17 @@ out vec4 color;
 // Values that stay constant for the whole mesh.
 uniform sampler2D myTextureSampler;
 
-uniform vec4 Color;
+uniform vec3 Tint;
+uniform float Opacity;
+
+
 void main()
 {
   vec2 pos = mod(UV.xy * 64,vec2(8));
   vec4 texel = texture( myTextureSampler, UV ).rgba;
+  texel.rgb += Tint.rgb;
+  texel.a = min(Opacity, texel.a);
+  clamp(texel.rgba, 0.0,1.0);
   //if(texel.a < 0.5) discard;
 	color = texel;
 
