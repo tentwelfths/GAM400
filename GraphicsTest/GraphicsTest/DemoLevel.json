@@ -53,6 +53,35 @@
 		"mGhost": false
 		}
 	},
+	File: Cone.json
+	Name: Cone
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 44.311073,
+			y: 12.590454,
+			z: 5.000000
+			},
+		"mScale_": {
+			x: 5.000000,
+			y: 5.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	SpriteComponent: {
+		"mTextureName": Cone.png
+		},
+	ConeComponent: {
+		}
+	},
 	File: blah.json
 	Name: Knife
 	Object: {
@@ -96,90 +125,6 @@
 		},
 	SpriteComponent: {
 		"mTextureName": Knife.png
-		}
-	},
-	File: Cone.json
-	Name: Cone
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 44.311073,
-			y: 12.590454,
-			z: 5.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 5.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	SpriteComponent: {
-		"mTextureName": Cone.png
-		},
-	ConeComponent: {
-		}
-	},
-	File: Coneman.json
-	Name: Coneman
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 41.868752,
-			y: 12.693750,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Coneman.png
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	ControllerCameraFollow: {
-		},
-	DamageLocatorComponent: {
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-								x: 0.500000,
-								y: 0.500000,
-								z: 1.000000
-								},
-		"dynamicState": 2,
-		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
-		"mFriction": 1.000000,
-		"mGhost": false
-		},
-	ConeControllerComponent: {
-		"speed": 5.000000,
-		"playerID": 0,
-		"health": 2,
-		"killable": true,
-		"controllerID": 0,
-		"bulletSpeed": 20.000000
 		}
 	},
 	File: ConcreteTile.json
@@ -8678,6 +8623,362 @@
 		},
 	EditorComponent: {
 		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Coneman.json
+	Name: Coneman
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 41.868752,
+			y: 12.693750,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Coneman.png
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	ControllerCameraFollow: {
+		},
+	DamageLocatorComponent: {
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+								x: 0.500000,
+								y: 0.500000,
+								z: 1.000000
+								},
+		"dynamicState": 2,
+		"mOffset": {
+								x: 0.000000,
+								y: 0.000000,
+								z: 0.000000
+								},
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	ConeControllerComponent: {
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 2,
+		"killable": true,
+		"controllerID": 0,
+		"bulletSpeed": 20.000000
+		}
+	},
+	File: River.json
+	Name: River
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 33.000000,
+			y: -6.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": riverpiece.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: River.json
+	Name: River
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 33.000000,
+			y: -8.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": riverpiece.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: River.json
+	Name: River
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 33.000000,
+			y: -10.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": riverpiece.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: River.json
+	Name: River
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 33.000000,
+			y: -12.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": riverpiece.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: River.json
+	Name: River
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 33.000000,
+			y: -14.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": riverpiece.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: River.json
+	Name: River
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 33.000000,
+			y: -16.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": riverpiece.png
+		},
+	EditorComponent: {
+		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: River.json
+	Name: River
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 33.000000,
+			y: -18.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": riverpiece.png
+		},
+	EditorComponent: {
+		"tile": true
 		},
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
@@ -11254,8 +11555,8 @@
 			z: 2.000000
 			},
 		"mScale_": {
-			x: 2.000000,
-			y: 2.000000,
+			x: 3.000000,
+			y: 3.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -11276,8 +11577,8 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-							x: 1.000000,
-							y: 1.000000,
+							x: 1.500000,
+							y: 1.500000,
 							z: 1.000000
 							},
 		"dynamicState": 0,
@@ -11329,8 +11630,8 @@
 			z: 2.000000
 			},
 		"mScale_": {
-			x: 2.000000,
-			y: 2.000000,
+			x: 3.000000,
+			y: 3.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -11351,8 +11652,8 @@
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
 		"mHalfSize": {
-							x: 1.000000,
-							y: 1.000000,
+							x: 1.500000,
+							y: 1.500000,
 							z: 1.000000
 							},
 		"dynamicState": 0,
