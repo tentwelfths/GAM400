@@ -285,7 +285,8 @@ void GraphicsSystem::Update(double dt)
   glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &View[0][0]);
   MatrixID = glGetUniformLocation(programID, "Projection");
   glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &Projection[0][0]);
-  GLuint ColorID = glGetUniformLocation(programID, "Color");
+  GLuint ColorID = glGetUniformLocation(programID, "Tint");
+  GLuint OpacityID = glGetUniformLocation(programID, "Opacity");
   // Get a handle for our "myTextureSampler" uniform
   mTextureID = glGetUniformLocation(programID, "myTextureSampler");
   // 1rst attribute buffer : vertices
@@ -373,11 +374,15 @@ void GraphicsSystem::Update(double dt)
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &Rotation[0][0]);
     if (iter->mType() == GraphicsType::SPRITE)
     {
-      auto & ref = mTextureMap_.find(static_cast<SpriteComponent *>(iter)->mTextureName);
+      auto *sprComp = static_cast<SpriteComponent *>(iter);
+      auto & ref = mTextureMap_.find(sprComp->mTextureName);
       if (ref != mTextureMap_.end()){
         GLuint tex = ref->second.textureID;
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, tex);
+
+        glUniform3f(ColorID, sprComp->mTint.x, sprComp->mTint.y, sprComp->mTint.z);
+        glUniform1f(OpacityID, sprComp->mOpacity);
 
         // Set our "myTextureSampler" sampler to user Texture Unit 0
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);

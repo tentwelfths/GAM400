@@ -8,8 +8,14 @@
 SpriteComponent::SpriteComponent() : GraphicsComponent(GraphicsType::SPRITE)
 {
   AddMember(SpriteComponent, mTextureName);
+  AddMember(SpriteComponent, mTint);
+  AddMember(SpriteComponent, mOpacity);
   hasChanged = false;
   mName_ = "SpriteComponent";
+  mTint.x = 0.f;
+  mTint.y = 0.f;
+  mTint.z = 0.f;
+  mOpacity = 1.f;
 }
 
 bool SpriteComponent::Initialize()
