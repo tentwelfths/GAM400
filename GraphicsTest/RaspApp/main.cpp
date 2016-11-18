@@ -200,7 +200,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   pos = 0;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
-    std::cout<<(int)command[pos]<<std::endl;
+    std::cout<<(char)command[pos];//<<std::endl;
     switch(command[pos]){
       case 'L': //INITIAL Load
       {
