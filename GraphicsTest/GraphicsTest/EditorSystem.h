@@ -24,6 +24,7 @@ private:
   static void SetSaveLevel();
   static void SetLoadLevel();
   static void SetTileEditor();
+  static void ReloadArtAssets();
   void CreateObjectByName(const char * name);
   static bool mCreateObjectMenu;
   static bool mSaveLevelMenu;

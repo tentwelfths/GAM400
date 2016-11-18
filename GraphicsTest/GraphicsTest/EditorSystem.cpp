@@ -31,6 +31,7 @@ bool EditorSystem::Initialize(){
   actions.push_back({ "Load Level", EditorSystem::SetLoadLevel });
   actions.push_back({ "Save Level", EditorSystem::SetSaveLevel });
   actions.push_back({ "Tile Editor", EditorSystem::SetTileEditor });
+  actions.push_back({ "Reload Art Assets", EditorSystem::ReloadArtAssets });
   return true;
 }
 void EditorSystem::Update(double dt){
@@ -156,7 +157,7 @@ void EditorSystem::Update(double dt){
   {
     g->mMainCamera.y -= g->mMainCamera.zoom / 4.f;
   }
-  if (y >= g->mMainCamera.y + 5.5f * g->mMainCamera.zoom && x >= g->mMainCamera.y + 9.9f * g->mMainCamera.zoom)
+  if (y >= g->mMainCamera.y + 5.5f * g->mMainCamera.zoom && y <= g->mMainCamera.y + 9.9f * g->mMainCamera.zoom)
   {
     g->mMainCamera.y += g->mMainCamera.zoom / 4.f;
   }
@@ -333,6 +334,12 @@ void EditorSystem::SetSaveLevel()
 void EditorSystem::SetTileEditor()
 {
   mTileEditorStart= true;
+}
+
+void EditorSystem::ReloadArtAssets()
+{
+  auto * g = gCore->GetSystem(GraphicsSystem);
+  g->ReloadTextures();
 }
 
 

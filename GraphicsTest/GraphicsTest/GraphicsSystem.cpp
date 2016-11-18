@@ -9,7 +9,7 @@
 #include "Globals.h"
 #include <imgui.h>
 #include "imgui_impl_glfw_gl3.h"
-
+#include "JSONTranslator.h"
 #include "SOIL.h"
 
 glm::mat4 setUpRotationMatrix(glm::mat4 rotationMatrix, float angle, float u, float v, float w)
@@ -509,4 +509,16 @@ GLuint GraphicsSystem::GetTexture(std::string textureName)
 void GraphicsSystem::RegisterTexture(TextureType t)
 {
   mTextureMap_.insert({ t.name, t });
+}
+
+void GraphicsSystem::ReloadTextures()
+{
+  for (auto iter : mTextureMap_){
+    glDeleteTextures(1, &iter.second.textureID);
+  }
+  mTextureMap_.clear();
+
+  JSONTranslator j;
+  j.LoadTextures("../Assets/Textures.JSON", this);
+
 }

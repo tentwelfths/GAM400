@@ -47,6 +47,8 @@ public:
 
   GLuint GetTexture(std::string textureName);
 
+  void ReloadTextures();
+
   std::string frameData;
   glm::mat4 Projection;
   glm::mat4 View;
