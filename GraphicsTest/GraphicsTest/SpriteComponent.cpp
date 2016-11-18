@@ -67,7 +67,7 @@ void SpriteComponent::SetTexture(std::string textureName)
 void      SpriteComponent::mTint(float r, float g, float b)
 {
   hasChanged = true;
-  mTint_.x = r;
+  mTint_.r = r;
   mTint_.g = g;
   mTint_.b = b;
 }
