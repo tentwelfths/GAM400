@@ -243,3 +243,17 @@
 	Rows:1,
 	Cols:1
 },
+{
+	Name:door.png,
+	Index:35,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:CaveWall.png,
+	Index:36,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
