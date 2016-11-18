@@ -12,8 +12,8 @@
 #include "JSONTranslator.h"
 #include "PlayerControllerComponent.h"
 #include "BoxColliderComponent.h"
+#include "CircleColliderComponent.h"
 #include "EditorComponent.h"
-#include "DemoController.h"
 #include "DemoSpawner.h"
 #include "OutOfBounds.h"
 #include "DemoReload.h"
@@ -64,8 +64,8 @@ int main( void )
   RegisterComponentType(SpriteComponent);
   RegisterComponentType(TransformComponent);
   RegisterComponentType(BoxColliderComponent);
+  RegisterComponentType(CircleColliderComponent);
   RegisterComponentType(PlayerControllerComponent);
-  RegisterComponentType(DemoController);
   RegisterComponentType(DemoSpawner);
   RegisterComponentType(EditorComponent);
   RegisterComponentType(OutOfBounds);

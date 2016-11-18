@@ -1,6 +1,6 @@
 #include <Box2D\Box2D.h>
 #include "MyListen.h"
-#include "BoxColliderComponent.h"
+#include "CircleColliderComponent.h"
 #include "Core.h"
 #include "Globals.h"
 #include "Object.h"
@@ -14,8 +14,8 @@ void MyListen::BeginContact(b2Contact* contact)
   b2Fixture* fixtureB = contact->GetFixtureB();
   b2Body* bodyA = fixtureA->GetBody();
   b2Body* bodyB = fixtureB->GetBody();
-  objOne = static_cast<BoxColliderComponent*>(bodyA->GetUserData());
-  objTwo = static_cast<BoxColliderComponent*>(bodyB->GetUserData());
+  objOne = static_cast<CircleColliderComponent*>(bodyA->GetUserData());
+  objTwo = static_cast<CircleColliderComponent*>(bodyB->GetUserData());
 
   //CollisionStartedMessage* col = new CollisionStartedMessage();
   //col->obj1 = objOne->mParent();
@@ -42,8 +42,8 @@ void MyListen::EndContact(b2Contact* contact)
   b2Fixture* fixtureB = contact->GetFixtureB();
   b2Body* bodyA = fixtureA->GetBody();
   b2Body* bodyB = fixtureB->GetBody();
-  objOne = static_cast<BoxColliderComponent*>(bodyA->GetUserData());
-  objTwo = static_cast<BoxColliderComponent*>(bodyB->GetUserData());
+  objOne = static_cast<CircleColliderComponent*>(bodyA->GetUserData());
+  objTwo = static_cast<CircleColliderComponent*>(bodyB->GetUserData());
 
   //CollisionEndedMessage* col = new CollisionEndedMessage();
   //col->obj1 = objOne->mParent();

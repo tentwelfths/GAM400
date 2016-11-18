@@ -1,40 +1,39 @@
 #include <Box2D\Box2D.h>
-#include "BoxColliderComponent.h"
+#include "CircleColliderComponent.h"
 #include "PhysicsSystem.h"
 #include "Core.h"
 #include "Globals.h"
 #include "Object.h"
 #include "Messages.h"
 
-
-BoxColliderComponent::BoxColliderComponent() : PhysicsComponent(PhysicsType::BOXCOLLIDER), justCollided(false), isColliding(false)
+CircleColliderComponent::CircleColliderComponent() : PhysicsComponent(PhysicsType::SPHERECOLLIDER), justCollided(false), isColliding(false)
 {
-  AddMember(BoxColliderComponent, mHalfSize);
-  AddMember(BoxColliderComponent, mOffset);
-  AddMember(BoxColliderComponent, dynamicState);
-  AddMember(BoxColliderComponent, mDensity);
-  AddMember(BoxColliderComponent, mFriction);
-  AddMember(BoxColliderComponent, mGhost);
+  AddMember(CircleColliderComponent, mRadius);
+  AddMember(CircleColliderComponent, mOffset);
+  AddMember(CircleColliderComponent, dynamicState);
+  AddMember(CircleColliderComponent, mDensity);
+  AddMember(CircleColliderComponent, mFriction);
+  AddMember(CircleColliderComponent, mGhost);
   //PhysicsSystem* g = gCore->GetSystem(PhysicsSystem);
   //g->RegisterComponent(this);
-  
-  mName_ = "BoxColliderComponent";
+
+  mName_ = "CircleColliderComponent";
 }
 
-bool BoxColliderComponent::Initialize()
+bool CircleColliderComponent::Initialize()
 {
-  
   auto* trans = mParent_->GetComponent(TransformComponent);
   PhysicsSystem* g = gCore->GetSystem(PhysicsSystem);
   type = new b2BodyDef();
-  box = new b2PolygonShape();
+  circle = new b2CircleShape();
   type->userData = static_cast<void*>(this);
   type->type = static_cast<b2BodyType>(dynamicState);
-  type->position.Set(trans->mPositionX() + mOffset.x, trans->mPositionY() + mOffset.y);
+  type->position.Set(trans->mPositionX(), trans->mPositionY());
   theBody = g->AddBody(type);
-  box->SetAsBox(mHalfSize.x, mHalfSize.y);
+  circle->m_p = b2Vec2(mOffset.x, mOffset.y);
+  circle->m_radius = mRadius;
   b2FixtureDef fixing;
-  fixing.shape = box;
+  fixing.shape = circle;
   fixing.isSensor = mGhost;
   fixing.density = mDensity;
   fixing.friction = mFriction;
@@ -43,14 +42,14 @@ bool BoxColliderComponent::Initialize()
   return true;
 }
 
-void BoxColliderComponent::Update(double dt)
+void CircleColliderComponent::Update(double dt)
 {
   //justCollided = false;
   auto* trans = mParent_->GetComponent(TransformComponent);
 
   vec3 newPos;
-  newPos.x = theBody->GetPosition().x - mOffset.x;
-  newPos.y = theBody->GetPosition().y - mOffset.y;
+  newPos.x = theBody->GetPosition().x;
+  newPos.y = theBody->GetPosition().y;
   newPos.z = trans->mPositionZ();
   if (!(newPos.x < trans->mPositionX() + EPIFORTRANS && newPos.x > trans->mPositionX() - EPIFORTRANS) || !(newPos.y < trans->mPositionY() + EPIFORTRANS && newPos.y > trans->mPositionY() - EPIFORTRANS))
   {
@@ -58,15 +57,15 @@ void BoxColliderComponent::Update(double dt)
   }
 }
 
-void BoxColliderComponent::Shutdown()
+void CircleColliderComponent::Shutdown()
 {
   PhysicsSystem* g = gCore->GetSystem(PhysicsSystem);
   g->RemoveBody(theBody);
   delete type;
-  delete box;
+  delete circle;
 }
 
-void BoxColliderComponent::ConfirmPosition(){
+void CircleColliderComponent::ConfirmPosition(){
   auto* trans = mParent_->GetComponent(TransformComponent);
   if (!trans)
   {

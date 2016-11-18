@@ -6,7 +6,7 @@
 #include "ObjectSystem.h"
 #include "Object.h"
 #include "TransformComponent.h"
-#include "BoxColliderComponent.h"
+#include "CircleColliderComponent.h"
 #include "PCControllerComponent.h"
 #include "MessagingSystem.h"
 
@@ -28,7 +28,7 @@ void KnifeComponent::Update(double dt)
 {
   auto * input = gCore->GetSystem(InputSystem);
   auto* trans = mParent()->GetComponent(TransformComponent);
-  auto* box = mParent()->GetComponent(BoxColliderComponent);
+  auto* box = mParent()->GetComponent(CircleColliderComponent);
   auto* playerTrans = thePlayer->GetComponent(TransformComponent);
   auto* alive = thePlayer->GetComponent(PCControllerComponent);
   if (alive->GetAlive())

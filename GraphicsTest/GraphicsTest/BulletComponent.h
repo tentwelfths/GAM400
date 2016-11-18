@@ -21,4 +21,7 @@ private:
   float contactDeathTime;
   float timeTillDead;
   int damage;
+  Object* thePlayer;
+  float homingTime;
+  float timeToHome;
 };

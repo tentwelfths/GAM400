@@ -1,9 +1,12 @@
+#include <Box2D\Box2D.h>
 #include "BulletComponent.h"
+#include "BoxColliderComponent.h"
+#include "ObjectSystem.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
 
-BulletComponent::BulletComponent() : GameLogicComponent(GameLogicType::BULLET), contact(false), pierce(false), homing(false), currTime(0.0f), contactDeathTime(0.0f), timeTillDead(0.1f), damage(2)
+BulletComponent::BulletComponent() : GameLogicComponent(GameLogicType::BULLET), contact(false), pierce(false), homing(false), currTime(0.0f), contactDeathTime(0.0f), timeTillDead(0.1f), damage(2), thePlayer(nullptr), homingTime(0.1f), timeToHome(0.0f)
 {
   AddMember(BulletComponent, lifeTime);
   mName_ = "BulletComponent";
@@ -11,6 +14,8 @@ BulletComponent::BulletComponent() : GameLogicComponent(GameLogicType::BULLET), 
 
 bool BulletComponent::Initialize()
 {
+  auto * o = gCore->GetSystem(ObjectSystem);
+  thePlayer = o->GetFirstItemByName("Player");
   return true;
 }
 
@@ -45,6 +50,20 @@ void BulletComponent::Update(double dt)
     //{
     //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
     //}
+  }
+  if (homing)
+  {
+    if (timeToHome > homingTime)
+    {
+      auto* playerTrans = thePlayer->GetComponent(TransformComponent);
+      b2Vec2 velMod(playerTrans->mPositionX(), playerTrans->mPositionY());
+      velMod.Normalize();
+      auto* box = mParent()->GetComponent(BoxColliderComponent);
+      b2Vec2 newVel = box->GetBody()->GetLinearVelocity() + velMod;
+      box->GetBody()->SetLinearVelocity(newVel);
+      timeToHome = 0.0f;
+    }
+    timeToHome += dt;
   }
   if (contact && !pierce)
   {

@@ -5,6 +5,8 @@
 #include "InputSystem.h"
 #include "ObjectSystem.h"
 #include "LevelManagerComponent.h"
+#include "SpriteComponent.h"
+
 
 ChargeObjective::ChargeObjective() : GameLogicComponent(GameLogicType::CHARGEOBJECTIVE), done(false), charge(0.0f), chargeCap(1.0f)
 {
@@ -31,6 +33,9 @@ void ChargeObjective::Update(double dt)
       if (charge < chargeCap)
       {
         charge += dt;
+        auto* color = mParent()->GetComponent(SpriteComponent);
+        color->mTint_.g -= dt;
+        color->mTint_.r -= dt;
       }
     }
   }

@@ -6,7 +6,7 @@
 
 class b2Contact;
 class b2Fixture;
-class BoxColliderComponent;
+class CircleColliderComponent;
 
 class MyListen : public b2ContactListener
 {
@@ -14,6 +14,6 @@ public:
   void BeginContact(b2Contact* contact);
   void EndContact(b2Contact* contact);
 private:
-  BoxColliderComponent* objOne;
-  BoxColliderComponent* objTwo;
+  CircleColliderComponent* objOne;
+  CircleColliderComponent* objTwo;
 };
