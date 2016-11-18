@@ -160,6 +160,9 @@ Controller InputSystem::getController(int contNum)
   return theControllers[contNum];
 }
 
+float InputSystem::GetMouseX(){ auto * gSys = gCore->GetSystem(GraphicsSystem);return xPos + gSys->mMainCamera.x; }
+float InputSystem::GetMouseY(){ auto * gSys = gCore->GetSystem(GraphicsSystem);return yPos + gSys->mMainCamera.y; }
+
 void InputSystem::updateController(int contNum, std::vector<int> theButtons, 
   std::vector<bool> theVal, float x1NewStick, float y1NewStick, float x2NewStick, 
   float y2NewStick)
@@ -234,7 +237,7 @@ void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse)
   }
   gluUnProject(winX, winY, winZ, modelview, projection, viewport, &worldX, &worldY, &worldZ);
   //std::cout << worldX << ", " << worldY << std::endl;
-  i->setMousePos((float)worldX + gSys->mMainCamera.x, (float)worldY + gSys->mMainCamera.y);
+  i->setMousePos((float)worldX, (float)worldY);
 }
 
 void inputButtonCallback(GLFWwindow* window, int button, int action, int mods)

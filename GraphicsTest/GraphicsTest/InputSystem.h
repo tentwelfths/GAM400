@@ -54,8 +54,8 @@ class InputSystem : public System
     bool isButtonReleased(int contNum, int key);
     Joystick getJoystick(int contNum);
     Controller getController(int contNum);
-    float GetMouseX(){ return xPos; }
-    float GetMouseY(){ return yPos; }
+    float GetMouseX();
+    float GetMouseY();
     void SetScrollDelta(double delta){ mouseDelta = delta; }
     double GetScrollDelta(){ return mouseDelta; }
   private:
