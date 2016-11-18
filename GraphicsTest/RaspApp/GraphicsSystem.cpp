@@ -182,9 +182,9 @@ GraphicsSystem::GraphicsSystem()
     "void main()                                         \n"
     "{                                                   \n"
     "  vec4 texel = texture2D( myTextureSampler, v_texCoord ).rgba;"
-    //"texel.rgb += Tint.rgb;"
-    //"texel.a = min(Opacity, texel.a);"
-    //"clamp(texel.rgba, 0.0,1.0);"
+    "texel.rgb += Tint.rgb;"
+    "texel.a = min(Opacity, texel.a);"
+    "clamp(texel.rgba, 0.0,1.0);"
     "  gl_FragColor = texel;\n"
     "}                                                   \n";
   
