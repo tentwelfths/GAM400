@@ -265,3 +265,12 @@ void inputScrollCallback(GLFWwindow* window, double x, double y)
     return;
   i->SetScrollDelta(y);
 }
+
+void inputCursorEnterCallback(GLFWwindow* window, int in)
+{
+  InputSystem * i = gCore->GetSystem(InputSystem);
+  if (!in)
+  {
+    i->setMousePos(-1000, -1000);
+  }
+}

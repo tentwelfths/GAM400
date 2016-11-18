@@ -83,6 +83,7 @@ bool GraphicsSystem::Initialize()
   glfwSetCursorPosCallback(mWindow, inputMouseCallback);
   glfwSetMouseButtonCallback(mWindow, inputButtonCallback);
   glfwSetScrollCallback(mWindow, inputScrollCallback);
+  glfwSetCursorEnterCallback(mWindow, inputCursorEnterCallback);
   //glfwGetFramebufferSize(mWindow, &width, &height);
 
   //double moX, moY;

@@ -144,19 +144,19 @@ void EditorSystem::Update(double dt){
     g->mMainCamera.y += g->mMainCamera.zoom / 2.f;
   }
   
-  if (x <= g->mMainCamera.x - 9.5f * g->mMainCamera.zoom)
+  if (x <= g->mMainCamera.x - 9.5f * g->mMainCamera.zoom && x >= g->mMainCamera.x - 10.9f * g->mMainCamera.zoom)
   {
     g->mMainCamera.x -= g->mMainCamera.zoom / 4.f;
   }
-  if (x >= g->mMainCamera.x + 9.5f * g->mMainCamera.zoom)
+  if (x >= g->mMainCamera.x + 9.5f * g->mMainCamera.zoom && x <= g->mMainCamera.x + 10.9f * g->mMainCamera.zoom)
   {
     g->mMainCamera.x += g->mMainCamera.zoom / 4.f;
   }
-  if (y <= g->mMainCamera.y - 5.5f * g->mMainCamera.zoom)
+  if (y <= g->mMainCamera.y - 5.5f * g->mMainCamera.zoom && x >= g->mMainCamera.y - 9.9f * g->mMainCamera.zoom)
   {
     g->mMainCamera.y -= g->mMainCamera.zoom / 4.f;
   }
-  if (y >= g->mMainCamera.y + 5.5f * g->mMainCamera.zoom)
+  if (y >= g->mMainCamera.y + 5.5f * g->mMainCamera.zoom && x >= g->mMainCamera.y + 9.9f * g->mMainCamera.zoom)
   {
     g->mMainCamera.y += g->mMainCamera.zoom / 4.f;
   }

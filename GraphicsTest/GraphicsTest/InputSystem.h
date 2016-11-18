@@ -70,3 +70,4 @@ void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int
 void inputMouseCallback(GLFWwindow *window, double xMouse, double yMouse);
 void inputButtonCallback(GLFWwindow* window, int button, int action, int mods);
 void inputScrollCallback(GLFWwindow* window, double x, double y);
+void inputCursorEnterCallback(GLFWwindow* window, int in);
