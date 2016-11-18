@@ -37,6 +37,7 @@ void ChargeObjective::Update(double dt)
         auto* color = mParent()->GetComponent(SpriteComponent);
         float g = color->mTint_.g - dt;
         float r = color->mTint_.r - dt;
+        std::cout << "CHARGING " <<r<<" "<<g << std::endl;
         color->mTint(r, g, color->mTint_.b);
       }
     }
