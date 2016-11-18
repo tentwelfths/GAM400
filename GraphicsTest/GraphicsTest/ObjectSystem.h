@@ -33,6 +33,7 @@ public:
   std::string GetTextureData(unsigned int ID);
   std::unordered_map<unsigned int, Object *> mObjectMap_;
   std::string GetCameraData(unsigned int ID);
+  Object * CloneObject(Object * obj);
 private:
   std::string GetData(Object * iter, int num);
   std::string GetTransformData(Object * iter, int num);

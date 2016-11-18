@@ -7,7 +7,7 @@
 #include "Globals.h"
 #include "NetworkingSystem.h"
 #include "JSONTranslator.h"
-
+#include <type_traits>
 ObjectSystem::ObjectSystem()
 {
   mName_ = "ObjectSystem";
@@ -390,4 +390,30 @@ void ObjectSystem::RemoveBornObject(unsigned int ID)//FUCK YOU THIS DOESN'T DO W
       break;
     }
   }
+}
+
+Object * ObjectSystem::CloneObject(Object * obj){
+  if (!obj) return nullptr;
+  Object * clone = new Object;
+  clone->name = obj->name;
+  clone->mCamera = obj->mCamera;
+  clone->save = obj->save;
+  clone->source = obj->source;
+  for (int i = 0; i < 5; ++i){
+    clone->mVisibility[i] = obj->mVisibility[i];
+  }
+  for (auto iter : obj->mComponents){
+    auto * comp = components[iter.first]();
+    for (auto compIter : comp->members){
+      comp->members[compIter.first]->Set(iter.second->members[compIter.first]->Get(0));
+        //*(static_cast<std::decay<decltype(*comp->members[compIter.first])>::type::myType *>(iter.second->members[compIter.first]->val));
+    }
+    clone->AddComponent(comp);
+  }
+  auto v = clone->GetComponent(TransformComponent)->mPosition();
+  v.x += 1;
+  clone->GetComponent(TransformComponent)->mPosition(v);
+  clone->Register();
+  clone->Initialize();
+  return clone;
 }

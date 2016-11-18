@@ -102,6 +102,13 @@ void EditorSystem::Update(double dt){
     obj->Initialize();
   }
 
+  if ((input->isKeyPressed(GLFW_KEY_LEFT_CONTROL) || input->isKeyPressed(GLFW_KEY_RIGHT_CONTROL)) && input->isKeyJustPressed(GLFW_KEY_D) && selected != nullptr){
+    auto * objectSystem = gCore->GetSystem(ObjectSystem);
+    if (objectSystem){
+      objectSystem->CloneObject(selected);
+    }
+  }
+
   auto * g = gCore->GetSystem(GraphicsSystem);
   if (input->isKeyPressed(GLFW_KEY_LEFT)){
     g->mMainCamera.x -= g->mMainCamera.zoom / 2.f;
@@ -295,6 +302,6 @@ void EditorSystem::CreateObjectByName(const char * name)
   if (obj != nullptr){
     auto * g = gCore->GetSystem(GraphicsSystem);
 
-    obj->GetComponent(TransformComponent)->mPosition(g->mMainCamera.x, g->mMainCamera.y, 0);
+    obj->GetComponent(TransformComponent)->mPosition(g->mMainCamera.x, g->mMainCamera.y, obj->GetComponent(TransformComponent)->mPositionZ());
   }
 }

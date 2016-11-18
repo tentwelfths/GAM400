@@ -25,6 +25,8 @@ public:
   virtual void Set(std::ifstream &file) = 0;
   virtual std::string Get(int scope) = 0;
   virtual void GetUI(std::string name) = 0;
+  void * val;
+  typedef void myType;
 };
 
 template<typename T>
@@ -32,6 +34,7 @@ class Member : public Mem
 {
 public:
   T * val;
+  typedef T myType;
   Member(T * v) : Mem(),val(static_cast<T *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
@@ -50,6 +53,7 @@ class Member<std::string> : public Mem
 {
 public:
   std::string * val;
+  typedef std::string myType;
   char temp[64];
   Member(std::string * v) : Mem(), val(static_cast<std::string *>(v)) {}
   void Set(std::ifstream &file){};
@@ -76,6 +80,7 @@ class Member<int> : public Mem
 {
 public:
   int * val;
+  typedef int myType;
   Member(int * v) : Mem(), val(static_cast<int *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
@@ -94,8 +99,41 @@ class Member<glm::vec3> : public Mem
 {
 public:
   glm::vec3 * val;
+  typedef glm::vec3 myType;
   Member(glm::vec3 * v) : Mem(), val(static_cast<glm::vec3 *>(v)) {}
-  void Set(std::string){}
+  void Set(std::string str)
+  {
+    std::string var[3], nval[3], line[3];
+    int count = -1;
+    for (unsigned i = 0; i < str.length(); ++i){
+      if (count >= 0 && count < 3)
+        line[count] += str[i];
+      if (str[i] == '\n')++count;
+    }
+    for (int j = 0; j < 3; ++j){
+      unsigned i = 0;
+      for (; i < line[j].length(); ++i){
+        if (line[j][i] == ':') break;
+        var[j] += line[j][i];
+      }
+
+      nval[j] = line[j].substr(i + 1);
+      if (nval[j][nval[j].length() - 1] == ','){
+        nval[j] = nval[j].substr(0, nval[j].length() - 1);
+      }
+      var[j] = trim(var[j]);
+      nval[j] = trim(nval[j]);
+      if (var[j] == "x"){
+        val->x = std::stof(nval[j]);
+      }
+      if (var[j] == "y"){
+        val->y = std::stof(nval[j]);
+      }
+      if (var[j] == "z"){
+        val->z = std::stof(nval[j]);
+      }
+    }
+  }
   void Set(std::ifstream &file){
     std::string var[3], nval[3], line[3];
 
@@ -152,6 +190,7 @@ class Member<unsigned> : public Mem
 {
 public:
   unsigned * val;
+  typedef unsigned myType;
   Member(unsigned * v) : Mem(), val(static_cast<unsigned *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
@@ -170,6 +209,7 @@ class Member<double> : public Mem
 {
 public:
   double * val;
+  typedef double myType;
   Member(double * v) :Mem(), val(static_cast<double *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
@@ -188,6 +228,7 @@ class Member<float> : public Mem
 {
 public:
   float * val;
+  typedef float myType;
   Member(float * v) :Mem(), val(static_cast<float *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
@@ -206,6 +247,7 @@ class Member<char> : public Mem
 {
 public:
   char * val;
+  typedef char myType;
   Member(char * v) :Mem(), val(static_cast<char *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
@@ -224,6 +266,7 @@ class Member<bool> : public Mem
 {
 public:
   bool * val;
+  typedef bool myType;
   Member(bool * v) :Mem(), val(static_cast<bool *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
