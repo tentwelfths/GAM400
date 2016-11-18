@@ -257,3 +257,17 @@
 	Rows:1,
 	Cols:1
 },
+{
+	Name:WoodCrate.png,
+	Index:37,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:haybale.png,
+	Index:38,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},

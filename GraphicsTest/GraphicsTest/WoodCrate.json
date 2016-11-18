@@ -1,0 +1,38 @@
+File: WoodCrate.json
+Name: WoodCrate
+Object: {
+TransformComponent: {
+	"mPosition_": {
+		x: 5.570788,
+		y: 3.648120,
+		z: 2.000000
+		},
+	"mScale_": {
+		x: 1.000000,
+		y: 1.000000,
+		z: 1.000000
+		},
+	"mRotation_": {
+		x: 0.000000,
+		y: 0.000000,
+		z: 0.000000
+		}
+	},
+SpriteComponent: {
+	"mTextureName": woodcrate.png
+	},
+EditorComponent: {
+	},
+CircleColliderComponent: {
+		"mDensity": 1.000000,
+		"mRadius": 0.500000,
+		"dynamicState": 0,
+		"mOffset": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
+		"mFriction": 1.000000,
+		"mGhost": false
+	},
+}
