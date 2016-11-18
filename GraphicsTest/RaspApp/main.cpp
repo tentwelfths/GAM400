@@ -327,6 +327,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->scale[1] = ySca;
         temp->rotation = rot;
         temp->textureID = textureID;
+        temp->r = r / 255.f;
+        temp->g = g / 255.f;
+        temp->b = b / 255.f;
+        temp->a = a / 255.f;
         std::cout<<"OSetup"<<std::endl;
         if(isVis == '0'){
           (temp)->inUse = false;
