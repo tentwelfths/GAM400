@@ -30,12 +30,14 @@ void ChargeObjective::Update(double dt)
   {
     if (playersOn[i] && input->isButtonPressed(i, 0))
     {
+      std::cout << "CHARGING" << std::endl;
       if (charge < chargeCap)
       {
         charge += dt;
         auto* color = mParent()->GetComponent(SpriteComponent);
-        color->mTint_.g -= dt;
-        color->mTint_.r -= dt;
+        float g = color->mTint_.g - dt;
+        float r = color->mTint_.r - dt;
+        color->mTint(r, g, color->mTint_.b);
       }
     }
   }
