@@ -7,6 +7,7 @@
 #include "TransformComponent.h"
 #include "PCControllerComponent.h"
 #include "DamageArrowComponent.h"
+#include "Globals.h"
 
 DamageLocatorComponent::DamageLocatorComponent() : GameLogicComponent(GameLogicType::DAMAGELOCATOR)
 {
@@ -66,8 +67,16 @@ void DamageLocatorComponent::Update(double dt)
   }
   for (int i = 0; i < NUMARROWS; ++i){
     vec2 v(arrows[i]->GetComponent(DamageArrowComponent)->mOffsetx, arrows[i]->GetComponent(DamageArrowComponent)->mOffsety);
-    arrows[i]->GetComponent(TransformComponent)->mPosition(mParent()->GetComponent(TransformComponent)->mPositionX() + v.x,
-      mParent()->GetComponent(TransformComponent)->mPositionY() + v.y, 3);
+    vec3 pos = arrows[i]->GetComponent(TransformComponent)->mPosition();
+    vec3 owner = mParent()->GetComponent(TransformComponent)->mPosition();
+    bool changed = false || (pos.x > owner.x + v.x + EPIFORTRANS) 
+      || (pos.x < owner.x + v.x - EPIFORTRANS) 
+      || (pos.y > owner.y + v.y + EPIFORTRANS) 
+      || (pos.y < owner.y + v.y - EPIFORTRANS);
+    if (changed){
+      arrows[i]->GetComponent(TransformComponent)->mPosition(mParent()->GetComponent(TransformComponent)->mPositionX() + v.x,
+        mParent()->GetComponent(TransformComponent)->mPositionY() + v.y, 3);
+    }
   }
 }
 void DamageLocatorComponent::Shutdown()
