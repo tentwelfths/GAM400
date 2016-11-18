@@ -108,6 +108,15 @@ void EditorSystem::Update(double dt){
       objectSystem->CloneObject(selected);
     }
   }
+  //Slected object hotkeys
+  if (selected){
+    if (input->isKeyJustPressed(GLFW_KEY_Q)){
+      selected->GetComponent(TransformComponent)->mRotationZ(selected->GetComponent(TransformComponent)->mRotationZ() + 90);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_E)){
+      selected->GetComponent(TransformComponent)->mRotationZ(selected->GetComponent(TransformComponent)->mRotationZ() - 90);
+    }
+  }
 
   auto * g = gCore->GetSystem(GraphicsSystem);
   if (input->isKeyPressed(GLFW_KEY_LEFT)){
