@@ -85,6 +85,10 @@ bool GraphicsSystem::Initialize()
   glfwSetScrollCallback(mWindow, inputScrollCallback);
   //glfwGetFramebufferSize(mWindow, &width, &height);
 
+  //double moX, moY;
+  //glfwGetCursorPos(mWindow, &moX, &moY);
+  //inputMouseCallback(mWindow, moX, moY);
+
   // Initialize GLEW
   glewExperimental = true; // Needed for core profile
   if (glewInit() != GLEW_OK) {

@@ -10,7 +10,7 @@
 #include <imgui.h>
 #include <math.h>   
 
-EditorSystem::EditorSystem() : showfilter(false), mShowAddComponent(false)
+EditorSystem::EditorSystem() : showfilter(false), mShowAddComponent(false), tool(0)
 {
   str[0] = 0;
   mName_ = "EditorSystem";
@@ -51,6 +51,13 @@ void EditorSystem::Update(double dt){
     selected = nullptr;
   }
   
+  if (input->isKeyJustPressed(GLFW_KEY_1)){
+    tool = 0;
+  }
+  if (input->isKeyJustPressed(GLFW_KEY_2)){
+    tool = 1;
+  }
+
   if (tileEditorActive){
     if (input->isKeyJustPressed(GLFW_KEY_ESCAPE)){
       tileEditorActive = false;
@@ -84,14 +91,16 @@ void EditorSystem::Update(double dt){
     
     mComponents_[i]->Update(dt);
   }
+  float x = input->GetMouseX(), y = input->GetMouseY();
   if (input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && selected != nullptr && !tileEditorActive){
-    float x = input->GetMouseX(), y = input->GetMouseY(), z = selected->GetComponent(TransformComponent)->mPositionZ();
+    float z = selected->GetComponent(TransformComponent)->mPositionZ();
     if (input->isKeyPressed(GLFW_KEY_LEFT_SHIFT) || input->isKeyPressed(GLFW_KEY_RIGHT_SHIFT))
     {
       x = round(x);
       y = round(y);
     }
-    selected->GetComponent(TransformComponent)->mPosition(x, y, z);
+    if (tool == 1)
+      selected->GetComponent(TransformComponent)->mPosition(x, y, z);
   }
 
   if (input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && selected == nullptr && tileEditorActive){
@@ -118,6 +127,8 @@ void EditorSystem::Update(double dt){
     }
   }
 
+
+
   auto * g = gCore->GetSystem(GraphicsSystem);
   if (input->isKeyPressed(GLFW_KEY_LEFT)){
     g->mMainCamera.x -= g->mMainCamera.zoom / 2.f;
@@ -125,13 +136,35 @@ void EditorSystem::Update(double dt){
   if (input->isKeyPressed(GLFW_KEY_RIGHT)){
     g->mMainCamera.x += g->mMainCamera.zoom / 2.f;
   }
+  
   if (input->isKeyPressed(GLFW_KEY_DOWN)){
     g->mMainCamera.y -= g->mMainCamera.zoom / 2.f;
   }
   if (input->isKeyPressed(GLFW_KEY_UP)){
     g->mMainCamera.y += g->mMainCamera.zoom / 2.f;
   }
+  
+  if (x <= g->mMainCamera.x - 9.5f * g->mMainCamera.zoom)
+  {
+    g->mMainCamera.x -= g->mMainCamera.zoom / 4.f;
+  }
+  if (x >= g->mMainCamera.x + 9.5f * g->mMainCamera.zoom)
+  {
+    g->mMainCamera.x += g->mMainCamera.zoom / 4.f;
+  }
+  if (y <= g->mMainCamera.y - 5.5f * g->mMainCamera.zoom)
+  {
+    g->mMainCamera.y -= g->mMainCamera.zoom / 4.f;
+  }
+  if (y >= g->mMainCamera.y + 5.5f * g->mMainCamera.zoom)
+  {
+    g->mMainCamera.y += g->mMainCamera.zoom / 4.f;
+  }
+  
+  
   g->mMainCamera.zoom -= input->GetScrollDelta() * 0.25;
+
+  
 
 }
 void EditorSystem::Shutdown(){

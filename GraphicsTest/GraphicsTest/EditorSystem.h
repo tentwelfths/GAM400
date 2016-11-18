@@ -33,4 +33,5 @@ private:
   bool mShowAddComponent;
   bool mShowSaveArchetype;
   char str[64];
+  char tool;
 };
