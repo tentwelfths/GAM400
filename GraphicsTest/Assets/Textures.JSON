@@ -173,3 +173,73 @@
 	Rows:1,
 	Cols:1
 },
+{
+	Name:buildingcorner.png,
+	Index:25,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:buildingwall.png,
+	Index:26,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:salagmite.png,
+	Index:27,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:stove.png,
+	Index:28,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:chair.png,
+	Index:29,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:roundtable.png,
+	Index:30,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:woodfloor.png,
+	Index:31,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:tv.png,
+	Index:32,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:lamp.png,
+	Index:33,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:Fridge.png,
+	Index:34,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
