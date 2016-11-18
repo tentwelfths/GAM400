@@ -186,9 +186,12 @@ void NetworkingSystem::Update(double dt)
       auto * msg = reinterpret_cast<CameraMoveMessage *>(iter.data);
       for (unsigned i = 0; i < connections.size(); ++i){
         if (connections[i].playerNum == msg->controllerNum){
-          AddCommand(i, '(', msg->objID); 
-          connections[i].x = gCore->GetSystem(ObjectSystem)->mObjectMap_[msg->objID]->GetComponent(TransformComponent)->mPositionX();
-          connections[i].y = gCore->GetSystem(ObjectSystem)->mObjectMap_[msg->objID]->GetComponent(TransformComponent)->mPositionY();
+          auto obj = gCore->GetSystem(ObjectSystem)->mObjectMap_.find(msg->objID);
+          if (obj != gCore->GetSystem(ObjectSystem)->mObjectMap_.end()){
+            AddCommand(i, '(', msg->objID);
+            connections[i].x = obj->second->GetComponent(TransformComponent)->mPositionX();
+            connections[i].y = obj->second->GetComponent(TransformComponent)->mPositionY();
+          }
         }
       }
       
