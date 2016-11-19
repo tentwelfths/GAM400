@@ -181,6 +181,7 @@ void EditorSystem::Select(Object * obj){
     if (selected->GetComponent(TransformComponent)->mPositionZ() > obj->GetComponent(TransformComponent)->mPositionZ())
       return;
   }
+  if (obj->save == false)return;
   selected = obj;
 }
 
