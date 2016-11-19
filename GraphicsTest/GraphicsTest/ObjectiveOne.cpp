@@ -17,7 +17,7 @@ bool ObjectiveOne::Initialize()
 {
   JSONTranslator j;
   Object * b;
-  zone = j.CreateObjectFromFile("ObjectZone.json");
+  zone = j.CreateObjectFromFile("ObjectiveZone.json");
   if (!zone)
   {
     return true;
@@ -27,11 +27,14 @@ bool ObjectiveOne::Initialize()
   auto * trans = mParent()->GetComponent(TransformComponent);
 
   bTrans->mPosition(trans->mPositionX(), trans->mPositionY(), trans->mPositionZ()-1.0f);
+  bTrans->mScale(trans->mScaleX() + 1.0f, trans->mScaleY() + 1.0f, trans->mScaleZ());
+  bColl->SetHalfSize(bTrans->mScale());
   //b2Vec2 bodyVec(bTrans->mPositionX(), bTrans->mPositionY());
   //bColl->GetBody()->SetTransform(bodyVec, 0);
   zone->name = zoneName;
-  zone->Initialize();
+  zone->save = false;
   zone->Register();
+  zone->Initialize();
   return true;
 }
 

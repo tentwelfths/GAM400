@@ -1,0 +1,35 @@
+File: LevelManager.json
+Name: LevelManager
+Object: {
+TransformComponent: {
+	"mPosition_": {
+		x: 501.000000,
+		y: -0.000000,
+		z: 0.000000
+		},
+	"mScale_": {
+		x: 1.000000,
+		y: 1.000000,
+		z: 1.000000
+		},
+	"mRotation_": {
+		x: 0.000000,
+		y: 0.000000,
+		z: 0.000000
+		}
+	},
+SpriteComponent: {
+	"mTextureName": sadface.png,
+	"mOpacity_": 1.000000,
+	"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+	},
+LevelManagerComponent: {
+	},
+EditorComponent: {
+	"tile": false
+	}
+},

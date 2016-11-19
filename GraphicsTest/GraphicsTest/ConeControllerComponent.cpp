@@ -12,6 +12,7 @@
 #include "MessagingSystem.h"
 #include "Messages.h"
 #include "DamageLocatorComponent.h"
+#include "JSONTranslator.h"
 
 
 #define SOMENUMBER 1
@@ -39,6 +40,12 @@ bool ConeControllerComponent::Initialize()
   auto * DLC = mParent()->GetComponent(DamageLocatorComponent);
   if (DLC)
     DLC->SetArrowVisibility(vis);
+  JSONTranslator j;
+  Object* c;
+  c = j.CreateObjectFromFile("Cone.json");
+  c->save = false;
+  c->Register();
+  c->Initialize();
   return true;
 }
 

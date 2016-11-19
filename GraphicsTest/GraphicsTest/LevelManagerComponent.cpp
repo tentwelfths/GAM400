@@ -26,7 +26,7 @@ bool LevelManagerComponent::Initialize()
 
 void LevelManagerComponent::Update(double dt)
 {
-  for (int i = 0; i < 2; ++i)
+  for (int i = 0; i < 4; ++i)
   {
     if (mObjectives[i] == false)
     {

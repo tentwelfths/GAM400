@@ -32,6 +32,9 @@ bool PCControllerComponent::Initialize()
   JSONTranslator j;
   Object* k;
   k = j.CreateObjectFromFile("Knife.json");
+  k->save = false;
+  k->Register();
+  k->Initialize();
   return true;
 }
 

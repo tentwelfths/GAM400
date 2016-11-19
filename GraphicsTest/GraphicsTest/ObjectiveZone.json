@@ -5,7 +5,7 @@ TransformComponent: {
 	"mPosition_": {
 		x: 7.902037,
 		y: -0.576879,
-		z: 0.000000
+		z: 3.000000
 		},
 	"mScale_": {
 		x: 1.000000,
@@ -22,7 +22,13 @@ ChargeObjective: {
 	"chargeCap": 1.000000
 	},
 SpriteComponent: {
-	"mTextureName": whitesquare.png
+	"mTextureName": blacksquare.png
+	"mOpacity_": 0.500000,
+	"mTint_": {
+		x: 1.000000,
+		y: 1.000000,
+		z: 1.000000
+		}
 	},
 EditorComponent: {
 	},

@@ -10,7 +10,7 @@ public:
   void Update(double dt);
   void Shutdown();
   void SetBool(PlayerControllerComponent* thePlayer, bool state);
-  bool mObjectives[2];
+  bool mObjectives[4];
 private:
   Object* mPCPlayer;
   Object* mConeMan;

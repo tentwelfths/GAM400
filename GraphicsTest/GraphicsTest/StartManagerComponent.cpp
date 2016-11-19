@@ -73,7 +73,7 @@ void StartManagerComponent::Update(double dt)
   if (mCountDown > mTarget)
   {
     gCore->UnloadLevel();
-    gCore->LoadLevel("DemoLevel.json");
+    gCore->LoadLevel("New.json");
   }
 }
 
