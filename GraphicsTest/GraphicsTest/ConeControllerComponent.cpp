@@ -159,7 +159,7 @@ void ConeControllerComponent::UpdateVis(Object* theTarget)
   }
   theDistance.Normalize();
   float theCosine = mDirX * theDistance.x + mDirY * theDistance.y;
-  if (-theCosine > 0.85f)
+  if (-theCosine > 0.87f)
   {
     for (int i = 0; i < 4; ++i)
     {
