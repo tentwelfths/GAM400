@@ -17,7 +17,7 @@
 
 #define SOMENUMBER 1
 #define ADJUSTANGLE 5
-#define SIGHTDISTANCE 20.0f
+#define SIGHTDISTANCE 40.0f
 
 
 
