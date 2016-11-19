@@ -29,6 +29,9 @@ bool PCControllerComponent::Initialize()
   auto * DLC = mParent()->GetComponent(DamageLocatorComponent);
   if (DLC)
     DLC->SetArrowVisibility(vis);
+  JSONTranslator j;
+  Object* k;
+  k = j.CreateObjectFromFile("Knife.json");
   return true;
 }
 

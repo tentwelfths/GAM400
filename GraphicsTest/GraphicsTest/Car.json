@@ -1,5 +1,5 @@
-File: HayBale.json
-Name: HayBale
+File: Car.json
+Name: Car
 Object: {
 TransformComponent: {
 	"mPosition_": {
@@ -9,7 +9,7 @@ TransformComponent: {
 		},
 	"mScale_": {
 		x: 1.000000,
-		y: 1.000000,
+		y: 2.000000,
 		z: 1.000000
 		},
 	"mRotation_": {
@@ -19,7 +19,7 @@ TransformComponent: {
 		}
 	},
 SpriteComponent: {
-	"mTextureName": haybale.png
+	"mTextureName": car.png
 	},
 EditorComponent: {
 	},
@@ -27,7 +27,7 @@ BoxColliderComponent: {
 	"mDensity": 1.000000,
 	"mHalfSize": {
 					x: 0.500000,
-					y: 0.500000,
+					y: 1.000000,
 					z: 1.000000
 					},
 	"dynamicState": 0,

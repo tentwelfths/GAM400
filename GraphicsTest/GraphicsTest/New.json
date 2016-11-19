@@ -1,4 +1,113 @@
 {
+	File: Player.json
+	Name: Player
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 28.000000,
+			y: 7.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Monster.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	PCControllerComponent: {
+		"sprintSpeed": 2.000000,
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 10,
+		"killable": false
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	DamageLocatorComponent: {
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 0,
+		"mOffset": {
+								x: 0.000000,
+								y: 0.000000,
+								z: 0.000000
+								},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": false
+		}
+	},
+	File: Coneman.json
+	Name: Coneman
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -22.000000,
+			y: -28.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 5.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Coneman.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	DamageLocatorComponent: {
+		},
+	ConeControllerComponent: {
+		"speed": 5.000000,
+		"playerID": 0,
+		"health": 2,
+		"killable": false,
+		"controllerID": 0,
+		"bulletSpeed": 20.000000
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 0,
+		"mOffset": {
+								x: 0.000000,
+								y: 0.000000,
+								z: 0.000000
+								},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": false
+		}
+	},
 	File: BigGrass.json
 	Name: BigGrass
 	Object: {
@@ -9,8 +118,8 @@
 			z: 0.000000
 			},
 		"mScale_": {
-			x: 75.000000,
-			y: 55.000000,
+			x: 85.000000,
+			y: 65.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -2636,202 +2745,6 @@
 		"mPosition_": {
 			x: -21.000000,
 			y: -32.000000,
-			z: 2.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -22.000000,
-			y: -31.000000,
-			z: 2.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -23.000000,
-			y: -30.000000,
-			z: 2.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -24.000000,
-			y: -29.000000,
-			z: 2.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": Tree.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": false
-		}
-	},
-	File: Tree.json
-	Name: Tree
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -25.000000,
-			y: -28.000000,
 			z: 2.000000
 			},
 		"mScale_": {
@@ -13832,6 +13745,251 @@
 		},
 	EditorComponent: {
 		"tile": true
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: WoodCrate.json
+	Name: WoodCrate
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: 13.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": woodcrate.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: WoodCrate.json
+	Name: WoodCrate
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: 12.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": woodcrate.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: WoodCrate.json
+	Name: WoodCrate
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.000000,
+			y: 4.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": woodcrate.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: WoodCrate.json
+	Name: WoodCrate
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 10.000000,
+			y: 4.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": woodcrate.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: WoodCrate.json
+	Name: WoodCrate
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 9.000000,
+			y: 4.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": woodcrate.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
 		},
 	BoxColliderComponent: {
 		"mDensity": 1.000000,
@@ -30184,6 +30342,638 @@
 						},
 		"mFriction": 1.000000,
 		"mGhost": false
+		}
+	},
+	File: Car.json
+	Name: Car
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -22.000000,
+			y: -31.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": car.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 1.000000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Car.json
+	Name: Car
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -25.000000,
+			y: -28.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": car.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 1.000000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: Car.json
+	Name: Car
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -23.562500,
+			y: -29.562500,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 45.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": car.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 1.000000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: HayBale.json
+	Name: HayBale
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 30.000000,
+			y: -24.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 90.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": haybale.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: HayBale.json
+	Name: HayBale
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 29.000000,
+			y: -25.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 90.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": haybale.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: HayBale.json
+	Name: HayBale
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 28.000000,
+			y: -24.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 90.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": haybale.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: HayBale.json
+	Name: HayBale
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 29.000000,
+			y: -23.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 90.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": haybale.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: HayBale.json
+	Name: HayBale
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 29.000000,
+			y: -19.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": haybale.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		}
+	},
+	File: ObjectiveOne.json
+	Name: ObjectiveOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 22.000000,
+			y: -16.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	ObjectiveOne: {
+		"zoneName": REPLACETHIS
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.200000,
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mDensity": 1.000000,
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	SpriteComponent: {
+		"mTextureName": scienceobject.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							}
+		}
+	},
+	File: ObjectiveOne.json
+	Name: ObjectiveOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 33.000000,
+			y: -26.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.200000,
+		"dynamicState": 0,
+		"mOffset": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
+		"mDensity": 1.000000,
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	ObjectiveOne: {
+		"zoneName": REPLACETHIS
+		},
+	SpriteComponent: {
+		"mTextureName": scienceobject.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							}
+		}
+	},
+	File: ObjectiveOne.json
+	Name: ObjectiveOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 2.000000,
+			y: 6.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	ObjectiveOne: {
+		"zoneName": REPLACETHIS
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.200000,
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mDensity": 1.000000,
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	SpriteComponent: {
+		"mTextureName": scienceobject.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							}
+		}
+	},
+	File: ObjectiveOne.json
+	Name: ObjectiveOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -22.000000,
+			y: 12.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.200000,
+		"dynamicState": 0,
+		"mOffset": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
+		"mDensity": 1.000000,
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	ObjectiveOne: {
+		"zoneName": REPLACETHIS
+		},
+	SpriteComponent: {
+		"mTextureName": scienceobject.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							}
+		}
+	},
+	File: ObjectiveOne.json
+	Name: ObjectiveOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -1.000000,
+			y: -13.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	ObjectiveOne: {
+		"zoneName": REPLACETHIS
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.200000,
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mDensity": 1.000000,
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	SpriteComponent: {
+		"mTextureName": scienceobject.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							}
 		}
 	},
 }

@@ -3,9 +3,9 @@ Name: Player
 Object: {
 TransformComponent: {
 	"mPosition_": {
-		x: 0.262500,
-		y: -4.850000,
-		z: 2.000000
+		x: 28.000000,
+		y: 7.000000,
+		z: 3.000000
 		},
 	"mScale_": {
 		x: 1.000000,
@@ -19,7 +19,13 @@ TransformComponent: {
 		}
 	},
 SpriteComponent: {
-	"mTextureName": Monster.png
+	"mTextureName": Monster.png,
+	"mOpacity_": 1.000000,
+	"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
 	},
 PCControllerComponent: {
 	"sprintSpeed": 2.000000,
@@ -33,20 +39,16 @@ EditorComponent: {
 	},
 DamageLocatorComponent: {
 	},
-BoxColliderComponent: {
-	"mDensity": 1.000000,
-	"mHalfSize": {
-							x: 0.500000,
-							y: 0.500000,
-							z: 1.000000
-							},
-	"dynamicState": 2,
+CircleColliderComponent: {
+	"mRadius": 0.500000,
+	"dynamicState": 0,
 	"mOffset": {
 							x: 0.000000,
 							y: 0.000000,
 							z: 0.000000
 							},
-	"mFriction": 1.000000,
+	"mDensity": 0.000000,
+	"mFriction": 0.000000,
 	"mGhost": false
 	}
 }

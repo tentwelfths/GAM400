@@ -15,8 +15,9 @@ ObjectiveOne::ObjectiveOne() : GameLogicComponent(GameLogicType::OBJECTIVEONE), 
 
 bool ObjectiveOne::Initialize()
 {
-  auto * o = gCore->GetSystem(ObjectSystem);
-  zone = o->GetFirstItemByName(zoneName);
+  JSONTranslator j;
+  Object * b;
+  zone = j.CreateObjectFromFile("ObjectZone.json");
   if (!zone)
   {
     return true;
@@ -26,9 +27,11 @@ bool ObjectiveOne::Initialize()
   auto * trans = mParent()->GetComponent(TransformComponent);
 
   bTrans->mPosition(trans->mPositionX(), trans->mPositionY(), trans->mPositionZ()-1.0f);
-  b2Vec2 bodyVec(bTrans->mPositionX(), bTrans->mPositionY());
-  bColl->GetBody()->SetTransform(bodyVec, 0);
-
+  //b2Vec2 bodyVec(bTrans->mPositionX(), bTrans->mPositionY());
+  //bColl->GetBody()->SetTransform(bodyVec, 0);
+  zone->name = zoneName;
+  zone->Initialize();
+  zone->Register();
   return true;
 }
 

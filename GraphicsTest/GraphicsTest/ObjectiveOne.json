@@ -24,22 +24,18 @@ ObjectiveOne: {
 	"zoneName": "REPLACETHIS"
 	},
 SpriteComponent: {
-	"mTextureName": sadface.png
+	"mTextureName": scienceobject.png
 	},
-BoxColliderComponent: {
-	"mDensity": 1.000000,
-	"mHalfSize": {
-					x: 0.500000,
-					y: 0.500000,
-					z: 1.000000
-					},
-	"dynamicState": 2,
-	"mOffset": {
-					x: 0.000000,
-					y: 0.000000,
-					z: 0.000000
-					},
-	"mFriction": 1.000000,
-	"mGhost": false
-	}
+CircleColliderComponent: {
+		"mDensity": 1.000000,
+		"mRadius": 0.200000,
+		"dynamicState": 0,
+		"mOffset": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			},
+		"mFriction": 1.000000,
+		"mGhost": false
+	},
 }

@@ -47,6 +47,15 @@ void ConeControllerComponent::Update(double dt)
   if (GetAlive())
   {
     auto * input = gCore->GetSystem(InputSystem);
+    if (!mKnife)
+    {
+      auto * o = gCore->GetSystem(ObjectSystem);
+      mKnife = o->GetFirstItemByName("Knife");
+      if (!mPCPlayer)
+      {
+        mPCPlayer = o->GetFirstItemByName("Player");
+      }
+    }
     Movement(input);
     Shoot(input, dt);
     Reload(input);
@@ -110,8 +119,14 @@ void ConeControllerComponent::Shutdown()
 
 void ConeControllerComponent::UpdateCone()
 {
-  UpdateVis(mPCPlayer);
-  UpdateVis(mKnife);
+  if (mPCPlayer)
+  {
+    UpdateVis(mPCPlayer);
+  }
+  if (mKnife)
+  {
+    UpdateVis(mKnife);
+  }
 }
 
 void ConeControllerComponent::UpdateVis(Object* theTarget)

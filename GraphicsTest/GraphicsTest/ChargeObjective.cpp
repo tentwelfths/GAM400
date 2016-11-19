@@ -6,6 +6,7 @@
 #include "ObjectSystem.h"
 #include "LevelManagerComponent.h"
 #include "SpriteComponent.h"
+#include "JSONTranslator.h"
 
 
 ChargeObjective::ChargeObjective() : GameLogicComponent(GameLogicType::CHARGEOBJECTIVE), done(false), charge(0.0f), chargeCap(1.0f)
@@ -36,7 +37,6 @@ void ChargeObjective::Update(double dt)
         auto* color = mParent()->GetComponent(SpriteComponent);
         float g = color->mTint_.g - dt;
         float r = color->mTint_.r - dt;
-        std::cout << "CHARGING " <<r<<" "<<g << std::endl;
         color->mTint(r, g, color->mTint_.b);
       }
     }

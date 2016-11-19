@@ -258,7 +258,7 @@
 	Cols:1
 },
 {
-	Name:WoodCrate.png,
+	Name:woodcrate.png,
 	Index:37,
 	Frames:1,
 	Rows:1,
@@ -267,6 +267,20 @@
 {
 	Name:haybale.png,
 	Index:38,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:car.png,
+	Index:39,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:scienceobject.png,
+	Index:40,
 	Frames:1,
 	Rows:1,
 	Cols:1

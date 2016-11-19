@@ -168,14 +168,12 @@ Object* GunControllerComponent::CreateBullet(float x, float y)
   JSONTranslator j;
   Object * b;
   b = j.CreateObjectFromFile("Bullet.json");
-  b->Register();
-  b->Initialize();
   auto bTrans = b->GetComponent(TransformComponent);
   auto bBox = b->GetComponent(BoxColliderComponent);
   auto trans = mParent()->GetComponent(TransformComponent);
   bTrans->mPosition(trans->mPosition());
   b2Vec2 boxPos(bTrans->mPositionX(), bTrans->mPositionY());
-  bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
+  //bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
   bBox->GetBody()->SetLinearVelocity(b2Vec2(x,y));
   currAmmo -= 1;
   if (mBigOrPierce)
@@ -191,5 +189,7 @@ Object* GunControllerComponent::CreateBullet(float x, float y)
     b->GetComponent(BulletComponent)->SetHoming();
     b->GetComponent(BulletComponent)->SetDamage(1);
   }
+  b->Initialize();
+  b->Register();
   return b;
 }
