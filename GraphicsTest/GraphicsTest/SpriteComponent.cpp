@@ -8,9 +8,22 @@
 
 SpriteComponent::SpriteComponent() : GraphicsComponent(GraphicsType::SPRITE)
 {
-  AddMember(SpriteComponent, mTextureName);
-  AddMember(SpriteComponent, mTint_);
-  AddMember(SpriteComponent, mOpacity_);
+  auto * g = gCore->GetSystem(GraphicsSystem);
+
+  Option comboBox(Options::SCROLLBOX);
+  Option floatMinMax(Options::FLOATRANGE);
+
+  comboBox.list.reserve(g->mTextureMap_.size());
+
+  for (auto kv : g->mTextureMap_) {
+    comboBox.list.push_back(kv.first);
+  }
+  floatMinMax.fmin = 0.f;
+  floatMinMax.fmax = 1.f;
+  AddSpecialMember(SpriteComponent, mTextureName, comboBox);
+
+  AddSpecialMember(SpriteComponent, mTint_, floatMinMax);
+  AddSpecialMember(SpriteComponent, mOpacity_, floatMinMax);
   hasChanged = false;
   mName_ = "SpriteComponent";
   mTint_.x = 0.f;
@@ -67,7 +80,7 @@ void SpriteComponent::SetTexture(std::string textureName)
 void      SpriteComponent::mTint(float r, float g, float b)
 {
   hasChanged = true;
-  mTint_.x = r;
+  mTint_.r = r;
   mTint_.g = g;
   mTint_.b = b;
 }

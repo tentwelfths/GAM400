@@ -1,7 +1,8 @@
 #pragma once
 
 #define RegisterComponentType(name) components.insert({#name, (CreateComponent<name>)})
-#define AddMember(componentName, memberName) members.insert({#memberName, new Member<decltype(componentName::memberName)>((&(componentName::memberName)))})
+#define AddMember(componentName, memberName) members.insert({#memberName, new Member<decltype(componentName::memberName)>((&(componentName::memberName)), Option(Options::NONE))})
+#define AddSpecialMember(componentName, memberName, option) members.insert({#memberName, new Member<decltype(componentName::memberName)>((&(componentName::memberName)), option)})
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -17,16 +18,26 @@ public:
   virtual std::string Get() { return std::string(""); }
 };
 */
+
+enum class Options{FLOATRANGE, INTRANGE, SCROLLBOX, NONE};
+
+struct Option{
+  Option(Options o) : type(o){}
+  Options type;
+  float fmin, fmax;
+  int imin, imax;
+  std::vector<std::string> list;
+};
+
 class Mem
 {
 public:
-  Mem(){}
+  Mem(Option o) : myOp(o){}
   virtual void Set(std::string) = 0;
   virtual void Set(std::ifstream &file) = 0;
   virtual std::string Get(int scope) = 0;
   virtual void GetUI(std::string name) = 0;
-  void * val;
-  typedef void myType;
+  Option myOp;
 };
 
 template<typename T>
@@ -35,7 +46,7 @@ class Member : public Mem
 public:
   T * val;
   typedef T myType;
-  Member(T * v) : Mem(),val(static_cast<T *>(v)) {}
+  Member(T * v, Option o) : Mem(o),val(static_cast<T *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
     *val = value;
@@ -55,7 +66,7 @@ public:
   std::string * val;
   typedef std::string myType;
   char temp[64];
-  Member(std::string * v) : Mem(), val(static_cast<std::string *>(v)) {}
+  Member(std::string * v, Option o) : Mem(o), val(static_cast<std::string *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
     *val = value;
@@ -68,10 +79,27 @@ public:
     //if (val->size() <= val->length() + 2){
     //  val->resize(val->size() * 2);
     //}
-    strcpy(temp, val->c_str());
-    ImGui::InputText(name.c_str(), temp, 64);
-    //*val = (arr.data());
-    *val = temp;
+    if (myOp.type == Options::SCROLLBOX){
+      const char* items[128];
+      unsigned i = 0;
+      for (auto & iter : myOp.list){
+        items[i] = iter.c_str();
+        ++i;
+      }
+      for (i = 0; i < myOp.list.size(); ++i){
+        if (myOp.list[i] == *val) break;
+      }
+      static int item2 = i;
+      ImGui::Combo(name.c_str(), &item2, items, myOp.list.size());
+
+      *val = myOp.list[item2];
+    }
+    else{
+      strcpy(temp, val->c_str());
+      ImGui::InputText(name.c_str(), temp, 64);
+      //*val = (arr.data());
+      *val = temp;
+    }
   }
 };
 
@@ -81,7 +109,7 @@ class Member<int> : public Mem
 public:
   int * val;
   typedef int myType;
-  Member(int * v) : Mem(), val(static_cast<int *>(v)) {}
+  Member(int * v, Option o) : Mem(o), val(static_cast<int *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
     *val = std::atoi(value.c_str());
@@ -100,7 +128,7 @@ class Member<glm::vec3> : public Mem
 public:
   glm::vec3 * val;
   typedef glm::vec3 myType;
-  Member(glm::vec3 * v) : Mem(), val(static_cast<glm::vec3 *>(v)) {}
+  Member(glm::vec3 * v, Option o) : Mem(o), val(static_cast<glm::vec3 *>(v)) {}
   void Set(std::string str)
   {
     std::string var[3], nval[3], line[3];
@@ -179,9 +207,16 @@ public:
     std::string x = "x##" + name;
     std::string y = "y##" + name;
     std::string z = "z##" + name;
-    ImGui::InputFloat(x.c_str(), &(val->x));
-    ImGui::InputFloat(y.c_str(), &(val->y));
-    ImGui::InputFloat(z.c_str(), &(val->z));
+    if (myOp.type == Options::FLOATRANGE){
+      ImGui::SliderFloat(x.c_str(), &(val->x), myOp.fmin, myOp.fmax, "%.3f");
+      ImGui::SliderFloat(y.c_str(), &(val->y), myOp.fmin, myOp.fmax, "%.3f");
+      ImGui::SliderFloat(z.c_str(), &(val->z), myOp.fmin, myOp.fmax, "%.3f");
+    }
+    else{
+      ImGui::InputFloat(x.c_str(), &(val->x));
+      ImGui::InputFloat(y.c_str(), &(val->y));
+      ImGui::InputFloat(z.c_str(), &(val->z));
+    }
   }
 };
 
@@ -191,7 +226,7 @@ class Member<unsigned> : public Mem
 public:
   unsigned * val;
   typedef unsigned myType;
-  Member(unsigned * v) : Mem(), val(static_cast<unsigned *>(v)) {}
+  Member(unsigned * v, Option o) : Mem(o), val(static_cast<unsigned *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
     *val = std::stoi(value.c_str());
@@ -210,7 +245,7 @@ class Member<double> : public Mem
 public:
   double * val;
   typedef double myType;
-  Member(double * v) :Mem(), val(static_cast<double *>(v)) {}
+  Member(double * v, Option o) : Mem(o), val(static_cast<double *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
     *val = std::stod(value.c_str());
@@ -219,7 +254,12 @@ public:
     return std::to_string(*val);
   }
   void GetUI(std::string name){
-    ImGui::InputFloat(name.c_str(), reinterpret_cast<float*>(val));
+    if (myOp.type == Options::FLOATRANGE){
+      ImGui::SliderFloat(name.c_str(), reinterpret_cast<float*>(val), myOp.fmin, myOp.fmax, "%.3f");
+    }
+    else{
+      ImGui::InputFloat(name.c_str(), reinterpret_cast<float*>(val));
+    }
   }
 };
 
@@ -229,7 +269,7 @@ class Member<float> : public Mem
 public:
   float * val;
   typedef float myType;
-  Member(float * v) :Mem(), val(static_cast<float *>(v)) {}
+  Member(float * v, Option o) : Mem(o), val(static_cast<float *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
     *val = std::stof(value.c_str());
@@ -238,7 +278,12 @@ public:
     return std::to_string(*val);
   }
   void GetUI(std::string name){
-    ImGui::InputFloat(name.c_str(), val);
+    if (myOp.type == Options::FLOATRANGE){
+      ImGui::SliderFloat(name.c_str(), (val), myOp.fmin, myOp.fmax, "%.3f");
+    }
+    else{
+      ImGui::InputFloat(name.c_str(), (val));
+    }
   }
 };
 
@@ -248,7 +293,7 @@ class Member<char> : public Mem
 public:
   char * val;
   typedef char myType;
-  Member(char * v) :Mem(), val(static_cast<char *>(v)) {}
+  Member(char * v, Option o) : Mem(o), val(static_cast<char *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
     *val = value[0];
@@ -267,7 +312,7 @@ class Member<bool> : public Mem
 public:
   bool * val;
   typedef bool myType;
-  Member(bool * v) :Mem(), val(static_cast<bool *>(v)) {}
+  Member(bool * v, Option o) : Mem(o), val(static_cast<bool *>(v)) {}
   void Set(std::ifstream &file){};
   void Set(std::string value){
     *val = (value == "true");

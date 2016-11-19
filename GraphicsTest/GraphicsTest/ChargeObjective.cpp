@@ -30,7 +30,6 @@ void ChargeObjective::Update(double dt)
   {
     if (playersOn[i] && input->isButtonPressed(i, 0))
     {
-      std::cout << "CHARGING" << std::endl;
       if (charge < chargeCap)
       {
         charge += dt;
