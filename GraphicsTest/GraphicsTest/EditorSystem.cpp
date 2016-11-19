@@ -177,6 +177,10 @@ void EditorSystem::Shutdown(){
 }
 
 void EditorSystem::Select(Object * obj){
+  if (selected){
+    if (selected->GetComponent(TransformComponent)->mPositionZ() > obj->GetComponent(TransformComponent)->mPositionZ())
+      return;
+  }
   selected = obj;
 }
 
