@@ -118,7 +118,12 @@ public:
     return std::to_string(*val);
   }
   void GetUI(std::string name){
-    ImGui::InputInt(name.c_str(), val);
+    if (myOp.type == Options::INTRANGE){
+      ImGui::SliderInt(name.c_str(), val, myOp.imin, myOp.imax);
+    }
+    else{
+      ImGui::InputInt(name.c_str(), val);
+    }
   }
 };
 
@@ -235,7 +240,12 @@ public:
     return std::to_string(*val);
   }
   void GetUI(std::string name){
-    ImGui::InputInt(name.c_str(), (int*)val);
+    if (myOp.type == Options::INTRANGE){
+      ImGui::SliderInt(name.c_str(), (int*)val, myOp.imin, myOp.imax);
+    }
+    else{
+      ImGui::InputInt(name.c_str(), (int*)val);
+    }
   }
 };
 

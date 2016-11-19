@@ -37,6 +37,7 @@ bool EditorSystem::Initialize(){
 void EditorSystem::Update(double dt){
   
   auto * input = gCore->GetSystem(InputSystem);
+  auto * g = gCore->GetSystem(GraphicsSystem);
   //if (input->isKeyJustPressed(GLFW_KEY_O)){
   //  gCore->LoadLevel("DemoLevel.json");
   //}
@@ -126,11 +127,14 @@ void EditorSystem::Update(double dt){
     if (input->isKeyJustPressed(GLFW_KEY_E)){
       selected->GetComponent(TransformComponent)->mRotationZ(selected->GetComponent(TransformComponent)->mRotationZ() - 90);
     }
+    if (input->isKeyJustPressed(GLFW_KEY_F)){
+      g->mMainCamera.x = selected->GetComponent(TransformComponent)->mPositionX();
+      g->mMainCamera.y = selected->GetComponent(TransformComponent)->mPositionY();
+    }
   }
 
 
 
-  auto * g = gCore->GetSystem(GraphicsSystem);
   if (input->isKeyPressed(GLFW_KEY_LEFT)){
     g->mMainCamera.x -= g->mMainCamera.zoom / 2.f;
   }
