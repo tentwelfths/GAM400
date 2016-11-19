@@ -21,8 +21,11 @@
 #include "GPIOPin.h"
 #include <thread>
 #include <fmod.h>
+#include "Debug.h"
 
 std::string inputstream = "";
+
+DebugClass Debug("output.txt");
 
 struct ThreadInfo{
 
@@ -200,11 +203,12 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   pos = 0;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
-    std::cout<<(char)command[pos];//<<std::endl;
+    //Debug.Log("Command: " + command[pos]);
     switch(command[pos]){
       case 'L': //INITIAL Load
       {
         ++pos;
+        Debug.Log("Loading an object");
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
 
@@ -273,6 +277,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '`': // Object created. 
       {
         ++pos;
+        Debug.Log("Creating an object");
         std::cout<<"CREATE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
@@ -311,26 +316,27 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         std::cout<<"PosScaRot"<<std::endl;
         pos += sizeof(float);
-        if(gObjects[(int)zPos].find(objectID) == gObjects[(int)zPos].end())
+        auto temp = gObjectMap.find(objectID);
+        if(temp == gObjectMap.end())
         {
           Object * obj = new Object();
           gObjects[(int)zPos].insert({objectID, obj});
           gObjectMap.insert({objectID, obj});
         }
         std::cout<<"OCreated"<<std::endl;
-        Object * temp = gObjects[(int)zPos][objectID];
+        temp = gObjectMap.find(objectID);
 
-        temp->position[0] = xPos;
-        temp->position[1] = yPos;
-        temp->position[2] = zPos;
-        temp->scale[0] = xSca;
-        temp->scale[1] = ySca;
-        temp->rotation = rot;
-        temp->textureID = textureID;
-        temp->r = r / 255.f;
-        temp->g = g / 255.f;
-        temp->b = b / 255.f;
-        temp->a = a / 255.f;
+        temp->second->position[0] = xPos;
+        temp->second->position[1] = yPos;
+        temp->second->position[2] = zPos;
+        temp->second->scale[0] = xSca;
+        temp->second->scale[1] = ySca;
+        temp->second->rotation = rot;
+        temp->second->textureID = textureID;
+        temp->second->r = r / 255.f;
+        temp->second->g = g / 255.f;
+        temp->second->b = b / 255.f;
+        temp->second->a = a / 255.f;
         std::cout<<"OSetup"<<std::endl;
         if(isVis == '0'){
           (temp)->inUse = false;
@@ -351,14 +357,11 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '%': //Object died
       {
         ++pos;
+        Debug.Log("Killing an object");
         std::cout<<"DED"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         
-        //std::cout<<objectID<<std::endl;
-        if(pID == objectID){
-          //std::cout<<"GOT DED MESSAGE -- PLAYER DED???????"<<std::endl;
-        }
         if(gObjectMap.find(objectID) != gObjectMap.end()){
           gObjectMap[objectID]->inUse = false;
         }
@@ -374,6 +377,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '#': //Object moved
       {
         ++pos;
+        Debug.Log("Moving an object");
         //std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
@@ -421,6 +425,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       break;
       case '(': //Move camera
       {
+        Debug.Log("Moving Camera");
         ++pos;
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
@@ -436,6 +441,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '$': //Object texture changed
       {
         ++pos;
+        Debug.Log("Changing sprite texture");
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         char textureID = command[pos];
@@ -462,6 +468,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '^': //Update led bar graph
       {
         ++pos;
+        Debug.Log("Updating LEDS");
         char d[2];
         d[0] = *reinterpret_cast<const char*>(&(command[pos]));
         ++pos;
@@ -483,6 +490,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '&': //play sound effect
       {
         ++pos;
+        Debug.Log("Playing global sound effect");
         const char length = command[pos++];
         std::string name;
         for(int i = 0; i < length; ++i){
@@ -494,6 +502,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       case '*':
       {
         ++pos;
+        Debug.Log("Playing 3D sound effect");
         const float sourcePosX = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
@@ -599,6 +608,9 @@ int main ( int argc, char *argv[] )
   if(argc < 2){
     std::cout<<"Please identify which controller this is.( cone gun radar turret )"<<std::endl;
     return 0;
+  }
+  if(argc == 2){
+    Debug.TurnOff();
   }
   int incrementer = 1;
   clock_t start, end;
