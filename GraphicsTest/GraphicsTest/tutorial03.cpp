@@ -88,7 +88,7 @@ int main( void )
   RegisterComponentType(DamageLocatorComponent);
   RegisterComponentType(DamageArrowComponent);
 
-  gCore->LoadLevel("Start.json");
+  gCore->LoadLevel("New.json");
 
   while (true)
   {
