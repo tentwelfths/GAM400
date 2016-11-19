@@ -177,6 +177,7 @@ void EditorSystem::Shutdown(){
 }
 
 void EditorSystem::Select(Object * obj){
+  if (obj == nullptr)return;
   if (selected){
     if (selected->GetComponent(TransformComponent)->mPositionZ() > obj->GetComponent(TransformComponent)->mPositionZ())
       return;
