@@ -17,7 +17,7 @@
 
 #define SOMENUMBER 1
 #define ADJUSTANGLE 5
-#define SIGHTDISTANCE 80.0f
+#define SIGHTDISTANCE 90.0f
 
 
 
@@ -159,7 +159,7 @@ void ConeControllerComponent::UpdateVis(Object* theTarget)
   }
   theDistance.Normalize();
   float theCosine = mDirX * theDistance.x + mDirY * theDistance.y;
-  if (-theCosine > 0.9f)
+  if (-theCosine > 0.8f)
   {
     for (int i = 0; i < 4; ++i)
     {
