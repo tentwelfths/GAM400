@@ -45,6 +45,7 @@ void InputSystem::Update(double dt)
   {
     memcpy(theControllers[i].prevButt, theControllers[i].currButt, sizeof(bool) * NUMBUTT);
   }
+
   mouseDelta = 0;
 }
 
@@ -262,7 +263,11 @@ void inputScrollCallback(GLFWwindow* window, double x, double y)
   InputSystem * i = gCore->GetSystem(InputSystem);
   ImGuiIO& io = ImGui::GetIO();
   if (io.WantCaptureMouse)
+  {
+    io.MouseWheel = (float)y;
     return;
+  }
+
   i->SetScrollDelta(y);
 }
 
