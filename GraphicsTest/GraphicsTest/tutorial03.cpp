@@ -14,9 +14,7 @@
 #include "BoxColliderComponent.h"
 #include "CircleColliderComponent.h"
 #include "EditorComponent.h"
-#include "DemoSpawner.h"
 #include "OutOfBounds.h"
-#include "DemoReload.h"
 #include "PCControllerComponent.h"
 #include "KnifeComponent.h"
 #include "ConeControllerComponent.h"
@@ -66,10 +64,8 @@ int main( void )
   RegisterComponentType(BoxColliderComponent);
   RegisterComponentType(CircleColliderComponent);
   RegisterComponentType(PlayerControllerComponent);
-  RegisterComponentType(DemoSpawner);
   RegisterComponentType(EditorComponent);
   RegisterComponentType(OutOfBounds);
-  RegisterComponentType(DemoReload);
   RegisterComponentType(PCControllerComponent);
   RegisterComponentType(KnifeComponent);
   RegisterComponentType(ControllerControllerComponent);
