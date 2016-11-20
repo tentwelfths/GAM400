@@ -47,7 +47,7 @@ void ChargeObjective::Update(double dt)
     auto* o = gCore->GetSystem(ObjectSystem);
     Object* manager = o->GetFirstItemByName("LevelManager");
     auto* levelManager = manager->GetComponent(LevelManagerComponent);
-    for (int i = 0; i < 2; ++i)
+    for (int i = 0; i < 4; ++i)
     {
       if (levelManager->mObjectives[i] != true)
       {

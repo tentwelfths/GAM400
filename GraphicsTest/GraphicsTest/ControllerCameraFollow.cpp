@@ -13,6 +13,20 @@ ControllerCameraFollow::ControllerCameraFollow() : GameLogicComponent(GameLogicT
 
 bool ControllerCameraFollow::Initialize()
 {
+  IMessage msg(MessageType::CAMERAMOVE);
+  CameraMoveMessage* msgData = reinterpret_cast<CameraMoveMessage*>(msg.data);
+  ControllerControllerComponent * controller = mParent()->GetComponent(ConeControllerComponent);
+  if (controller == nullptr){
+    //try a different controller
+    msgData->controllerNum = 0;
+  }
+  else{
+    msgData->controllerNum = controller->GetControllerID();
+  }
+  msgData->objID = mParent()->ID;
+
+  MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+  m->SendMessageToSystem(msg, "NetworkingSystem");
   return true;
 }
 
