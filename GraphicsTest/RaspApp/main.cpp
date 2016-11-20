@@ -615,6 +615,9 @@ int main ( int argc, char *argv[] )
   if(argc == 2){
     Debug.TurnOff();
   }
+  else{
+    Debug.Clear();
+  }
   int incrementer = 1;
   clock_t start, end;
   struct sigaction sig_struct;
