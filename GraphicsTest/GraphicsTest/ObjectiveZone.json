@@ -25,9 +25,9 @@ SpriteComponent: {
 	"mTextureName": blacksquare.png
 	"mOpacity_": 0.500000,
 	"mTint_": {
-		x: 1.000000,
-		y: 1.000000,
-		z: 1.000000
+		x: 1.100000,
+		y: 1.100000,
+		z: 1.100000
 		}
 	},
 EditorComponent: {
