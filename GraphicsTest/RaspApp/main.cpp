@@ -280,6 +280,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         Debug.Log("Creating an object");
         std::cout<<"CREATE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
+        Debug.Log("Object ID" + std::to_string(objectID));
         pos += sizeof(unsigned int);
         std::cout<<"OID"<<std::endl;
         char isVis = command[pos];
@@ -323,6 +324,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
           gObjects[(int)zPos].insert({objectID, obj});
           gObjectMap.insert({objectID, obj});
         }
+        Debug.Log("Object Created");
         std::cout<<"OCreated"<<std::endl;
         temp = gObjectMap.find(objectID);
 
@@ -360,6 +362,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         Debug.Log("Killing an object");
         std::cout<<"DED"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
+        Debug.Log("Object ID" + std::to_string(objectID));
         pos += sizeof(unsigned int);
         
         if(gObjectMap.find(objectID) != gObjectMap.end()){
