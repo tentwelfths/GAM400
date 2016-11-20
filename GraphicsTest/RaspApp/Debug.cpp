@@ -9,7 +9,7 @@ void DebugClass::Log(std::string str){
   std::ifstream file;
   file.open(myFilename, std::fstream::app);
   if(file.is_open()){
-    file << str << std::endl;Class
+    file << str << std::endl;
   }
   file.close();
 }
