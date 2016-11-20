@@ -9,7 +9,7 @@ public:
   void Log(std::string str);
   void Clear();
   void TurnOff();
-
 private:
+  bool on;
   std::string myFilename;
-}
+};

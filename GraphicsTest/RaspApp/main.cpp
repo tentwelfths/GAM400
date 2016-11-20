@@ -339,10 +339,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         temp->second->a = a / 255.f;
         std::cout<<"OSetup"<<std::endl;
         if(isVis == '0'){
-          (temp)->inUse = false;
+          (temp)->second->inUse = false;
         }
         else{
-          (temp)->inUse = true;
+          (temp)->second->inUse = true;
         }
         
         std::string tempstring = "`";
