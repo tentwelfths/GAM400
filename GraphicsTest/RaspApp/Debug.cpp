@@ -1,4 +1,7 @@
 #include "Debug.h"
+#include <string>
+#include <fstream>
+#include <iostream>
 
 DebugClass::DebugClass(std::string filename){
   myFilename = filename;
