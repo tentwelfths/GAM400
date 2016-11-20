@@ -43,3 +43,8 @@ void GameLogicSystem::RegisterComponent(GameLogicComponent * comp)
 {
   mComponents_.push_back(comp);
 }
+
+void GameLogicSystem::SetPlayerActive(int controllerID, bool state)
+{
+  aControllersPlaying[controllerID] = state;
+}
