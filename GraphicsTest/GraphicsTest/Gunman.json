@@ -1,5 +1,5 @@
-File: Coneman.json
-Name: Coneman
+File: Gunman.json
+Name: Gunman
 Object: {
 TransformComponent: {
 	"mPosition_": {
@@ -19,7 +19,7 @@ TransformComponent: {
 		}
 	},
 SpriteComponent: {
-	"mTextureName": Coneman.png,
+	"mTextureName": Gunman.png,
 	"mOpacity_": 1.000000,
 	"mTint_": {
 			x: 0.000000,
@@ -32,7 +32,7 @@ EditorComponent: {
 	},
 DamageLocatorComponent: {
 	},
-ConeControllerComponent: {
+GunControllerComponent: {
 	"speed": 5.000000,
 	"playerID": 0,
 	"maxHealth": 2,

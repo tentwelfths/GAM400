@@ -18,7 +18,6 @@
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
     <ClCompile Include="PlayerControllerComponent.cpp" />
-    <ClCompile Include="SphereColliderComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="tutorial03.cpp" />
@@ -175,9 +174,7 @@
     <ClCompile Include="imgui_impl_glfw_gl3.cpp">
       <Filter>NotOurCode</Filter>
     </ClCompile>
-    <ClCompile Include="DemoSpawner.cpp" />
     <ClCompile Include="OutOfBounds.cpp" />
-    <ClCompile Include="DemoReload.cpp" />
     <ClCompile Include="PCControllerComponent.cpp" />
     <ClCompile Include="KnifeComponent.cpp" />
     <ClCompile Include="AudioSystem.cpp">
@@ -231,7 +228,6 @@
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="PlayerControllerComponent.h" />
     <ClInclude Include="Socket.h" />
-    <ClInclude Include="SphereColliderComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Standard.h" />
     <ClInclude Include="stb_image.h" />
@@ -396,9 +392,7 @@
     <ClInclude Include="imgui_internal.h">
       <Filter>NotOurCode</Filter>
     </ClInclude>
-    <ClInclude Include="DemoSpawner.h" />
     <ClInclude Include="OutOfBounds.h" />
-    <ClInclude Include="DemoReload.h" />
     <ClInclude Include="PCControllerComponent.h" />
     <ClInclude Include="KnifeComponent.h" />
     <ClInclude Include="fmod.hpp">

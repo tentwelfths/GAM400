@@ -41,7 +41,7 @@ void LevelManagerComponent::Update(double dt)
   {
     SetBool(theConeComponent, false);
   }
-  else if (theConeComponent->GetHealth() <= 0)
+  else if (theConeComponent->GetCurrHealth() <= 0)
   {
     SetBool(thePCComponent, false);
   }

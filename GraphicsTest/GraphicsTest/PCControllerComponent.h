@@ -1,3 +1,4 @@
+#pragma once
 #include "PlayerControllerComponent.h"
 
 class Object;
@@ -16,6 +17,14 @@ class PCControllerComponent : public PlayerControllerComponent
     float sprintSpeed;
     float sprintTime;
     float spawnTime;
+    float deadTime;
+    float timeTillRevive;
     bool isSprinting;
     Object * mHealthBar;
+    float spawnPosOneX;
+    float spawnPosOneY;
+    float spawnPosTwoX;
+    float spawnPosTwoY;
+    float spawnPosThreeX;
+    float spawnPosThreeY;
 };

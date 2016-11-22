@@ -28,7 +28,8 @@ bool ObjectiveOne::Initialize()
 
   bTrans->mPosition(trans->mPositionX(), trans->mPositionY(), trans->mPositionZ()-1.0f);
   bTrans->mScale(trans->mScaleX() + 1.0f, trans->mScaleY() + 1.0f, trans->mScaleZ());
-  bColl->SetHalfSize(bTrans->mScale());
+  glm::vec3 half(bTrans->mScaleX() / 2, bTrans->mScaleY() / 2, bTrans->mScaleZ());
+  bColl->SetHalfSize(half);
   //b2Vec2 bodyVec(bTrans->mPositionX(), bTrans->mPositionY());
   //bColl->GetBody()->SetTransform(bodyVec, 0);
   zone->name = zoneName;

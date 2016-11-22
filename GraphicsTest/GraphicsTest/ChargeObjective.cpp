@@ -47,7 +47,7 @@ void ChargeObjective::Update(double dt)
     auto* o = gCore->GetSystem(ObjectSystem);
     Object* manager = o->GetFirstItemByName("LevelManager");
     auto* levelManager = manager->GetComponent(LevelManagerComponent);
-    for (int i = 0; i < 2; ++i)
+    for (int i = 0; i < 4; ++i)
     {
       if (levelManager->mObjectives[i] != true)
       {
@@ -79,16 +79,13 @@ void ChargeObjective::Update(double dt)
       {
         if (col->obj1 != nullptr)
         {
-          if (col->obj1 != nullptr)
+          if (col->obj1->name == "Coneman")
           {
-            if (col->obj1->name == "Coneman")
-            {
-              playersOn[0] = true;
-            }
-            else if (col->obj1->name == "Gunman")
-            {
-              playersOn[1] = true;
-            }
+            playersOn[0] = true;
+          }
+          else if (col->obj1->name == "Gunman")
+          {
+            playersOn[1] = true;
           }
         }
       }
@@ -96,11 +93,7 @@ void ChargeObjective::Update(double dt)
     else if (iter.type == MessageType::COLLISIONENDED)
     {
       CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
-      if (col->obj1 != nullptr && col->obj2 != nullptr)
-      {
-
-      }
-      else if (col->obj1 != nullptr && col->obj1 == mParent())
+      if (col->obj1 == mParent())
       {
         if (col->obj2 != nullptr)
         {
@@ -114,7 +107,7 @@ void ChargeObjective::Update(double dt)
           }
         }
       }
-      else if (col->obj2 != nullptr && col->obj2 == mParent())
+      else if (col->obj2 == mParent())
       {
         if (col->obj1 != nullptr)
         {

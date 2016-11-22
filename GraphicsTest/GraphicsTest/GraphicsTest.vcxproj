@@ -191,8 +191,6 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="DamageArrowComponent.cpp" />
     <ClCompile Include="DamageLocatorComponent.cpp" />
-    <ClCompile Include="DemoReload.cpp" />
-    <ClCompile Include="DemoSpawner.cpp" />
     <ClCompile Include="EditorComponent.cpp" />
     <ClCompile Include="EditorSystem.cpp" />
     <ClCompile Include="FramerateController.cpp" />
@@ -224,7 +222,6 @@
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
     <ClCompile Include="PlayerControllerComponent.cpp" />
-    <ClCompile Include="SphereColliderComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="StartManagerComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -292,8 +289,6 @@
     <ClInclude Include="Core.h" />
     <ClInclude Include="DamageArrowComponent.h" />
     <ClInclude Include="DamageLocatorComponent.h" />
-    <ClInclude Include="DemoReload.h" />
-    <ClInclude Include="DemoSpawner.h" />
     <ClInclude Include="EditorComponent.h" />
     <ClInclude Include="EditorSystem.h" />
     <ClInclude Include="fmod.h" />
@@ -342,7 +337,6 @@
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="PlayerControllerComponent.h" />
     <ClInclude Include="Socket.h" />
-    <ClInclude Include="SphereColliderComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Standard.h" />
     <ClInclude Include="StartManagerComponent.h" />

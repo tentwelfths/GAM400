@@ -31,11 +31,17 @@
 					}
 		},
 	PCControllerComponent: {
+		"spawnPosTwoX": 28.000000,
 		"sprintSpeed": 2.000000,
-		"speed": 5.000000,
+		"speed": 3.000000,
 		"playerID": 0,
-		"health": 10,
-		"killable": true
+		"spawnPosTwoY": 7.000000,
+		"maxHealth": 10,
+		"spawnPosOneY": 8.000000,
+		"killable": true,
+		"spawnPosOneX": -11.000000,
+		"spawnPosThreeX": 12.000000,
+		"spawnPosThreeY": -26.000000
 		},
 	EditorComponent: {
 		"tile": false
@@ -94,7 +100,7 @@
 	ConeControllerComponent: {
 		"speed": 5.000000,
 		"playerID": 0,
-		"health": 2,
+		"maxHealth": 2,
 		"killable": true,
 		"controllerID": 0,
 		"bulletSpeed": 20.000000
@@ -4697,22 +4703,6 @@
 		},
 	EditorComponent: {
 		"tile": true
-		},
-	BoxColliderComponent: {
-		"mDensity": 1.000000,
-		"mHalfSize": {
-						x: 0.500000,
-						y: 0.500000,
-						z: 1.000000
-						},
-		"dynamicState": 0,
-		"mOffset": {
-						x: 0.000000,
-						y: 0.000000,
-						z: 0.000000
-						},
-		"mFriction": 1.000000,
-		"mGhost": true
 		}
 	},
 	File: WoodFloor.json
@@ -30764,7 +30754,7 @@
 		"tile": false
 		},
 	ObjectiveOne: {
-		"zoneName": REPLACETHIS
+		"zoneName": LowerHouseZone
 		},
 	CircleColliderComponent: {
 		"mRadius": 0.200000,
@@ -30824,7 +30814,7 @@
 		"mGhost": false
 		},
 	ObjectiveOne: {
-		"zoneName": REPLACETHIS
+		"zoneName": HayZone
 		},
 	SpriteComponent: {
 		"mTextureName": scienceobject.png,
@@ -30860,7 +30850,7 @@
 		"tile": false
 		},
 	ObjectiveOne: {
-		"zoneName": REPLACETHIS
+		"zoneName": UpperHouseZone
 		},
 	CircleColliderComponent: {
 		"mRadius": 0.200000,
@@ -30920,7 +30910,7 @@
 		"mGhost": false
 		},
 	ObjectiveOne: {
-		"zoneName": REPLACETHIS
+		"zoneName": CaveZone
 		},
 	SpriteComponent: {
 		"mTextureName": scienceobject.png,
@@ -30956,7 +30946,7 @@
 		"tile": false
 		},
 	ObjectiveOne: {
-		"zoneName": REPLACETHIS
+		"zoneName": ForestZone
 		},
 	CircleColliderComponent: {
 		"mRadius": 0.200000,
