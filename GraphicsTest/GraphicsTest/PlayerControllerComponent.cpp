@@ -15,7 +15,6 @@ PlayerControllerComponent::PlayerControllerComponent() : GameLogicComponent(Game
   AddMember(PlayerControllerComponent, playerID);
   AddMember(PlayerControllerComponent, maxHealth);
   AddMember(PlayerControllerComponent, killable);
-  Heal();
   mName_ = "PlayerControllerComponent";
 }
 

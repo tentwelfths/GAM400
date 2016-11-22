@@ -26,6 +26,7 @@ PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), cu
 
 bool PCControllerComponent::Initialize()
 {
+  Heal();
   auto * o = gCore->GetSystem(ObjectSystem);
   mHealthBar = o->GetFirstItemByName("PCHealthBar");
   for (int i = 0; i < 4; ++i)
