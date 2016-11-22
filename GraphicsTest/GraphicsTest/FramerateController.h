@@ -28,6 +28,7 @@ public:
   void SetSystemStart(std::string name);
   void SetSystemEnd();
   void PrintSystemTimeAnalysis();
+  __int64 GetFrameStart(){ return mFrameStart; }
 private:
   double mTicksPerSecond;
   double mDT;
