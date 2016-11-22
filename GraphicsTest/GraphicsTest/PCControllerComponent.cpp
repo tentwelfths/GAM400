@@ -127,6 +127,7 @@ void PCControllerComponent::Update(double dt)
       {
         box->GetBody()->SetTransform(b2Vec2(spawnPosThreeX, spawnPosThreeY), trans->mRotationZ());
       }
+      timeTillRevive = 0.0f;
     }
   }
 }
