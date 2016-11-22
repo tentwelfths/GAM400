@@ -27,4 +27,5 @@ class PCControllerComponent : public PlayerControllerComponent
     float spawnPosTwoY;
     float spawnPosThreeX;
     float spawnPosThreeY;
+    int spawnMod;
 };
