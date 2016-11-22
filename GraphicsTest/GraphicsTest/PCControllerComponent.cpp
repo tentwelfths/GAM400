@@ -109,6 +109,7 @@ void PCControllerComponent::Update(double dt)
     if (timeTillRevive > deadTime)
     {
       Miracle();
+      Heal();
       auto * sprite = mParent()->GetComponent(SpriteComponent);
       auto * trans = mParent()->GetComponent(TransformComponent);
       sprite->SetTexture("Monster.png");
