@@ -177,7 +177,10 @@ void EditorSystem::Shutdown(){
 }
 
 void EditorSystem::Select(Object * obj){
-  if (obj == nullptr)return;
+  if (obj == nullptr){
+    selected = nullptr;
+    return;
+  }
   if (selected){
     if (selected->GetComponent(TransformComponent)->mPositionZ() > obj->GetComponent(TransformComponent)->mPositionZ())
       return;
@@ -197,8 +200,14 @@ void EditorSystem::DisplayImGUI(){
     str[0] = 0;
     return;
   }
+
+  auto * input = gCore->GetSystem(InputSystem);
   //bool b = true;
   //ImGui::ShowTestWindow(&b);
+  ImGui::Begin("InfoDisplay");
+  ImGui::Text("Editor Active");
+  ImGui::Text("Mouse Pos: %f, %f", input->GetMouseX(), input->GetMouseY());
+  ImGui::End();
   if (selected != nullptr){
     ImGui::Begin("Inspector");
     char name[64];
