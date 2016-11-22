@@ -266,3 +266,5 @@ GraphicsTest/GraphicsTest/external/CMakeFiles/fe0b31c579c4ce15273a98cdba6f12dd/
 GraphicsTest/GraphicsTest/external/CMakeFiles/ff1155980662cc1e08c595bf2ebaa84d/
 GraphicsTest/GraphicsTest/GraphicsTest.vcxproj.filters
 GraphicsTest/GraphicsTest/GraphicsTest.vcxproj
+
+imgui.ini
