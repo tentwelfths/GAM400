@@ -12,9 +12,15 @@
 #include "JSONTranslator.h"
 #include "DamageLocatorComponent.h"
 
-PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), curCam(0), sprintSpeed(2.0f), sprintTime(1.0f), spawnTime(0.125f), isSprinting(false)
+PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), curCam(0), sprintSpeed(2.0f), sprintTime(1.0f), spawnTime(0.125f), deadTime(1.0f), timeTillRevive(0.0f), isSprinting(false), spawnPosOneX(0.0f), spawnPosOneY(0.0f), spawnPosTwoX(0.0f), spawnPosTwoY(0.0f), spawnPosThreeX(0.0f), spawnPosThreeY(0.0f)
 {
   AddMember(PCControllerComponent, sprintSpeed);
+  AddMember(PCControllerComponent, spawnPosOneX);
+  AddMember(PCControllerComponent, spawnPosOneY);
+  AddMember(PCControllerComponent, spawnPosTwoX);
+  AddMember(PCControllerComponent, spawnPosTwoY);
+  AddMember(PCControllerComponent, spawnPosThreeX);
+  AddMember(PCControllerComponent, spawnPosThreeY);
   mName_ = "PCControllerComponent";
 }
 
@@ -69,12 +75,12 @@ void PCControllerComponent::Update(double dt)
         }
       }
 
-      if (GetHealth() <= 0)
+      if (GetCurrHealth() <= 0)
       {
         Kill();
         auto * sprite = mParent()->GetComponent(SpriteComponent);
         sprite->SetTexture("bolt.png");
-        auto * box = mParent()->GetComponent(BoxColliderComponent);
+        auto * box = mParent()->GetComponent(CircleColliderComponent);
         box->GetBody()->GetFixtureList()->SetSensor(true);
       }
     }
@@ -97,6 +103,32 @@ void PCControllerComponent::Update(double dt)
       }
     }
   }
+  else
+  {
+    timeTillRevive += dt;
+    if (timeTillRevive > deadTime)
+    {
+      Miracle();
+      auto * sprite = mParent()->GetComponent(SpriteComponent);
+      auto * trans = mParent()->GetComponent(TransformComponent);
+      sprite->SetTexture("Monster.png");
+      auto * box = mParent()->GetComponent(CircleColliderComponent);
+      box->GetBody()->GetFixtureList()->SetSensor(false);
+      int randPos = rand() % 3;
+      if (randPos == 1)
+      {
+        box->GetBody()->SetTransform(b2Vec2(spawnPosOneX, spawnPosOneY), trans->mRotationZ());
+      }
+      else if (randPos == 2)
+      {
+        box->GetBody()->SetTransform(b2Vec2(spawnPosTwoX, spawnPosTwoY), trans->mRotationZ());
+      }
+      else if (randPos == 3)
+      {
+        box->GetBody()->SetTransform(b2Vec2(spawnPosThreeX, spawnPosThreeY), trans->mRotationZ());
+      }
+    }
+  }
 }
 
 void PCControllerComponent::Shutdown()
@@ -106,9 +138,9 @@ void PCControllerComponent::Shutdown()
 
 void PCControllerComponent::Damage(int damage) 
 { 
-  health -= damage; 
+  currHealth -= damage; 
   if (mHealthBar){
-    mHealthBar->GetComponent(TransformComponent)->mScaleX(2.f * (health / 10.f));
+    mHealthBar->GetComponent(TransformComponent)->mScaleX(2.f * (currHealth / 10.f));
     mHealthBar->hasChanged = true;
   }
 }

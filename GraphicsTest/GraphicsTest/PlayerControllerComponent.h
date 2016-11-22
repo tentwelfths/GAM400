@@ -12,16 +12,19 @@ public:
   virtual void Movement(InputSystem* input);
   bool GetAlive() { return alive; }
   float GetSpeed() { return speed; }
-  int GetHealth() { return health; }
+  int GetMaxHealth() { return maxHealth; }
+  int GetCurrHealth() { return currHealth; }
   bool GetKillable() { return killable; }
-  virtual void Damage(int damage) { health -= damage; }
+  virtual void Damage(int damage) { currHealth -= damage; }
   void Kill() { alive = false; }
+  void Heal() { currHealth = maxHealth; }
   void Miracle() { alive = true; }
   void SetKillable(bool state) { killable = state; }
 protected:
   bool alive;
   float speed;
   int playerID;
-  int health;
+  int maxHealth;
+  int currHealth;
   bool killable;
 };

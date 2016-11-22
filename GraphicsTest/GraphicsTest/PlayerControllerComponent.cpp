@@ -9,12 +9,13 @@
 #include "PlayerControllerComponent.h"
 #include "InputSystem.h"
 
-PlayerControllerComponent::PlayerControllerComponent() : GameLogicComponent(GameLogicType::PLAYER), alive(true), speed(1.1f), playerID(0), health(2), killable(false)
+PlayerControllerComponent::PlayerControllerComponent() : GameLogicComponent(GameLogicType::PLAYER), alive(true), speed(1.1f), playerID(0), maxHealth(2), currHealth(2), killable(false)
 {
   AddMember(PlayerControllerComponent, speed);
   AddMember(PlayerControllerComponent, playerID);
-  AddMember(PlayerControllerComponent, health);
+  AddMember(PlayerControllerComponent, maxHealth);
   AddMember(PlayerControllerComponent, killable);
+  Heal();
   mName_ = "PlayerControllerComponent";
 }
 

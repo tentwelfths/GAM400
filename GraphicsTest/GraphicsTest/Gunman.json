@@ -35,7 +35,7 @@ DamageLocatorComponent: {
 GunControllerComponent: {
 	"speed": 5.000000,
 	"playerID": 0,
-	"health": 2,
+	"maxHealth": 2,
 	"killable": false,
 	"controllerID": 0,
 	"bulletSpeed": 20.000000

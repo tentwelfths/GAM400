@@ -62,7 +62,7 @@ void GunControllerComponent::Update(double dt)
       //  CollisionEndedMessage * col = reinterpret_cast<CollisionEndedMessage *>(iter.data);
       //}
     }
-    if (GetHealth() <= 0)
+    if (GetCurrHealth() <= 0)
     {
       Kill();
       auto * sprite = mParent()->GetComponent(SpriteComponent);

@@ -18,7 +18,7 @@ void GoHomeComponent::Update(double dt)
   if (mCountDown > mTarget)
   {
     gCore->UnloadLevel();
-    gCore->LoadLevel("Start.json");
+    gCore->LoadLevel("New.json");
   }
   mCountDown += dt;
 }
