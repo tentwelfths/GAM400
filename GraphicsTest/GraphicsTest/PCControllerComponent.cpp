@@ -12,7 +12,7 @@
 #include "JSONTranslator.h"
 #include "DamageLocatorComponent.h"
 
-PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), curCam(0), sprintSpeed(2.0f), sprintTime(1.0f), spawnTime(0.125f), deadTime(1.0f), timeTillRevive(0.0f), isSprinting(false), spawnPosOneX(0.0f), spawnPosOneY(0.0f), spawnPosTwoX(0.0f), spawnPosTwoY(0.0f), spawnPosThreeX(0.0f), spawnPosThreeY(0.0f)
+PCControllerComponent::PCControllerComponent() : PlayerControllerComponent(), curCam(0), sprintSpeed(2.0f), sprintTime(1.0f), spawnTime(0.125f), deadTime(1.0f), timeTillRevive(0.0f), isSprinting(false), spawnPosOneX(0.0f), spawnPosOneY(0.0f), spawnPosTwoX(0.0f), spawnPosTwoY(0.0f), spawnPosThreeX(0.0f), spawnPosThreeY(0.0f), spawnMod(1)
 {
   AddMember(PCControllerComponent, sprintSpeed);
   AddMember(PCControllerComponent, spawnPosOneX);
@@ -116,20 +116,30 @@ void PCControllerComponent::Update(double dt)
       sprite->SetTexture("Monster.png");
       auto * box = mParent()->GetComponent(CircleColliderComponent);
       box->GetBody()->GetFixtureList()->SetSensor(false);
-      int randPos = rand() % 3;
-      if (randPos == 1)
+      int randPos = rand() % 2;
+      if (randPos + spawnMod == -1)
+      {
+        randPos = 3;
+      }
+      if (randPos + spawnMod == 0)
       {
         box->GetBody()->SetTransform(b2Vec2(spawnPosOneX, spawnPosOneY), trans->mRotationZ());
+        spawnMod = 1;
       }
-      else if (randPos == 2)
+      else if (randPos == 1)
       {
         box->GetBody()->SetTransform(b2Vec2(spawnPosTwoX, spawnPosTwoY), trans->mRotationZ());
+        spawnMod = -1;
       }
-      else if (randPos == 3)
+      else if (randPos + spawnMod == 2)
       {
         box->GetBody()->SetTransform(b2Vec2(spawnPosThreeX, spawnPosThreeY), trans->mRotationZ());
+        spawnMod = 0;
       }
       timeTillRevive = 0.0f;
+      auto* o = gCore->GetSystem(ObjectSystem);
+      Object* knife = o->GetFirstItemByName("Knife");
+      knife->hasChanged = true;
     }
   }
 }
