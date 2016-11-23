@@ -35,4 +35,6 @@ private:
   bool mShowSaveArchetype;
   char str[64];
   char tool;
+  float offsetx;
+  float offsety;
 };

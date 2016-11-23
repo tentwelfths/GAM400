@@ -93,7 +93,7 @@ void EditorSystem::Update(double dt){
     
     mComponents_[i]->Update(dt);
   }
-  float x = input->GetMouseX(), y = input->GetMouseY();
+  float x = input->GetMouseX() + offsetx , y = input->GetMouseY() + offsety;
   if (input->isKeyPressed(GLFW_MOUSE_BUTTON_1) && selected != nullptr && !tileEditorActive){
     float z = selected->GetComponent(TransformComponent)->mPositionZ();
     if (input->isKeyPressed(GLFW_KEY_LEFT_SHIFT) || input->isKeyPressed(GLFW_KEY_RIGHT_SHIFT))
@@ -157,7 +157,7 @@ void EditorSystem::Update(double dt){
   {
     g->mMainCamera.x += g->mMainCamera.zoom / 4.f;
   }
-  if (y <= g->mMainCamera.y - 5.5f * g->mMainCamera.zoom && x >= g->mMainCamera.y - 9.9f * g->mMainCamera.zoom)
+  if (y <= g->mMainCamera.y - 5.5f * g->mMainCamera.zoom && y >= g->mMainCamera.y - 9.9f * g->mMainCamera.zoom)
   {
     g->mMainCamera.y -= g->mMainCamera.zoom / 4.f;
   }
@@ -186,7 +186,10 @@ void EditorSystem::Select(Object * obj){
       return;
   }
   if (obj->save == false)return;
+  auto * input = gCore->GetSystem(InputSystem);
   selected = obj;
+  offsetx = obj->GetComponent(TransformComponent)->mPositionX() - input->GetMouseX();
+  offsety = obj->GetComponent(TransformComponent)->mPositionY() - input->GetMouseY();
 }
 
 void EditorSystem::DisplayImGUI(){
