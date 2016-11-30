@@ -22,6 +22,7 @@ bool EditorSystem::mCreateObjectMenu = false;
 bool EditorSystem::mSaveLevelMenu = false;
 bool EditorSystem::mLoadLevelMenu = false;
 bool EditorSystem::mTileEditorStart = false;
+bool EditorSystem::mShowDeltaMenu = false;
 void EditorSystem::RegisterComponent(EditorComponent*comp){
   mComponents_.push_back(comp);
 }
@@ -32,6 +33,10 @@ bool EditorSystem::Initialize(){
   actions.push_back({ "Save Level", EditorSystem::SetSaveLevel });
   actions.push_back({ "Tile Editor", EditorSystem::SetTileEditor });
   actions.push_back({ "Reload Art Assets", EditorSystem::ReloadArtAssets });
+  actions.push_back({ "Change Hotkey Deltas", EditorSystem::ShowDeltaMenu });
+  mRotDelta = 90.f;
+  mPosDelta = 0.5f;
+  mScaleDelta = 0.5f;
   return true;
 }
 void EditorSystem::Update(double dt){
@@ -79,6 +84,7 @@ void EditorSystem::Update(double dt){
     mLoadLevelMenu = false;
     mSaveLevelMenu = false;
     tileEditorActive = false;
+    mShowDeltaMenu = false;
     selected = nullptr;
   }
   for (unsigned i = 0; i < mComponents_.size(); ++i)
@@ -119,13 +125,49 @@ void EditorSystem::Update(double dt){
       objectSystem->CloneObject(selected);
     }
   }
-  //Slected object hotkeys
+  //Selected object hotkeys
   if (selected){
     if (input->isKeyJustPressed(GLFW_KEY_Q)){
-      selected->GetComponent(TransformComponent)->mRotationZ(selected->GetComponent(TransformComponent)->mRotationZ() + 90);
+      selected->GetComponent(TransformComponent)->mRotationZ(selected->GetComponent(TransformComponent)->mRotationZ() + mRotDelta);
     }
     if (input->isKeyJustPressed(GLFW_KEY_E)){
-      selected->GetComponent(TransformComponent)->mRotationZ(selected->GetComponent(TransformComponent)->mRotationZ() - 90);
+      selected->GetComponent(TransformComponent)->mRotationZ(selected->GetComponent(TransformComponent)->mRotationZ() - mRotDelta);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_W)){
+      selected->GetComponent(TransformComponent)->mPositionY(selected->GetComponent(TransformComponent)->mPositionY() + mPosDelta);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_S)){
+      selected->GetComponent(TransformComponent)->mPositionY(selected->GetComponent(TransformComponent)->mPositionY() - mPosDelta);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_A)){
+      selected->GetComponent(TransformComponent)->mPositionX(selected->GetComponent(TransformComponent)->mPositionX() - mPosDelta);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_D)){
+      selected->GetComponent(TransformComponent)->mPositionX(selected->GetComponent(TransformComponent)->mPositionX() + mPosDelta);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_W) && input->isKeyPressed(GLFW_KEY_LEFT_ALT)){
+      selected->GetComponent(TransformComponent)->mScaleY(selected->GetComponent(TransformComponent)->mScaleY() + mScaleDelta);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_S) && input->isKeyPressed(GLFW_KEY_LEFT_ALT)){
+      selected->GetComponent(TransformComponent)->mScaleY(selected->GetComponent(TransformComponent)->mScaleY() - mScaleDelta);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_A) && input->isKeyPressed(GLFW_KEY_LEFT_ALT)){
+      selected->GetComponent(TransformComponent)->mScaleX(selected->GetComponent(TransformComponent)->mScaleX() - mScaleDelta);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_D) && input->isKeyPressed(GLFW_KEY_LEFT_ALT)){
+      selected->GetComponent(TransformComponent)->mScaleX(selected->GetComponent(TransformComponent)->mScaleX() + mScaleDelta);
+    }
+    if (input->isKeyJustPressed(GLFW_KEY_RIGHT_CONTROL)){
+      Select(nullptr);
+      showfilter = false;
+      mShowAddComponent = false;
+      mCreateObjectMenu = false;
+      mLoadLevelMenu = false;
+      mSaveLevelMenu = false;
+      tileEditorActive = false;
+      mTileEditorStart = false;
+      mShowSaveArchetype = false;
+      mShowDeltaMenu = false;
     }
     if (input->isKeyJustPressed(GLFW_KEY_F)){
       g->mMainCamera.x = selected->GetComponent(TransformComponent)->mPositionX();
@@ -304,7 +346,13 @@ void EditorSystem::DisplayImGUI(){
     ImGui::End();
   }
 
-
+  if (mShowDeltaMenu){
+    ImGui::Begin("Change Hotkey Deltas");
+    ImGui::InputFloat("Rotation Delta", &mRotDelta);
+    ImGui::InputFloat("Position Delta", &mPosDelta);
+    ImGui::InputFloat("Scale Delta", &mScaleDelta);
+    ImGui::End();
+  }
   if (mShowAddComponent){
     const char* items[128];
     int i = 0;
@@ -355,7 +403,11 @@ void EditorSystem::SetSaveLevel()
 }
 void EditorSystem::SetTileEditor()
 {
-  mTileEditorStart= true;
+  mTileEditorStart = true;
+}
+void EditorSystem::ShowDeltaMenu()
+{
+  mShowDeltaMenu = true;
 }
 
 void EditorSystem::ReloadArtAssets()

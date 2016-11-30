@@ -15,6 +15,7 @@ public:
   void Select(Object * obj);
   void DisplayImGUI();
   bool tileEditorActive;
+  float mRotDelta, mPosDelta, mScaleDelta;
 private:
   Object * selected;
   std::vector<EditorComponent *> mComponents_;
@@ -25,14 +26,17 @@ private:
   static void SetLoadLevel();
   static void SetTileEditor();
   static void ReloadArtAssets();
+  static void ShowDeltaMenu();
   void CreateObjectByName(const char * name);
   static bool mCreateObjectMenu;
   static bool mSaveLevelMenu;
   static bool mLoadLevelMenu;
   static bool mTileEditorStart;
+  static bool mShowDeltaMenu;
   std::string tileArchetype;
   bool mShowAddComponent;
   bool mShowSaveArchetype;
+  
   char str[64];
   char tool;
   float offsetx;
