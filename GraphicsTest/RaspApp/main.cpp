@@ -211,7 +211,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         Debug.Log("Loading an object");
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
-
+        Debug.Log("Object ID" + std::to_string(objectID));
         char isVis = command[pos];
         ++pos;
 
@@ -801,7 +801,6 @@ int main ( int argc, char *argv[] )
         break;
 
     }
-    return 0;
 
   }
   
