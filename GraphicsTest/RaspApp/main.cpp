@@ -670,7 +670,6 @@ int main ( int argc, char *argv[] )
   }
 
 
-  return 0;
   AudioSystem a;
   //a.Shutdown();
   //return 0;
@@ -697,6 +696,7 @@ int main ( int argc, char *argv[] )
   int prevState = 0;
   float deltatime, gDt, rDt,sDt,iDt;
   std::thread t1(KnobTurned, &threadInfo);
+  return 0;
   while(true){
     start = clock();
     a.Update(0.016);
