@@ -728,7 +728,6 @@ int main ( int argc, char *argv[] )
     //rDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     //gettimeofday ( &tStart , &tz );
     g.Draw();
-  return 0;
     //gettimeofday ( &tEnd , &tz );
     //gDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     toSend = !toSend;
@@ -802,6 +801,7 @@ int main ( int argc, char *argv[] )
         break;
 
     }
+    return 0;
 
   }
   
