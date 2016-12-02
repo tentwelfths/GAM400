@@ -620,7 +620,6 @@ int main ( int argc, char *argv[] )
     std::cout<<"Starting debugging"<<std::endl;
     Debug.Clear();
   }
-  return 0;
   int incrementer = 1;
   clock_t start, end;
   struct sigaction sig_struct;
@@ -671,6 +670,7 @@ int main ( int argc, char *argv[] )
   }
 
 
+  return 0;
   AudioSystem a;
   //a.Shutdown();
   //return 0;
