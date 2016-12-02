@@ -613,11 +613,14 @@ int main ( int argc, char *argv[] )
     return 0;
   }
   if(argc == 2){
+    std::cout<<"TUrning off debug"<<std::endl;
     Debug.TurnOff();
   }
   else{
+    std::cout<<"Starting debugging"<<std::endl;
     Debug.Clear();
   }
+  return 0;
   int incrementer = 1;
   clock_t start, end;
   struct sigaction sig_struct;
