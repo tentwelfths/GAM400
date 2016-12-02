@@ -88,6 +88,7 @@ void ControllerControllerComponent::Shoot(InputSystem* input, double dt)
         b = j.CreateObjectFromFile("Bullet.json");
         b->Register();
         b->Initialize();
+        b->save = false;
         auto bTrans = b->GetComponent(TransformComponent);
         auto bBox = b->GetComponent(BoxColliderComponent);
         auto trans = mParent()->GetComponent(TransformComponent);

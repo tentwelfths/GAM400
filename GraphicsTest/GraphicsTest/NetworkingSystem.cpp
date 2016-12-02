@@ -445,7 +445,9 @@ void NetworkingSystem::AddCommand(char com, unsigned int ID, char data[8])
 {
   for (unsigned i = 0; i < connections.size(); ++i){
     if (com == '#'){
-      auto * trans = gCore->GetSystem(ObjectSystem)->mObjectMap_[ID]->GetComponent(TransformComponent);
+      auto obj = gCore->GetSystem(ObjectSystem)->mObjectMap_.find(ID);
+      if (obj == gCore->GetSystem(ObjectSystem)->mObjectMap_.end() || obj->second == nullptr) return;
+      auto * trans = obj->second->GetComponent(TransformComponent);
       if (!(trans->mPositionX() >= connections[i].x - trans->mScaleX() - 15 &&
         trans->mPositionY() >= connections[i].y - trans->mScaleY() - 15 &&
         trans->mPositionX() <= connections[i].x + trans->mScaleX() + 15 &&
@@ -468,8 +470,10 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
   switch (com){
   case '`': // Object created. 
   {
-    temp = "`";
     std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID, num);
+
+    if (data == "") break;
+    temp = "`";
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }
@@ -478,8 +482,10 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
 
   case 'L':
   {
-    temp = "L";
     std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID, num);
+
+    if (data == "") break;
+    temp = "L";
     for (unsigned i = 0; i < data.length(); ++i){
       temp += data[i];
     }

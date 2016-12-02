@@ -191,5 +191,6 @@ Object* GunControllerComponent::CreateBullet(float x, float y)
   }
   b->Initialize();
   b->Register();
+  b->save = false;
   return b;
 }
