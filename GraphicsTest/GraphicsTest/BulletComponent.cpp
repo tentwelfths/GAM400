@@ -1,6 +1,7 @@
 #include <Box2D\Box2D.h>
 #include "BulletComponent.h"
 #include "BoxColliderComponent.h"
+#include"ChargeObjective.h"
 #include "ObjectSystem.h"
 #include "Core.h"
 #include "Object.h"
@@ -33,14 +34,16 @@ void BulletComponent::Update(double dt)
       CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
       if (col->obj1 == mParent())
       {
-        if (col->obj2 != nullptr && (col->obj2->name != "Knife" && col->obj2->name != "Coneman" && col->obj2->name != "Cone" && col->obj2->name != "River" && col->obj2->name != "ObjectiveZone"))
+        auto* co = col->obj2->GetComponent(ChargeObjective);
+        if (col->obj2 != nullptr && (col->obj2->name != "Knife" && col->obj2->name != "Coneman" && col->obj2->name != "Cone" && col->obj2->name != "River" && !co))
         {
           contact = true;
         }
       }
       else
       {
-        if (col->obj1 != nullptr && (col->obj1->name != "Knife" && col->obj1->name != "Coneman" && col->obj1->name != "Cone" && col->obj2->name != "River" && col->obj2->name != "ObjectiveZone"))
+        auto* co = col->obj2->GetComponent(ChargeObjective);
+        if (col->obj1 != nullptr && (col->obj1->name != "Knife" && col->obj1->name != "Coneman" && col->obj1->name != "Cone" && col->obj2->name != "River" && !co))
         {
           contact = true;
         }
