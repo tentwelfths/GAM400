@@ -752,6 +752,9 @@ int main ( int argc, char *argv[] )
     inputstream += (a2d.GetChannelData(4) > 15) ? '0' : '1';
     inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
     
+    std::cout<<"("<<x1<<","<<y1")("<<x2<<","<<y2<<")"std::endl;
+
+
     inputstream += threadInfo.counter;
     threadInfo.counter = 0;
     if(toSend && inputstream.length() > 0){
