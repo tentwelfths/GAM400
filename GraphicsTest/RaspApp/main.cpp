@@ -658,6 +658,8 @@ int main ( int argc, char *argv[] )
   threadInfo.bit1 = new GPIOPin("5");
   threadInfo.bit2 = new GPIOPin("6");
   GPIOPin p("13");
+  p.ExportPin();
+  p.SetPinDir("out");
   threadInfo.bit1->ExportPin();
   threadInfo.bit1->SetPinDir("in");
   threadInfo.bit2->ExportPin();
@@ -797,6 +799,7 @@ int main ( int argc, char *argv[] )
           delete gpioPins[i];
           gpioPins[i] = 0;
         }
+        p.UnexportPin();
         threadInfo.bit1->UnexportPin();
         delete threadInfo.bit1;
         threadInfo.bit1 = 0;
