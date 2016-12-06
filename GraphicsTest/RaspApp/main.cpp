@@ -657,6 +657,7 @@ int main ( int argc, char *argv[] )
   std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
   threadInfo.bit1 = new GPIOPin("5");
   threadInfo.bit2 = new GPIOPin("6");
+  GPIOPin p("13");
   threadInfo.bit1->ExportPin();
   threadInfo.bit1->SetPinDir("in");
   threadInfo.bit2->ExportPin();
@@ -727,7 +728,8 @@ int main ( int argc, char *argv[] )
     //gettimeofday ( &tEnd , &tz );
     //rDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     //gettimeofday ( &tStart , &tz );
-    g.Draw();
+    //g.Draw();
+    std::cout<<p.GetPinVal()<<std::end;
     //gettimeofday ( &tEnd , &tz );
     //gDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     toSend = !toSend;
