@@ -729,7 +729,7 @@ int main ( int argc, char *argv[] )
     //rDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     //gettimeofday ( &tStart , &tz );
     //g.Draw();
-    std::cout<<p.GetPinVal()<<std::end;
+    std::cout<<p.GetPinVal()<<std::endl;
     //gettimeofday ( &tEnd , &tz );
     //gDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
     toSend = !toSend;
