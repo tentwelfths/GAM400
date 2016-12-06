@@ -31,7 +31,7 @@ PCControllerComponent: {
 	"sprintSpeed": 2.000000,
 	"speed": 5.000000,
 	"playerID": 0,
-	"health": 10,
+	"maxHealth": 10,
 	"killable": false
 	},
 EditorComponent: {
