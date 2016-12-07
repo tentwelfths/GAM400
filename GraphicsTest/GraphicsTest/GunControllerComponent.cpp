@@ -176,7 +176,7 @@ Object* GunControllerComponent::CreateBullet(float x, float y)
   auto trans = mParent()->GetComponent(TransformComponent);
   bTrans->mPosition(trans->mPosition());
   b2Vec2 boxPos(bTrans->mPositionX(), bTrans->mPositionY());
-  //bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
+  bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
   bBox->GetBody()->SetLinearVelocity(b2Vec2(x,y));
   currAmmo -= 1;
   if (mBigOrPierce)
