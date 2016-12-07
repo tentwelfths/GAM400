@@ -168,6 +168,9 @@ Object* GunControllerComponent::CreateBullet(float x, float y)
   JSONTranslator j;
   Object * b;
   b = j.CreateObjectFromFile("Bullet.json");
+  b->Register();
+  b->Initialize();
+  b->save = false;
   auto bTrans = b->GetComponent(TransformComponent);
   auto bBox = b->GetComponent(BoxColliderComponent);
   auto trans = mParent()->GetComponent(TransformComponent);
@@ -189,8 +192,5 @@ Object* GunControllerComponent::CreateBullet(float x, float y)
     b->GetComponent(BulletComponent)->SetHoming();
     b->GetComponent(BulletComponent)->SetDamage(1);
   }
-  b->Initialize();
-  b->Register();
-  b->save = false;
   return b;
 }
