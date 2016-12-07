@@ -1,5 +1,8 @@
 #include <string>
 #include <thread>
+#include "GPIOPin.h"
+#include "MCP3008SPI.h"
+
 struct ThreadInfo{
   char counter = 0;
   GPIOPin bit1;
