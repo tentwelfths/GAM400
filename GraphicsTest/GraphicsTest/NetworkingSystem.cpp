@@ -371,9 +371,9 @@ void NetworkingSystem::Update(double dt)
           std::vector<bool> state;
           state.push_back(button1);
           state.push_back(button2);
-          state.push_back(command[pos++]);
-          state.push_back(command[pos++]);
-          state.push_back(command[pos++]);
+          state.push_back((command[pos++] == '1'));
+          state.push_back((command[pos++] == '1'));
+          state.push_back((command[pos++] == '1'));
           input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
         }
         else{
