@@ -190,7 +190,7 @@ std::string ObjectSystem::GetTextureData(Object * iter)
 
 std::string ObjectSystem::GetData(Object * iter, int num)
 {
-  if (iter == nullptr) return;
+  if (iter == nullptr) return "";
   std::string data = "";
   if (iter == nullptr || iter->dead) return data;
   TransformComponent * t = iter->GetComponent(TransformComponent);
