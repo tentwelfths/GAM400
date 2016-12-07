@@ -57,7 +57,7 @@ ConeController::ConeController() : IController(){
 
 void ConeController::Initialize(){
   IController::Initialize();
-    threadInfo.bit1.SetPinNum("5");
+  threadInfo.bit1.SetPinNum("5");
   threadInfo.bit2.SetPinNum("6");
   threadInfo.bit1.ExportPin();
   threadInfo.bit1.SetPinDir("in");
@@ -70,6 +70,7 @@ void ConeController::Uninitialize(){
   IController::Uninitialize();
   threadInfo.bit1.UnexportPin();
   threadInfo.bit2.UnexportPin();
+  t1.join();
 }
 
 std::string ConeController::GetInputData(){
@@ -85,8 +86,8 @@ void * ConeController::KnobTurned(ThreadInfo * t)
   while(!t->ctrl_c_pressed){
     //std::cout<<"CALLED"<<std::endl;
     std::string b1, b2;
-    b1 = t->bit1->GetPinVal();
-    b2 = t->bit2->GetPinVal();
+    b1 = t->bit1.GetPinVal();
+    b2 = t->bit2.GetPinVal();
     //std::cout<<b1<<"  "<<b2<<std::endl;
     int num = (b1 == "1") ? (1<<1) : (0<<1);
     num |= (b2 == "1") ? (1) : (0);
@@ -154,7 +155,7 @@ void * ConeController::KnobTurned(ThreadInfo * t)
     }
     t->prevState = num;
   }
-  return;
+  return nullptr;
 }
 
 GunController::GunController() : IController(){

@@ -647,7 +647,6 @@ int main ( int argc, char *argv[] )
     {
         std::cout << "Ctrl^C Pressed" << std::endl;
         std::cout << "unexporting pins" <<std::endl;
-        t1.join();
         //gpio4->unexport_gpio();
         //gpio17->unexport_gpio();
         //cout << "deallocating GPIO Objects" << endl;
