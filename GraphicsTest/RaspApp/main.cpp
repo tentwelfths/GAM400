@@ -597,7 +597,7 @@ int main ( int argc, char *argv[] )
   int state = 0;
   int prevState = 0;
   float deltatime, gDt, rDt,sDt,iDt;
-  t1 = std::thread(KnobTurned, &threadInfo);
+  
   while(true){
     start = clock();
     a.Update(0.016);

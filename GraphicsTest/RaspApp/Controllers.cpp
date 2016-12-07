@@ -1,4 +1,8 @@
 #include "Controllers.h"
+#include <string>
+#include <thread>
+#include "GPIOPin.h"
+#include "MCP3008SPI.h"
 
   std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
 
@@ -16,7 +20,7 @@ void IController::Initialize(){
   a2d = new mcp3008Spi("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
 }
 
-void IController::Initialize(){
+void IController::Uninitialize(){
   for(int i = 0; i < 10; ++i){
     mLeds[i].SetPinVal("0");
     mLeds[i].UnexportPin();
