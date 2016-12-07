@@ -13,7 +13,7 @@
 #define RAPIDTIMER 0.7f
 #define PIFOURTH 0.78539816339
 
-GunControllerComponent::GunControllerComponent() : mSpreadOrRapid(false), mBigOrPierce(false), mHomingOrDamage(false)
+GunControllerComponent::GunControllerComponent() : ControllerControllerComponent(), mSpreadOrRapid(false), mBigOrPierce(false), mHomingOrDamage(false)
 {
   mName_ = "GunControllerComponent";
 }
