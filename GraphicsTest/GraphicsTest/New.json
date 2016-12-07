@@ -156,10 +156,10 @@
 		},
 	GunControllerComponent: {
 		"speed": 5.000000,
-		"playerID": 0,
+		"playerID": 1,
 		"maxHealth": 2,
 		"killable": true,
-		"controllerID": 0,
+		"controllerID": 1,
 		"bulletSpeed": 20.000000
 		},
 	CircleColliderComponent: {

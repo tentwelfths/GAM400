@@ -13,7 +13,7 @@
 #define RAPIDTIMER 0.7f
 #define PIFOURTH 0.78539816339
 
-GunControllerComponent::GunControllerComponent() : mSpreadOrRapid(false), mBigOrPierce(false), mHomingOrDamage(false)
+GunControllerComponent::GunControllerComponent() : ControllerControllerComponent(), mSpreadOrRapid(false), mBigOrPierce(false), mHomingOrDamage(false)
 {
   mName_ = "GunControllerComponent";
 }
@@ -168,12 +168,15 @@ Object* GunControllerComponent::CreateBullet(float x, float y)
   JSONTranslator j;
   Object * b;
   b = j.CreateObjectFromFile("Bullet.json");
+  b->Register();
+  b->Initialize();
+  b->save = false;
   auto bTrans = b->GetComponent(TransformComponent);
   auto bBox = b->GetComponent(BoxColliderComponent);
   auto trans = mParent()->GetComponent(TransformComponent);
   bTrans->mPosition(trans->mPosition());
   b2Vec2 boxPos(bTrans->mPositionX(), bTrans->mPositionY());
-  //bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
+  bBox->GetBody()->SetTransform(boxPos, trans->mRotationZ());
   bBox->GetBody()->SetLinearVelocity(b2Vec2(x,y));
   currAmmo -= 1;
   if (mBigOrPierce)
@@ -189,8 +192,5 @@ Object* GunControllerComponent::CreateBullet(float x, float y)
     b->GetComponent(BulletComponent)->SetHoming();
     b->GetComponent(BulletComponent)->SetDamage(1);
   }
-  b->Initialize();
-  b->Register();
-  b->save = false;
   return b;
 }
