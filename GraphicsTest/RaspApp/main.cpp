@@ -655,19 +655,20 @@ int main ( int argc, char *argv[] )
         //gpio4 = 0;
         //delete gpio17;
         //gpio17 =0;
-        for(int i = 0; i < 10; ++i){
-          gpioPins[i]->SetPinVal("0");
-          gpioPins[i]->UnexportPin();
-          delete gpioPins[i];
-          gpioPins[i] = 0;
-        }
-        p.UnexportPin();
-        threadInfo.bit1->UnexportPin();
-        delete threadInfo.bit1;
-        threadInfo.bit1 = 0;
-        threadInfo.bit2->UnexportPin();
-        delete threadInfo.bit2;
-        threadInfo.bit2 = 0;
+        //for(int i = 0; i < 10; ++i){
+        //  gpioPins[i]->SetPinVal("0");
+        //  gpioPins[i]->UnexportPin();
+        //  delete gpioPins[i];
+        //  gpioPins[i] = 0;
+        //}
+        //p.UnexportPin();
+        //threadInfo.bit1->UnexportPin();
+        //delete threadInfo.bit1;
+        //threadInfo.bit1 = 0;
+        //threadInfo.bit2->UnexportPin();
+        //delete threadInfo.bit2;
+        //threadInfo.bit2 = 0;
+        controller->Uninitialize();
         break;
 
     }

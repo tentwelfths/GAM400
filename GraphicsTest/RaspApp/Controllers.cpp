@@ -16,6 +16,14 @@ void IController::Initialize(){
   a2d = new mcp3008Spi("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
 }
 
+void IController::Initialize(){
+  for(int i = 0; i < 10; ++i){
+    mLeds[i].SetPinVal("0");
+    mLeds[i].UnexportPin();
+  }
+  delete a2d;
+}
+
 std::string IController::GetJoystickData(){
   std::string inputstream;
   unsigned short x1 = a2d->GetChannelData(0);
@@ -52,6 +60,12 @@ void ConeController::Initialize(){
   threadInfo.bit2.ExportPin();
   threadInfo.bit2.SetPinDir("in");
   std::thread t1(this->KnobTurned, &threadInfo);
+}
+
+void ConeController::Uninitialize(){
+  IController::Uninitialize();
+  threadInfo.bit1.UnexportPin();
+  threadInfo.bit2.UnexportPin();
 }
 
 std::string ConeController::GetInputData(){
@@ -154,6 +168,13 @@ void GunController::Initialize(){
   mBlueSwitch.SetPinDir("in");
   mGreenSwitch.ExportPin();
   mGreenSwitch.SetPinDir("in");
+}
+
+void GunController::Uninitialize(){
+  IController::Uninitialize();
+  mRedSwitch.UnexportPin();
+  mBlueSwitch.UnexportPin();
+  mGreenSwitch.UnexportPin();
 }
 
 std::string GunController::GetInputData(){

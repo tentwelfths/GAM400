@@ -1,4 +1,5 @@
-
+#include <string>
+#include <thread>
 struct ThreadInfo{
   char counter = 0;
   GPIOPin bit1;
@@ -11,6 +12,7 @@ struct IController
 {
   IController();
   virtual void Initialize();
+  virtual void Uninitialize();
   virtual std::string GetInputData() = 0;
   std::string GetJoystickData();
   GPIOPin mLeds[10];
@@ -21,6 +23,7 @@ struct ConeController : public IController
 {
   ConeController();
   void Initialize();
+  virtual void Uninitialize();
   std::string GetInputData();
   void * KnobTurned(ThreadInfo* t);
   ThreadInfo threadInfo;
@@ -31,6 +34,7 @@ struct GunController : public IController
 {
   GunController();
   void Initialize();
+  virtual void Uninitialize();
   std::string GetInputData();
   GPIOPin mRedSwitch, mBlueSwitch, mGreenSwitch;
 };
