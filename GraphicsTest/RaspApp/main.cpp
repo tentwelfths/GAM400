@@ -22,18 +22,14 @@
 #include <thread>
 #include <fmod.h>
 #include "Debug.h"
+#include "Controllers.h"
 
 std::string inputstream = "";
 
+IController * controller;
+
 DebugClass Debug("output.txt");
 
-struct ThreadInfo{
-
-char counter = 0;
-GPIOPin * bit1;
-GPIOPin * bit2;
-int prevState = 0;
-};
 //mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
 
 std::unordered_map<unsigned int, Object*> gObjects[10];
@@ -189,17 +185,6 @@ unsigned short lastFrameSeen = 0;
 #include <bitset>
 void ProcessResponse(int& pos, int & clientNumber, const char * command, int len, GraphicsSystem * g, NetworkingSystem * n, AudioSystem * a)
 {
-  //for (int i = 0; i < len; ++i)
-  //{
-  //  if (buf[i] == '\0'){
-  //    commands.push(unfinished);
-  //    unfinished = "";
-  //  }
-  //  else
-  //  {
-  //    unfinished += buf[i];
-  //  }
-  //}
   pos = 0;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
@@ -482,10 +467,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         std::bitset<8> d2(d[1]);
 
         for(int i = 0; i < 8; ++i){
-          gpioPins[i]->SetPinVal((d1[i] != 0) ? "1" : "0");
+          controller->mLeds[i].SetPinVal((d1[i] != 0) ? "1" : "0");
         }
         for(int i = 0; i < 2; ++i){
-          gpioPins[8 + i]->SetPinVal((d2[i] != 0) ? "1" : "0");
+          controller->mLeds[8 + i].SetPinVal((d2[i] != 0) ? "1" : "0");
         }
       }
       break;
@@ -529,83 +514,6 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
   }
 }
 
-void KnobTurned(ThreadInfo * t)
-{
-  while(!ctrl_c_pressed){
-    //std::cout<<"CALLED"<<std::endl;
-    std::string b1, b2;
-    b1 = t->bit1->GetPinVal();
-    b2 = t->bit2->GetPinVal();
-    //std::cout<<b1<<"  "<<b2<<std::endl;
-    int num = (b1 == "1") ? (1<<1) : (0<<1);
-    num |= (b2 == "1") ? (1) : (0);
-    if(num == t->prevState){
-      //std::cout<<"No mov";
-      continue;
-    }
-    switch(num){
-      case 0b00:
-      if(t->prevState == 0b01){// && prevprev == 0b11){
-        --t->counter;
-      }
-      else if(t->prevState == 0b10){// && prevprev == 0b11){
-        ++t->counter;
-      }
-      else{
-        if(t->counter > 0)
-          ++t->counter;
-        if(t->counter < 0)
-          --t->counter;
-      }
-      break;
-      case 0b01:
-      if(t->prevState == 0b11){// && prevprev == 0b10){
-        --t->counter;
-      }
-      else if(t->prevState == 0b00){// && prevprev == 0b10){
-        ++t->counter;
-      }
-      else{
-        if(t->counter > 0)
-          ++t->counter;
-        if(t->counter < 0)
-          --t->counter;
-      }
-      break;
-      case 0b11:
-      if(t->prevState == 0b10){// && prevprev == 0b00){
-        --t->counter;
-      }
-      else if(t->prevState == 0b01){// && prevprev == 0b00){
-        ++t->counter;
-      }
-      else{
-        if(t->counter > 0)
-          ++t->counter;
-        if(t->counter < 0)
-          --t->counter;
-      }
-      break;
-      case 0b10:
-      if(t->prevState == 0b00){// && prevprev == 0b01){
-        --t->counter;
-      }
-      else if(t->prevState == 0b11){// && prevprev == 0b01){
-        ++t->counter;
-      }
-      else{
-        if(t->counter > 0)
-          ++t->counter;
-        if(t->counter < 0)
-          --t->counter;
-      }
-      break;
-    }
-    t->prevState = num;
-  }
-  return;
-}
-
 int main ( int argc, char *argv[] )
 {
   if(argc < 2){
@@ -635,11 +543,18 @@ int main ( int argc, char *argv[] )
   ThreadInfo threadInfo;
   char myID = -1;
   
+  ConeController cone;
+  GunController gun;
+
   if(strcmp(argv[1], "cone")==0){
     myID = 0;
+    cone.Initialize();
+    controller = &cone;
   }
   else if(strcmp(argv[1], "gun")==0){
     myID = 01;
+    gun.Initialize();
+    controller = &gun;
   }
   else if(strcmp(argv[1], "radar")==0){
     myID = 02;
@@ -652,27 +567,11 @@ int main ( int argc, char *argv[] )
     return 0;
   } 
 
-  mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
+
   
-  std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
-  threadInfo.bit1 = new GPIOPin("5");
-  threadInfo.bit2 = new GPIOPin("6");
   GPIOPin p("13");
   p.ExportPin();
   p.SetPinDir("out");
-  threadInfo.bit1->ExportPin();
-  threadInfo.bit1->SetPinDir("in");
-  threadInfo.bit2->ExportPin();
-  threadInfo.bit2->SetPinDir("in");
-  
-  for(int i = 0; i < 10; ++i){
-    gpioPins[i] = new GPIOPin(PINS[i]);
-    gpioPins[i]->ExportPin();
-    gpioPins[i]->SetPinDir("out");
-    gpioPins[i]->SetPinVal("1");
-  }
-
-
   AudioSystem a;
   //a.Shutdown();
   //return 0;
@@ -698,22 +597,13 @@ int main ( int argc, char *argv[] )
   int state = 0;
   int prevState = 0;
   float deltatime, gDt, rDt,sDt,iDt;
-  std::thread t1(KnobTurned, &threadInfo);
+  t1 = std::thread(KnobTurned, &threadInfo);
   while(true){
     start = clock();
     a.Update(0.016);
-    //for(int i = 0; i < 10; ++i){
-    //  if(i == counter)
-    //    gpioPins[i]->SetPinVal("1");
-    //  else{
-    //    gpioPins[i]->SetPinVal("0");
-    //  }
-    //}
-    //if(counter >= 10) counter = 0;
-    //if(counter <= -1) counter = 9;
-    //std::cout<<"loop"<<std::endl;
+    
     bool updated = false;
-    //gettimeofday ( &tStart , &tz );
+
     do{
       memset((void*)buf, 0, 1024);
       //std::cout<<"Tryna recv"<<std::endl;
@@ -727,40 +617,12 @@ int main ( int argc, char *argv[] )
         ProcessResponse(pos, clientNumber, buf, netResult, &g, &n, &a);
       }
     }while(netResult > 0);
-    //gettimeofday ( &tEnd , &tz );
-    //rDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
-    //gettimeofday ( &tStart , &tz );
-    //g.Draw();
-    std::cout<<"PIN 13 VAL:         "<<p.GetPinVal()<<std::endl;
-    //gettimeofday ( &tEnd , &tz );
-    //gDt = (float)(tEnd.tv_sec - tStart.tv_sec + (tEnd.tv_usec - tStart.tv_usec) * 1e-6);
+    
+    g.Draw();
+    
     toSend = !toSend;
     inputstream = "~";
-    //gettimeofday ( &tStart , &tz );
-    unsigned short x1 = a2d.GetChannelData(0);
-    unsigned short y1 = a2d.GetChannelData(1);
-    unsigned short x2 = a2d.GetChannelData(2);
-    unsigned short y2 = a2d.GetChannelData(3);
-    for(unsigned i = 0; i < sizeof(unsigned short); ++i){
-      inputstream += static_cast<char *>(static_cast<void *>(&x1))[i];
-    }
-    for(unsigned i = 0; i < sizeof(unsigned short); ++i){
-      inputstream += static_cast<char *>(static_cast<void *>(&y1))[i];
-    }
-    for(unsigned i = 0; i < sizeof(unsigned short); ++i){
-      inputstream += static_cast<char *>(static_cast<void *>(&x2))[i];
-    }
-    for(unsigned i = 0; i < sizeof(unsigned short); ++i){
-      inputstream += static_cast<char *>(static_cast<void *>(&y2))[i];
-    }
-    inputstream += (a2d.GetChannelData(4) > 15) ? '0' : '1';
-    inputstream += (a2d.GetChannelData(5) > 15) ? '0' : '1';
-    
-    std::cout<<"("<<x1<<","<<y1<<")("<<x2<<","<<y2<<")"<<std::endl;
-
-
-    inputstream += threadInfo.counter;
-    threadInfo.counter = 0;
+    inputstream += controller->GetInputData();
     if(toSend && inputstream.length() > 0){
       
       //inputstream = "~" + inputstream + "!";

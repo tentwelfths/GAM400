@@ -4,6 +4,8 @@
 class GPIOPin
 {
   public:
+  GPIOPin();
+  void SetPinNum(std::string pinNum);
   GPIOPin(std::string pinNum);
   ~GPIOPin();
   void ExportPin();

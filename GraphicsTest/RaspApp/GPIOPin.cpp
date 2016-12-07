@@ -6,6 +6,13 @@
 GPIOPin::GPIOPin(std::string pinNum) : pinNum_(pinNum){
 }
 
+GPIOPin::GPIOPin(){
+
+}
+void GPIOPin::SetPinNum(std::string pinNum){
+    pinNum_ = pinNum;
+}
+
 GPIOPin::~GPIOPin(){
   UnexportPin();
 }
