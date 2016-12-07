@@ -63,7 +63,7 @@ void ConeController::Initialize(){
   threadInfo.bit1.SetPinDir("in");
   threadInfo.bit2.ExportPin();
   threadInfo.bit2.SetPinDir("in");
-  std::thread t1(this->KnobTurned, &threadInfo);
+  std::thread t1(KnobTurned, &threadInfo);
 }
 
 void ConeController::Uninitialize(){
@@ -81,7 +81,7 @@ std::string ConeController::GetInputData(){
   return inputstream;
 }
 
-void * ConeController::KnobTurned(ThreadInfo * t)
+void * KnobTurned(ThreadInfo * t)
 {
   while(!t->ctrl_c_pressed){
     //std::cout<<"CALLED"<<std::endl;

@@ -28,7 +28,7 @@ struct ConeController : public IController
   void Initialize();
   virtual void Uninitialize();
   std::string GetInputData();
-  void * KnobTurned(ThreadInfo* t);
+  
   ThreadInfo threadInfo;
   std::thread t1;
 };
@@ -41,3 +41,5 @@ struct GunController : public IController
   std::string GetInputData();
   GPIOPin mRedSwitch, mBlueSwitch, mGreenSwitch;
 };
+
+void * KnobTurned(ThreadInfo* t);
