@@ -46,8 +46,8 @@ std::string IController::GetJoystickData(){
   for(unsigned i = 0; i < sizeof(unsigned short); ++i){
     inputstream += static_cast<char *>(static_cast<void *>(&y2))[i];
   }
-  inputstream += (a2d->GetChannelData(4) > 15) ? '0' : '1';
-  inputstream += (a2d->GetChannelData(5) > 15) ? '0' : '1';
+  inputstream += (a2d->GetChannelData(4) > 150) ? '0' : '1';
+  inputstream += (a2d->GetChannelData(5) > 150) ? '0' : '1';
   return inputstream;
 }
 
