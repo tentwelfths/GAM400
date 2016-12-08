@@ -49,6 +49,8 @@ void ControllerCameraFollow::Update(double dt)
     IMessage msg(MessageType::CAMERAMOVE);
     CameraMoveMessage* msgData = reinterpret_cast<CameraMoveMessage*>(msg.data);
     ControllerControllerComponent * controller = mParent()->GetComponent(ConeControllerComponent);
+    if (controller == nullptr)
+      controller = mParent()->GetComponent(GunControllerComponent);
     if (controller == nullptr){
       //try a different controller
       msgData->controllerNum = 0;
