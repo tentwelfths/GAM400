@@ -29,7 +29,6 @@ struct ConeController : public IController
   virtual void Uninitialize();
   std::string GetInputData();
   
-  ThreadInfo threadInfo;
   std::thread t1;
 };
 

@@ -9,6 +9,7 @@
 IController::IController(){
 
 }
+  ThreadInfo threadInfo;
 
 void IController::Initialize(){
   for(int i = 0; i < 10; ++i){
