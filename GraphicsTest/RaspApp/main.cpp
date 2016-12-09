@@ -550,8 +550,8 @@ int main ( int argc, char *argv[] )
     myID = 0;
   std::cout<<"asdf"<<std::endl;
     cone.Initialize();
-    controller = &cone;
   std::cout<<"asdf"<<std::endl;
+    controller = &cone;
   }
   else if(strcmp(argv[1], "gun")==0){
     myID = 01;
