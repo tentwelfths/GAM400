@@ -93,7 +93,7 @@ std::string ConeController::GetInputData(){
 
 void * KnobTurned(ThreadInfo * t)
 {
-  while(!t->ctrl_c_pressed){
+  while(true){//while(!t->ctrl_c_pressed){
   }
   while(true){
     std::cout<<"CALLED"<<std::endl;
