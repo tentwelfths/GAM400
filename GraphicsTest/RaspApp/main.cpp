@@ -548,8 +548,10 @@ int main ( int argc, char *argv[] )
 
   if(strcmp(argv[1], "cone")==0){
     myID = 0;
+  std::cout<<"asdf"<<std::endl;
     cone.Initialize();
     controller = &cone;
+  std::cout<<"asdf"<<std::endl;
   }
   else if(strcmp(argv[1], "gun")==0){
     myID = 01;
@@ -566,7 +568,6 @@ int main ( int argc, char *argv[] )
     std::cout<<"Controller name not found.( cone gun radar turret )"<<std::endl;
     return 0;
   } 
-  std::cout<<"asdf"<<std::endl;
 
 
   
