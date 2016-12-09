@@ -96,6 +96,7 @@ void * KnobTurned(ThreadInfo * t)
     std::string b1, b2;
     b1 = t->bit1.GetPinVal();
     b2 = t->bit2.GetPinVal();
+    std::cout<<"CALLED"<<std::endl;
     std::cout<<b1<<"  "<<b2<<std::endl;
     int num = (b1 == "1") ? (1<<1) : (0<<1);
     num |= (b2 == "1") ? (1) : (0);
