@@ -4,7 +4,7 @@
 #include "MCP3008SPI.h"
 
 struct ThreadInfo{
-  char counter = 0;
+  signed char counter = 0;
   GPIOPin bit1;
   GPIOPin bit2;
   int prevState = 0;
