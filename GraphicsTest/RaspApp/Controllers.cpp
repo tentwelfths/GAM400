@@ -48,7 +48,7 @@ std::string IController::GetJoystickData(){
     inputstream += static_cast<char *>(static_cast<void *>(&y2))[i];
   }
   //std::cout<<"a2d data:    "<<a2d->GetChannelData(4)<<","<<a2d->GetChannelData(5)<<std::endl;
-  std::cout<<x1<<","<<y1<<"|||"<<x2<<","<<y2<<std::endl;
+  //std::cout<<x1<<","<<y1<<"|||"<<x2<<","<<y2<<std::endl;
   inputstream += (a2d->GetChannelData(4) > 150) ? '0' : '1';
   inputstream += (a2d->GetChannelData(5) > 150) ? '0' : '1';
   return inputstream;
@@ -94,7 +94,7 @@ void * KnobTurned(ThreadInfo * t)
     std::string b1, b2;
     b1 = t->bit1.GetPinVal();
     b2 = t->bit2.GetPinVal();
-    //std::cout<<b1<<"  "<<b2<<std::endl;
+    std::cout<<b1<<"  "<<b2<<std::endl;
     int num = (b1 == "1") ? (1<<1) : (0<<1);
     num |= (b2 == "1") ? (1) : (0);
     if(num == t->prevState){
