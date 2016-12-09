@@ -92,6 +92,8 @@ std::string ConeController::GetInputData(){
 void * KnobTurned(ThreadInfo * t)
 {
   while(!t->ctrl_c_pressed){
+  }
+  while(true){
     std::cout<<"CALLED"<<std::endl;
     std::string b1, b2;
     b1 = t->bit1.GetPinVal();
