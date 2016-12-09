@@ -548,9 +548,7 @@ int main ( int argc, char *argv[] )
 
   if(strcmp(argv[1], "cone")==0){
     myID = 0;
-  std::cout<<"asdf"<<std::endl;
     cone.Initialize();
-  std::cout<<"asdf"<<std::endl<<std::flush;
     controller = &cone;
   }
   else if(strcmp(argv[1], "gun")==0){
