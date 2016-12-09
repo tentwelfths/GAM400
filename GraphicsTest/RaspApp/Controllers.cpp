@@ -67,8 +67,8 @@ void ConeController::Initialize(){
   std::cout<<4<<std::endl;
   threadInfo.bit2.ExportPin();
   threadInfo.bit2.SetPinDir("in");
-  std::cout<<5<<std::endl;
   std::thread t1(KnobTurned, &threadInfo);
+  std::cout<<5<<std::endl;
 }
 
 void ConeController::Uninitialize(){
@@ -89,15 +89,15 @@ std::string ConeController::GetInputData(){
 void * KnobTurned(ThreadInfo * t)
 {
   while(!t->ctrl_c_pressed){
-    //std::cout<<"CALLED"<<std::endl;
+    std::cout<<"CALLED"<<std::endl;
     std::string b1, b2;
     b1 = t->bit1.GetPinVal();
     b2 = t->bit2.GetPinVal();
-    //std::cout<<b1<<"  "<<b2<<std::endl;
+    std::cout<<b1<<"  "<<b2<<std::endl;
     int num = (b1 == "1") ? (1<<1) : (0<<1);
     num |= (b2 == "1") ? (1) : (0);
     if(num == t->prevState){
-      //std::cout<<"No mov";
+      std::cout<<"No mov";
       continue;
     }
     switch(num){
