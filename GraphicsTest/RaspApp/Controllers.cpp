@@ -82,7 +82,7 @@ std::string ConeController::GetInputData(){
   std::string inputstream = "";
   inputstream = GetJoystickData();
   inputstream += threadInfo.counter;
-  std::cout<<threadInfo.counter<<std::endl;
+  std::cout<<(int)threadInfo.counter<<std::endl;
   threadInfo.counter = 0;
   return inputstream;
 }
