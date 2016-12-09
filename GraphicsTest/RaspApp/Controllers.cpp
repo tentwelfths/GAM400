@@ -58,12 +58,16 @@ ConeController::ConeController() : IController(){
 
 void ConeController::Initialize(){
   IController::Initialize();
+  std::cout<<1<<std::endl;
   threadInfo.bit1.SetPinNum("5");
   threadInfo.bit2.SetPinNum("6");
+  std::cout<<3<<std::endl;
   threadInfo.bit1.ExportPin();
   threadInfo.bit1.SetPinDir("in");
+  std::cout<<4<<std::endl;
   threadInfo.bit2.ExportPin();
   threadInfo.bit2.SetPinDir("in");
+  std::cout<<5<<std::endl;
   std::thread t1(KnobTurned, &threadInfo);
 }
 
