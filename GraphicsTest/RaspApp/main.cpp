@@ -566,6 +566,7 @@ int main ( int argc, char *argv[] )
     std::cout<<"Controller name not found.( cone gun radar turret )"<<std::endl;
     return 0;
   } 
+  std::cout<<"asdf"<<std::endl;
 
 
   
