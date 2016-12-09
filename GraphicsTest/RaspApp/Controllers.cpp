@@ -69,7 +69,7 @@ void ConeController::Initialize(){
   threadInfo.bit2.ExportPin();
   threadInfo.bit2.SetPinDir("in");
   threadInfo.ctrl_c_pressed = false;
-  std::thread t1(KnobTurned, &threadInfo);
+  t1 = std::thread(KnobTurned, &threadInfo);
   std::cout<<5<<std::endl;
 }
 
