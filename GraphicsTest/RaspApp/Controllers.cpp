@@ -60,18 +60,14 @@ ConeController::ConeController() : IController(){
 
 void ConeController::Initialize(){
   IController::Initialize();
-  std::cout<<1<<std::endl;
   threadInfo.bit1.SetPinNum("5");
   threadInfo.bit2.SetPinNum("6");
-  std::cout<<3<<std::endl;
   threadInfo.bit1.ExportPin();
   threadInfo.bit1.SetPinDir("in");
-  std::cout<<4<<std::endl;
   threadInfo.bit2.ExportPin();
   threadInfo.bit2.SetPinDir("in");
   threadInfo.ctrl_c_pressed = false;
   t1 = std::thread(KnobTurned, &threadInfo);
-  std::cout<<5<<std::endl;
 }
 
 void ConeController::Uninitialize(){
@@ -87,7 +83,7 @@ std::string ConeController::GetInputData(){
   inputstream = GetJoystickData();
   inputstream += threadInfo.counter;
   threadInfo.counter = 0;
-  std::cout<<inputstream<<std::endl;
+  //std::cout<<inputstream<<std::endl;
   return inputstream;
 }
 
@@ -98,7 +94,7 @@ void * KnobTurned(ThreadInfo * t)
     std::string b1, b2;
     b1 = t->bit1.GetPinVal();
     b2 = t->bit2.GetPinVal();
-    std::cout<<b1<<"  "<<b2<<std::endl;
+    //std::cout<<b1<<"  "<<b2<<std::endl;
     int num = (b1 == "1") ? (1<<1) : (0<<1);
     num |= (b2 == "1") ? (1) : (0);
     if(num == t->prevState){
