@@ -426,7 +426,7 @@ void NetworkingSystem::Update(double dt)
         connections[i].initstep = -1;
         std::cout << "Done loading" << std::endl;
       }
-      else if (connections[i].initstep > 30){
+      else if (connections[i].initstep > 300){
         for (auto & iter : connections[i].unloaded)
           AddCommand(i, 'L', iter);
         connections[i].initstep = 1;
