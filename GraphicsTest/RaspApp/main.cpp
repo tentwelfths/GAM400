@@ -520,6 +520,8 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         a->Play3DSoundEffect(name, sourcePosX, sourcePosY, g->mMainCamera.x, g->mMainCamera.y);
       }
       break;
+      default:
+      Debug.Log(std::to_string("What the fuck is " + command[pos]));
     }
   }
 }
