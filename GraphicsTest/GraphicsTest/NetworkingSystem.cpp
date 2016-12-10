@@ -176,7 +176,7 @@ void NetworkingSystem::Update(double dt)
       d[0] = (char)d1.to_ulong();
       d[1] = (char)d2.to_ulong();
       for (unsigned i = 0; i < connections.size(); ++i){
-        if (connections[i].playerNum == msg->controllerNum){
+        if (connections[i].playerNum - 1 == msg->controllerNum){
           AddCommand(i, '^', 0, d);
         }
       }
@@ -185,7 +185,7 @@ void NetworkingSystem::Update(double dt)
     case MessageType::CAMERAMOVE:{
       auto * msg = reinterpret_cast<CameraMoveMessage *>(iter.data);
       for (unsigned i = 0; i < connections.size(); ++i){
-        if (connections[i].playerNum == msg->controllerNum){
+        if (connections[i].playerNum - 1 == msg->controllerNum){
           auto obj = gCore->GetSystem(ObjectSystem)->mObjectMap_.find(msg->objID);
           if (obj != gCore->GetSystem(ObjectSystem)->mObjectMap_.end()){
             AddCommand(i, '(', msg->objID);
@@ -286,7 +286,7 @@ void NetworkingSystem::Update(double dt)
           openConnections.pop_front();
         }
         connections[i].playerNum = command[1];
-        std::cout << "Got player num" << (int)connections[i].playerNum << std::endl;
+        std::cout << "Got player num" << (int)connections[i].playerNum - 1 << std::endl;
         connections[i].initstep = 0;
         ++clientCount;
         ++connectionCount;
@@ -349,7 +349,7 @@ void NetworkingSystem::Update(double dt)
         ++pos;
         button2 = (command[pos] == '1');
         ++pos;
-        if (connections[i].playerNum == 0)//coneman
+        if (connections[i].playerNum == 1)//coneman
         {
           knobDelta = command[pos];
           ++pos;
@@ -361,9 +361,9 @@ void NetworkingSystem::Update(double dt)
           state.push_back(button2);
           if (knobDelta != 0)
           std::cout << (int)knobDelta << std::endl;
-          input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f, knobDelta);
+          input->updateController(connections[i].playerNum - 1, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f, knobDelta);
         }
-        else if (connections[i].playerNum == 1){
+        else if (connections[i].playerNum == 2){
           std::vector<int> buttons;
           buttons.push_back(0);
           buttons.push_back(1);
@@ -376,17 +376,17 @@ void NetworkingSystem::Update(double dt)
           state.push_back((command[pos++] == '1'));
           state.push_back((command[pos++] == '1'));
           state.push_back((command[pos++] == '1'));
-          input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
+          input->updateController(connections[i].playerNum - 1, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
         }
         else{
-          std::cout << "Updating controller" << (int)connections[i].playerNum << std::endl;
+          std::cout << "Updating controller" << (int)connections[i].playerNum - 1 << std::endl;
           std::vector<int> buttons;
           buttons.push_back(0);
           buttons.push_back(1);
           std::vector<bool> state;
           state.push_back(button1);
           state.push_back(button2);
-          input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
+          input->updateController(connections[i].playerNum - 1, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
         }
       }
     }
@@ -426,7 +426,7 @@ void NetworkingSystem::Update(double dt)
         connections[i].initstep = 1;
       }
       for (unsigned k = 0; connections[i].commandsSend.empty() == false && k < 30; ++k){
-        std::string temp = ConstructCommand(connections[i].commandsSend.front().comType, connections[i].commandsSend.front().ID, connections[i].commandsSend.front().data, connections[i].playerNum);
+        std::string temp = ConstructCommand(connections[i].commandsSend.front().comType, connections[i].commandsSend.front().ID, connections[i].commandsSend.front().data, connections[i].playerNum - 1);
         if (toSend.length() + temp.length() > 1023)break;
         connections[i].commandsSend.pop();
         toSend += temp;
