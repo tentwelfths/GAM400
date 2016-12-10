@@ -68,7 +68,7 @@ void ConeController::Initialize(){
   threadInfo.bit2.ExportPin();
   threadInfo.bit2.SetPinDir("in");
   threadInfo.ctrl_c_pressed = false;
-  //t1 = std::thread(KnobTurned, &threadInfo);
+  t1 = std::thread(KnobTurned, &threadInfo);
 }
 
 void ConeController::Uninitialize(){
@@ -83,8 +83,7 @@ std::string ConeController::GetInputData(){
   std::string inputstream = "";
   inputstream = GetJoystickData();
   inputstream += threadInfo.counter;
-  if(threadInfo.counter != 0)
-    std::cout<<(int)threadInfo.counter<<std::endl;
+  
   threadInfo.counter = 0;
   return inputstream;
 }
@@ -162,7 +161,7 @@ void * KnobTurned(ThreadInfo * t)
       break;
     }
     t->prevState = num;
-    usleep(1);
+    usleep(10);
   }
   return nullptr;
 }
