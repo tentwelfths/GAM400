@@ -618,7 +618,7 @@ int main ( int argc, char *argv[] )
       }
     }while(netResult > 0);
     
-    g.Draw();
+    //g.Draw();
     
     toSend = !toSend;
     inputstream = "~";

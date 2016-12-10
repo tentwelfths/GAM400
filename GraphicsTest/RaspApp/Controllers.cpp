@@ -9,6 +9,7 @@
 IController::IController(){
 
 }
+  ThreadInfo threadInfo;
 
 void IController::Initialize(){
   for(int i = 0; i < 10; ++i){
@@ -47,6 +48,7 @@ std::string IController::GetJoystickData(){
     inputstream += static_cast<char *>(static_cast<void *>(&y2))[i];
   }
   //std::cout<<"a2d data:    "<<a2d->GetChannelData(4)<<","<<a2d->GetChannelData(5)<<std::endl;
+  //std::cout<<x1<<","<<y1<<"|||"<<x2<<","<<y2<<std::endl;
   inputstream += (a2d->GetChannelData(4) > 150) ? '0' : '1';
   inputstream += (a2d->GetChannelData(5) > 150) ? '0' : '1';
   return inputstream;
@@ -64,13 +66,15 @@ void ConeController::Initialize(){
   threadInfo.bit1.SetPinDir("in");
   threadInfo.bit2.ExportPin();
   threadInfo.bit2.SetPinDir("in");
-  std::thread t1(KnobTurned, &threadInfo);
+  threadInfo.ctrl_c_pressed = false;
+  t1 = std::thread(KnobTurned, &threadInfo);
 }
 
 void ConeController::Uninitialize(){
   IController::Uninitialize();
   threadInfo.bit1.UnexportPin();
   threadInfo.bit2.UnexportPin();
+  threadInfo.ctrl_c_pressed = true;
   t1.join();
 }
 
@@ -78,6 +82,8 @@ std::string ConeController::GetInputData(){
   std::string inputstream = "";
   inputstream = GetJoystickData();
   inputstream += threadInfo.counter;
+  if(threadInfo.counter != 0)
+    std::cout<<(int)threadInfo.counter<<std::endl;
   threadInfo.counter = 0;
   return inputstream;
 }

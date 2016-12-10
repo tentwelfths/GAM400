@@ -239,7 +239,7 @@ int main (void)
           if(counter <= -1){
             counter = 9;
           }
-          std::cout<<"turned "<<counter<<std::endl;
+          //std::cout<<"turned "<<counter<<std::endl;
           LEDs[counter]->setval_gpio("1");
         }
         //gpio17->getval_gpio(inputstate);
