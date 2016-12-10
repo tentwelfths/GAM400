@@ -3,6 +3,7 @@
 #include <thread>
 #include "GPIOPin.h"
 #include "MCP3008SPI.h"
+#include <unistd.h>
 
   std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
 
@@ -161,6 +162,7 @@ void * KnobTurned(ThreadInfo * t)
       break;
     }
     t->prevState = num;
+    usleep(1);
   }
   return nullptr;
 }
