@@ -351,7 +351,7 @@ void NetworkingSystem::Update(double dt)
         ++pos;
         if (connections[i].playerNum == 0)//coneman
         {
-          char knobDelta = command[pos];
+          knobDelta = command[pos];
           ++pos;
           std::vector<int> buttons;
           buttons.push_back(0);
@@ -359,6 +359,8 @@ void NetworkingSystem::Update(double dt)
           std::vector<bool> state;
           state.push_back(button1);
           state.push_back(button2);
+          if (knobDelta != 0)
+          std::cout << (int)knobDelta << std::endl;
           input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f, knobDelta);
         }
         else if (connections[i].playerNum == 1){
