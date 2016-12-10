@@ -557,20 +557,20 @@ int main ( int argc, char *argv[] )
   GunController gun;
 
   if(strcmp(argv[1], "cone")==0){
-    myID = 1;
+    myID = 0;
     cone.Initialize();
     controller = &cone;
   }
   else if(strcmp(argv[1], "gun")==0){
-    myID = 02;
+    myID = 01;
     gun.Initialize();
     controller = &gun;
   }
   else if(strcmp(argv[1], "radar")==0){
-    myID = 03;
+    myID = 02;
   }
   else if(strcmp(argv[1], "turret")==0){
-    myID = 04;
+    myID = 03;
   }
   else{
     std::cout<<"Controller name not found.( cone gun radar turret )"<<std::endl;
