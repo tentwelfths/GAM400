@@ -35,7 +35,7 @@ void BulletComponent::Update(double dt)
       if (col->obj1 == mParent())
       {
         auto* co = col->obj2->GetComponent(ChargeObjective);
-        if (col->obj2 != nullptr && (col->obj2->name != "Knife" && col->obj2->name != "Coneman" && col->obj2->name != "Gunman" && col->obj2->name != "Cone" && col->obj2->name != "River" && !co))
+        if (col->obj2 != nullptr && (col->obj2->name != "Knife" && col->obj2->name != "Coneman" && col->obj2->name != "Bullet" && col->obj2->name != "Gunman" && col->obj2->name != "Cone" && col->obj2->name != "River" && !co))
         {
           contact = true;
         }
@@ -43,7 +43,7 @@ void BulletComponent::Update(double dt)
       else
       {
         auto* co = col->obj2->GetComponent(ChargeObjective);
-        if (col->obj1 != nullptr && (col->obj1->name != "Knife" && col->obj1->name != "Coneman" && col->obj2->name != "Gunman" && col->obj1->name != "Cone" && col->obj2->name != "River" && !co))
+        if (col->obj1 != nullptr && (col->obj1->name != "Knife" && col->obj1->name != "Coneman" && col->obj2->name != "Bullet" && col->obj2->name != "Gunman" && col->obj1->name != "Cone" && col->obj2->name != "River" && !co))
         {
           contact = true;
         }

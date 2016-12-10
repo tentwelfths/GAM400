@@ -44,6 +44,7 @@ void InputSystem::Update(double dt)
   for (int i = 0; i < NUMCONT; ++i)
   {
     memcpy(theControllers[i].prevButt, theControllers[i].currButt, sizeof(bool) * NUMBUTT);
+    theControllers[i].knobDelta = 0;
   }
 
   mouseDelta = 0;
@@ -189,7 +190,11 @@ void InputSystem::updateController(int contNum, std::vector<int> theButtons,
   setJoystick(contNum, x1NewStick, y1NewStick, x2NewStick, y2NewStick);
   //if (knobDelta != 0)
   //  std::cout << (int)knobDelta << std::endl;
-  theControllers[contNum].knobDelta = knobDelta;
+  if (knobDelta != 0)
+  {
+    int b = 10;
+  }
+  theControllers[contNum].knobDelta += knobDelta;
 }
 
 void inputKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
