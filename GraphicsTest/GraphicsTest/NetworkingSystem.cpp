@@ -411,6 +411,7 @@ void NetworkingSystem::Update(double dt)
       std::string toSend = "";
       if (connections[i].initstep == 0){
         for (auto & iter : objsys->mObjectMap_){
+          if (iter.second == nullptr)continue;
           AddCommand(i, 'L', iter.first);
           connections[i].unloaded.push_back(iter.first);
         }
