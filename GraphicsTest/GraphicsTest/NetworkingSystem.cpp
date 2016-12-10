@@ -388,25 +388,10 @@ void NetworkingSystem::Update(double dt)
           state.push_back(button2);
           input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
         }
-        //auto * obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
-        //auto * trans = obj->GetComponent(TransformComponent);
-        //trans->mPositionX(((x - 512) / 512.0f) * 4.f);
-        //trans->mPositionY(((y - 512) / 512.0f) * 4.f);
-
-        //unsigned short frame = *static_cast<const unsigned short *>(static_cast<const void *>(&(command.c_str()[pos])));
-        //pos += sizeof(unsigned short);
-
-        //int key = command[pos];
-        //pos += 2;
-        //bool val = (command[pos] == '1') ? true : false;
-        //if (frame > connections[i].lastFrameSeen)
-        //{
-        //  connections[i].lastFrameSeen = frame;
-        //  input->setRaspKey(key, val, connections[i].clientNumber);
-        //}
       }
     }
-    if (/*((even && i % 2 == 0) || (!even && i % 2 == 1)) && */connections[i].commandsSend.size() > 0){
+    //if (/*((even && i % 2 == 0) || (!even && i % 2 == 1)) && */connections[i].commandsSend.size() > 0)
+    {
       //int b = send(sockets[i].client, frameData.c_str(), frameData.length(), 0);
       std::string toSend = "";
       if (connections[i].initstep == 0){
