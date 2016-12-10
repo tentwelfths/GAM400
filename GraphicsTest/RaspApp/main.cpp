@@ -195,11 +195,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         Debug.Log("Loading an object");
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
-        pos += sizeof(unsigned int);
         Debug.Log("Object ID" + std::to_string(objectID));
+        pos += sizeof(unsigned int);
         char isVis = command[pos];
         ++pos;
-
         char textureID = command[pos];
         ++pos;
         char r = command[pos];
@@ -228,27 +227,38 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         pos += sizeof(float);
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        std::cout<<"PosScaRot"<<std::endl;
         pos += sizeof(float);
-        if(gObjects[(int)zPos].find(objectID) == gObjects[(int)zPos].end())
+        auto temp = gObjectMap.find(objectID);
+        if(temp == gObjectMap.end())
         {
           Object * obj = new Object();
           gObjects[(int)zPos].insert({objectID, obj});
           gObjectMap.insert({objectID, obj});
         }
-        Object * temp = gObjects[(int)zPos][objectID];
-        temp->position[0] = xPos;
-        temp->position[1] = yPos;
-        temp->position[2] = zPos;
-        temp->scale[0] = xSca;
-        temp->scale[1] = ySca;
-        temp->rotation = rot;
-        temp->textureID = textureID;
+        Debug.Log("Object Loaded");
+        
+        temp = gObjectMap.find(objectID);
+
+        temp->second->position[0] = xPos;
+        temp->second->position[1] = yPos;
+        temp->second->position[2] = zPos;
+        temp->second->scale[0] = xSca;
+        temp->second->scale[1] = ySca;
+        temp->second->rotation = rot;
+        temp->second->textureID = textureID;
+        temp->second->r = r / 255.f;
+        temp->second->g = g / 255.f;
+        temp->second->b = b / 255.f;
+        temp->second->a = a / 255.f;
+        
         if(isVis == '0'){
-          (temp)->inUse = false;
+          (temp)->second->inUse = false;
         }
         else{
-          (temp)->inUse = true;
+          (temp)->second->inUse = true;
         }
+        
         
         std::string tempstring = "L";
         for(unsigned i = 0; i < sizeof(unsigned int); ++i)
