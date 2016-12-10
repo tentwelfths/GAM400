@@ -521,7 +521,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       }
       break;
       default:
-      Debug.Log(std::to_string("What the fuck is " + command[pos]));
+      Debug.Log("What the fuck is " + std::to_string(command[pos]));
     }
   }
 }
