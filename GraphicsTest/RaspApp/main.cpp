@@ -376,7 +376,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       {
         ++pos;
         Debug.Log("Moving an object");
-        //std::cout<<"GOT MOVE MESSAGE"<<std::endl;
+        std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         char isVis = command[pos];
@@ -630,7 +630,7 @@ int main ( int argc, char *argv[] )
       }
     }while(netResult > 0);
     
-    g.Draw();
+    //g.Draw();
     
     toSend = !toSend;
     inputstream = "~";
