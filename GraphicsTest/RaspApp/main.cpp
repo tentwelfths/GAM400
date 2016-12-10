@@ -557,14 +557,14 @@ int main ( int argc, char *argv[] )
   GunController gun;
 
   if(strcmp(argv[1], "cone")==0){
-    myID = 0;
+    myID = 01;
     gun.Initialize();
     controller = &gun;
     //cone.Initialize();
     //controller = &cone;
   }
   else if(strcmp(argv[1], "gun")==0){
-    myID = 01;
+    myID = 0;
     gun.Initialize();
     controller = &gun;
   }
