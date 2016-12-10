@@ -558,8 +558,11 @@ int main ( int argc, char *argv[] )
 
   if(strcmp(argv[1], "cone")==0){
     myID = 0;
-    cone.Initialize();
-    controller = &cone;
+    
+    gun.Initialize();
+    controller = &gun;
+    //cone.Initialize();
+    //controller = &cone;
   }
   else if(strcmp(argv[1], "gun")==0){
     myID = 01;
