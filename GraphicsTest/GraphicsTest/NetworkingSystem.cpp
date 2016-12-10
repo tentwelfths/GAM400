@@ -428,8 +428,16 @@ void NetworkingSystem::Update(double dt)
         std::cout << "Done loading" << std::endl;
       }
       else if (connections[i].initstep > 300){
-        for (auto & iter : connections[i].unloaded)
-          AddCommand(i, 'L', iter);
+        for (int l = 0; l < connections[i].unloaded.size(); ++l){
+          auto temp = gCore->GetSystem(ObjectSystem)->mObjectMap_.find(connections[i].unloaded[l]);
+          if (temp != gCore->GetSystem(ObjectSystem)->mObjectMap_.end() && temp->second != nullptr){
+            AddCommand(i, 'L', connections[i].unloaded[l]);
+          }
+          else{
+            connections[i].unloaded.erase(connections[i].unloaded.begin() + l);
+            --l;
+          }
+        }
         connections[i].initstep = 1;
       }
       for (unsigned k = 0; connections[i].commandsSend.empty() == false && k < 30; ++k){
