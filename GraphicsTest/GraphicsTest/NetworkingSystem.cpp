@@ -421,7 +421,7 @@ void NetworkingSystem::Update(double dt)
       //toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
       if (connections[i].initstep > 0) ++connections[i].initstep;
-      if (connections[i].unloaded.empty())
+      if (connections[i].unloaded.empty() && connections[i].initstep != -1)
       {
         connections[i].initstep = -1;
         std::cout << "Done loading" << std::endl;
