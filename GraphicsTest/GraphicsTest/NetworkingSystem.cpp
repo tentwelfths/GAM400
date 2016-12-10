@@ -286,7 +286,7 @@ void NetworkingSystem::Update(double dt)
           openConnections.pop_front();
         }
         connections[i].playerNum = command[1];
-        std::cout << "Got player num" << connections[i].playerNum << std::endl;
+        std::cout << "Got player num" << (int)connections[i].playerNum << std::endl;
         connections[i].initstep = 0;
         ++clientCount;
         ++connectionCount;
@@ -406,7 +406,7 @@ void NetworkingSystem::Update(double dt)
         //}
       }
     }
-    if (((even && i % 2 == 0) || (!even && i % 2 == 1)) && connections[i].commandsSend.size() > 0){
+    if (/*((even && i % 2 == 0) || (!even && i % 2 == 1)) && */connections[i].commandsSend.size() > 0){
       //int b = send(sockets[i].client, frameData.c_str(), frameData.length(), 0);
       std::string toSend = "";
       if (connections[i].initstep == 0){
