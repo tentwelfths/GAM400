@@ -438,7 +438,7 @@ void NetworkingSystem::Update(double dt)
         //toSend += '\0';
       }
       ++connections[i].frameCount;
-      if (toSend.length() >= 0){
+      if (toSend.length() > 0){
         std::cout << "Sending " << toSend.length() << std::endl;
         int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
       }
