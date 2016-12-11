@@ -606,7 +606,7 @@ int main ( int argc, char *argv[] )
       ProcessResponse(pos, buf, netResult, &g, &n, &a);
     }while(netResult > 0);
     
-    //g.Draw();
+    g.Draw();
     
     toSend = !toSend;
     inputstream = "~";
