@@ -517,8 +517,8 @@ bool GraphicsSystem::WinCreate()
    }
    
    // You can hardcode the resolution here:
-   display_width = 40;
-   display_height = 40;
+   display_width = 200;
+   display_height = 200;
    width = display_width;
    height = display_height;
 
