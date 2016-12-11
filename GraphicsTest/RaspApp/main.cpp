@@ -606,7 +606,7 @@ int main ( int argc, char *argv[] )
       ProcessResponse(pos, buf, netResult, &g, &n, &a);
     }while(netResult > 0);
     
-    g.Draw();
+    //g.Draw();
     
     toSend = !toSend;
     inputstream = "~";
@@ -621,7 +621,7 @@ int main ( int argc, char *argv[] )
     
     deltatime = clock() - start;
     deltatime /= CLOCKS_PER_SEC;
-    std::cout<<deltatime<<std::endl;
+    //std::cout<<deltatime<<std::endl;
     if(ctrl_c_pressed)
     {
         std::cout << "Ctrl^C Pressed unexporting pins" <<std::endl;
