@@ -174,7 +174,7 @@ unsigned short lastFrameSeen = 0;
 void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * g, NetworkingSystem * n, AudioSystem * a)
 {
   pos = 0;
-  std::cout<<len<<std::endl;
+  std::cout<<"\t\t"<<len<<std::endl;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
     //Debug.Log("Command: " + command[pos]);
