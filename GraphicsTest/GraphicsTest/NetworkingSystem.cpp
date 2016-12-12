@@ -188,9 +188,11 @@ void NetworkingSystem::Update(double dt)
         if (connections[i].playerNum == msg->controllerNum){
           auto obj = gCore->GetSystem(ObjectSystem)->mObjectMap_.find(msg->objID);
           if (obj != gCore->GetSystem(ObjectSystem)->mObjectMap_.end()){
-            AddCommand(i, '(', msg->objID);
-            connections[i].x = obj->second->GetComponent(TransformComponent)->mPositionX();
-            connections[i].y = obj->second->GetComponent(TransformComponent)->mPositionY();
+            if (obj->second){
+              AddCommand(i, '(', msg->objID);
+              connections[i].x = obj->second->GetComponent(TransformComponent)->mPositionX();
+              connections[i].y = obj->second->GetComponent(TransformComponent)->mPositionY();
+            }
           }
         }
       }
