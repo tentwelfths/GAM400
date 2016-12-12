@@ -189,9 +189,13 @@ void NetworkingSystem::Update(double dt)
           auto obj = gCore->GetSystem(ObjectSystem)->mObjectMap_.find(msg->objID);
           if (obj != gCore->GetSystem(ObjectSystem)->mObjectMap_.end()){
             if (obj->second){
-              AddCommand(i, '(', msg->objID);
-              connections[i].x = obj->second->GetComponent(TransformComponent)->mPositionX();
-              connections[i].y = obj->second->GetComponent(TransformComponent)->mPositionY();
+              auto *trans = obj->second->GetComponent(TransformComponent);
+              if (trans){
+                AddCommand(i, '(', msg->objID);
+
+                connections[i].x = obj->second->GetComponent(TransformComponent)->mPositionX();
+                connections[i].y = obj->second->GetComponent(TransformComponent)->mPositionY();
+              }
             }
           }
         }
