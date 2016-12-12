@@ -142,7 +142,7 @@ void PCControllerComponent::Update(double dt)
       knife->hasChanged = true;
     }
   }
-  if (input->isButtonJustPressed(GLFW_KEY_ESCAPE))
+  if (input->isKeyPressed(GLFW_KEY_ESCAPE))
   {
     gCore->active = false;
   }
