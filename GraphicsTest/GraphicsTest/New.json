@@ -139,7 +139,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": Coneman.png,
+		"mTextureName": Gunman.png,
 		"mOpacity_": 1.000000,
 		"mTint_": {
 				x: 0.000000,
