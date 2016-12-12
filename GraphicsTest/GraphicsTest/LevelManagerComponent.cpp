@@ -1,6 +1,7 @@
 #include "LevelManagerComponent.h"
 #include "PCControllerComponent.h"
 #include "ConeControllerComponent.h"
+#include "GunControllerComponent.h"
 #include "JSONTranslator.h"
 #include "Core.h"
 #include "Object.h"
@@ -21,6 +22,7 @@ bool LevelManagerComponent::Initialize()
   auto * o = gCore->GetSystem(ObjectSystem);
   mPCPlayer = o->GetFirstItemByName("Player");
   mConeMan = o->GetFirstItemByName("Coneman");
+  mGunMan = o->GetFirstItemByName("Gunman");
   return true;
 }
 
@@ -37,11 +39,12 @@ void LevelManagerComponent::Update(double dt)
   }
   auto * thePCComponent = mPCPlayer->GetComponent(PCControllerComponent);
   auto * theConeComponent = mConeMan->GetComponent(ConeControllerComponent);
+  auto * theGunComponent = mGunMan->GetComponent(GunControllerComponent);
   if ( controlWins )
   {
     SetBool(theConeComponent, false);
   }
-  else if (theConeComponent->GetCurrHealth() <= 0)
+  else if (theConeComponent->GetCurrHealth() <= 0 && theGunComponent->GetCurrHealth() <= 0)
   {
     SetBool(thePCComponent, false);
   }
