@@ -47,9 +47,9 @@ bool PCControllerComponent::Initialize()
 
 void PCControllerComponent::Update(double dt)
 {
+  auto * input = gCore->GetSystem(InputSystem);
   if (GetAlive())
   {
-    auto * input = gCore->GetSystem(InputSystem);
     Movement(input);
     sprintTime += dt;
     if (GetKillable())
@@ -141,6 +141,10 @@ void PCControllerComponent::Update(double dt)
       Object* knife = o->GetFirstItemByName("Knife");
       knife->hasChanged = true;
     }
+  }
+  if (input->isButtonJustPressed(GLFW_KEY_ESCAPE))
+  {
+    gCore->active = false;
   }
 }
 

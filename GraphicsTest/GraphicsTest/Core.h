@@ -21,6 +21,7 @@ public:
   T * GetSystemA(const char * systemName);
   System * GetSystemByName(std::string systemName);
   bool editor;
+  bool active;
 
 private:
   bool unloading;

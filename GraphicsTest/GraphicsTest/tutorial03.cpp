@@ -86,10 +86,11 @@ int main( void )
 
   gCore->LoadLevel("DP.json");
 
-  while (true)
+  while (gCore->active)
   {
     gCore->Update(0.0016);
   }
+  gCore->UnloadLevel();
 
 	return 0;
 }
