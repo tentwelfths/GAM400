@@ -166,26 +166,15 @@ bool Input ( void )
     return(ret);
 }
 
-
-void GetClientNumber(int & pos, int & clientNumber, const char * buf)
-{
-  if(buf[pos] == '~')++pos;
-  clientNumber = 0;
-  while(buf[pos] != '~')
-  {
-    clientNumber *= 10;
-    clientNumber += buf[pos++] - '0';
-  }
-}
-
 std::queue<std::string> commands;
 std::string unfinished = "";
 unsigned short lastFrameSeen = 0;
 
 #include <bitset>
-void ProcessResponse(int& pos, int & clientNumber, const char * command, int len, GraphicsSystem * g, NetworkingSystem * n, AudioSystem * a)
+void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * g, NetworkingSystem * n, AudioSystem * a)
 {
   pos = 0;
+  std::cout<<"\t\t"<<len<<std::endl;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
     //Debug.Log("Command: " + command[pos]);
@@ -195,11 +184,10 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         ++pos;
         Debug.Log("Loading an object");
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
-        pos += sizeof(unsigned int);
         Debug.Log("Object ID" + std::to_string(objectID));
+        pos += sizeof(unsigned int);
         char isVis = command[pos];
         ++pos;
-
         char textureID = command[pos];
         ++pos;
         char r = command[pos];
@@ -228,27 +216,38 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         pos += sizeof(float);
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
         //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        std::cout<<"PosScaRot"<<std::endl;
         pos += sizeof(float);
-        if(gObjects[(int)zPos].find(objectID) == gObjects[(int)zPos].end())
+        auto temp = gObjectMap.find(objectID);
+        if(temp == gObjectMap.end())
         {
           Object * obj = new Object();
           gObjects[(int)zPos].insert({objectID, obj});
           gObjectMap.insert({objectID, obj});
         }
-        Object * temp = gObjects[(int)zPos][objectID];
-        temp->position[0] = xPos;
-        temp->position[1] = yPos;
-        temp->position[2] = zPos;
-        temp->scale[0] = xSca;
-        temp->scale[1] = ySca;
-        temp->rotation = rot;
-        temp->textureID = textureID;
+        Debug.Log("Object Loaded");
+        
+        temp = gObjectMap.find(objectID);
+
+        temp->second->position[0] = xPos;
+        temp->second->position[1] = yPos;
+        temp->second->position[2] = zPos;
+        temp->second->scale[0] = xSca;
+        temp->second->scale[1] = ySca;
+        temp->second->rotation = rot;
+        temp->second->textureID = textureID;
+        temp->second->r = r / 255.f;
+        temp->second->g = g / 255.f;
+        temp->second->b = b / 255.f;
+        temp->second->a = a / 255.f;
+        
         if(isVis == '0'){
-          (temp)->inUse = false;
+          (temp)->second->inUse = false;
         }
         else{
-          (temp)->inUse = true;
+          (temp)->second->inUse = true;
         }
+        
         
         std::string tempstring = "L";
         for(unsigned i = 0; i < sizeof(unsigned int); ++i)
@@ -366,7 +365,7 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
       {
         ++pos;
         Debug.Log("Moving an object");
-        //std::cout<<"GOT MOVE MESSAGE"<<std::endl;
+        std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         char isVis = command[pos];
@@ -510,6 +509,9 @@ void ProcessResponse(int& pos, int & clientNumber, const char * command, int len
         a->Play3DSoundEffect(name, sourcePosX, sourcePosY, g->mMainCamera.x, g->mMainCamera.y);
       }
       break;
+      default:
+      Debug.Log("What the fuck is " + std::to_string(command[pos]));
+      break;
     }
   }
 }
@@ -528,7 +530,7 @@ int main ( int argc, char *argv[] )
     std::cout<<"Starting debugging"<<std::endl;
     Debug.Clear();
   }
-  int incrementer = 1;
+  
   clock_t start, end;
   struct sigaction sig_struct;
   sig_struct.sa_handler = sig_handler;
@@ -567,14 +569,10 @@ int main ( int argc, char *argv[] )
     return 0;
   } 
 
-
-  
   GPIOPin p("13");
   p.ExportPin();
   p.SetPinDir("out");
   AudioSystem a;
-  //a.Shutdown();
-  //return 0;
   GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");
   std::cout<<"CONNECTED"<<std::endl;
@@ -582,97 +580,54 @@ int main ( int argc, char *argv[] )
   hellomsg += myID;
   int res = n.Send(hellomsg.c_str(), 2);
   std::cout<<hellomsg[0]<<(int)hellomsg[1]<<std::endl;
-  //return 0;
+  
   g.LoadTextures("../Assets/Textures.JSON");
-
-  //for(auto & iter : g.mTextures){
-  // // std::cout<<iter.first<<"   "<<iter.second.name<<std::endl;
-  //}
   
   bool toSend = false;
   char buf[1024] = {0};
   int pos = 0;
-  int clientNumber = -1;
   int netResult = 0;
   int state = 0;
   int prevState = 0;
-  float deltatime, gDt, rDt,sDt,iDt;
+  float deltatime = 0.16f, gDt, rDt,sDt,iDt;
   
   while(true){
     start = clock();
-    a.Update(0.016);
+    a.Update(deltatime);
     
     bool updated = false;
 
     do{
       memset((void*)buf, 0, 1024);
-      //std::cout<<"Tryna recv"<<std::endl;
+      
       netResult = n.Receive((buf),1023);
       
-      
       pos = 0;
-      if(netResult > 0)
-      {
-        //std::cout<<"netResult: "<<netResult<<std::endl;
-        ProcessResponse(pos, clientNumber, buf, netResult, &g, &n, &a);
-      }
+      ProcessResponse(pos, buf, netResult, &g, &n, &a);
     }while(netResult > 0);
     
-    //g.Draw();
+    g.Draw();
     
     toSend = !toSend;
     inputstream = "~";
     inputstream += controller->GetInputData();
     if(toSend && inputstream.length() > 0){
-      
-      //inputstream = "~" + inputstream + "!";
       std::vector<char> v(inputstream.length() + 1);
       for(unsigned i = 0; i < inputstream.length(); ++i)v[i] = inputstream[i];
       char* pc = &v[0];
-      //std::cout<<inputstream<<std::endl;
       int sentbytes = n.Send(pc, inputstream.length());
-      //std::cout<<"Bytes sent: "<<sentbytes<<inputstream<<std::endl;
       inputstream = "";
     }
     
     deltatime = clock() - start;
     deltatime /= CLOCKS_PER_SEC;
     //std::cout<<deltatime<<std::endl;
-    if(deltatime >= 1.0f/30.f)
-    {
-      //std::cout<<"Frame took too long ";
-      
-    }
     if(ctrl_c_pressed)
     {
-        std::cout << "Ctrl^C Pressed" << std::endl;
-        std::cout << "unexporting pins" <<std::endl;
-        //gpio4->unexport_gpio();
-        //gpio17->unexport_gpio();
-        //cout << "deallocating GPIO Objects" << endl;
-        //delete gpio4;
-        //gpio4 = 0;
-        //delete gpio17;
-        //gpio17 =0;
-        //for(int i = 0; i < 10; ++i){
-        //  gpioPins[i]->SetPinVal("0");
-        //  gpioPins[i]->UnexportPin();
-        //  delete gpioPins[i];
-        //  gpioPins[i] = 0;
-        //}
-        //p.UnexportPin();
-        //threadInfo.bit1->UnexportPin();
-        //delete threadInfo.bit1;
-        //threadInfo.bit1 = 0;
-        //threadInfo.bit2->UnexportPin();
-        //delete threadInfo.bit2;
-        //threadInfo.bit2 = 0;
+        std::cout << "Ctrl^C Pressed unexporting pins" <<std::endl;
         controller->Uninitialize();
         break;
-
     }
-
   }
-  
   return 0;
 }

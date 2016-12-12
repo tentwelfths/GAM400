@@ -286,7 +286,7 @@ void NetworkingSystem::Update(double dt)
           openConnections.pop_front();
         }
         connections[i].playerNum = command[1];
-        std::cout << "Got player num" << connections[i].playerNum << std::endl;
+        std::cout << "Got player num" << (int)connections[i].playerNum << std::endl;
         connections[i].initstep = 0;
         ++clientCount;
         ++connectionCount;
@@ -388,29 +388,15 @@ void NetworkingSystem::Update(double dt)
           state.push_back(button2);
           input->updateController(connections[i].playerNum, buttons, state, (x1 - 512) / 512.f, (y1 - 512) / 512.f, (x2 - 512) / 512.f, (y2 - 512) / 512.f);
         }
-        //auto * obj = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("Fuccboi");
-        //auto * trans = obj->GetComponent(TransformComponent);
-        //trans->mPositionX(((x - 512) / 512.0f) * 4.f);
-        //trans->mPositionY(((y - 512) / 512.0f) * 4.f);
-
-        //unsigned short frame = *static_cast<const unsigned short *>(static_cast<const void *>(&(command.c_str()[pos])));
-        //pos += sizeof(unsigned short);
-
-        //int key = command[pos];
-        //pos += 2;
-        //bool val = (command[pos] == '1') ? true : false;
-        //if (frame > connections[i].lastFrameSeen)
-        //{
-        //  connections[i].lastFrameSeen = frame;
-        //  input->setRaspKey(key, val, connections[i].clientNumber);
-        //}
       }
     }
-    if (((even && i % 2 == 0) || (!even && i % 2 == 1)) && connections[i].commandsSend.size() > 0){
+    //if (/*((even && i % 2 == 0) || (!even && i % 2 == 1)) && */connections[i].commandsSend.size() > 0)
+    {
       //int b = send(sockets[i].client, frameData.c_str(), frameData.length(), 0);
       std::string toSend = "";
       if (connections[i].initstep == 0){
         for (auto & iter : objsys->mObjectMap_){
+          if (iter.second == nullptr)continue;
           AddCommand(i, 'L', iter.first);
           connections[i].unloaded.push_back(iter.first);
         }
@@ -421,25 +407,41 @@ void NetworkingSystem::Update(double dt)
       //toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
       if (connections[i].initstep > 0) ++connections[i].initstep;
-      if (connections[i].unloaded.empty())
+      if (connections[i].unloaded.empty() && connections[i].initstep != -1)
       {
         connections[i].initstep = -1;
         std::cout << "Done loading" << std::endl;
       }
-      else if (connections[i].initstep > 30){
-        for (auto & iter : connections[i].unloaded)
-          AddCommand(i, 'L', iter);
+      else if (connections[i].initstep > 300){
+        for (int l = 0; l < connections[i].unloaded.size(); ++l){
+          auto temp = gCore->GetSystem(ObjectSystem)->mObjectMap_.find(connections[i].unloaded[l]);
+          if (temp != gCore->GetSystem(ObjectSystem)->mObjectMap_.end() && temp->second != nullptr){
+            AddCommand(i, 'L', connections[i].unloaded[l]);
+          }
+          else{
+            connections[i].unloaded.erase(connections[i].unloaded.begin() + l);
+            --l;
+          }
+        }
         connections[i].initstep = 1;
       }
       for (unsigned k = 0; connections[i].commandsSend.empty() == false && k < 30; ++k){
         std::string temp = ConstructCommand(connections[i].commandsSend.front().comType, connections[i].commandsSend.front().ID, connections[i].commandsSend.front().data, connections[i].playerNum);
-        if (toSend.length() + temp.length() > 1023)break;
+        if (toSend.length() + temp.length() > 1023){
+          break;
+        }
+        if (temp[0] == '#'){
+          std::cout << "SNEDING MOVE" << std::endl;
+        }
         connections[i].commandsSend.pop();
         toSend += temp;
         //toSend += '\0';
       }
       ++connections[i].frameCount;
-      int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
+      if (toSend.length() > 0){
+        std::cout << "Sending " << toSend.length() << std::endl;
+        int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
+      }
       //std::cout << "Send: " << toSend << std::endl;
       //std::cout << "Sent " << b << " bytes." << std::endl;
     }

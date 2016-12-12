@@ -3,6 +3,7 @@
 #include <thread>
 #include "GPIOPin.h"
 #include "MCP3008SPI.h"
+#include <unistd.h>
 
   std::string PINS[] = {"27","17","18","23","24","25","12","16","20","21"};
 
@@ -82,8 +83,7 @@ std::string ConeController::GetInputData(){
   std::string inputstream = "";
   inputstream = GetJoystickData();
   inputstream += threadInfo.counter;
-  if(threadInfo.counter != 0)
-    std::cout<<(int)threadInfo.counter<<std::endl;
+  
   threadInfo.counter = 0;
   return inputstream;
 }
@@ -161,6 +161,7 @@ void * KnobTurned(ThreadInfo * t)
       break;
     }
     t->prevState = num;
+    usleep(10);
   }
   return nullptr;
 }
