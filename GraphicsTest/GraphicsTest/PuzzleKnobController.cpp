@@ -30,7 +30,7 @@ void PuzzleKnobController::Update(double dt)
   {
     frequency += knobCon->knobDelta;
   }
-  else if (frequency > 100)
+  if (frequency > 100)
   {
     frequency = 100;
   }
