@@ -24,8 +24,8 @@ void PuzzleKnobController::Update(double dt)
 {
   auto * input = gCore->GetSystem(InputSystem);
   Controller* knobCon = &input->getController(GetControllerID());
-  bool posCheck = frequency >= 100 && knobCon->knobDelta == 1;
-  bool negCheck = frequency <= 0 && knobCon->knobDelta == -1;
+  bool posCheck = frequency <= 100 && knobCon->knobDelta == 1;
+  bool negCheck = frequency >= 0 && knobCon->knobDelta == -1;
   if (posCheck || negCheck)
   {
     frequency += knobCon->knobDelta;
