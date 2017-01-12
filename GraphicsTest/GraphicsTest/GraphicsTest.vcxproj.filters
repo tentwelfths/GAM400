@@ -204,6 +204,7 @@
     <ClCompile Include="DamageLocatorComponent.cpp" />
     <ClCompile Include="DamageArrowComponent.cpp" />
     <ClCompile Include="CircleColliderComponent.cpp" />
+    <ClCompile Include="PuzzleKnobController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -456,6 +457,7 @@
     <ClInclude Include="DamageLocatorComponent.h" />
     <ClInclude Include="DamageArrowComponent.h" />
     <ClInclude Include="CircleColliderComponent.h" />
+    <ClInclude Include="PuzzleKnobController.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

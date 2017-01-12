@@ -105,6 +105,9 @@
 		"controllerID": 0,
 		"bulletSpeed": 20.000000
 		},
+	PuzzleKnobController: {
+		"controllerID_": 0
+		},
 	CircleColliderComponent: {
 		"mRadius": 0.500000,
 		"dynamicState": 2,
