@@ -341,7 +341,11 @@ void     ObjectSystem::Shutdown()
 
 void ObjectSystem::AddObject(Object * obj)
 {
-  obj->ID = myCount++;
+  if (obj->ID == 0)
+    obj->ID = myCount++;
+  else{
+    myCount = (myCount > obj->ID) ? myCount : obj->ID;
+  }
   if (myCount == 0) myCount = 1;
   //obj->hasChanged = true;
   if (mObjects.find(obj->name) == mObjects.end())
