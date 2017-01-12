@@ -14,6 +14,7 @@ public:
 private:
   Object* mPCPlayer;
   Object* mConeMan;
+  Object* mGunMan;
   bool mSpawn;
   bool controlWins;
   float mCountDown;

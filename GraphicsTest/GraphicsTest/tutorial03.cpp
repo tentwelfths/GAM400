@@ -29,6 +29,7 @@
 #include "GunControllerComponent.h"
 #include "ChargeObjective.h"
 #include "ObjectiveOne.h"
+#include "PuzzleKnobController.h"
 #include "DamageLocatorComponent.h"
 #include "DamageArrowComponent.h"
 
@@ -81,10 +82,11 @@ int main( void )
   RegisterComponentType(GunControllerComponent);
   RegisterComponentType(ChargeObjective);
   RegisterComponentType(ObjectiveOne);
+  RegisterComponentType(PuzzleKnobController);
   RegisterComponentType(DamageLocatorComponent);
   RegisterComponentType(DamageArrowComponent);
 
-  gCore->LoadLevel("DP.json");
+  gCore->LoadLevel("New.json");
 
   while (gCore->active)
   {

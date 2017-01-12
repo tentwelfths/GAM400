@@ -83,6 +83,20 @@
 		},
 	DamageLocatorComponent: {
 		},
+<<<<<<< HEAD
+=======
+	ConeControllerComponent: {
+		"speed": 5.000000,
+		"playerID": 0,
+		"maxHealth": 2,
+		"killable": true,
+		"controllerID": 0,
+		"bulletSpeed": 20.000000
+		},
+	PuzzleKnobController: {
+		"controllerID_": 0
+		},
+>>>>>>> 4792bc6bb2d0a496e58baa159f2dfa08f04e7695
 	CircleColliderComponent: {
 		"mRadius": 0.500000,
 		"dynamicState": 2,
@@ -118,7 +132,11 @@
 			}
 		},
 	SpriteComponent: {
+<<<<<<< HEAD
 		"mTextureName": woodfloor.png,
+=======
+		"mTextureName": Gunman.png,
+>>>>>>> 4792bc6bb2d0a496e58baa159f2dfa08f04e7695
 		"mOpacity_": 1.000000,
 		"mTint_": {
 				x: 0.000000,
