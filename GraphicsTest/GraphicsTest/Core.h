@@ -23,9 +23,12 @@ public:
   bool editor;
   bool active;
 
+  std::string GetCurrentLevelName();
+
 private:
   bool unloading;
   std::string needToLoad;
+  std::string currentLevel;
   std::unordered_map<std::string, System*> mSystems;
   std::vector<System*> mSystemsOrdered;
 };

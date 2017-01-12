@@ -89,7 +89,7 @@ void Core::Shutdown()
 }
 void Core::LoadLevel(std::string filename){
   needToLoad = filename;
-
+  currentLevel = filename;
   if (unloading)return;
   JSONTranslator j;
   j.LoadLevelFromFile(needToLoad);
@@ -108,4 +108,9 @@ System * Core::GetSystemByName(std::string systemName)
 void Core::SaveLevel(std::string filename){
   JSONTranslator j;
   j.SaveLevelToFile(filename, GetSystem(ObjectSystem));
+}
+
+
+std::string Core::GetCurrentLevelName(){
+  return currentLevel;
 }

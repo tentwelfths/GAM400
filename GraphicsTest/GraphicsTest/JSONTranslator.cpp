@@ -85,6 +85,10 @@ Object * JSONTranslator::DeserializeObject(std::ifstream & file)
   line = line.substr(line.find_first_of(':') + 2);
   obj->name = line;
   std::getline(file, line);
+  //line = trim(line);
+  //line = line.substr(line.find_first_of(':') + 2);
+  //obj->ID = std::stoi(line);
+  //std::getline(file, line);
   while (!file.eof())
   {
     std::getline(file, line);
@@ -119,6 +123,7 @@ void JSONTranslator::SerializeObject(Object* obj, std::ofstream & file, int scop
   }
   file << tabs << "File: " << obj->source << std::endl;
   file << tabs << "Name: " << obj->name << std::endl;
+  file << tabs << "ObjectID: " << obj->ID << std::endl;
   file << tabs << "Object: {" << std::endl;
   for (auto iter = obj->mComponents.begin(); iter != obj->mComponents.end(); ++iter){
 

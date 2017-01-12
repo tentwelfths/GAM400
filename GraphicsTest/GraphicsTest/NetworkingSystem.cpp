@@ -401,11 +401,9 @@ void NetworkingSystem::Update(double dt)
       //int b = send(sockets[i].client, frameData.c_str(), frameData.length(), 0);
       std::string toSend = "";
       if (connections[i].initstep == 0){
-        for (auto & iter : objsys->mObjectMap_){
-          if (iter.second == nullptr)continue;
-          AddCommand(i, 'L', iter.first);
-          connections[i].unloaded.push_back(iter.first);
-        }
+        char data[64];
+        strcpy(data, gCore->GetCurrentLevelName().c_str());
+        AddCommand(i, 'L', 0, data);
         connections[i].initstep = 1;
       }
 
@@ -466,7 +464,7 @@ void NetworkingSystem::Shutdown()
   WSACleanup();
 }
 
-void NetworkingSystem::AddCommand(char com, unsigned int ID, char data[8])
+void NetworkingSystem::AddCommand(char com, unsigned int ID, char data[64])
 {
   for (unsigned i = 0; i < connections.size(); ++i){
     if (com == '#'){
