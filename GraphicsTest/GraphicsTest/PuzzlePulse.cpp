@@ -22,7 +22,7 @@ bool PuzzlePulse::Initialize()
 void PuzzlePulse::Update(double dt)
 {
   auto * box = mParent_->GetComponent(BoxColliderComponent);
-  b2Vec2 moveVec(1.0f, 0.0f);
+  b2Vec2 moveVec(5.0f, 0.0f);
   auto * theBody = box->GetBody();
   theBody->SetLinearVelocity(moveVec);
   if (theBody->GetPosition().x > 10)

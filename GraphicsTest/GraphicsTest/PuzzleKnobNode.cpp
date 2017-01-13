@@ -26,7 +26,7 @@ void PuzzleKnobNode::Update(double dt)
     {
       CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
       auto * o = gCore->GetSystem(ObjectSystem);
-      auto * beat = o->GetFirstItemByName("Coneman")->GetComponent(PuzzleKnobController);
+      auto * beat = o->GetFirstItemByName("Pulse")->GetComponent(PuzzleKnobController);
       auto * sprite = mParent()->GetComponent(SpriteComponent);
       int mod = abs(targetFrequency_ - beat->GetFrequency());
       sprite->mTint_.r = mod;
