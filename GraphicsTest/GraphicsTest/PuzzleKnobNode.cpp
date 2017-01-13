@@ -1,5 +1,6 @@
 #include <Box2D\Box2D.h>
 #include "PuzzleKnobNode.h"
+#include "PuzzleProgess.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
@@ -32,6 +33,12 @@ void PuzzleKnobNode::Update(double dt)
       sprite->mTint_.r = mod;
       sprite->mTint_.g = 1-mod;
       sprite->mTint_.b = 0;
+      if (mod == 0)
+      {
+        auto * o = gCore->GetSystem(ObjectSystem);
+        auto * progress = o->GetFirstItemByName("Tracker")->GetComponent(PuzzleProgress);
+        progress->Success();
+      }
     }
     else if (iter.type == MessageType::COLLISIONENDED)
     {
