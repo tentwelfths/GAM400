@@ -28,7 +28,7 @@ void PuzzleKnobNode::Update(double dt)
       auto * o = gCore->GetSystem(ObjectSystem);
       auto * beat = o->GetFirstItemByName("Pulse")->GetComponent(PuzzleKnobController);
       auto * sprite = mParent()->GetComponent(SpriteComponent);
-      int mod = abs(targetFrequency_ - beat->GetFrequency());
+      float mod = abs(targetFrequency_ - beat->GetFrequency())*.01;
       sprite->mTint_.r = mod;
       sprite->mTint_.g = 1-mod;
       sprite->mTint_.b = 0;
