@@ -8,9 +8,10 @@
 #include "PuzzleKnobController.h"
 #include "ObjectSystem.h"
 
-PuzzleKnobNode::PuzzleKnobNode() : GameLogicComponent(GameLogicType::PUZZLEKNOBNODE), targetFrequency_(0)
+PuzzleKnobNode::PuzzleKnobNode() : GameLogicComponent(GameLogicType::PUZZLEKNOBNODE), targetFrequency_(0), range_(0)
 {
   AddMember(PuzzleKnobNode, targetFrequency_);
+  AddMember(PuzzleKnobNode, range_);
   mName_ = "PuzzleKnobNode";
 }
 
@@ -34,7 +35,7 @@ void PuzzleKnobNode::Update(double dt)
       sprite->mTint_.g = 1-mod;
       sprite->mTint_.b = 0;
       sprite->hasChanged = true;
-      if (mod == 0)
+      if (beat->GetFrequency() > targetFrequency_ - range_ && beat->GetFrequency() < targetFrequency_ + range_)
       {
         auto * o = gCore->GetSystem(ObjectSystem);
         auto * progress = o->GetFirstItemByName("Tracker")->GetComponent(PuzzleProgress);

@@ -10,4 +10,5 @@ public:
   void Shutdown();
 private:
   int targetFrequency_;
+  int range_;
 };
