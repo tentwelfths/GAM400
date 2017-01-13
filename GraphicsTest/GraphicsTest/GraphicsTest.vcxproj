@@ -223,6 +223,9 @@
     <ClCompile Include="PhysicsSystem.cpp" />
     <ClCompile Include="PlayerControllerComponent.cpp" />
     <ClCompile Include="PuzzleKnobController.cpp" />
+    <ClCompile Include="PuzzleKnobNode.cpp" />
+    <ClCompile Include="PuzzleProgress.cpp" />
+    <ClCompile Include="PuzzlePulse.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="StartManagerComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -338,6 +341,9 @@
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="PlayerControllerComponent.h" />
     <ClInclude Include="PuzzleKnobController.h" />
+    <ClInclude Include="PuzzleKnobNode.h" />
+    <ClInclude Include="PuzzleProgess.h" />
+    <ClInclude Include="PuzzlePulse.h" />
     <ClInclude Include="Socket.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Standard.h" />
