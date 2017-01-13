@@ -38,6 +38,7 @@ void PuzzleProgress::Success()
     auto * o = gCore->GetSystem(ObjectSystem);
     auto * pulseObj = o->GetFirstItemByName("Pulse");
     auto * pulse = pulseObj->GetComponent(PuzzlePulse);
-    pulse->SetSpawn(0, pulseObj->GetComponent(TransformComponent)->mPositionY());
+    pulse->SetSpawn(-6, pulseObj->GetComponent(TransformComponent)->mPositionY() - 1);
+    targetForRound_ += 1;
   }
 }

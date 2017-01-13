@@ -30,7 +30,7 @@ void PuzzleKnobNode::Update(double dt)
       auto * beat = o->GetFirstItemByName("Pulse")->GetComponent(PuzzleKnobController);
       auto * sprite = mParent()->GetComponent(SpriteComponent);
       float mod = abs(targetFrequency_ - beat->GetFrequency())*.01;
-      sprite->mTint_.r = mod;
+      sprite->mTint_.r = mod*2;
       sprite->mTint_.g = 1-mod;
       sprite->mTint_.b = 0;
       if (mod == 0)
