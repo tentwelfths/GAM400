@@ -38,7 +38,7 @@ void PuzzleKnobController::Update(double dt)
   {
     frequency = 0;
   }
-  std::cout << "Pos: " << posCheck << " " << "Neg: " << negCheck << " " << "knob: " << static_cast<int>(knobCon->knobDelta) << " " << frequency << std::endl;
+  std::cout << frequency << std::endl;
 }
 
 void PuzzleKnobController::Shutdown()

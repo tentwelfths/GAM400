@@ -1,0 +1,93 @@
+{
+	File: WoodFloor.json
+	Name: Node
+	ObjectID: 2
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.750000,
+			y: 0.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": woodfloor.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 1.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	PuzzleKnobNode: {
+		"targetFrequency_": 30
+		}
+	},
+	File: WoodFloor.json
+	Name: Tracker 
+	ObjectID: 1
+	Object: {
+	PuzzlePulse: {
+		"x_": 0.000000,
+		"y_": 0.000000
+		},
+	TransformComponent: {
+		"mPosition_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 1.000000
+				},
+		"mScale_": {
+				x: 1.000000,
+				y: 1.000000,
+				z: 1.000000
+				},
+		"mRotation_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	SpriteComponent: {
+		"mTextureName": woodfloor.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+					x: 1.000000,
+					y: 1.000000,
+					z: 1.000000
+					}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 0.000000,
+		"mHalfSize": {
+							x: 0.500000,
+							y: 0.500000,
+							z: 1.000000
+							},
+		"dynamicState": 0,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mFriction": 0.000000,
+		"mGhost": false
+		}
+	},
+}

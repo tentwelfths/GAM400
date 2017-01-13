@@ -30,6 +30,9 @@
 #include "ChargeObjective.h"
 #include "ObjectiveOne.h"
 #include "PuzzleKnobController.h"
+#include "PuzzleKnobNode.h"
+#include "PuzzleProgess.h"
+#include "PuzzlePulse.h"
 #include "DamageLocatorComponent.h"
 #include "DamageArrowComponent.h"
 
@@ -83,10 +86,13 @@ int main( void )
   RegisterComponentType(ChargeObjective);
   RegisterComponentType(ObjectiveOne);
   RegisterComponentType(PuzzleKnobController);
+  RegisterComponentType(PuzzleKnobNode);
+  RegisterComponentType(PuzzleProgress);
+  RegisterComponentType(PuzzlePulse);
   RegisterComponentType(DamageLocatorComponent);
   RegisterComponentType(DamageArrowComponent);
 
-  gCore->LoadLevel("New.json");
+  gCore->LoadLevel("PuzzleTest.json");
 
   while (gCore->active)
   {

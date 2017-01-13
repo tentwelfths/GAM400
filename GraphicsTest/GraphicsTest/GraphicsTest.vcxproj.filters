@@ -205,6 +205,9 @@
     <ClCompile Include="DamageArrowComponent.cpp" />
     <ClCompile Include="CircleColliderComponent.cpp" />
     <ClCompile Include="PuzzleKnobController.cpp" />
+    <ClCompile Include="PuzzlePulse.cpp" />
+    <ClCompile Include="PuzzleKnobNode.cpp" />
+    <ClCompile Include="PuzzleProgress.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -458,6 +461,9 @@
     <ClInclude Include="DamageArrowComponent.h" />
     <ClInclude Include="CircleColliderComponent.h" />
     <ClInclude Include="PuzzleKnobController.h" />
+    <ClInclude Include="PuzzlePulse.h" />
+    <ClInclude Include="PuzzleKnobNode.h" />
+    <ClInclude Include="PuzzleProgess.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />
