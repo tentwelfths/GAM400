@@ -404,6 +404,7 @@ Object * ObjectSystem::CloneObject(Object * obj){
   clone->mCamera = obj->mCamera;
   clone->save = obj->save;
   clone->source = obj->source;
+  clone->ID = 0;
   for (int i = 0; i < 5; ++i){
     clone->mVisibility[i] = obj->mVisibility[i];
   }
