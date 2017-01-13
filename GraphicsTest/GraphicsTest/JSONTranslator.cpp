@@ -78,6 +78,16 @@ Object * JSONTranslator::DeserializeObject(std::ifstream & file)
   std::string line;
   std::getline(file, line);
   line = trim(line);
+  if (line.find_first_of(':') != std::string::npos && line.substr(0, line.find_first_of(':')) == "ObjectID")
+  {
+    line = line.substr(line.find_first_of(':') + 2);
+    obj->ID = std::stoi(line);
+    std::getline(file, line);
+  }
+  else{
+    obj->ID = 0;
+  }
+  line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
   obj->source = line;
   std::getline(file, line);
@@ -85,10 +95,13 @@ Object * JSONTranslator::DeserializeObject(std::ifstream & file)
   line = line.substr(line.find_first_of(':') + 2);
   obj->name = line;
   std::getline(file, line);
-  //line = trim(line);
-  //line = line.substr(line.find_first_of(':') + 2);
-  //obj->ID = std::stoi(line);
-  //std::getline(file, line);
+  line = trim(line);
+  //if (line.find_first_of(':') != std::string::npos && line.substr(0, line.find_first_of(':')) == "ObjectID")
+  //{
+  //  line = line.substr(line.find_first_of(':') + 2);
+  //  obj->ID = std::stoi(line);
+  //  std::getline(file, line);
+  //}
   while (!file.eof())
   {
     std::getline(file, line);
@@ -123,7 +136,6 @@ void JSONTranslator::SerializeObject(Object* obj, std::ofstream & file, int scop
   }
   file << tabs << "File: " << obj->source << std::endl;
   file << tabs << "Name: " << obj->name << std::endl;
-  file << tabs << "ObjectID: " << obj->ID << std::endl;
   file << tabs << "Object: {" << std::endl;
   for (auto iter = obj->mComponents.begin(); iter != obj->mComponents.end(); ++iter){
 
@@ -254,6 +266,7 @@ void JSONTranslator::SaveLevelToFile(std::string filename, ObjectSystem * objSys
     while (node){
       if (node->value->save)
       {
+        file << "\tObjectID: " << node->value->ID << std::endl;
         SerializeObject(node->value, file, 1);
         
         //if (node){
