@@ -33,6 +33,7 @@ void PuzzleKnobNode::Update(double dt)
       sprite->mTint_.r = mod*2;
       sprite->mTint_.g = 1-mod;
       sprite->mTint_.b = 0;
+      sprite->hasChanged = true;
       if (mod == 0)
       {
         auto * o = gCore->GetSystem(ObjectSystem);
@@ -47,6 +48,7 @@ void PuzzleKnobNode::Update(double dt)
       sprite->mTint_.r = 0;
       sprite->mTint_.g = 0;
       sprite->mTint_.b = 1;
+      sprite->hasChanged = true;
     }
   }
 }
