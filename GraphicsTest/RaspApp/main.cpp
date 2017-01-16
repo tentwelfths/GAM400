@@ -247,13 +247,7 @@ Object * DeserializeObject(std::ifstream & file,GraphicsSystem * g)
   else{
     obj->ID = 0;
   }
-  line = trim(line);
-  line = line.substr(line.find_first_of(':') + 2);
-  obj->source = line;
   std::getline(file, line);
-  line = trim(line);
-  line = line.substr(line.find_first_of(':') + 2);
-  obj->name = line;
   std::getline(file, line);
   line = trim(line);
   while (!file.eof())
@@ -272,7 +266,7 @@ Object * DeserializeObject(std::ifstream & file,GraphicsSystem * g)
 
 void LoadLevel(GraphicsSystem * g){
   std::ifstream file(LevelFilename);
-  if(!file.isOpen()){
+  if(!file.is_open()){
     return;
   }
   while (!file.eof())
