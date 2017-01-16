@@ -505,12 +505,12 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
 
   case 'L':
   {
-    std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID, num);
-
     if (data == "") break;
     temp = "L";
-    for (unsigned i = 0; i < data.length(); ++i){
-      temp += data[i];
+    std::string name = data;
+    temp += (char)(name.length());
+    for (unsigned i = 0; i < name.length(); ++i){
+      temp += name[i];
     }
   }
     break;
