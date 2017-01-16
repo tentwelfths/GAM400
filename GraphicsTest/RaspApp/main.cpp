@@ -78,15 +78,15 @@ void sig_handler(int sig)
 
 void RemoveObject(unsigned objectID){
   Object * obj = gObjectMap[objectID];
-  gObjects[obj->position[2]].erase(gObjects[obj->position[2]].find(objectID));
+  gObjects[obj->position[2]].erase(gObjects[(int)obj->position[2]].find(objectID));
   gObjectMap.erase(gObjectMap(objectID));
   unusedObjects.push_back(obj);
 }
 
 void UnloadLevel(){
   for(auto& iter : gObjectMap){
-    Object * obj = iter;
-    gObjects[obj->position[2]].erase(gObjects[obj->position[2]].find(objectID));
+    Object * obj = iter.second;
+    gObjects[obj->position[2]].erase(gObjects[(int)obj->position[2]].find(objectID));
     gObjectMap.erase(gObjectMap(objectID));
     unusedObjects.push_back(obj);
   }
@@ -131,10 +131,11 @@ void GetTransformFromFile(Object* obj, std::ifstream & file){
 }
 
 void GetSpriteFromFile(Object* obj, std::ifstream & file,GraphicsSystem * g){
+  std::string line;
   std::getline(file,line);//	"mTextureName": car.png,
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2, line.length() - 2);
-  for(auto &iter : g->mTexures){
+  for(auto &iter : g->mTextures){
     if(iter.name == line){
       obj->textureID = iter.textureID;
       break;
