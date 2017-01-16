@@ -78,7 +78,7 @@ void sig_handler(int sig)
 
 void RemoveObject(unsigned objectID){
   Object * obj = gObjectMap[objectID];
-  gObjects[obj->position[2]].erase(gObjects[(int)obj->position[2]].find(objectID));
+  gObjects[(int)obj->position[2]].erase(gObjects[(int)obj->position[2]].find(objectID));
   gObjectMap.erase(gObjectMap.find(objectID));
   unusedObjects.push_back(obj);
 }
@@ -86,7 +86,7 @@ void RemoveObject(unsigned objectID){
 void UnloadLevel(){
   for(auto& iter : gObjectMap){
     Object * obj = iter.second;
-    gObjects[obj->position[2]].erase(gObjects[(int)obj->position[2]].find(obj->ID));
+    gObjects[(int)obj->position[2]].erase(gObjects[(int)obj->position[2]].find(obj->ID));
     gObjectMap.erase(gObjectMap.find(obj->ID));
     unusedObjects.push_back(obj);
   }
