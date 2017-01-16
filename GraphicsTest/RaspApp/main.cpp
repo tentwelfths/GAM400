@@ -286,8 +286,8 @@ void LoadLevel(GraphicsSystem * g){
     if (line == "}" || line == "},")
       break;
     Object * obj = DeserializeObject(file, g);
-    gObjects[(int)obj->position[2]].insert({objectID, obj});
-    gObjectMap.insert({objectID, obj});
+    gObjects[(int)obj->position[2]].insert({obj->ID, obj});
+    gObjectMap.insert({obj->ID, obj});
   }
 
   LevelLoaded = true;
@@ -436,7 +436,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         
         std::string tempstring = "L";
         tempstring += length;
-        for(unsigned i = 0; i < LevelFilename.length; ++i)
+        for(unsigned i = 0; i < LevelFilename.length(); ++i)
         {
           tempstring += LevelFilename[i];
         } 
