@@ -152,7 +152,7 @@ void GetSpriteFromFile(Object* obj, std::ifstream & file,GraphicsSystem * g){
 	std::getline(file,line);//			y: 0.000000,
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
-  char g = std::stof(line);
+  char gr = std::stof(line);
 	std::getline(file,line);//			z: 0.000000
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
@@ -162,7 +162,7 @@ void GetSpriteFromFile(Object* obj, std::ifstream & file,GraphicsSystem * g){
 
 
   obj->r = r / 255.f;
-  obj->g = g / 255.f;
+  obj->g = gr / 255.f;
   obj->b = b / 255.f;
   obj->a = a / 255.f;
 }
