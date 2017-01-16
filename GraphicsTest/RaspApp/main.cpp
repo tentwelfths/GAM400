@@ -266,7 +266,7 @@ Object * DeserializeObject(std::ifstream & file,GraphicsSystem * g)
 }
 
 void LoadLevel(GraphicsSystem * g){
-  std::ifstream file(LevelFilename);
+  std::ifstream file("../Assets/" + LevelFilename);
   if(!file.is_open()){
     return;
   }
