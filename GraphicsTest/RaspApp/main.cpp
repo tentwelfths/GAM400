@@ -175,7 +175,7 @@ void DeserializeComponent(Object* obj, std::string componentName, std::ifstream 
     return;
   }
   else if(componentName == "SpriteComponent"){
-    GetSpriteFromFile(obj, file);
+    GetSpriteFromFile(obj, file,g);
     return;
   }
   int bracketCount = 1;
@@ -264,7 +264,7 @@ Object * DeserializeObject(std::ifstream & file,GraphicsSystem * g)
     if (line == "}" || line == "},")
       break;
     line = line.substr(0, line.find_first_of(':'));
-    DeserializeComponent(obj, line, file);
+    DeserializeComponent(obj, line, file, g);
   }
   return obj;
 
@@ -285,7 +285,7 @@ void LoadLevel(GraphicsSystem * g){
     }
     if (line == "}" || line == "},")
       break;
-    Object * obj = DeserializeObject(file);
+    Object * obj = DeserializeObject(file, g);
     gObjects[(int)obj->position[2]].insert({objectID, obj});
     gObjectMap.insert({objectID, obj});
   }
@@ -447,7 +447,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
       {
         if(!LevelLoaded && LevelLoadingInProcess){
           UnloadLevel();
-          LoadLevel();
+          LoadLevel(g);
           LevelLoaded = true;
         }
         std::string tempstring = "M";
