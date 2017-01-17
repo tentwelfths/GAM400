@@ -339,7 +339,7 @@ void     ObjectSystem::Shutdown()
 
 }
 
-void ObjectSystem::AddObject(Object * obj)
+void ObjectSystem::AddObject(Object * obj, bool fromFile)
 {
   if (obj->ID == 0)
     obj->ID = myCount++;
@@ -353,11 +353,14 @@ void ObjectSystem::AddObject(Object * obj)
     mObjects.insert({ obj->name, List<Object*>() });
   }
 
-  bornObjects.insert({obj->ID , {1,1} });
+  
   mObjects[obj->name].AddToFront(obj);
   mObjectMap_.insert({ obj->ID, obj });
-  auto * system = gCore->GetSystem(NetworkingSystem);
-  system->AddCommand('`', obj->ID);
+  if (!fromFile){
+    bornObjects.insert({ obj->ID, { 1, 1 } });
+    auto * system = gCore->GetSystem(NetworkingSystem);
+    system->AddCommand('`', obj->ID);
+  }
   ++numObjects; 
 }
 

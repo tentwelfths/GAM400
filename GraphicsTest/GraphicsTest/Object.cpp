@@ -11,9 +11,9 @@ Object::Object() : age(0), hasChanged(true), save(true)
   }
 }
 
-void Object::Register()
+void Object::Register(bool fromFile)
 {
-  gCore->GetSystem(ObjectSystem)->AddObject(this);
+  gCore->GetSystem(ObjectSystem)->AddObject(this, fromFile);
 }
 
 bool Object::Initialize()

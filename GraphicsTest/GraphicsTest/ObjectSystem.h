@@ -14,7 +14,7 @@ public:
   virtual void Update(double dt);
   virtual void Shutdown();
   Object * GetFirstItemByName(std::string name);
-  void AddObject(Object* obj);
+  void AddObject(Object* obj, bool fromFile);
   Object * GetNthItemByName(std::string name, unsigned n);
   std::unordered_map<std::string, List<Object*> > mObjects;
 

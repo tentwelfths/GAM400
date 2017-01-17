@@ -22,7 +22,7 @@ public:
   void AddComponent(IComponent * comp);
   void AddComponent(std::string name);
 
-  void Register();
+  void Register(bool fromFile = false);
 
   template <typename T>
   T* GetComponentA(const char * compName);

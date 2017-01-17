@@ -181,7 +181,7 @@ void JSONTranslator::LoadLevelFromFile(std::string filename)
       break;
     Object * obj = DeserializeObject(file);
     levelObjs.push_back(obj);
-    obj->Register();
+    obj->Register(true);
   }
   for (auto & iter : levelObjs){
     iter->Initialize();
