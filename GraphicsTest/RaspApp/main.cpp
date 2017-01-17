@@ -136,6 +136,7 @@ void GetSpriteFromFile(Object* obj, std::ifstream & file,GraphicsSystem * g){
   std::getline(file,line);//	"mTextureName": car.png,
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2, line.length() - 2);
+  std::cout<<line<<std::endl;
   for(auto &iter : g->mTextures){
     if(iter.second.name == line){
       obj->textureID = iter.second.textureID;
@@ -188,7 +189,7 @@ void DeserializeComponent(Object* obj, std::string componentName, std::ifstream 
   {
     std::getline(file,line);
     line = trim(line);
-    std::cout<<line<<std::endl;
+    //std::cout<<line<<std::endl;
     if (line == "}" || line=="},"){
       bracketCount -= 1;
       continue;
