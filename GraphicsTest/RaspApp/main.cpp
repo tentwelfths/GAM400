@@ -172,13 +172,16 @@ void DeserializeComponent(Object* obj, std::string componentName, std::ifstream 
 {
   std::string line;
   if(componentName == "TransformComponent"){
+    std::cout<<"GETTING TRANSFORM"<<std::endl;
     GetTransformFromFile(obj, file);
     return;
   }
   else if(componentName == "SpriteComponent"){
+    std::cout<<"GETTING SPRITE"<<std::endl;
     GetSpriteFromFile(obj, file,g);
     return;
   }
+  std::cout<<"GETTING OTHER COMPONENT"<<std::endl;
   int bracketCount = 1;
   while (bracketCount > 0)
   {
@@ -223,6 +226,7 @@ void DeserializeComponent(Object* obj, std::string componentName, std::ifstream 
       }
     }
   }
+  std::cout<<"DONE GETTING OTHER COMPONENT"<<std::endl;
 }
 
 Object * DeserializeObject(std::ifstream & file,GraphicsSystem * g)
@@ -268,6 +272,7 @@ Object * DeserializeObject(std::ifstream & file,GraphicsSystem * g)
 void LoadLevel(GraphicsSystem * g){
   std::ifstream file("../Assets/" + LevelFilename);
   if(!file.is_open()){
+    std::cout<<"FILE NOT OPEN"<<std::endl;
     return;
   }
   while (!file.eof())
@@ -280,6 +285,7 @@ void LoadLevel(GraphicsSystem * g){
     }
     if (line == "}" || line == "},")
       break;
+    std::cout<<"DESERIALIZE OBJECT"<<std::endl;
     Object * obj = DeserializeObject(file, g);
     gObjects[(int)obj->position[2]].insert({obj->ID, obj});
     gObjectMap.insert({obj->ID, obj});
@@ -441,8 +447,11 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
       case 'M': //But did you load though?
       {
         if(!LevelLoaded && LevelLoadingInProcess){
+          std::cout<<"LOADING"<<LevelFilename<<std::endl;
           UnloadLevel();
+          std::cout<<"UNLOADED"<<std::endl;
           LoadLevel(g);
+          std::cout<<"LOADED "<<LevelFilename<<std::endl;
           LevelLoaded = true;
         }
         std::string tempstring = "M";
