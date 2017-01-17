@@ -126,6 +126,7 @@ void GetTransformFromFile(Object* obj, std::ifstream & file){
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
   obj->rotation = std::stof(line);
+  obj->inUse = true;
 	std::getline(file,line);//		}
 	std::getline(file,line);//	},
 }
