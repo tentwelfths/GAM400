@@ -447,6 +447,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
       break;
       case 'M': //But did you load though?
       {
+        ++pos;
         std::cout<<"GOT THE M"<<std::endl;
         if(!LevelLoaded && LevelLoadingInProcess){
           std::cout<<"LOADING"<<LevelFilename<<std::endl;
