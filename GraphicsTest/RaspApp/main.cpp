@@ -135,7 +135,7 @@ void GetSpriteFromFile(Object* obj, std::ifstream & file,GraphicsSystem * g){
   std::string line;
   std::getline(file,line);//	"mTextureName": car.png,
   line = trim(line);
-  line = line.substr(line.find_first_of(':') + 2, line.length() - 2);
+  line = line.substr(line.find_first_of(':') + 2, line.length() - 3);
   std::cout<<line<<std::endl;
   for(auto &iter : g->mTextures){
     if(iter.second.name == line){
