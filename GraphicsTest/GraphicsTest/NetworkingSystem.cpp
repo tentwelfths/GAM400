@@ -406,6 +406,7 @@ void NetworkingSystem::Update(double dt)
       if (connections[i].initstep == 0){
         char data[64];
         strcpy(data, gCore->GetCurrentLevelName().c_str());
+        std::cout << "SENDING THE L " << data << std::endl;
         AddCommand(i, 'L', 0, data);
         connections[i].initstep = 1;
       }
