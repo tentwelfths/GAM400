@@ -327,13 +327,16 @@ void NetworkingSystem::Update(double dt)
       {
         int pos = 1;
         std::cout << "LOAD ACKD" << std::endl;
-        int ded = *static_cast<const unsigned int*>(static_cast<const void *>(&(command.c_str()[pos])));
-        for (unsigned l = 0; l < connections[i].unloaded.size(); ++l){
-          if (connections[i].unloaded[l] == ded){
-            connections[i].unloaded.erase(connections[i].unloaded.begin() + l);
-            --l;
-          }
+        
+        if (command.substr(1) == gCore->GetCurrentLevelName()){
+          connections[i].initstep = 301;
         }
+      }
+      else if (command[0] == 'M')//Load Done
+      {
+        int pos = 1;
+        std::cout << "Done loading" << std::endl;
+        connections[i].initstep = -1;
       }
       else if (command[0] == '~')//input
       {
@@ -403,6 +406,7 @@ void NetworkingSystem::Update(double dt)
       if (connections[i].initstep == 0){
         char data[64];
         strcpy(data, gCore->GetCurrentLevelName().c_str());
+        std::cout << "SENDING THE L " << data << std::endl;
         AddCommand(i, 'L', 0, data);
         connections[i].initstep = 1;
       }
@@ -411,22 +415,10 @@ void NetworkingSystem::Update(double dt)
       //toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
       if (connections[i].initstep > 0) ++connections[i].initstep;
-      if (connections[i].unloaded.empty() && connections[i].initstep != -1)
-      {
-        connections[i].initstep = -1;
-        std::cout << "Done loading" << std::endl;
-      }
-      else if (connections[i].initstep > 300){
-        for (int l = 0; l < connections[i].unloaded.size(); ++l){
-          auto temp = gCore->GetSystem(ObjectSystem)->mObjectMap_.find(connections[i].unloaded[l]);
-          if (temp != gCore->GetSystem(ObjectSystem)->mObjectMap_.end() && temp->second != nullptr){
-            AddCommand(i, 'L', connections[i].unloaded[l]);
-          }
-          else{
-            connections[i].unloaded.erase(connections[i].unloaded.begin() + l);
-            --l;
-          }
-        }
+      std::cout << connections[i].initstep<<std::endl;
+      if (connections[i].initstep > 300){
+        std::cout << "SENDING THE M"<< std::endl;
+        AddCommand('M', i);
         connections[i].initstep = 1;
       }
       for (unsigned k = 0; connections[i].commandsSend.empty() == false && k < 30; ++k){
@@ -435,7 +427,7 @@ void NetworkingSystem::Update(double dt)
           break;
         }
         if (temp[0] == '#'){
-          std::cout << "SNEDING MOVE" << std::endl;
+          //std::cout << "SNEDING MOVE" << std::endl;
         }
         connections[i].commandsSend.pop();
         toSend += temp;
@@ -443,7 +435,7 @@ void NetworkingSystem::Update(double dt)
       }
       ++connections[i].frameCount;
       if (toSend.length() > 0){
-        std::cout << "Sending " << toSend.length() << std::endl;
+        //std::cout << "Sending " << toSend.length() << std::endl;
         int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
       }
       //std::cout << "Send: " << toSend << std::endl;
@@ -505,13 +497,18 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
 
   case 'L':
   {
-    std::string data = gCore->GetSystem(ObjectSystem)->GetData(ID, num);
-
     if (data == "") break;
     temp = "L";
-    for (unsigned i = 0; i < data.length(); ++i){
-      temp += data[i];
+    std::string name = data;
+    temp += (char)(name.length());
+    for (unsigned i = 0; i < name.length(); ++i){
+      temp += name[i];
     }
+  }
+    break;
+  case 'M':
+  {
+    temp = "M";
   }
     break;
 

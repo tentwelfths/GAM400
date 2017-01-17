@@ -58,7 +58,7 @@ void PuzzleKnobController::Update(double dt)
   {
     frequency = 0;
   }
-  std::cout << frequency << std::endl;
+  //std::cout << frequency << std::endl;
 }
 
 void PuzzleKnobController::Shutdown()

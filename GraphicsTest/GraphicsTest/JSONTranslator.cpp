@@ -164,6 +164,7 @@ void JSONTranslator::SerializeObject(Object* obj, std::ofstream & file, int scop
 
 void JSONTranslator::LoadLevelFromFile(std::string filename)
 {
+  filename = "../Assets/" + filename;
   std::ifstream file;
   file.open(filename);
   std::vector<Object *> levelObjs;
@@ -180,7 +181,7 @@ void JSONTranslator::LoadLevelFromFile(std::string filename)
       break;
     Object * obj = DeserializeObject(file);
     levelObjs.push_back(obj);
-    obj->Register();
+    obj->Register(true);
   }
   for (auto & iter : levelObjs){
     iter->Initialize();
@@ -252,6 +253,7 @@ void JSONTranslator::LoadTextures(std::string filename, GraphicsSystem * system)
 
 void JSONTranslator::SaveLevelToFile(std::string filename, ObjectSystem * objSys)
 {
+  filename = "../Assets/" + filename;
   std::ofstream file;
   file.open(filename);
   if (!file.is_open()) return;

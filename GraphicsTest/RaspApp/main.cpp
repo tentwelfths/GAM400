@@ -30,10 +30,37 @@ IController * controller;
 
 DebugClass Debug("output.txt");
 
+bool LevelLoaded = false;
+bool LevelLoadingInProcess = false;
+std::string LevelFilename = "";
+
+
+// trim from end of string (right)
+inline std::string& rtrim(std::string& s, const char* t = " \t\n\r\f\v,")
+{
+  s.erase(s.find_last_not_of(t) + 1);
+  return s;
+}
+
+// trim from beginning of string (left)
+inline std::string& ltrim(std::string& s, const char* t = " \t\n\r\f\v,")
+{
+  s.erase(0, s.find_first_not_of(t));
+  return s;
+}
+
+// trim from both ends of string (left & right)
+inline std::string& trim(std::string& s, const char* t = " \t\n\r\f\v,")
+{
+  return ltrim(rtrim(s, t), t);
+}
+
 //mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
 
 std::unordered_map<unsigned int, Object*> gObjects[10];
 std::unordered_map<unsigned int, Object*> gObjectMap;
+
+std::vector<Object*> unusedObjects;
 
 unsigned int pID = -1;
 
@@ -47,6 +74,231 @@ void sig_handler(int sig)
 {
     write(0,"nCtrl^C pressed in sig handlern",32);
     ctrl_c_pressed = true;
+}
+
+void RemoveObject(unsigned objectID){
+  Object * obj = gObjectMap[objectID];
+  gObjects[(int)obj->position[2]].erase(gObjects[(int)obj->position[2]].find(objectID));
+  gObjectMap.erase(gObjectMap.find(objectID));
+  unusedObjects.push_back(obj);
+}
+
+void UnloadLevel(){
+  for(auto& iter : gObjectMap){
+    Object * obj = iter.second;
+    gObjects[(int)obj->position[2]].erase(gObjects[(int)obj->position[2]].find(obj->ID));
+    gObjectMap.erase(gObjectMap.find(obj->ID));
+    unusedObjects.push_back(obj);
+  }
+}
+
+void GetTransformFromFile(Object* obj, std::ifstream & file){
+  std::string line;
+  std::getline(file,line);//mPosition
+  std::getline(file,line);//x: 1.000000
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  obj->position[0] = std::stof(line);
+  std::getline(file,line);//y: 2.000000
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  obj->position[1] = std::stof(line);
+  std::getline(file,line);//z: 1.000000
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  obj->position[2] = std::stof(line);
+	std::getline(file,line);//		},
+	std::getline(file,line);//	"mScale_": {
+	std::getline(file,line);//		x: 1.000000,
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  obj->scale[0] = std::stof(line);
+	std::getline(file,line);//		y: 2.000000,
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  obj->scale[1] = std::stof(line);
+	std::getline(file,line);//		z: 1.000000
+	std::getline(file,line);//		},
+	std::getline(file,line);//	"mRotation_": {
+	std::getline(file,line);//		x: 0.000000,
+	std::getline(file,line);//		y: 0.000000,
+	std::getline(file,line);//		z: 45.000000
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  obj->rotation = std::stof(line);
+  obj->inUse = true;
+	std::getline(file,line);//		}
+	std::getline(file,line);//	},
+}
+
+void GetSpriteFromFile(Object* obj, std::ifstream & file,GraphicsSystem * g){
+  std::string line;
+  std::getline(file,line);//	"mTextureName": car.png,
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  std::cout<<line<<std::endl;
+  for(auto &iter : g->mTextures){
+    if(iter.second.name == line){
+      obj->textureID = iter.first;
+      break;
+    }
+  }
+	std::getline(file,line);//	"mOpacity_": 1.000000,
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  char a = std::stof(line);
+  std::cout<<(int)a<<std::endl;
+	std::getline(file,line);//	"mTint_": {
+	std::getline(file,line);//			x: 0.000000,
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  char r =  std::stof(line);;
+  std::cout<<(int)r<<std::endl;
+	std::getline(file,line);//			y: 0.000000,
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  char gr =  std::stof(line);;
+  std::cout<<(int)gr<<std::endl;
+	std::getline(file,line);//			z: 0.000000
+  line = trim(line);
+  line = line.substr(line.find_first_of(':') + 2);
+  char b =  std::stof(line);
+  std::cout<<(int)b<<std::endl;
+	std::getline(file,line);//			}
+	std::getline(file,line);//	},
+
+
+  obj->r = r  ;
+  obj->g = gr ;
+  obj->b = b  ;
+  obj->a = a  ;
+}
+
+void DeserializeComponent(Object* obj, std::string componentName, std::ifstream & file,GraphicsSystem * g)
+{
+  std::string line;
+  if(componentName == "TransformComponent"){
+    std::cout<<"GETTING TRANSFORM"<<std::endl;
+    GetTransformFromFile(obj, file);
+    return;
+  }
+  else if(componentName == "SpriteComponent"){
+    std::cout<<"GETTING SPRITE"<<std::endl;
+    GetSpriteFromFile(obj, file,g);
+    return;
+  }
+  std::cout<<"GETTING OTHER COMPONENT"<<std::endl;
+  int bracketCount = 1;
+  while (bracketCount > 0)
+  {
+    std::getline(file,line);
+    line = trim(line);
+    //std::cout<<line<<std::endl;
+    if (line == "}" || line=="},"){
+      bracketCount -= 1;
+      continue;
+    }
+    std::string memberName = "";
+    std::string value = "";
+    unsigned i = 0;
+    char state = 0;
+    bool complex = false;
+    for (; i < line.length(); ++i){
+      if (line[i] == '\"'){
+        if (state == 0){
+          state = 1;
+        }
+        else if (state == 1){
+          state = 3;
+        }
+        continue;
+      }
+      else if (state == 2 && line[i] == '\"'){
+        state = 3;
+      }
+      else if (state == 3){
+        if (line[i] == ','){
+          break;
+        }
+        else if (line[i] == '{'){
+          bracketCount += 1;
+        }
+        else{
+          if(line[i] == ':')continue;
+          value += line[i];
+        }
+      }
+      if (state == 1){
+        memberName += line[i];
+      }
+    }
+  }
+  std::cout<<"DONE GETTING OTHER COMPONENT"<<std::endl;
+}
+
+Object * DeserializeObject(std::ifstream & file,GraphicsSystem * g)
+{
+  Object * obj;// = new Object();
+  if(unusedObjects.size() > 0){
+    obj = unusedObjects.back();
+    unusedObjects.pop_back();
+  }
+  else{
+    obj = new Object();
+  }
+
+  std::string line;
+  std::getline(file, line);
+  line = trim(line);
+  if (line.find_first_of(':') != std::string::npos && line.substr(0, line.find_first_of(':')) == "ObjectID")
+  {
+    line = line.substr(line.find_first_of(':') + 2);
+    obj->ID = std::stoi(line);
+    std::getline(file, line);
+  }
+  else{
+    obj->ID = 0;
+  }
+  std::getline(file, line);
+  std::getline(file, line);
+  line = trim(line);
+  while (!file.eof())
+  {
+    std::getline(file, line);
+    line = trim(line);
+    if (line == "{")continue;
+    if (line == "}" || line == "},")
+      break;
+    line = line.substr(0, line.find_first_of(':'));
+    DeserializeComponent(obj, line, file, g);
+  }
+  return obj;
+
+}
+
+void LoadLevel(GraphicsSystem * g){
+  std::ifstream file("../Assets/" + LevelFilename);
+  if(!file.is_open()){
+    std::cout<<"FILE NOT OPEN"<<std::endl;
+    return;
+  }
+  while (!file.eof())
+  {
+    std::string line;
+    line += file.peek();
+    if (line == "{"){
+      std::getline(file, line);
+      continue;
+    }
+    if (line == "}" || line == "},")
+      break;
+    std::cout<<"DESERIALIZE OBJECT"<<std::endl;
+    Object * obj = DeserializeObject(file, g);
+    gObjects[(int)obj->position[2]].insert({obj->ID, obj});
+    gObjectMap.insert({obj->ID, obj});
+  }
+
+  LevelLoaded = true;
 }
 
 bool Input ( void )
@@ -110,7 +362,7 @@ bool Input ( void )
         }
       }
     } while (dp != NULL);
-    //std::cout<<"...."<<std::endl;
+    ////std::cout<<"...."<<std::endl;
     closedir(dirp);
 
 
@@ -126,7 +378,7 @@ bool Input ( void )
     // Read events from keyboard
 
     rd = read(keyboardFd,ev,sizeof(ev));
-    //std::cout<<"read "<<rd<<std::endl;
+    ////std::cout<<"read "<<rd<<std::endl;
     if(rd > 0)
     {
       int count,n;
@@ -151,7 +403,7 @@ bool Input ( void )
               inputstream += ((unsigned char *)(&evp->code))[i];
             inputstream += '1';
           }
-          //std::cout<<evp->code<<" --- "<<evp->value<<std::endl;
+          ////std::cout<<evp->code<<" --- "<<evp->value<<std::endl;
           
           if((evp->code == KEY_Q) && (evp->value == 1))
               ret = false;
@@ -160,8 +412,8 @@ bool Input ( void )
 
     }
     
-    //std::cout<<a2d.GetChannelData(1)<<std::endl;
-    //std::cout<<a2d.GetChannelData(0)<<std::endl;
+    ////std::cout<<a2d.GetChannelData(1)<<std::endl;
+    ////std::cout<<a2d.GetChannelData(0)<<std::endl;
 
     return(ret);
 }
@@ -174,7 +426,7 @@ unsigned short lastFrameSeen = 0;
 void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * g, NetworkingSystem * n, AudioSystem * a)
 {
   pos = 0;
-  std::cout<<"\t\t"<<len<<std::endl;
+  //std::cout<<"\t\t"<<len<<std::endl;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
     //Debug.Log("Command: " + command[pos]);
@@ -182,94 +434,53 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
       case 'L': //INITIAL Load
       {
         ++pos;
-        Debug.Log("Loading an object");
-        unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
-        Debug.Log("Object ID" + std::to_string(objectID));
-        pos += sizeof(unsigned int);
-        char isVis = command[pos];
-        ++pos;
-        char textureID = command[pos];
-        ++pos;
-        char r = command[pos];
-        ++pos;
-        char g = command[pos];
-        ++pos;
-        char b = command[pos];
-        ++pos;
-        char a = command[pos];
-        ++pos;
-        
-        const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
-        pos += sizeof(float);
-        const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
-        pos += sizeof(float);
-        const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<" zPos: "<< zPos <<std::endl;
-        pos += sizeof(float);
-        const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
-        pos += sizeof(float);
-        const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
-        pos += sizeof(float);
-        const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
-        std::cout<<"PosScaRot"<<std::endl;
-        pos += sizeof(float);
-        auto temp = gObjectMap.find(objectID);
-        if(temp == gObjectMap.end())
-        {
-          Object * obj = new Object();
-          gObjects[(int)zPos].insert({objectID, obj});
-          gObjectMap.insert({objectID, obj});
+        std::cout<<"GOT THE L"<<std::endl;
+        char length = command[pos++];
+        LevelFilename = "";
+        LevelLoadingInProcess = true;
+        LevelLoaded = false;
+        for(unsigned i = 0; i < length; ++i){
+          LevelFilename += command[pos++];
         }
-        Debug.Log("Object Loaded");
-        
-        temp = gObjectMap.find(objectID);
-
-        temp->second->position[0] = xPos;
-        temp->second->position[1] = yPos;
-        temp->second->position[2] = zPos;
-        temp->second->scale[0] = xSca;
-        temp->second->scale[1] = ySca;
-        temp->second->rotation = rot;
-        temp->second->textureID = textureID;
-        temp->second->r = r / 255.f;
-        temp->second->g = g / 255.f;
-        temp->second->b = b / 255.f;
-        temp->second->a = a / 255.f;
-        
-        if(isVis == '0'){
-          (temp)->second->inUse = false;
-        }
-        else{
-          (temp)->second->inUse = true;
-        }
-        
-        
+        std::cout<<LevelFilename<<std::endl;
         std::string tempstring = "L";
-        for(unsigned i = 0; i < sizeof(unsigned int); ++i)
+        tempstring += length;
+        for(unsigned i = 0; i < LevelFilename.length(); ++i)
         {
-          tempstring += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
+          tempstring += LevelFilename[i];
         } 
         n->Send(tempstring.data(), tempstring.length());
       }
       break;
-
+      case 'M': //But did you load though?
+      {
+        ++pos;
+        std::cout<<"GOT THE M "<<LevelLoaded <<" " << LevelLoadingInProcess<<std::endl;
+        if(!LevelLoaded && LevelLoadingInProcess){
+          std::cout<<"LOADING"<<LevelFilename<<std::endl;
+          UnloadLevel();
+          std::cout<<"UNLOADED"<<std::endl;
+          LoadLevel(g);
+          std::cout<<"LOADED "<<LevelFilename<<std::endl;
+          LevelLoaded = true;
+        }
+        std::string tempstring = "M";
+        n->Send(tempstring.data(), tempstring.length());
+        break;
+      }
       case '`': // Object created. 
       {
         ++pos;
-        Debug.Log("Creating an object");
         std::cout<<"CREATE"<<std::endl;
+        Debug.Log("Creating an object");
+        //std::cout<<"CREATE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         Debug.Log("Object ID" + std::to_string(objectID));
         pos += sizeof(unsigned int);
-        std::cout<<"OID"<<std::endl;
+        //std::cout<<"OID"<<std::endl;
         char isVis = command[pos];
         ++pos;
-        std::cout<<"isVis"<<std::endl;
+        //std::cout<<"isVis"<<std::endl;
         char textureID = command[pos];
         ++pos;
         char r = command[pos];
@@ -280,36 +491,43 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         ++pos;
         char a = command[pos];
         ++pos;
-        std::cout<<"TID"<<std::endl;
+        //std::cout<<"TID"<<std::endl;
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
         const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        ////std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<" zPos: "<< zPos <<std::endl;
+        ////std::cout<<" zPos: "<< zPos <<std::endl;
         pos += sizeof(float);
         const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
+        ////std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
         pos += sizeof(float);
         const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
+        ////std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
         pos += sizeof(float);
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
-        std::cout<<"PosScaRot"<<std::endl;
+        ////std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        //std::cout<<"PosScaRot"<<std::endl;
         pos += sizeof(float);
         auto temp = gObjectMap.find(objectID);
         if(temp == gObjectMap.end())
         {
-          Object * obj = new Object();
+          Object * obj;// = new Object();
+          if(unusedObjects.size() > 0){
+            obj = unusedObjects.back();
+            unusedObjects.pop_back();
+          }
+          else{
+            obj = new Object();
+          }
           gObjects[(int)zPos].insert({objectID, obj});
           gObjectMap.insert({objectID, obj});
         }
         Debug.Log("Object Created");
-        std::cout<<"OCreated"<<std::endl;
+        //std::cout<<"OCreated"<<std::endl;
         temp = gObjectMap.find(objectID);
 
         temp->second->position[0] = xPos;
@@ -323,7 +541,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         temp->second->g = g / 255.f;
         temp->second->b = b / 255.f;
         temp->second->a = a / 255.f;
-        std::cout<<"OSetup"<<std::endl;
+        //std::cout<<"OSetup"<<std::endl;
         if(isVis == '0'){
           (temp)->second->inUse = false;
         }
@@ -337,20 +555,21 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
           tempstring += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
         } 
         n->Send(tempstring.data(), tempstring.length());
-        std::cout<<"CreateAcks"<<std::endl;
+        //std::cout<<"CreateAcks"<<std::endl;
       }
       break;
       case '%': //Object died
       {
         ++pos;
         Debug.Log("Killing an object");
-        std::cout<<"DED"<<std::endl;
+        //std::cout<<"DED"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         Debug.Log("Object ID" + std::to_string(objectID));
         pos += sizeof(unsigned int);
         
         if(gObjectMap.find(objectID) != gObjectMap.end()){
           gObjectMap[objectID]->inUse = false;
+          RemoveObject(objectID);
         }
         std::string temp = "%";
         for(unsigned i = 0; i < sizeof(unsigned int); ++i)
@@ -365,37 +584,37 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
       {
         ++pos;
         Debug.Log("Moving an object");
-        std::cout<<"GOT MOVE MESSAGE"<<std::endl;
+        //std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         char isVis = command[pos];
         ++pos;
-        //std::cout<<isVis<<std::endl;
+        ////std::cout<<isVis<<std::endl;
         
         auto temp = gObjectMap.find(objectID);
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
         const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        ////std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<" zPos: "<< zPos <<std::endl;
+        ////std::cout<<" zPos: "<< zPos <<std::endl;
         pos += sizeof(float);
         const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
+        ////std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
         pos += sizeof(float);
         const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
+        ////std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
         pos += sizeof(float);
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        ////std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         pos += sizeof(float);
         if(temp != gObjectMap.end()){
           if(isVis == '0'){
             (temp)->second->inUse = false;
-            //std::cout<<"Something is invisible"<<std::endl;
+            ////std::cout<<"Something is invisible"<<std::endl;
           }
           else{
             (temp)->second->inUse = true;
@@ -415,10 +634,10 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         Debug.Log("Moving Camera");
         ++pos;
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
         const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        ////std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         g->mMainCamera.x = xPos;
         g->mMainCamera.y = yPos;
@@ -491,21 +710,21 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         ++pos;
         Debug.Log("Playing 3D sound effect");
         const float sourcePosX = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
-        std::cout<<sourcePosX<<std::endl;
+        //std::cout<<sourcePosX<<std::endl;
         const float sourcePosY = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
-        std::cout<<sourcePosY<<std::endl;
+        ////std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        //std::cout<<sourcePosY<<std::endl;
         pos += sizeof(float);
-        std::cout<<(int)command[pos]<<std::endl;
+        //std::cout<<(int)command[pos]<<std::endl;
         const char length = command[pos++];
         std::string name;
         for(int i = 0; i < length; ++i){
-          std::cout<<command[pos]<<std::endl;
+          //std::cout<<command[pos]<<std::endl;
           name += command[pos++];
         }
-        std::cout<<(int)length<<" "<<name<<std::endl;
+        //std::cout<<(int)length<<" "<<name<<std::endl;
         a->Play3DSoundEffect(name, sourcePosX, sourcePosY, g->mMainCamera.x, g->mMainCamera.y);
       }
       break;
@@ -519,15 +738,15 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
 int main ( int argc, char *argv[] )
 {
   if(argc < 2){
-    std::cout<<"Please identify which controller this is.( cone gun radar turret )"<<std::endl;
+    //std::cout<<"Please identify which controller this is.( cone gun radar turret )"<<std::endl;
     return 0;
   }
   if(argc == 2){
-    std::cout<<"TUrning off debug"<<std::endl;
+    //std::cout<<"TUrning off debug"<<std::endl;
     Debug.TurnOff();
   }
   else{
-    std::cout<<"Starting debugging"<<std::endl;
+    //std::cout<<"Starting debugging"<<std::endl;
     Debug.Clear();
   }
   
@@ -538,7 +757,7 @@ int main ( int argc, char *argv[] )
   sigemptyset(&sig_struct.sa_mask);
 
   if (sigaction(SIGINT, &sig_struct, NULL) == -1) {
-      std::cout << "Problem with sigaction" << std::endl;
+      //std::cout << "Problem with sigaction" << std::endl;
       exit(1);
   }
 
@@ -565,7 +784,7 @@ int main ( int argc, char *argv[] )
     myID = 03;
   }
   else{
-    std::cout<<"Controller name not found.( cone gun radar turret )"<<std::endl;
+    //std::cout<<"Controller name not found.( cone gun radar turret )"<<std::endl;
     return 0;
   } 
 
@@ -575,11 +794,11 @@ int main ( int argc, char *argv[] )
   AudioSystem a;
   GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");
-  std::cout<<"CONNECTED"<<std::endl;
+  //std::cout<<"CONNECTED"<<std::endl;
   std::string hellomsg("+");
   hellomsg += myID;
   int res = n.Send(hellomsg.c_str(), 2);
-  std::cout<<hellomsg[0]<<(int)hellomsg[1]<<std::endl;
+  //std::cout<<hellomsg[0]<<(int)hellomsg[1]<<std::endl;
   
   g.LoadTextures("../Assets/Textures.JSON");
   
@@ -621,10 +840,10 @@ int main ( int argc, char *argv[] )
     
     deltatime = clock() - start;
     deltatime /= CLOCKS_PER_SEC;
-    //std::cout<<deltatime<<std::endl;
+    ////std::cout<<deltatime<<std::endl;
     if(ctrl_c_pressed)
     {
-        std::cout << "Ctrl^C Pressed unexporting pins" <<std::endl;
+        //std::cout << "Ctrl^C Pressed unexporting pins" <<std::endl;
         controller->Uninitialize();
         break;
     }

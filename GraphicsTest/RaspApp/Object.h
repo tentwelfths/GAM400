@@ -10,6 +10,7 @@ class Object
   float rotation;
   unsigned int textureID;
   bool inUse;
+  unsigned int ID;
   float r,g,b,a;
 };
 
