@@ -12,6 +12,7 @@ class PuzzleKnobController : public GameLogicComponent
     int GetControllerID();
     int GetFrequency() { return frequency; }
   private:
+    int preLeds;
     int frequency;
     int controllerID_;
 };

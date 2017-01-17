@@ -33,8 +33,7 @@
 		"tile": false
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 50,
-		"range_": 5
+		"targetFrequency_": 5,
 		},
 	BoxColliderComponent: {
 		"mDensity": 0.000000,
@@ -103,8 +102,7 @@
 		"mGhost": true
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 75,
-		"range_": 5
+		"targetFrequency_": 7,
 		}
 	},
 	ObjectID: 4
@@ -141,8 +139,7 @@
 		"tile": false
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 40,
-		"range_": 5
+		"targetFrequency_": 4,
 		},
 	BoxColliderComponent: {
 		"mDensity": 0.000000,
@@ -195,8 +192,7 @@
 		"tile": false
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 25,
-		"range_": 5
+		"targetFrequency_": 2,
 		},
 	BoxColliderComponent: {
 		"mDensity": 0.000000,
@@ -265,8 +261,7 @@
 		"mGhost": true
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 50,
-		"range_": 5
+		"targetFrequency_": 3,
 		}
 	},
 	ObjectID: 7
@@ -303,8 +298,7 @@
 		"tile": false
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 90,
-		"range_": 5
+		"targetFrequency_": 9,
 		},
 	BoxColliderComponent: {
 		"mDensity": 0.000000,

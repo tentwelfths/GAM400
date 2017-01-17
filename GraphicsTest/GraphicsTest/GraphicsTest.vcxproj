@@ -226,6 +226,8 @@
     <ClCompile Include="PuzzleKnobNode.cpp" />
     <ClCompile Include="PuzzleProgress.cpp" />
     <ClCompile Include="PuzzlePulse.cpp" />
+    <ClCompile Include="PuzzleSwitchController.cpp" />
+    <ClCompile Include="PuzzleSwitchNode.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="StartManagerComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -344,6 +346,8 @@
     <ClInclude Include="PuzzleKnobNode.h" />
     <ClInclude Include="PuzzleProgess.h" />
     <ClInclude Include="PuzzlePulse.h" />
+    <ClInclude Include="PuzzleSwitchController.h" />
+    <ClInclude Include="PuzzleSwitchNode.h" />
     <ClInclude Include="Socket.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Standard.h" />

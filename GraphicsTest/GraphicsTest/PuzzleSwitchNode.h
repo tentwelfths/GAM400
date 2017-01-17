@@ -1,13 +1,13 @@
 #pragma once
 #include "GameLogicComponent.h"
 
-class PuzzleKnobNode : public GameLogicComponent
+class PuzzleSwitchNode : public GameLogicComponent
 {
 public:
-  PuzzleKnobNode();
+  PuzzleSwitchNode();
   bool Initialize();
   void Update(double dt);
   void Shutdown();
 private:
-  int targetFrequency_;
+  int targetValue_;
 };

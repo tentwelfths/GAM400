@@ -9,7 +9,7 @@ int PuzzleKnobController::GetControllerID()
   return controllerID_;
 }
 
-PuzzleKnobController::PuzzleKnobController() : GameLogicComponent(GameLogicType::PUZZLEKNOB), frequency(50)
+PuzzleKnobController::PuzzleKnobController() : GameLogicComponent(GameLogicType::PUZZLEKNOB), frequency(50), preLeds(5)
 {
   AddMember(PuzzleKnobController, controllerID_);
   mName_ = "PuzzleKnobController";
@@ -29,6 +29,26 @@ void PuzzleKnobController::Update(double dt)
   if (!posCheck && !negCheck)
   {
     frequency += knobCon->knobDelta;
+    int leds = frequency * 0.1;
+    if (preLeds != leds)
+    {
+      IMessage msg(MessageType::CHANGELEDS);
+      ChangeLEDSMessage* msgData = reinterpret_cast<ChangeLEDSMessage*>(msg.data);
+      msgData->controllerNum = controllerID_;
+      for (int i = 0; i < 10; ++i)
+      {
+        if (i < leds)
+        {
+          msgData->state[i] = true;
+        }
+        else
+        {
+          msgData->state[i] = false;
+        }
+        
+      }
+      preLeds = leds;
+    }
   }
   if (frequency > 100)
   {
