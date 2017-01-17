@@ -139,7 +139,7 @@ void GetSpriteFromFile(Object* obj, std::ifstream & file,GraphicsSystem * g){
   std::cout<<line<<std::endl;
   for(auto &iter : g->mTextures){
     if(iter.second.name == line){
-      obj->textureID = iter.second.textureID;
+      obj->textureID = iter.first;
       break;
     }
   }
