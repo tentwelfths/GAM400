@@ -17,6 +17,7 @@ PuzzleSwitchController::PuzzleSwitchController() : GameLogicComponent(GameLogicT
 
 bool PuzzleSwitchController::Initialize()
 {
+  //mParent_->mVisibility;
   return true;
 }
 
@@ -44,7 +45,7 @@ void PuzzleSwitchController::Update(double dt)
     msgData->controllerNum = controllerID_;
     for (int i = 0; i < 10; ++i)
     {
-      if (i < value_)
+      if (i < value_+1)
       {
         msgData->state[i] = true;
       }
