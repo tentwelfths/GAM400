@@ -416,7 +416,7 @@ void NetworkingSystem::Update(double dt)
       if (connections[i].initstep > 0) ++connections[i].initstep;
       std::cout << connections[i].initstep<<std::endl;
       if (connections[i].initstep > 300){
-        std::cout << "SENDING THE M << std::endl;
+        std::cout << "SENDING THE M"<< std::endl;
         AddCommand('M', i);
         connections[i].initstep = 1;
       }
