@@ -146,32 +146,32 @@ void GetSpriteFromFile(Object* obj, std::ifstream & file,GraphicsSystem * g){
 	std::getline(file,line);//	"mOpacity_": 1.000000,
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
-  char a = line[0];
+  char a = std::stof(line);
   std::cout<<(int)a<<std::endl;
 	std::getline(file,line);//	"mTint_": {
 	std::getline(file,line);//			x: 0.000000,
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
-  char r =  line[0];
+  char r =  std::stof(line);;
   std::cout<<(int)r<<std::endl;
 	std::getline(file,line);//			y: 0.000000,
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
-  char gr =  line[0];
+  char gr =  std::stof(line);;
   std::cout<<(int)gr<<std::endl;
 	std::getline(file,line);//			z: 0.000000
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
-  char b =  line[0];
+  char b =  std::stof(line);
   std::cout<<(int)b<<std::endl;
 	std::getline(file,line);//			}
 	std::getline(file,line);//	},
 
 
-  obj->r = r / 255.f;
-  obj->g = gr / 255.f;
-  obj->b = b / 255.f;
-  obj->a = a / 255.f;
+  obj->r = r  ;
+  obj->g = gr ;
+  obj->b = b  ;
+  obj->a = a  ;
 }
 
 void DeserializeComponent(Object* obj, std::string componentName, std::ifstream & file,GraphicsSystem * g)
