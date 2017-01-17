@@ -424,7 +424,7 @@ void NetworkingSystem::Update(double dt)
           break;
         }
         if (temp[0] == '#'){
-          std::cout << "SNEDING MOVE" << std::endl;
+          //std::cout << "SNEDING MOVE" << std::endl;
         }
         connections[i].commandsSend.pop();
         toSend += temp;
@@ -432,7 +432,7 @@ void NetworkingSystem::Update(double dt)
       }
       ++connections[i].frameCount;
       if (toSend.length() > 0){
-        std::cout << "Sending " << toSend.length() << std::endl;
+        //std::cout << "Sending " << toSend.length() << std::endl;
         int b = sendto(ListenSocket, toSend.c_str(), toSend.length(), 0, (sockaddr*)&connections[i].addr, sizeof(sockaddr_in));
       }
       //std::cout << "Send: " << toSend << std::endl;

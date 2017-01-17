@@ -349,7 +349,7 @@ bool Input ( void )
         }
       }
     } while (dp != NULL);
-    //std::cout<<"...."<<std::endl;
+    ////std::cout<<"...."<<std::endl;
     closedir(dirp);
 
 
@@ -365,7 +365,7 @@ bool Input ( void )
     // Read events from keyboard
 
     rd = read(keyboardFd,ev,sizeof(ev));
-    //std::cout<<"read "<<rd<<std::endl;
+    ////std::cout<<"read "<<rd<<std::endl;
     if(rd > 0)
     {
       int count,n;
@@ -390,7 +390,7 @@ bool Input ( void )
               inputstream += ((unsigned char *)(&evp->code))[i];
             inputstream += '1';
           }
-          //std::cout<<evp->code<<" --- "<<evp->value<<std::endl;
+          ////std::cout<<evp->code<<" --- "<<evp->value<<std::endl;
           
           if((evp->code == KEY_Q) && (evp->value == 1))
               ret = false;
@@ -399,8 +399,8 @@ bool Input ( void )
 
     }
     
-    //std::cout<<a2d.GetChannelData(1)<<std::endl;
-    //std::cout<<a2d.GetChannelData(0)<<std::endl;
+    ////std::cout<<a2d.GetChannelData(1)<<std::endl;
+    ////std::cout<<a2d.GetChannelData(0)<<std::endl;
 
     return(ret);
 }
@@ -413,7 +413,7 @@ unsigned short lastFrameSeen = 0;
 void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * g, NetworkingSystem * n, AudioSystem * a)
 {
   pos = 0;
-  std::cout<<"\t\t"<<len<<std::endl;
+  //std::cout<<"\t\t"<<len<<std::endl;
   while(pos < len){
     //std::string command = commands.front(); commands.pop();
     //Debug.Log("Command: " + command[pos]);
@@ -452,15 +452,16 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
       case '`': // Object created. 
       {
         ++pos;
-        Debug.Log("Creating an object");
         std::cout<<"CREATE"<<std::endl;
+        Debug.Log("Creating an object");
+        //std::cout<<"CREATE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         Debug.Log("Object ID" + std::to_string(objectID));
         pos += sizeof(unsigned int);
-        std::cout<<"OID"<<std::endl;
+        //std::cout<<"OID"<<std::endl;
         char isVis = command[pos];
         ++pos;
-        std::cout<<"isVis"<<std::endl;
+        //std::cout<<"isVis"<<std::endl;
         char textureID = command[pos];
         ++pos;
         char r = command[pos];
@@ -471,26 +472,26 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         ++pos;
         char a = command[pos];
         ++pos;
-        std::cout<<"TID"<<std::endl;
+        //std::cout<<"TID"<<std::endl;
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
         const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        ////std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<" zPos: "<< zPos <<std::endl;
+        ////std::cout<<" zPos: "<< zPos <<std::endl;
         pos += sizeof(float);
         const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
+        ////std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
         pos += sizeof(float);
         const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
+        ////std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
         pos += sizeof(float);
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
-        std::cout<<"PosScaRot"<<std::endl;
+        ////std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        //std::cout<<"PosScaRot"<<std::endl;
         pos += sizeof(float);
         auto temp = gObjectMap.find(objectID);
         if(temp == gObjectMap.end())
@@ -507,7 +508,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
           gObjectMap.insert({objectID, obj});
         }
         Debug.Log("Object Created");
-        std::cout<<"OCreated"<<std::endl;
+        //std::cout<<"OCreated"<<std::endl;
         temp = gObjectMap.find(objectID);
 
         temp->second->position[0] = xPos;
@@ -521,7 +522,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         temp->second->g = g / 255.f;
         temp->second->b = b / 255.f;
         temp->second->a = a / 255.f;
-        std::cout<<"OSetup"<<std::endl;
+        //std::cout<<"OSetup"<<std::endl;
         if(isVis == '0'){
           (temp)->second->inUse = false;
         }
@@ -535,14 +536,14 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
           tempstring += static_cast<const unsigned char *>(static_cast<const void *>(&(objectID)))[i];
         } 
         n->Send(tempstring.data(), tempstring.length());
-        std::cout<<"CreateAcks"<<std::endl;
+        //std::cout<<"CreateAcks"<<std::endl;
       }
       break;
       case '%': //Object died
       {
         ++pos;
         Debug.Log("Killing an object");
-        std::cout<<"DED"<<std::endl;
+        //std::cout<<"DED"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         Debug.Log("Object ID" + std::to_string(objectID));
         pos += sizeof(unsigned int);
@@ -564,37 +565,37 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
       {
         ++pos;
         Debug.Log("Moving an object");
-        std::cout<<"GOT MOVE MESSAGE"<<std::endl;
+        //std::cout<<"GOT MOVE MESSAGE"<<std::endl;
         unsigned int objectID = *static_cast<const unsigned int *>(static_cast<const void *>(&(command[pos])));
         pos += sizeof(unsigned int);
         char isVis = command[pos];
         ++pos;
-        //std::cout<<isVis<<std::endl;
+        ////std::cout<<isVis<<std::endl;
         
         auto temp = gObjectMap.find(objectID);
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
         const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        ////std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<" zPos: "<< zPos <<std::endl;
+        ////std::cout<<" zPos: "<< zPos <<std::endl;
         pos += sizeof(float);
         const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
+        ////std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
         pos += sizeof(float);
         const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
+        ////std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
         pos += sizeof(float);
         const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        ////std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
         pos += sizeof(float);
         if(temp != gObjectMap.end()){
           if(isVis == '0'){
             (temp)->second->inUse = false;
-            //std::cout<<"Something is invisible"<<std::endl;
+            ////std::cout<<"Something is invisible"<<std::endl;
           }
           else{
             (temp)->second->inUse = true;
@@ -614,10 +615,10 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         Debug.Log("Moving Camera");
         ++pos;
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
         const float yPos = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        ////std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
         pos += sizeof(float);
         g->mMainCamera.x = xPos;
         g->mMainCamera.y = yPos;
@@ -690,21 +691,21 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         ++pos;
         Debug.Log("Playing 3D sound effect");
         const float sourcePosX = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
+        ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
         pos += sizeof(float);
-        std::cout<<sourcePosX<<std::endl;
+        //std::cout<<sourcePosX<<std::endl;
         const float sourcePosY = *reinterpret_cast<const float*>(&(command[pos]));
-        //std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
-        std::cout<<sourcePosY<<std::endl;
+        ////std::cout<<pos<<"="<<len <<" yPos: "<< yPos <<std::endl;
+        //std::cout<<sourcePosY<<std::endl;
         pos += sizeof(float);
-        std::cout<<(int)command[pos]<<std::endl;
+        //std::cout<<(int)command[pos]<<std::endl;
         const char length = command[pos++];
         std::string name;
         for(int i = 0; i < length; ++i){
-          std::cout<<command[pos]<<std::endl;
+          //std::cout<<command[pos]<<std::endl;
           name += command[pos++];
         }
-        std::cout<<(int)length<<" "<<name<<std::endl;
+        //std::cout<<(int)length<<" "<<name<<std::endl;
         a->Play3DSoundEffect(name, sourcePosX, sourcePosY, g->mMainCamera.x, g->mMainCamera.y);
       }
       break;
@@ -718,15 +719,15 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
 int main ( int argc, char *argv[] )
 {
   if(argc < 2){
-    std::cout<<"Please identify which controller this is.( cone gun radar turret )"<<std::endl;
+    //std::cout<<"Please identify which controller this is.( cone gun radar turret )"<<std::endl;
     return 0;
   }
   if(argc == 2){
-    std::cout<<"TUrning off debug"<<std::endl;
+    //std::cout<<"TUrning off debug"<<std::endl;
     Debug.TurnOff();
   }
   else{
-    std::cout<<"Starting debugging"<<std::endl;
+    //std::cout<<"Starting debugging"<<std::endl;
     Debug.Clear();
   }
   
@@ -737,7 +738,7 @@ int main ( int argc, char *argv[] )
   sigemptyset(&sig_struct.sa_mask);
 
   if (sigaction(SIGINT, &sig_struct, NULL) == -1) {
-      std::cout << "Problem with sigaction" << std::endl;
+      //std::cout << "Problem with sigaction" << std::endl;
       exit(1);
   }
 
@@ -764,7 +765,7 @@ int main ( int argc, char *argv[] )
     myID = 03;
   }
   else{
-    std::cout<<"Controller name not found.( cone gun radar turret )"<<std::endl;
+    //std::cout<<"Controller name not found.( cone gun radar turret )"<<std::endl;
     return 0;
   } 
 
@@ -774,11 +775,11 @@ int main ( int argc, char *argv[] )
   AudioSystem a;
   GraphicsSystem g;
   NetworkingSystem n(27015, "192.168.77.106");
-  std::cout<<"CONNECTED"<<std::endl;
+  //std::cout<<"CONNECTED"<<std::endl;
   std::string hellomsg("+");
   hellomsg += myID;
   int res = n.Send(hellomsg.c_str(), 2);
-  std::cout<<hellomsg[0]<<(int)hellomsg[1]<<std::endl;
+  //std::cout<<hellomsg[0]<<(int)hellomsg[1]<<std::endl;
   
   g.LoadTextures("../Assets/Textures.JSON");
   
@@ -820,10 +821,10 @@ int main ( int argc, char *argv[] )
     
     deltatime = clock() - start;
     deltatime /= CLOCKS_PER_SEC;
-    //std::cout<<deltatime<<std::endl;
+    ////std::cout<<deltatime<<std::endl;
     if(ctrl_c_pressed)
     {
-        std::cout << "Ctrl^C Pressed unexporting pins" <<std::endl;
+        //std::cout << "Ctrl^C Pressed unexporting pins" <<std::endl;
         controller->Uninitialize();
         break;
     }
