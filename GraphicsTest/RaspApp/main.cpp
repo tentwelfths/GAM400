@@ -427,6 +427,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
       case 'L': //INITIAL Load
       {
         ++pos;
+        std::cout<<"GOT THE L"<<std::endl;
         char length = command[pos++];
         LevelFilename = "";
         LevelLoadingInProcess = true;
@@ -434,7 +435,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         for(unsigned i = 0; i < length; ++i){
           LevelFilename += command[pos++];
         }
-        
+        std::cout<<LevelFilename<<std::endl;
         std::string tempstring = "L";
         tempstring += length;
         for(unsigned i = 0; i < LevelFilename.length(); ++i)
@@ -446,6 +447,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
       break;
       case 'M': //But did you load though?
       {
+        std::cout<<"GOT THE M"<<std::endl;
         if(!LevelLoaded && LevelLoadingInProcess){
           std::cout<<"LOADING"<<LevelFilename<<std::endl;
           UnloadLevel();
