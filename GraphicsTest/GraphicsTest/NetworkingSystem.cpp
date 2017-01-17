@@ -63,83 +63,6 @@ bool NetworkingSystem::Initialize()
     WSACleanup();
     return false;
   }
-  //keep listening for data
-  //while (1)
-  //{
-  //  printf("Waiting for data...");
-  //  fflush(stdout);
-  //
-  //  //clear the buffer by filling null, it might have previously received data
-  //  memset(buf, '\0', BUFLEN);
-  //
-  //  //try to receive some data, this is a blocking call
-  //  if ((recv_len = recvfrom(ListenSocket, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen)) == SOCKET_ERROR)
-  //  {
-  //    printf("recvfrom() failed with error code : %d", WSAGetLastError());
-  //    exit(EXIT_FAILURE);
-  //  }
-  //
-  //  //print details of the client/peer and the data received
-  //  printf("Received packet from %s:%d\n", inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port));
-  //  printf("Data: %s\n", buf);
-  //
-  //  //now reply the client with the same data
-  //  if (sendto(ListenSocket, buf, recv_len, 0, (struct sockaddr*) &si_other, slen) == SOCKET_ERROR)
-  //  {
-  //    printf("sendto() failed with error code : %d", WSAGetLastError());
-  //    exit(EXIT_FAILURE);
-  //  }
-  //}
-  /*
-  //Init WSA
-  int iResult;
-  u_long iMode;
-  connectionCount = 0;
-  clientCount = 0;
-  // Initialize Winsock
-  iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
-  if (iResult != 0) {
-    printf("WSAStartup failed: %d\n", iResult);
-    return false;
-  }
-
-  ListenSocket = INVALID_SOCKET;
-
-  // Resolve the local address and port to be used by the server
-  server.sin_family = AF_INET;
-  server.sin_addr.s_addr = INADDR_ANY;
-  server.sin_port = htons(DEFAULT_PORT);
-
-  ListenSocket = socket(AF_INET, SOCK_DGRAM, 0);
-  if (ListenSocket == INVALID_SOCKET) {
-    printf("Error at socket(): %ld\n", WSAGetLastError());
-    WSACleanup();
-    return false;
-  }
-  //bind socket to listen for new peeps
-  iResult = bind(ListenSocket, (struct sockaddr *)&server, sizeof(server));
-  if (iResult == SOCKET_ERROR) {
-    printf("bind failed with error: %d\n", WSAGetLastError());
-    closesocket(ListenSocket);
-    WSACleanup();
-    return false;
-  }
-  iResult = ioctlsocket(ListenSocket, FIONBIO, &(iMode));
-  if (iResult != NO_ERROR)
-  {
-    printf("ioctlsocket failed with error: %ld\n", iResult);
-    closesocket(ListenSocket);
-    WSACleanup();
-    return false;
-  }
-  //if (listen(ListenSocket, SOMAXCONN) == SOCKET_ERROR) {
-  //  printf("Listen failed with error: %ld\n", WSAGetLastError());
-  //  closesocket(ListenSocket);
-  //  WSACleanup();
-  //  return false;
-  //}
-  */
-
   return true;
 }
 #include <bitset>
@@ -408,7 +331,6 @@ void NetworkingSystem::Update(double dt)
         strcpy(data, gCore->GetCurrentLevelName().c_str());
         std::cout << "SENDING THE L " << data << std::endl;
         AddCommand(i, 'L', 0, data);
-        connections[i].initstep = 1;
       }
 
       //toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[0];
