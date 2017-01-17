@@ -329,7 +329,7 @@ void NetworkingSystem::Update(double dt)
         std::cout << "LOAD ACKD" << std::endl;
         
         if (command.substr(1) == gCore->GetCurrentLevelName()){
-          connections[i].initstep = 1;
+          connections[i].initstep = 301;
         }
       }
       else if (command[0] == 'M')//Load Done
@@ -501,6 +501,11 @@ std::string NetworkingSystem::ConstructCommand(char com, unsigned int ID, char d
     for (unsigned i = 0; i < name.length(); ++i){
       temp += name[i];
     }
+  }
+    break;
+  case 'M':
+  {
+    temp = "M";
   }
     break;
 
