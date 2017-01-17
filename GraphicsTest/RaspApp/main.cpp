@@ -145,20 +145,20 @@ void GetSpriteFromFile(Object* obj, std::ifstream & file,GraphicsSystem * g){
 	std::getline(file,line);//	"mOpacity_": 1.000000,
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
-  char a = std::stof(line);
+  char a = line[0];
 	std::getline(file,line);//	"mTint_": {
 	std::getline(file,line);//			x: 0.000000,
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
-  char r = std::stof(line);
+  char r =  line[0];
 	std::getline(file,line);//			y: 0.000000,
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
-  char gr = std::stof(line);
+  char gr =  line[0];
 	std::getline(file,line);//			z: 0.000000
   line = trim(line);
   line = line.substr(line.find_first_of(':') + 2);
-  char b = std::stof(line);
+  char b =  line[0];
 	std::getline(file,line);//			}
 	std::getline(file,line);//	},
 
