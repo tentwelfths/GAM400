@@ -345,7 +345,6 @@ void ObjectSystem::AddObject(Object * obj, bool fromFile)
     obj->ID = ++myCount;
   else{
     myCount = (myCount > obj->ID) ? myCount : obj->ID;
-    ++myCount;
   }
   if (myCount == 0) myCount = 1;
   //obj->hasChanged = true;
