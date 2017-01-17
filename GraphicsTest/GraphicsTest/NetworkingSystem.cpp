@@ -414,7 +414,9 @@ void NetworkingSystem::Update(double dt)
       //toSend += static_cast<char *>(static_cast<void*>(&connections[i].frameCount))[1];
       //toSend += frameData;
       if (connections[i].initstep > 0) ++connections[i].initstep;
+      std::cout << connections[i].initstep<<std::endl;
       if (connections[i].initstep > 300){
+        std::cout << "SENDING THE M << std::endl;
         AddCommand('M', i);
         connections[i].initstep = 1;
       }
