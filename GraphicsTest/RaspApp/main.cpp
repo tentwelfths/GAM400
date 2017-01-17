@@ -188,6 +188,7 @@ void DeserializeComponent(Object* obj, std::string componentName, std::ifstream 
   {
     std::getline(file,line);
     line = trim(line);
+    std::cout<<line<<std::endl;
     if (line == "}" || line=="},"){
       bracketCount -= 1;
       continue;
