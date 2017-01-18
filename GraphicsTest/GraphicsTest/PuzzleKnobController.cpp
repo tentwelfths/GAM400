@@ -1,5 +1,6 @@
 #include "PuzzleKnobController.h"
 #include "InputSystem.h"
+#include "MessagingSystem.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
@@ -47,6 +48,8 @@ void PuzzleKnobController::Update(double dt)
         }
         
       }
+      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+      m->SendMessageToSystem(msg, "NetworkingSystem");
       preLeds = leds;
     }
   }

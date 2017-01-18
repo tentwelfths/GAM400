@@ -1,5 +1,6 @@
 #include "PuzzleSwitchController.h"
 #include "InputSystem.h"
+#include "MessagingSystem.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
@@ -54,6 +55,8 @@ void PuzzleSwitchController::Update(double dt)
         msgData->state[i] = false;
       }
     }
+    MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+    m->SendMessageToSystem(msg, "NetworkingSystem");
     value_ = newVal;
   }
   
