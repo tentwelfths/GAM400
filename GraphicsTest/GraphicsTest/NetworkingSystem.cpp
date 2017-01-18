@@ -249,11 +249,11 @@ void NetworkingSystem::Update(double dt)
       else if (command[0] == 'L')//ACKing LOAD
       {
         int pos = 1;
-        std::cout << "LOAD ACKD" << std::endl;
+        std::cout << "LOAD ACKD" << std::endl;   
         
-        if (command.substr(1) == gCore->GetCurrentLevelName()){
+        //if (command.substr(1) == gCore->GetCurrentLevelName()){
           connections[i].initstep = 301;
-        }
+        //}
       }
       else if (command[0] == 'M')//Load Done
       {
