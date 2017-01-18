@@ -29,7 +29,7 @@ void PuzzleKnobController::Update(double dt)
   bool negCheck = frequency <= 0 && knobCon->knobDelta < 0;
   if (!posCheck && !negCheck)
   {
-    frequency += knobCon->knobDelta *2;
+    frequency += knobCon->knobDelta * 4;
     int leds = frequency * 0.1;
     if (preLeds != leds)
     {
