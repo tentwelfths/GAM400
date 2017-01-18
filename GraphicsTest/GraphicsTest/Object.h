@@ -39,6 +39,7 @@ public:
   std::string source;
   bool dead;
   std::vector<IMessage> mMessages_;
+  //0-3 controllers, 4 PC
   bool mVisibility[5];
   ControllerCamera mCamera;
   bool save;

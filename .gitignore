@@ -268,3 +268,6 @@ GraphicsTest/GraphicsTest/GraphicsTest.vcxproj.filters
 GraphicsTest/GraphicsTest/GraphicsTest.vcxproj
 
 imgui.ini
+GraphicsTest/GraphicsTest/DP.json
+GraphicsTest/GraphicsTest/New.json
+GraphicsTest/GraphicsTest/PuzzleTest.json

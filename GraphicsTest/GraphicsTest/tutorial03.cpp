@@ -33,6 +33,8 @@
 #include "PuzzleKnobNode.h"
 #include "PuzzleProgess.h"
 #include "PuzzlePulse.h"
+#include "PuzzleSwitchController.h"
+#include "PuzzleSwitchNode.h"
 #include "DamageLocatorComponent.h"
 #include "DamageArrowComponent.h"
 
@@ -89,6 +91,8 @@ int main( void )
   RegisterComponentType(PuzzleKnobNode);
   RegisterComponentType(PuzzleProgress);
   RegisterComponentType(PuzzlePulse);
+  RegisterComponentType(PuzzleSwitchController);
+  RegisterComponentType(PuzzleSwitchNode);
   RegisterComponentType(DamageLocatorComponent);
   RegisterComponentType(DamageArrowComponent);
 

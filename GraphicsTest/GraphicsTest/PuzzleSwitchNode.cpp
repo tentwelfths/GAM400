@@ -1,25 +1,25 @@
 #include <Box2D\Box2D.h>
-#include "PuzzleKnobNode.h"
+#include "PuzzleSwitchNode.h"
 #include "PuzzleProgess.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
 #include "SpriteComponent.h"
-#include "PuzzleKnobController.h"
+#include "PuzzleSwitchController.h"
 #include "ObjectSystem.h"
 
-PuzzleKnobNode::PuzzleKnobNode() : GameLogicComponent(GameLogicType::PUZZLEKNOBNODE), targetFrequency_(0)
+PuzzleSwitchNode::PuzzleSwitchNode() : GameLogicComponent(GameLogicType::PUZZLESWITCHNODE), targetValue_(0)
 {
-  AddMember(PuzzleKnobNode, targetFrequency_);
-  mName_ = "PuzzleKnobNode";
+  AddMember(PuzzleSwitchNode, targetValue_);
+  mName_ = "PuzzleSwitchNode";
 }
 
-bool PuzzleKnobNode::Initialize()
+bool PuzzleSwitchNode::Initialize()
 {
   return true;
 }
 
-void PuzzleKnobNode::Update(double dt)
+void PuzzleSwitchNode::Update(double dt)
 {
   for (auto iter : mParent()->mMessages_)
   {
@@ -27,10 +27,9 @@ void PuzzleKnobNode::Update(double dt)
     {
       CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
       auto * o = gCore->GetSystem(ObjectSystem);
-      auto * beat = o->GetFirstItemByName("Pulse")->GetComponent(PuzzleKnobController);
+      auto * beat = o->GetFirstItemByName("Pulse")->GetComponent(PuzzleSwitchController);
       auto * sprite = mParent()->GetComponent(SpriteComponent);
-      float mod = beat->GetFrequency() * 0.1;
-      if (targetFrequency_ == mod)
+      if (beat->GetValue() == targetValue_)
       {
         auto * progress = o->GetFirstItemByName("Tracker")->GetComponent(PuzzleProgress);
         progress->Success();
@@ -38,7 +37,7 @@ void PuzzleKnobNode::Update(double dt)
         sprite->mTint_.g = 1;
         sprite->mTint_.b = 0;
       }
-      else if (targetFrequency_ - 1 == mod || targetFrequency_+1 == mod)
+      else if (beat->GetValue() == targetValue_ - 1 || beat->GetValue() == targetValue_ + 1)
       {
         sprite->mTint_.r = 0.5f;
         sprite->mTint_.g = 0.5f;
@@ -64,7 +63,7 @@ void PuzzleKnobNode::Update(double dt)
   }
 }
 
-void PuzzleKnobNode::Shutdown()
+void PuzzleSwitchNode::Shutdown()
 {
 
 }

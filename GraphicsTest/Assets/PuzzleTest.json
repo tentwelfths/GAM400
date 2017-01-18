@@ -1,12 +1,12 @@
 {
-	ObjectID: 8
+	ObjectID: 11
 	File: WoodFloor.json
 	Name: Node
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -0.000000,
-			y: -0.000000,
+			x: 0.000000,
+			y: -2.000000,
 			z: 1.000000
 			},
 		"mScale_": {
@@ -21,7 +21,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": woodfloor.png,
+		"mTextureName": woodcrate.png,
 		"mOpacity_": 1.000000,
 		"mTint_": {
 				x: 0.000000,
@@ -32,9 +32,114 @@
 	EditorComponent: {
 		"tile": false
 		},
-	PuzzleKnobNode: {
-		"targetFrequency_": 50,
-		"range_": 5
+	BoxColliderComponent: {
+		"mDensity": 0.000000,
+		"mHalfSize": {
+						x: 0.400000,
+						y: 0.400000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 0.000000,
+		"mGhost": true
+		},
+	PuzzleSwitchNode: {
+		"targetValue_": 0
+		}
+	},
+	ObjectID: 10
+	File: WoodFloor.json
+	Name: Node
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 3.000000,
+			y: 0.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": woodcrate.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 1.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 0.000000,
+		"mHalfSize": {
+						x: 0.400000,
+						y: 0.400000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 0.000000,
+		"mGhost": true
+		},
+	PuzzleSwitchNode: {
+		"targetValue_": 0
+		}
+	},
+	ObjectID: 9
+	File: WoodFloor.json
+	Name: Node
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 2.000000,
+			y: -1.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": woodcrate.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 1.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	PuzzleSwitchNode: {
+		"targetValue_": 0
 		},
 	BoxColliderComponent: {
 		"mDensity": 0.000000,
@@ -53,14 +158,14 @@
 		"mGhost": true
 		}
 	},
-	ObjectID: 3
+	ObjectID: 7
 	File: WoodFloor.json
 	Name: Node
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -2.000000,
-			y: -1.000000,
+			x: 5.000000,
+			y: -2.000000,
 			z: 1.000000
 			},
 		"mScale_": {
@@ -103,18 +208,17 @@
 		"mGhost": true
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 75,
-		"range_": 5
+		"targetFrequency_": 9
 		}
 	},
-	ObjectID: 4
+	ObjectID: 6
 	File: WoodFloor.json
 	Name: Node
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 5.000000,
-			y: -1.000000,
+			x: 2.000000,
+			y: -2.000000,
 			z: 1.000000
 			},
 		"mScale_": {
@@ -141,8 +245,7 @@
 		"tile": false
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 40,
-		"range_": 5
+		"targetFrequency_": 3
 		},
 	BoxColliderComponent: {
 		"mDensity": 0.000000,
@@ -194,35 +297,34 @@
 	EditorComponent: {
 		"tile": false
 		},
-	PuzzleKnobNode: {
-		"targetFrequency_": 25,
-		"range_": 5
-		},
 	BoxColliderComponent: {
 		"mDensity": 0.000000,
 		"mHalfSize": {
-							x: 0.400000,
-							y: 0.400000,
-							z: 1.000000
-							},
+						x: 0.400000,
+						y: 0.400000,
+						z: 1.000000
+						},
 		"dynamicState": 2,
 		"mOffset": {
-							x: 0.000000,
-							y: 0.000000,
-							z: 0.000000
-							},
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
 		"mFriction": 0.000000,
 		"mGhost": true
+		},
+	PuzzleKnobNode: {
+		"targetFrequency_": 2
 		}
 	},
-	ObjectID: 6
+	ObjectID: 4
 	File: WoodFloor.json
 	Name: Node
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 2.000000,
-			y: -2.000000,
+			x: 5.000000,
+			y: -1.000000,
 			z: 1.000000
 			},
 		"mScale_": {
@@ -265,18 +367,17 @@
 		"mGhost": true
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 50,
-		"range_": 5
+		"targetFrequency_": 4
 		}
 	},
-	ObjectID: 7
+	ObjectID: 3
 	File: WoodFloor.json
 	Name: Node
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 5.000000,
-			y: -2.000000,
+			x: -2.000000,
+			y: -1.000000,
 			z: 1.000000
 			},
 		"mScale_": {
@@ -303,8 +404,7 @@
 		"tile": false
 		},
 	PuzzleKnobNode: {
-		"targetFrequency_": 90,
-		"range_": 5
+		"targetFrequency_": 7
 		},
 	BoxColliderComponent: {
 		"mDensity": 0.000000,
@@ -323,29 +423,82 @@
 		"mGhost": true
 		}
 	},
+	ObjectID: 8
+	File: WoodFloor.json
+	Name: Node
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -0.000000,
+			y: -0.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": woodfloor.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 1.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 0.000000,
+		"mHalfSize": {
+						x: 0.400000,
+						y: 0.400000,
+						z: 1.000000
+						},
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 0.000000,
+		"mGhost": true
+		},
+	PuzzleKnobNode: {
+		"targetFrequency_": 5
+		}
+	},
 	ObjectID: 2
 	File: WoodFloor.json
 	Name: Tracker
 	Object: {
-	PuzzleProgress: {
-		"targetForRound_": 1
-		},
 	TransformComponent: {
 		"mPosition_": {
-				x: 0.000000,
-				y: 1.000000,
-				z: 1.000000
-				},
+			x: 0.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
 		"mScale_": {
-				x: 1.000000,
-				y: 1.000000,
-				z: 1.000000
-				},
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
 		"mRotation_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	PuzzleProgress: {
+		"targetForRound_": 2
 		},
 	SpriteComponent: {
 		"mTextureName": woodfloor.png,
@@ -364,26 +517,26 @@
 	File: WoodFloor.json
 	Name: Pulse
 	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -6.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
 	PuzzlePulse: {
 		"x_": -6.000000,
 		"y_": 0.000000
-		},
-	TransformComponent: {
-		"mPosition_": {
-				x: -6.000000,
-				y: 1.000000,
-				z: 1.000000
-				},
-		"mScale_": {
-				x: 1.000000,
-				y: 1.000000,
-				z: 1.000000
-				},
-		"mRotation_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
 		},
 	SpriteComponent: {
 		"mTextureName": woodfloor.png,
@@ -397,22 +550,25 @@
 	EditorComponent: {
 		"tile": false
 		},
+	PuzzleSwitchController: {
+		"controllerID_": 1
+		},
 	PuzzleKnobController: {
 		"controllerID_": 0
 		},
 	BoxColliderComponent: {
 		"mDensity": 0.000000,
 		"mHalfSize": {
-								x: 0.500000,
-								y: 0.400000,
-								z: 1.000000
-								},
+									x: 0.500000,
+									y: 0.400000,
+									z: 1.000000
+									},
 		"dynamicState": 2,
 		"mOffset": {
-								x: 0.000000,
-								y: 0.000000,
-								z: 0.000000
-								},
+									x: 0.000000,
+									y: 0.000000,
+									z: 0.000000
+									},
 		"mFriction": 0.000000,
 		"mGhost": true
 		}
