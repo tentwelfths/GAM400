@@ -181,6 +181,7 @@
     <ClCompile Include="Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="BoxColliderComponent.cpp" />
     <ClCompile Include="BulletComponent.cpp" />
+    <ClCompile Include="ChangeSpriteComponent.cpp" />
     <ClCompile Include="ChargeObjective.cpp" />
     <ClCompile Include="CircleColliderComponent.cpp" />
     <ClCompile Include="CloudComponent.cpp" />
@@ -228,8 +229,10 @@
     <ClCompile Include="PuzzlePi.cpp" />
     <ClCompile Include="PuzzleProgress.cpp" />
     <ClCompile Include="PuzzlePulse.cpp" />
+    <ClCompile Include="PuzzleRightStick.cpp" />
     <ClCompile Include="PuzzleSwitchController.cpp" />
     <ClCompile Include="PuzzleSwitchNode.cpp" />
+    <ClCompile Include="RandomGen.cpp" />
     <ClCompile Include="ResetObj.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="StartManagerComponent.cpp" />
@@ -288,6 +291,7 @@
     <ClInclude Include="Box2D\Rope\b2Rope.h" />
     <ClInclude Include="BoxColliderComponent.h" />
     <ClInclude Include="BulletComponent.h" />
+    <ClInclude Include="ChangeSpriteComponent.h" />
     <ClInclude Include="ChargeObjective.h" />
     <ClInclude Include="CircleColliderComponent.h" />
     <ClInclude Include="CloudComponent.h" />
@@ -351,8 +355,10 @@
     <ClInclude Include="PuzzlePi.h" />
     <ClInclude Include="PuzzleProgess.h" />
     <ClInclude Include="PuzzlePulse.h" />
+    <ClInclude Include="PuzzleRightStick.h" />
     <ClInclude Include="PuzzleSwitchController.h" />
     <ClInclude Include="PuzzleSwitchNode.h" />
+    <ClInclude Include="RandomGen.h" />
     <ClInclude Include="ResetObj.h" />
     <ClInclude Include="Socket.h" />
     <ClInclude Include="SpriteComponent.h" />

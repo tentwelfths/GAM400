@@ -11,6 +11,7 @@ public:
   void Update(double dt);
   void Shutdown();
   void UpdateTarget(CircleColliderComponent* circle, double dt);
+  int Goal() { return nextUnlock_; }
 private:
   float targetValueX_;
   float targetValueY_;
