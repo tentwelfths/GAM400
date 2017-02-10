@@ -37,6 +37,9 @@
 #include "PuzzleSwitchNode.h"
 #include "DamageLocatorComponent.h"
 #include "DamageArrowComponent.h"
+#include "PuzzlePi.h"
+#include "PuzzleController.h"
+#include "ResetObj.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -95,8 +98,11 @@ int main( void )
   RegisterComponentType(PuzzleSwitchNode);
   RegisterComponentType(DamageLocatorComponent);
   RegisterComponentType(DamageArrowComponent);
+  RegisterComponentType(PuzzlePi);
+  RegisterComponentType(PuzzleController);
+  RegisterComponentType(ResetObj);
 
-  gCore->LoadLevel("PuzzleTest.json");
+  gCore->LoadLevel("ActualPuzzle.json");
 
   while (gCore->active)
   {
