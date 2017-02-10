@@ -346,8 +346,8 @@
 		}
 	},
 	ObjectID: 7
-	File: WoodCrate.json
-	Name: WoodCrate
+	File: Arrow.json
+	Name: Arrow
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
