@@ -61,7 +61,11 @@ void PuzzleRightStick::Shutdown()
 void PuzzleRightStick::RandomArrow()
 {
   auto* trans = mParent()->GetComponent(TransformComponent);
-  theArrow_ = PuzzleArrow(rand() % 4);
+  auto temp = theArrow_;
+  while (temp == theArrow_)
+  {
+    theArrow_ = PuzzleArrow(rand() % 4);
+  }
   if (theArrow_ == PuzzleArrow::DOWN)
   {
     trans->mRotationZ(180.0f);

@@ -26,11 +26,11 @@ void PuzzleController::Update(double dt)
   if (rigid)
   {
     Joystick dir = input->getJoystick(0);
-    if (dir.x2Stick > 0.1 || dir.x2Stick < -0.1){
-      newVel.x = dir.x2Stick * speed_;
+    if (dir.x1Stick > 0.1 || dir.x1Stick < -0.1){
+      newVel.x = dir.x1Stick * speed_;
     }
-    if (dir.y2Stick > 0.1 || dir.y2Stick < -0.1){
-      newVel.y = dir.y2Stick * speed_;
+    if (dir.y1Stick > 0.1 || dir.y1Stick < -0.1){
+      newVel.y = dir.y1Stick * speed_;
     }
     if (rigid->GetBody())
     {
