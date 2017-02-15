@@ -1,0 +1,384 @@
+{
+	ObjectID: 1
+	File: PuzzleLeft.json
+	Name: PuzzleLeft
+	Object: {
+	PuzzleController: {
+		"speed_": 1.000000
+		},
+	TransformComponent: {
+		"mPosition_": {
+				x: -6.000000,
+				y: -2.000000,
+				z: 2.000000
+				},
+		"mScale_": {
+				x: 1.000000,
+				y: 1.000000,
+				z: 1.000000
+				},
+		"mRotation_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	SpriteComponent: {
+		"mTextureName": roundtable.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 2,
+		"mOffset": {
+							x: 0.000000,
+							y: 0.000000,
+							z: 0.000000
+							},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": true
+		}
+	},
+	ObjectID: 6
+	File: TempControl
+	Name: TempControl
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -6.000000,
+			y: 2.000000,
+			z: 3.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 5.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Coneman.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 2,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": false
+		},
+	PuzzlePi: {
+		"range_": 0.000000,
+		"delay_": 1.000000,
+		"speed_": 1.000000,
+		"nextUnlock_": 0
+		}
+	},
+	ObjectID: 5
+	File: BuildingWall.json
+	Name: BuildingWall
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -6.000000,
+			y: -5.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 5.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": buildingwall.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	ResetObj: {
+		}
+	},
+	ObjectID: 4
+	File: BuildingWall.json
+	Name: BuildingWall
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -6.000000,
+			y: 5.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 5.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": buildingwall.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	ResetObj: {
+		}
+	},
+	ObjectID: 3
+	File: BuildingWall.json
+	Name: BuildingWall
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -3.000000,
+			y: 0.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 9.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": buildingwall.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	ResetObj: {
+		}
+	},
+	ObjectID: 2
+	File: BuildingWall.json
+	Name: BuildingWall
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -9.000000,
+			y: -0.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 9.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": buildingwall.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	BoxColliderComponent: {
+		"mDensity": 1.000000,
+		"mHalfSize": {
+						x: 0.500000,
+						y: 0.500000,
+						z: 1.000000
+						},
+		"dynamicState": 0,
+		"mOffset": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		"mFriction": 1.000000,
+		"mGhost": false
+		},
+	ResetObj: {
+		}
+	},
+	ObjectID: 8
+	File: WoodCrate.json
+	Name: WoodCrate
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 3.000000,
+			y: 3.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	ChangeSpriteComponent: {
+		"changeTo": sadface.png
+		},
+	SpriteComponent: {
+		"mTextureName": woodcrate.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					}
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+	ObjectID: 7
+	File: Arrow.json
+	Name: Arrow
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: -0.000000,
+			z: 2.000000
+			},
+		"mScale_": {
+			x: 3.000000,
+			y: 3.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 90.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Arrow.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	PuzzleRightStick: {
+		}
+	},
+}

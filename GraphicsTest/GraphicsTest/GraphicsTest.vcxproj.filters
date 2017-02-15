@@ -210,6 +210,12 @@
     <ClCompile Include="PuzzleProgress.cpp" />
     <ClCompile Include="PuzzleSwitchController.cpp" />
     <ClCompile Include="PuzzleSwitchNode.cpp" />
+    <ClCompile Include="PuzzlePi.cpp" />
+    <ClCompile Include="PuzzleController.cpp" />
+    <ClCompile Include="ResetObj.cpp" />
+    <ClCompile Include="RandomGen.cpp" />
+    <ClCompile Include="PuzzleRightStick.cpp" />
+    <ClCompile Include="ChangeSpriteComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -468,6 +474,12 @@
     <ClInclude Include="PuzzleProgess.h" />
     <ClInclude Include="PuzzleSwitchController.h" />
     <ClInclude Include="PuzzleSwitchNode.h" />
+    <ClInclude Include="PuzzlePi.h" />
+    <ClInclude Include="PuzzleController.h" />
+    <ClInclude Include="ResetObj.h" />
+    <ClInclude Include="RandomGen.h" />
+    <ClInclude Include="PuzzleRightStick.h" />
+    <ClInclude Include="ChangeSpriteComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

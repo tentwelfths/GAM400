@@ -1,5 +1,6 @@
 #include "PuzzleKnobController.h"
 #include "InputSystem.h"
+#include "MessagingSystem.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
@@ -28,7 +29,7 @@ void PuzzleKnobController::Update(double dt)
   bool negCheck = frequency <= 0 && knobCon->knobDelta < 0;
   if (!posCheck && !negCheck)
   {
-    frequency += knobCon->knobDelta;
+    frequency += knobCon->knobDelta * 5;
     int leds = frequency * 0.1;
     if (preLeds != leds)
     {
@@ -47,6 +48,8 @@ void PuzzleKnobController::Update(double dt)
         }
         
       }
+      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+      m->SendMessageToSystem(msg, "NetworkingSystem");
       preLeds = leds;
     }
   }
