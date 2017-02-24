@@ -7,9 +7,9 @@ public class KnobController : MonoBehaviour {
 
     public int multiplier = 6;
 
-    private bool over = false;
+    //private bool over = false;
 
-    private float percent = 0.0f;
+    //private float percent = 0.0f;
     private float total = 0.0f;
 
     private bool canTurn = true;
@@ -18,14 +18,20 @@ public class KnobController : MonoBehaviour {
     {
         rend = GetComponent<Renderer>();
     }
-    void OnMouseEnter()
-    {
-        over = true;
-    }
+    //void OnMouseEnter()
+    //{
+    //    over = true;
+    //}
 
     public void DisableTurning()
     {
         canTurn = false;
+    }
+
+    void OnMouseDown()
+    {
+        canTurn = true;
+        gameObject.transform.parent.GetComponent<KnobGameLogic>().Reset();
     }
 
     void OnMouseOver()
@@ -77,10 +83,10 @@ public class KnobController : MonoBehaviour {
         }
         gameObject.transform.parent.GetComponent<LEDManager>().SetLEDs(leds);
     }
-    void OnMouseExit()
-    {
-        over = false;
-    }
+    //void OnMouseExit()
+    //{
+    //    over = false;
+    //}
     // Update is called once per frame
     void Update () {
 	
