@@ -1,14 +1,12 @@
 #pragma once
 #include "GameLogicComponent.h"
-class InputSystem;
 
-class PuzzleController : public GameLogicComponent
-{
+class PuzzleObjectSpawn{
   public:
-    PuzzleController();
+    PuzzleObjectSpawn();
     bool Initialize();
     void Update(double dt);
     void Shutdown();
   private:
-    float speed_;
+    int numOfObjects;
 };

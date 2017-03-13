@@ -10,38 +10,15 @@
 #include "SpriteComponent.h"
 #include "TransformComponent.h"
 #include "JSONTranslator.h"
-#include "PlayerControllerComponent.h"
 #include "BoxColliderComponent.h"
 #include "CircleColliderComponent.h"
 #include "EditorComponent.h"
 #include "OutOfBounds.h"
-#include "PCControllerComponent.h"
-#include "KnifeComponent.h"
-#include "ConeControllerComponent.h"
-#include "ConeComponent.h"
-#include "BulletComponent.h"
 #include "StartManagerComponent.h"
-#include "LevelManagerComponent.h"
-#include "PCCameraFollow.h"
-#include "ControllerCameraFollow.h"
 #include "GoHomeComponent.h"
-#include "CloudComponent.h"
-#include "GunControllerComponent.h"
-#include "ChargeObjective.h"
-#include "ObjectiveOne.h"
-#include "PuzzleKnobController.h"
-#include "PuzzleKnobNode.h"
-#include "PuzzleProgess.h"
-#include "PuzzlePulse.h"
-#include "PuzzleSwitchController.h"
-#include "PuzzleSwitchNode.h"
-#include "DamageLocatorComponent.h"
-#include "DamageArrowComponent.h"
 #include "PuzzlePi.h"
-#include "PuzzleController.h"
 #include "ResetObj.h"
 #include "PuzzleRightStick.h"
-#include "ChangeSpriteComponent.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -74,39 +51,15 @@ int main( void )
   RegisterComponentType(TransformComponent);
   RegisterComponentType(BoxColliderComponent);
   RegisterComponentType(CircleColliderComponent);
-  RegisterComponentType(PlayerControllerComponent);
   RegisterComponentType(EditorComponent);
   RegisterComponentType(OutOfBounds);
-  RegisterComponentType(PCControllerComponent);
-  RegisterComponentType(KnifeComponent);
-  RegisterComponentType(ControllerControllerComponent);
-  RegisterComponentType(ConeControllerComponent);
-  RegisterComponentType(ConeComponent);
-  RegisterComponentType(BulletComponent);
   RegisterComponentType(StartManagerComponent);
-  RegisterComponentType(LevelManagerComponent);
-  RegisterComponentType(PCCameraFollow);
-  RegisterComponentType(ControllerCameraFollow);
   RegisterComponentType(GoHomeComponent);
-  RegisterComponentType(CloudComponent);
-  RegisterComponentType(GunControllerComponent);
-  RegisterComponentType(ChargeObjective);
-  RegisterComponentType(ObjectiveOne);
-  RegisterComponentType(PuzzleKnobController);
-  RegisterComponentType(PuzzleKnobNode);
-  RegisterComponentType(PuzzleProgress);
-  RegisterComponentType(PuzzlePulse);
-  RegisterComponentType(PuzzleSwitchController);
-  RegisterComponentType(PuzzleSwitchNode);
-  RegisterComponentType(DamageLocatorComponent);
-  RegisterComponentType(DamageArrowComponent);
   RegisterComponentType(PuzzlePi);
-  RegisterComponentType(PuzzleController);
   RegisterComponentType(ResetObj);
   RegisterComponentType(PuzzleRightStick);
-  RegisterComponentType(ChangeSpriteComponent);
 
-  gCore->LoadLevel("ActualPuzzle.json");
+  gCore->LoadLevel("nothing.json");
 
   while (gCore->active)
   {

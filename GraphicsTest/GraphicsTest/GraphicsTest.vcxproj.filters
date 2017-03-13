@@ -17,7 +17,6 @@
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
-    <ClCompile Include="PlayerControllerComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="tutorial03.cpp" />
@@ -175,47 +174,20 @@
       <Filter>NotOurCode</Filter>
     </ClCompile>
     <ClCompile Include="OutOfBounds.cpp" />
-    <ClCompile Include="PCControllerComponent.cpp" />
-    <ClCompile Include="KnifeComponent.cpp" />
     <ClCompile Include="AudioSystem.cpp">
       <Filter>AudioSystem</Filter>
     </ClCompile>
     <ClCompile Include="AudioComponent.cpp">
       <Filter>AudioSystem</Filter>
     </ClCompile>
-    <ClCompile Include="ControllerControllerComponent.cpp" />
-    <ClCompile Include="ConeControllerComponent.cpp" />
     <ClCompile Include="MessagingSystem.cpp" />
-    <ClCompile Include="ConeComponent.cpp" />
-    <ClCompile Include="BulletComponent.cpp" />
     <ClCompile Include="StartManagerComponent.cpp" />
-    <ClCompile Include="LevelManagerComponent.cpp" />
-    <ClCompile Include="ControllerCameraFollow.cpp">
-      <Filter>CameraFollow</Filter>
-    </ClCompile>
-    <ClCompile Include="PCCameraFollow.cpp">
-      <Filter>CameraFollow</Filter>
-    </ClCompile>
     <ClCompile Include="GoHomeComponent.cpp" />
-    <ClCompile Include="GunControllerComponent.cpp" />
-    <ClCompile Include="CloudComponent.cpp" />
-    <ClCompile Include="ChargeObjective.cpp" />
-    <ClCompile Include="ObjectiveOne.cpp" />
-    <ClCompile Include="DamageLocatorComponent.cpp" />
-    <ClCompile Include="DamageArrowComponent.cpp" />
     <ClCompile Include="CircleColliderComponent.cpp" />
-    <ClCompile Include="PuzzleKnobController.cpp" />
-    <ClCompile Include="PuzzlePulse.cpp" />
-    <ClCompile Include="PuzzleKnobNode.cpp" />
-    <ClCompile Include="PuzzleProgress.cpp" />
-    <ClCompile Include="PuzzleSwitchController.cpp" />
-    <ClCompile Include="PuzzleSwitchNode.cpp" />
     <ClCompile Include="PuzzlePi.cpp" />
-    <ClCompile Include="PuzzleController.cpp" />
     <ClCompile Include="ResetObj.cpp" />
     <ClCompile Include="RandomGen.cpp" />
     <ClCompile Include="PuzzleRightStick.cpp" />
-    <ClCompile Include="ChangeSpriteComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -238,7 +210,6 @@
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="PhysicsMaterialComponent.h" />
     <ClInclude Include="PhysicsSystem.h" />
-    <ClInclude Include="PlayerControllerComponent.h" />
     <ClInclude Include="Socket.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Standard.h" />
@@ -405,8 +376,6 @@
       <Filter>NotOurCode</Filter>
     </ClInclude>
     <ClInclude Include="OutOfBounds.h" />
-    <ClInclude Include="PCControllerComponent.h" />
-    <ClInclude Include="KnifeComponent.h" />
     <ClInclude Include="fmod.hpp">
       <Filter>FMOD</Filter>
     </ClInclude>
@@ -446,40 +415,15 @@
     <ClInclude Include="fmod_studio.h">
       <Filter>FMOD</Filter>
     </ClInclude>
-    <ClInclude Include="ControllerControllerComponent.h" />
-    <ClInclude Include="ConeControllerComponent.h" />
     <ClInclude Include="MessagingSystem.h" />
     <ClInclude Include="Messages.h" />
-    <ClInclude Include="ConeComponent.h" />
-    <ClInclude Include="BulletComponent.h" />
     <ClInclude Include="StartManagerComponent.h" />
-    <ClInclude Include="LevelManagerComponent.h" />
-    <ClInclude Include="ControllerCameraFollow.h">
-      <Filter>CameraFollow</Filter>
-    </ClInclude>
-    <ClInclude Include="PCCameraFollow.h">
-      <Filter>CameraFollow</Filter>
-    </ClInclude>
     <ClInclude Include="GoHomeComponent.h" />
-    <ClInclude Include="GunControllerComponent.h" />
-    <ClInclude Include="CloudComponent.h" />
-    <ClInclude Include="ChargeObjective.h" />
-    <ClInclude Include="ObjectiveOne.h" />
-    <ClInclude Include="DamageLocatorComponent.h" />
-    <ClInclude Include="DamageArrowComponent.h" />
     <ClInclude Include="CircleColliderComponent.h" />
-    <ClInclude Include="PuzzleKnobController.h" />
-    <ClInclude Include="PuzzlePulse.h" />
-    <ClInclude Include="PuzzleKnobNode.h" />
-    <ClInclude Include="PuzzleProgess.h" />
-    <ClInclude Include="PuzzleSwitchController.h" />
-    <ClInclude Include="PuzzleSwitchNode.h" />
     <ClInclude Include="PuzzlePi.h" />
-    <ClInclude Include="PuzzleController.h" />
     <ClInclude Include="ResetObj.h" />
     <ClInclude Include="RandomGen.h" />
     <ClInclude Include="PuzzleRightStick.h" />
-    <ClInclude Include="ChangeSpriteComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />
@@ -497,9 +441,6 @@
     </Filter>
     <Filter Include="AudioSystem">
       <UniqueIdentifier>{a6ec0757-1a6f-4ce4-9ba2-8b99c8a48c71}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="CameraFollow">
-      <UniqueIdentifier>{86126516-064f-483a-8b8a-a6eef7ed4162}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

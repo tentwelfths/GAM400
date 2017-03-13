@@ -10,17 +10,15 @@ public:
   bool Initialize();
   void Update(double dt);
   void Shutdown();
-  void UpdateTarget(CircleColliderComponent* circle, double dt);
-  int Goal() { return nextUnlock_; }
+  void UpdateTarget(double dt);
 private:
   float targetValueX_;
   float targetValueY_;
   float range_;
   float speed_;
   float delay_;
+  float countdown_;
+  float killtime_;
   float timeTillChange_;
-  float boomTime_;
-  int nextUnlock_;
-  bool countDown_;
-  bool start_;
+  bool dying_;
 };

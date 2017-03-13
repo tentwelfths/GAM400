@@ -8,12 +8,11 @@
 #include "Object.h"
 #include "Globals.h"
 
-PuzzlePi::PuzzlePi() : GameLogicComponent(GameLogicType::PUZZLEPI), targetValueX_(0), targetValueY_(0), range_(0), speed_(1), delay_(1.0f), timeTillChange_(0.0f), boomTime_(3.0f), nextUnlock_(0), countDown_(true), start_(false)
+PuzzlePi::PuzzlePi() : GameLogicComponent(GameLogicType::PUZZLEPI), targetValueX_(0), targetValueY_(0), range_(0), speed_(1), delay_(1.0f), countdown_(0.0f), killtime_(1.5f), timeTillChange_(0.0f), dying_(false)
 {
   AddMember(PuzzlePi, range_);
   AddMember(PuzzlePi, speed_);
   AddMember(PuzzlePi, delay_);
-  AddMember(PuzzlePi, nextUnlock_);
   mName_ = "PuzzlePi";
 }
 
@@ -24,48 +23,42 @@ bool PuzzlePi::Initialize()
 
 void PuzzlePi::Update(double dt)
 {
-  if (start_)
-  {
-    auto* circle = mParent()->GetComponent(CircleColliderComponent);
-    UpdateTarget(circle, dt);
-  }
+  UpdateTarget(dt);
   for (auto iter : mParent()->mMessages_)
   {
-    if (iter.type == MessageType::COLLISIONSTARTED)
+    if (iter.type == MessageType::COLLISIONENDED)
     {
       CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
       if (col->obj1 == mParent())
       {
-        if (col->obj2->name == "PlayerLeft")
+        if (col->obj2->name == "Sphere")
         {
-          start_ = true;
-          countDown_ = false;
+          dying_ = true;
         }
       }
       else
       {
-        if (col->obj1->name == "PlayerLeft")
+        if (col->obj1->name == "Sphere")
         {
-          start_ = true;
-          countDown_ = false;
+          dying_ = true;
         }
       }
-      if (iter.type == MessageType::COLLISIONENDED)
+    }
+    else if (iter.type == MessageType::COLLISIONSTARTED)
+    {
+      CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+      if (col->obj1 == mParent())
       {
-        CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
-        if (col->obj1 == mParent())
+        if (col->obj2->name == "Sphere")
         {
-          if (col->obj2->name == "PlayerLeft")
-          {
-            countDown_ = true;
-          }
+          dying_ = false;
         }
-        else
+      }
+      else
+      {
+        if (col->obj1->name == "Sphere")
         {
-          if (col->obj1->name == "PlayerLeft")
-          {
-            countDown_ = true;
-          }
+          dying_ = false;
         }
       }
     }
@@ -81,16 +74,11 @@ void PuzzlePi::Shutdown()
 
 }
 
-void PuzzlePi::UpdateTarget(CircleColliderComponent* circle, double dt)
+void PuzzlePi::UpdateTarget( double dt)
 {
-  if (countDown_)
-  {
-    boomTime_ -= dt;
-  }
-  else if (boomTime_ <= 3.0f)
-  {
-    boomTime_ += dt;
-  }
+  auto * circle = mParent()->GetComponent(CircleColliderComponent);
+  auto * i = gCore->GetSystem(InputSystem);
+  b2Vec2 move((targetValueX_ + i->getJoystick(0).x1Stick) * speed_, (targetValueY_ + i->getJoystick(0).y1Stick) * speed_);
   if (delay_ <= timeTillChange_)
   {
     float randX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
@@ -103,14 +91,23 @@ void PuzzlePi::UpdateTarget(CircleColliderComponent* circle, double dt)
     {
       randY = -randY;
     }
+    
     targetValueX_ = randX;
     targetValueY_ = randY;
     timeTillChange_ = 0.0f;
-    b2Vec2 move(targetValueX_ * speed_, targetValueY_ * speed_);
-    circle->GetBody()->SetLinearVelocity(move);
+    
   }
   else
   {
     timeTillChange_ += dt;
+  }
+  circle->GetBody()->SetLinearVelocity(move);
+  if (dying_)
+  {
+    countdown_ += dt;
+  }
+  if (countdown_ > killtime_)
+  {
+
   }
 }
