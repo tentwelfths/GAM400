@@ -58,11 +58,11 @@ bool PuzzleObjectSpawn::Initialize()
   hintColorList[2].push_back(glm::vec3(1.0f, 0.5f, 0.0f));
   hintColorList[2].push_back(glm::vec3(1.0f, 0.0f, 1.0f));
   hintColorList[3].push_back(glm::vec3(1.0f, 0.0f, 1.0f));
-  hintColorList[3].push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+  hintColorList[3].push_back(glm::vec3(0.0f, 0.0f, 1.0f));
   hintColorList[3].push_back(glm::vec3(1.0f, 1.0f, 0.0f));
   hintColorList[3].push_back(glm::vec3(0.0f, 0.3f, 0.0f));
   hintColorList[3].push_back(glm::vec3(1.0f, 0.0f, 1.0f));
-  hintColorList[4].push_back(glm::vec3(1.0f, 0.5f, 0.0f));
+  hintColorList[4].push_back(glm::vec3(1.0f, 1.0f, 0.0f));
   hintColorList[4].push_back(glm::vec3(0.0f, 0.3f, 0.0f));
   hintColorList[4].push_back(glm::vec3(0.5f, 0.5f, 0.5f));
   hintColorList[4].push_back(glm::vec3(0.0f, 0.0f, 0.0f));
@@ -74,7 +74,7 @@ bool PuzzleObjectSpawn::Initialize()
   hintSpriteList[0].push_back("TeddyBear.png");
   hintSpriteList[0].push_back("JBlock.png");
   hintSpriteList[1].push_back("EBlock.png");
-  hintSpriteList[1].push_back("OBlock.ong");
+  hintSpriteList[1].push_back("OBlock.png");
   hintSpriteList[1].push_back("Rattle.png");
   hintSpriteList[1].push_back("Pacifier.png");
   hintSpriteList[1].push_back("Train.png");
@@ -101,7 +101,7 @@ bool PuzzleObjectSpawn::Initialize()
     obj->name += "_" + std::to_string(i);
     int randomSprite = rand() % listOfTextureNames.size();
     int randomColor = rand() % listOfColors.size();
-    while (listOfTextureNames[randomSprite] == "Arrow.png" || listOfTextureNames[randomSprite] == "Coneman.png")
+    while (listOfTextureNames[randomSprite] == "Arrow.png" || listOfTextureNames[randomSprite] == "Coneman.png" || listOfTextureNames[randomSprite] == "HeatTracker.png")
     {
       randomSprite = rand() % listOfTextureNames.size();
     }

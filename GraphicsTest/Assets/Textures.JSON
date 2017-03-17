@@ -7,119 +7,126 @@
 },
 {
 	Name:Ball.png,
-	Index:0,
+	Index:1,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:Coneman.png,
-	Index:0,
+	Index:2,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:Cube.png,
-	Index:0,
+	Index:3,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:Dinosaur.png,
-	Index:0,
+	Index:4,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:EBlock.png,
-	Index:0,
+	Index:5,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:IBlock.png,
-	Index:0,
+	Index:6,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:JBlock.png,
-	Index:0,
+	Index:7,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:LBlock.png,
-	Index:0,
+	Index:8,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:NBlock.png,
-	Index:0,
+	Index:9,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:OBlock.png,
-	Index:0,
+	Index:10,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:Pacifier.png,
-	Index:0,
+	Index:11,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:Rattle.png,
-	Index:0,
+	Index:12,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:TeddyBear.png,
-	Index:0,
+	Index:13,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:Train.png,
-	Index:0,
+	Index:14,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:Truck.png,
-	Index:0,
+	Index:15,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:WBlock.png,
-	Index:0,
+	Index:16,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:YBlock.png,
-	Index:0,
+	Index:17,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:HeatTracker.png,
+	Index:18,
 	Frames:1,
 	Rows:1,
 	Cols:1
