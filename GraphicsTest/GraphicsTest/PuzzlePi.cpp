@@ -78,7 +78,7 @@ void PuzzlePi::UpdateTarget( double dt)
 {
   auto * circle = mParent()->GetComponent(CircleColliderComponent);
   auto * i = gCore->GetSystem(InputSystem);
-  b2Vec2 move((targetValueX_ + (i->getJoystick(0).x1Stick * range_)) * speed_, (targetValueY_ + (i->getJoystick(0).y1Stick * range_)) * speed_);
+  b2Vec2 move(((targetValueX_ * range_) + i->getJoystick(0).x1Stick) * speed_, ((targetValueY_ * range_) + i->getJoystick(0).y1Stick) * speed_);
   if (delay_ <= timeTillChange_)
   {
     float randX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
