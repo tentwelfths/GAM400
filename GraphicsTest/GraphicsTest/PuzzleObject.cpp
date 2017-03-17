@@ -29,10 +29,6 @@ void PuzzleObject::Update(double dt)
     {
       clicked_ = true;
     }
-    else
-    {
-      clicked_ = false;
-    }
   }
   if (clicked_)
   {
@@ -47,6 +43,7 @@ void PuzzleObject::Update(double dt)
       auto* obj = o->GetFirstItemByName("Arrow");
       obj->GetComponent(PuzzlePi)->UpdateRange();
     }
+    clicked_ = false;
   }
   for (auto iter : mParent()->mMessages_)
   {
