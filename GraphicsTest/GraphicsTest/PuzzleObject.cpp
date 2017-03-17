@@ -29,6 +29,10 @@ void PuzzleObject::Update(double dt)
     {
       clicked_ = true;
     }
+    else
+    {
+      clicked_ = false;
+    }
   }
   if (clicked_)
   {
