@@ -104,6 +104,9 @@ void PuzzlePi::UpdateTarget( double dt)
   circle->GetBody()->SetLinearVelocity(move);
   if (dying_)
   {
+    auto sprite = mParent()->GetComponent(SpriteComponent);
+    sprite->mTint_.b -= dt;
+    sprite->mTint_.g -= dt;
     countdown_ += dt;
   }
   if (countdown_ > killtime_)
