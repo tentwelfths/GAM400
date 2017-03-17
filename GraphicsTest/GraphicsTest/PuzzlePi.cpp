@@ -105,8 +105,8 @@ void PuzzlePi::UpdateTarget( double dt)
   if (dying_)
   {
     auto sprite = mParent()->GetComponent(SpriteComponent);
-    sprite->mTint_.b -= dt;
-    sprite->mTint_.g -= dt;
+    sprite->mTint_.b -= (dt*.33);
+    sprite->mTint_.g -= (dt*.33);
     countdown_ += dt;
   }
   if (countdown_ > killtime_)

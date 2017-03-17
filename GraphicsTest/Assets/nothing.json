@@ -175,7 +175,7 @@
 						},
 		},
 	PuzzleObjectSpawn: {
-	"numOfObjects" : 15
+	"numOfObjects" : 5
 	},
 	EditorComponent: {
 		"tile": false
