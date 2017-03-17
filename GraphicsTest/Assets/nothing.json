@@ -72,7 +72,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": Coneman.png
+		"mTextureName": Radar.png
 		"mOpacity_": 1.000000,
 			"mTint_": {
 						x: 0.000000,
@@ -118,7 +118,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": Arrow.png
+		"mTextureName": Selector.png
 		"mOpacity_": 1.000000,
 			"mTint_": {
 						x: 0.000000,
@@ -166,7 +166,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": Arrow.png
+		"mTextureName": Selector.png
 		"mOpacity_": 1.000000,
 			"mTint_": {
 						x: 0.000000,

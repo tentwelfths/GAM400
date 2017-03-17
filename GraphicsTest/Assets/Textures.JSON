@@ -1,5 +1,5 @@
 {
-	Name:Arrow.png,
+	Name:Selector.png,
 	Index:0,
 	Frames:1,
 	Rows:1,
@@ -13,7 +13,7 @@
 	Cols:1
 },
 {
-	Name:Coneman.png,
+	Name:Radar.png,
 	Index:2,
 	Frames:1,
 	Rows:1,

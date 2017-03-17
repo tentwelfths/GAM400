@@ -101,7 +101,7 @@ bool PuzzleObjectSpawn::Initialize()
     obj->name += "_" + std::to_string(i);
     int randomSprite = rand() % listOfTextureNames.size();
     int randomColor = rand() % listOfColors.size();
-    while (listOfTextureNames[randomSprite] == "Arrow.png" || listOfTextureNames[randomSprite] == "Coneman.png" || listOfTextureNames[randomSprite] == "HeatTracker.png")
+    while (listOfTextureNames[randomSprite] == "Selector.png" || listOfTextureNames[randomSprite] == "Radar.png" || listOfTextureNames[randomSprite] == "HeatTracker.png")
     {
       randomSprite = rand() % listOfTextureNames.size();
     }
