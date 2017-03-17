@@ -117,5 +117,5 @@ void PuzzlePi::UpdateTarget( double dt)
 
 void PuzzlePi::UpdateRange()
 {
-  range_ += 0.1f;
+  range_ += 0.01f;
 }
