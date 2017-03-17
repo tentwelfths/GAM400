@@ -6,7 +6,6 @@
 #include "Object.h"
 #include "PhysicsComponent.h"
 #include "BoxColliderComponent.h"
-#include "SphereColliderComponent.h"
 #include "TransformComponent.h"
 #include "MyListen.h"
 #define VECPASS 8

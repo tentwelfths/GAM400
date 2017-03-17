@@ -19,6 +19,8 @@
 #include "PuzzlePi.h"
 #include "ResetObj.h"
 #include "PuzzleRightStick.h"
+#include "PuzzleObjectSpawn.h"
+#include "PuzzleObject.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -58,6 +60,8 @@ int main( void )
   RegisterComponentType(PuzzlePi);
   RegisterComponentType(ResetObj);
   RegisterComponentType(PuzzleRightStick);
+  RegisterComponentType(PuzzleObjectSpawn);
+  RegisterComponentType(PuzzleObject);
 
   gCore->LoadLevel("nothing.json");
 

@@ -8,7 +8,7 @@
 #include "Object.h"
 #include "Globals.h"
 
-PuzzlePi::PuzzlePi() : GameLogicComponent(GameLogicType::PUZZLEPI), targetValueX_(0), targetValueY_(0), range_(0), speed_(1), delay_(1.0f), countdown_(0.0f), killtime_(1.5f), timeTillChange_(0.0f), dying_(false)
+PuzzlePi::PuzzlePi() : GameLogicComponent(GameLogicType::PUZZLEPI), targetValueX_(0), targetValueY_(0), range_(0.7f), speed_(1), delay_(1.0f), countdown_(0.0f), killtime_(1.5f), timeTillChange_(0.0f), dying_(false)
 {
   AddMember(PuzzlePi, range_);
   AddMember(PuzzlePi, speed_);
@@ -78,7 +78,7 @@ void PuzzlePi::UpdateTarget( double dt)
 {
   auto * circle = mParent()->GetComponent(CircleColliderComponent);
   auto * i = gCore->GetSystem(InputSystem);
-  b2Vec2 move((targetValueX_ + i->getJoystick(0).x1Stick) * speed_, (targetValueY_ + i->getJoystick(0).y1Stick) * speed_);
+  b2Vec2 move((targetValueX_ + (i->getJoystick(0).x1Stick * range_)) * speed_, (targetValueY_ + (i->getJoystick(0).y1Stick * range_)) * speed_);
   if (delay_ <= timeTillChange_)
   {
     float randX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
@@ -110,4 +110,9 @@ void PuzzlePi::UpdateTarget( double dt)
   {
 
   }
+}
+
+void PuzzlePi::UpdateRange()
+{
+  range_ += 0.1f;
 }

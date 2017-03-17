@@ -1,3 +1,4 @@
+#include <time.h>
 #include "GameLogicSystem.h"
 #include "GameLogicComponent.h"
 #include "Core.h"
@@ -12,6 +13,7 @@ GameLogicSystem::GameLogicSystem()
 
 bool GameLogicSystem::Initialize()
 {
+  srand(time(NULL));
   return true;
 }
 

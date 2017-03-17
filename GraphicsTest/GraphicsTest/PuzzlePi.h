@@ -11,6 +11,7 @@ public:
   void Update(double dt);
   void Shutdown();
   void UpdateTarget(double dt);
+  void UpdateRange();
 private:
   float targetValueX_;
   float targetValueY_;

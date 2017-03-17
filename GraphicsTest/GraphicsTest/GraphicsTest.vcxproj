@@ -181,6 +181,7 @@
     <ClCompile Include="Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="BoxColliderComponent.cpp" />
     <ClCompile Include="CircleColliderComponent.cpp" />
+    <ClCompile Include="ControllerCameraFollow.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="EditorComponent.cpp" />
     <ClCompile Include="EditorSystem.cpp" />
@@ -203,9 +204,13 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectSystem.cpp" />
     <ClCompile Include="OutOfBounds.cpp" />
+    <ClCompile Include="PCCameraFollow.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="PhysicsMaterialComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
+    <ClCompile Include="PuzzleHints.cpp" />
+    <ClCompile Include="PuzzleObject.cpp" />
+    <ClCompile Include="PuzzleObjectSpawn.cpp" />
     <ClCompile Include="PuzzlePi.cpp" />
     <ClCompile Include="PuzzleRightStick.cpp" />
     <ClCompile Include="RandomGen.cpp" />
@@ -267,6 +272,7 @@
     <ClInclude Include="Box2D\Rope\b2Rope.h" />
     <ClInclude Include="BoxColliderComponent.h" />
     <ClInclude Include="CircleColliderComponent.h" />
+    <ClInclude Include="ControllerCameraFollow.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="EditorComponent.h" />
     <ClInclude Include="EditorSystem.h" />
@@ -305,9 +311,13 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectSystem.h" />
     <ClInclude Include="OutOfBounds.h" />
+    <ClInclude Include="PCCameraFollow.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="PhysicsMaterialComponent.h" />
     <ClInclude Include="PhysicsSystem.h" />
+    <ClInclude Include="PuzzleHints.h" />
+    <ClInclude Include="PuzzleObject.h" />
+    <ClInclude Include="PuzzleObjectSpawn.h" />
     <ClInclude Include="PuzzlePi.h" />
     <ClInclude Include="PuzzleRightStick.h" />
     <ClInclude Include="RandomGen.h" />

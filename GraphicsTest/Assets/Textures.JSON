@@ -1,300 +1,125 @@
 {
-	Name:bolt.png,
+	Name:Arrow.png,
 	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:player.png,
-	Index:1,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:rock.png,
-	Index:2,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:Grass.png,
-	Index:4,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:Concrete.png,
-	Index:5,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:Monster.png,
-	Index:6,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:Knife.png,
-	Index:7,
+	Name:Ball.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
 	Name:Coneman.png,
-	Index:8,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:Cone.png,
-	Index:9,
+	Name:Cube.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:HealthBar.png,
-	Index:10,
+	Name:Dinosaur.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:ControllersWin.png,
-	Index:11,
+	Name:EBlock.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:PCWins.png,
-	Index:12,
+	Name:IBlock.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:goal.png,
-	Index:13,
+	Name:JBlock.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:Tree.png,
-	Index:3,
+	Name:LBlock.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:FeetPrints.png,
-	Index:14,
+	Name:NBlock.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:Fence.png,
-	Index:15,
+	Name:OBlock.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:BigGrass.png,
-	Index:16,
+	Name:Pacifier.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:WaterBarrels.png,
-	Index:17,
+	Name:Rattle.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:riverpiece.png,
-	Index:18,
+	Name:TeddyBear.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:sadface.png,
-	Index:19,
+	Name:Train.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:rock.png,
-	Index:20,
+	Name:Truck.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:whitesquare.png,
-	Index:21,
+	Name:WBlock.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1
 },
 {
-	Name:blacksquare.png,
-	Index:22,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:Arrow.png,
-	Index:23,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:CaveFloor.png,
-	Index:24,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:buildingcorner.png,
-	Index:25,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:buildingwall.png,
-	Index:26,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:salagmite.png,
-	Index:27,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:stove.png,
-	Index:28,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:chair.png,
-	Index:29,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:roundtable.png,
-	Index:30,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:woodfloor.png,
-	Index:31,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:tv.png,
-	Index:32,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:lamp.png,
-	Index:33,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:Fridge.png,
-	Index:34,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:door.png,
-	Index:35,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:CaveWall.png,
-	Index:36,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:woodcrate.png,
-	Index:37,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:haybale.png,
-	Index:38,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:car.png,
-	Index:39,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:scienceobject.png,
-	Index:40,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:DPLOGO.png,
-	Index:41,
-	Frames:1,
-	Rows:1,
-	Cols:1
-},
-{
-	Name:Gunman.png,
-	Index:42,
+	Name:YBlock.png,
+	Index:0,
 	Frames:1,
 	Rows:1,
 	Cols:1

@@ -188,6 +188,11 @@
     <ClCompile Include="ResetObj.cpp" />
     <ClCompile Include="RandomGen.cpp" />
     <ClCompile Include="PuzzleRightStick.cpp" />
+    <ClCompile Include="PuzzleObjectSpawn.cpp" />
+    <ClCompile Include="PuzzleObject.cpp" />
+    <ClCompile Include="PuzzleHints.cpp" />
+    <ClCompile Include="PCCameraFollow.cpp" />
+    <ClCompile Include="ControllerCameraFollow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -424,6 +429,11 @@
     <ClInclude Include="ResetObj.h" />
     <ClInclude Include="RandomGen.h" />
     <ClInclude Include="PuzzleRightStick.h" />
+    <ClInclude Include="PuzzleObjectSpawn.h" />
+    <ClInclude Include="PuzzleObject.h" />
+    <ClInclude Include="PuzzleHints.h" />
+    <ClInclude Include="ControllerCameraFollow.h" />
+    <ClInclude Include="PCCameraFollow.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

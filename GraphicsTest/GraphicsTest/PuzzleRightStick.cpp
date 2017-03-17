@@ -11,75 +11,47 @@
 #include "Globals.h"
 #include "PuzzleRightStick.h"
 
-PuzzleRightStick::PuzzleRightStick() : GameLogicComponent(GameLogicType::ARROW), timeLeft_(1.0f), timeReset_(1.0f), completed_(0)
+#define XBOUNDS 10.0f
+#define YBOUNDS 8.0f
+
+PuzzleRightStick::PuzzleRightStick() : GameLogicComponent(GameLogicType::PUZZLEARROW)
 {
   mName_ = "PuzzleRightStick";
 }
 
 bool PuzzleRightStick::Initialize()
 {
-  srand(time(0));
-  RandomArrow();
   return true;
 }
 void PuzzleRightStick::Update(double dt)
 {
-  auto* i = gCore->GetSystem(InputSystem);
+  auto * i = gCore->GetSystem(InputSystem);
   Joystick* j = &i->getJoystick(0);
-  timeLeft_ -= dt;
-  if (theArrow_ == PuzzleArrow::DOWN && j->y2Stick < -.025)
+  b2Vec2 moveVec(j->x2Stick, j->y2Stick);
+  auto * circle = mParent()->GetComponent(CircleColliderComponent);
+  auto * theBody = circle->GetBody();
+  theBody->SetLinearVelocity(moveVec);
+  auto* trans = mParent()->GetComponent(TransformComponent);
+  b2Vec2 temp = theBody->GetTransform().p;
+  if (trans->mPositionX() > XBOUNDS)
   {
-    ++completed_;
-    timeLeft_ = timeReset_;
-    RandomArrow();
+    temp.x = XBOUNDS - 0.1f;
   }
-  else if (theArrow_ == PuzzleArrow::UP && j->y2Stick > .025)
+  else if (trans->mPositionX() < XBOUNDS)
   {
-    ++completed_;
-    timeLeft_ = timeReset_;
-    RandomArrow();
+    temp.x = -XBOUNDS + 0.1f;
   }
-  else if (theArrow_ == PuzzleArrow::RIGHT && j->y2Stick > .025)
+  if (trans->mPositionY() > YBOUNDS)
   {
-    ++completed_;
-    timeLeft_ = timeReset_;
-    RandomArrow();
+    temp.y = YBOUNDS - 0.1f;
   }
-  else if (theArrow_ == PuzzleArrow::LEFT && j->y2Stick < -.025)
+  else if (trans->mPositionY() < YBOUNDS)
   {
-    ++completed_;
-    timeLeft_ = timeReset_;
-    RandomArrow();
+    temp.y = -YBOUNDS + 0.1f;
   }
 }
 
 void PuzzleRightStick::Shutdown()
 {
 
-}
-
-void PuzzleRightStick::RandomArrow()
-{
-  auto* trans = mParent()->GetComponent(TransformComponent);
-  auto temp = theArrow_;
-  while (temp == theArrow_)
-  {
-    theArrow_ = PuzzleArrow(rand() % 4);
-  }
-  if (theArrow_ == PuzzleArrow::DOWN)
-  {
-    trans->mRotationZ(180.0f);
-  }
-  else if (theArrow_ == PuzzleArrow::UP)
-  {
-    trans->mRotationZ(0.0f);
-  }
-  else if (theArrow_ == PuzzleArrow::RIGHT)
-  {
-    trans->mRotationZ(270.0f);
-  }
-  else if (theArrow_ == PuzzleArrow::LEFT)
-  {
-    trans->mRotationZ(90.0f);
-  }
 }

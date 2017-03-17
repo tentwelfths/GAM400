@@ -42,8 +42,8 @@
 		"mGhost": false
 		},
 	PuzzlePi: {
-		"range_": 1,
-		"speed_": 1,
+		"range_": 0.700000,
+		"speed_": 1.000000,
 		"delay_": 1.000000,
 	},
 	EditorComponent: {
@@ -95,5 +95,90 @@
 	EditorComponent: {
 		"tile": false
 		},
-	}
+	},
+	ObjectID: 3
+	File: RightStick.json
+	Name: Checker
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: 0.000000,
+			z: 5.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Arrow.png
+		"mOpacity_": 1.000000,
+			"mTint_": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 2,
+		"mOffset": {
+								x: 0.000000,
+								y: 0.000000,
+								z: 0.000000
+								},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": true
+		},
+	PuzzleRightStick: {
+	},
+	EditorComponent: {
+		"tile": false
+		},
+	},
+	ObjectID: 4
+	File: PuzzleSpawnObject.json
+	Name: PuzzleSpawnObject
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 15.000000,
+			y: 0.000000,
+			z: 5.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Arrow.png
+		"mOpacity_": 1.000000,
+			"mTint_": {
+						x: 0.000000,
+						y: 0.000000,
+						z: 0.000000
+						},
+		},
+	PuzzleObjectSpawn: {
+	"numOfObjects" : 10
+	},
+	EditorComponent: {
+		"tile": false
+		},
+	},
 }
