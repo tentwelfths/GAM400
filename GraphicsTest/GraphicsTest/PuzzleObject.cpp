@@ -8,7 +8,7 @@
 #include "PuzzlePi.h"
 #include "PuzzleHints.h"
 
-PuzzleObject::PuzzleObject() : GameLogicComponent(GameLogicType::PUZZLEOBJECT), hintValue_(0), clicked_(false), collide_(false)
+PuzzleObject::PuzzleObject() : GameLogicComponent(GameLogicType::PUZZLEOBJECT), hintValue_(0), active_(true), clicked_(false), collide_(false)
 {
   mName_ = "PuzzleObject";
 }
@@ -20,66 +20,70 @@ bool PuzzleObject::Initialize()
 
 void PuzzleObject::Update(double dt)
 {
-  if (!clicked_ && collide_)
+  if (active_)
   {
+    if (!clicked_ && collide_)
+    {
 
-    auto* i = gCore->GetSystem(InputSystem);
-    //Pushing down on the right joystick
-    if (i->isButtonJustPressed(0,1))
-    {
-      clicked_ = true;
-    }
-  }
-  if (clicked_)
-  {
-    auto* o = gCore->GetSystem(ObjectSystem);
-    if (hintValue_ > 0)
-    {
-      auto* obj = o->GetFirstItemByName("HintHolder");
-      obj->GetComponent(PuzzleHints)->SetHintRevealed(hintValue_);
-    }
-    else
-    {
-      auto* obj = o->GetFirstItemByName("Arrow");
-      obj->GetComponent(PuzzlePi)->UpdateRange();
-    }
-    clicked_ = false;
-  }
-  for (auto iter : mParent()->mMessages_)
-  {
-    if (iter.type == MessageType::COLLISIONENDED)
-    {
-      CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
-      if (col->obj1 == mParent())
+      auto* i = gCore->GetSystem(InputSystem);
+      //Pushing down on the right joystick
+      if (i->isButtonJustPressed(0, 1))
       {
-        if (col->obj2->name == "Checker")
-        {
-          collide_ = false;
-        }
+        clicked_ = true;
+      }
+    }
+    if (clicked_)
+    {
+      auto* o = gCore->GetSystem(ObjectSystem);
+      if (hintValue_ > 0)
+      {
+        auto* obj = o->GetFirstItemByName("HintHolder");
+        obj->GetComponent(PuzzleHints)->SetHintRevealed(hintValue_);
       }
       else
       {
-        if (col->obj1->name == "Checker")
-        {
-          collide_ = false;
-        }
+        auto* obj = o->GetFirstItemByName("Arrow");
+        obj->GetComponent(PuzzlePi)->UpdateRange();
       }
+      mParent()->GetComponent(SpriteComponent)->mOpacity(0.0f);
+      active_ = false;
     }
-    else if (iter.type == MessageType::COLLISIONSTARTED)
+    for (auto iter : mParent()->mMessages_)
     {
-      CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
-      if (col->obj1 == mParent())
+      if (iter.type == MessageType::COLLISIONENDED)
       {
-        if (col->obj2->name == "Checker")
+        CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+        if (col->obj1 == mParent())
         {
-          collide_ = true;
+          if (col->obj2->name == "Checker")
+          {
+            collide_ = false;
+          }
+        }
+        else
+        {
+          if (col->obj1->name == "Checker")
+          {
+            collide_ = false;
+          }
         }
       }
-      else
+      else if (iter.type == MessageType::COLLISIONSTARTED)
       {
-        if (col->obj1->name == "Checker")
+        CollisionStartedMessage * col = reinterpret_cast<CollisionStartedMessage *>(iter.data);
+        if (col->obj1 == mParent())
         {
-          collide_ = true;
+          if (col->obj2->name == "Checker")
+          {
+            collide_ = true;
+          }
+        }
+        else
+        {
+          if (col->obj1->name == "Checker")
+          {
+            collide_ = true;
+          }
         }
       }
     }

@@ -13,6 +13,7 @@ public:
   void SetHint(int value) { hintValue_ = value; }
 private:
   int hintValue_;
+  bool active_;
   bool clicked_;
   bool collide_;
 };
