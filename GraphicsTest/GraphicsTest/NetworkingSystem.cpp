@@ -149,6 +149,7 @@ void NetworkingSystem::Update(double dt)
   {
 
     //std::cout << "We got something capn" << std::endl;
+    std::cout << buf << std::endl;
     var same = false;
     var index = 0;
     for (unsigned i = 0; i < connections.size(); ++i)
