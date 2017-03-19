@@ -47,6 +47,7 @@ void PuzzleObject::Update(double dt)
       }
       for (int i = 0; i < 5; ++i)
         mParent()->mVisibility[i] = false;
+        mParent()->hasChanged = true;
       //mParent()->GetComponent(SpriteComponent)->mOpacity(0.0f);
       active_ = false;
     }
