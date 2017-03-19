@@ -45,7 +45,9 @@ void PuzzleObject::Update(double dt)
         auto* obj = o->GetFirstItemByName("Arrow");
         obj->GetComponent(PuzzlePi)->UpdateRange();
       }
-      mParent()->GetComponent(SpriteComponent)->mOpacity(0.0f);
+      for (int i = 0; i < 5; ++i)
+        mParent()->mVisibility[i] = false;
+      //mParent()->GetComponent(SpriteComponent)->mOpacity(0.0f);
       active_ = false;
     }
     for (auto iter : mParent()->mMessages_)
