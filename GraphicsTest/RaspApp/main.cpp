@@ -591,7 +591,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         ++pos;
         ////std::cout<<isVis<<std::endl;
         
-        auto temp = gObjectMap.find(objectID);
+        auto& temp = gObjectMap.find(objectID);
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
@@ -602,15 +602,15 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         const float zPos = *reinterpret_cast<const float*>(&(command[pos]));
         ////std::cout<<" zPos: "<< zPos <<std::endl;
         pos += sizeof(float);
-        const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
-        ////std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
-        pos += sizeof(float);
-        const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
-        ////std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
-        pos += sizeof(float);
-        const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
-        ////std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
-        pos += sizeof(float);
+        //const float xSca = *reinterpret_cast<const float*>(&(command[pos]));
+        //////std::cout<<pos<<"["<<len <<" xSca: "<< xSca <<std::endl;
+        //pos += sizeof(float);
+        //const float ySca = *reinterpret_cast<const float*>(&(command[pos]));
+        //////std::cout<<pos<<"*"<<len <<" ySca: "<< ySca <<std::endl;
+        //pos += sizeof(float);
+        //const float rot  = *reinterpret_cast<const float*>(&(command[pos]));
+        //////std::cout<<pos<<"~"<<len <<" rot: "<< rot <<std::endl;
+        //pos += sizeof(float);
         if(temp != gObjectMap.end()){
           if(isVis == '0'){
             (temp)->second->inUse = false;
@@ -622,9 +622,9 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
           (temp)->second->position[0] = xPos;
           (temp)->second->position[1] = yPos;
           (temp)->second->position[2] = zPos;
-          (temp)->second->scale[0] = xSca;
-          (temp)->second->scale[1] = ySca;
-          (temp)->second->rotation = rot;
+          //(temp)->second->scale[0] = xSca;
+          //(temp)->second->scale[1] = ySca;
+          //(temp)->second->rotation = rot;
         }
         
       }

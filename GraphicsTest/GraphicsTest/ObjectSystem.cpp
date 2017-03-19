@@ -146,21 +146,21 @@ std::string ObjectSystem::GetTransformData(Object * iter, int num)
     data += static_cast<char *>(static_cast<void *>(&(t->mPosition_.z)))[k];
     ++i;
   }
-  for (int k = 0; k < sizeof(float); ++k)
-  {
-    data += static_cast<char *>(static_cast<void *>(&(t->mScale_.x)))[k];
-    ++i;
-  }
-  for (int k = 0; k < sizeof(float); ++k)
-  {
-    data += static_cast<char *>(static_cast<void *>(&(t->mScale_.y)))[k];
-    ++i;
-  }
-  for (int k = 0; k < sizeof(float); ++k)
-  {
-    data += static_cast<char *>(static_cast<void *>(&(t->mRotation_.z)))[k];
-    ++i;
-  }
+  //for (int k = 0; k < sizeof(float); ++k)
+  //{
+  //  data += static_cast<char *>(static_cast<void *>(&(t->mScale_.x)))[k];
+  //  ++i;
+  //}
+  //for (int k = 0; k < sizeof(float); ++k)
+  //{
+  //  data += static_cast<char *>(static_cast<void *>(&(t->mScale_.y)))[k];
+  //  ++i;
+  //}
+  //for (int k = 0; k < sizeof(float); ++k)
+  //{
+  //  data += static_cast<char *>(static_cast<void *>(&(t->mRotation_.z)))[k];
+  //  ++i;
+  //}
   //std::cout << "LENGTH: " << i << " ---" << frameData.length() << std::endl;
   return data;
 }
