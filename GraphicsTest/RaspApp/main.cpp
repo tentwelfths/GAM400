@@ -591,7 +591,7 @@ void ProcessResponse(int& pos,  const char * command, int len, GraphicsSystem * 
         ++pos;
         ////std::cout<<isVis<<std::endl;
         
-        auto& temp = gObjectMap.find(objectID);
+        auto temp = gObjectMap.find(objectID);
         
         const float xPos = *reinterpret_cast<const float*>(&(command[pos]));
         ////std::cout<<pos<<"+"<<len <<" xPos: "<< xPos <<std::endl;
