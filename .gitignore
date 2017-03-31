@@ -307,3 +307,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+GraphicsTest/GraphicsTest/~AutoRecover.GraphicsTest.vcxproj

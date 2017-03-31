@@ -131,3 +131,38 @@
 	Rows:1,
 	Cols:1
 },
+{
+	Name:DistanceModule.png,
+	Index:19,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobModule.png,
+	Index:20,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellModule.png,
+	Index:21,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderModule.png,
+	Index:22,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesModule.png,
+	Index:23,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},

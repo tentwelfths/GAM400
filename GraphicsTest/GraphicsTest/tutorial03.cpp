@@ -22,6 +22,7 @@
 #include "PuzzleObjectSpawn.h"
 #include "PuzzleObject.h"
 #include "PuzzleHints.h"
+#include "PCCameraFollow.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -64,6 +65,7 @@ int main( void )
   RegisterComponentType(PuzzleObjectSpawn);
   RegisterComponentType(PuzzleObject);
   RegisterComponentType(PuzzleHints);
+  RegisterComponentType(PCCameraFollow);
 
   gCore->LoadLevel("nothing.json");
 
