@@ -5,7 +5,7 @@ public class KnobController : MonoBehaviour {
 
     public Renderer rend;
 
-    public int multiplier = 6;
+    public int multiplier = 360;
 
     //private bool over = false;
 

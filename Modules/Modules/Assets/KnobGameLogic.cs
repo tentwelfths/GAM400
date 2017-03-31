@@ -1,12 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public class LightConfig
+{
+    public bool[] leds = new bool[10];
+}
+
+
 public class KnobGameLogic : MonoBehaviour {
 
     private int clockwiseRots = 0;
     private int counterClockwiseRots = 0;
     private bool AnswerDisplayed = false;
     private bool[] order = new bool[5];
+    private LightConfig[] leds = new LightConfig[10];
+    private int section = 0;
+    
     public void RegisterClockwiseRotation()
     {
         order[clockwiseRots + counterClockwiseRots] = true;
@@ -25,149 +34,46 @@ public class KnobGameLogic : MonoBehaviour {
         clockwiseRots = 0;
         AnswerDisplayed = false;
     }
-
     // Use this for initialization
     void Start () {
-    
+        print(leds);
+        for (int i = 0; i < 10; ++i) leds[i] = new LightConfig();
+        leds[0].leds = new bool[10] { false, false, false, false, false, false, false, false, false, false };
+        leds[1].leds = new bool[10] { false, false, false, true, false, false, true, false, false, true };
+        leds[2].leds = new bool[10] { false, false, true, false, false, false, false, true, false, false };
+        leds[3].leds = new bool[10] { true, false, true, true, true, true, true, true, false, true };
+        leds[4].leds = new bool[10] { true, false, true, true, false, false, true, true, false, false };
+        leds[5].leds = new bool[10] { false, false, false, false, false, true, false, false, false, false };
+        leds[6].leds = new bool[10] { false, true, false, true, true, true, true, false, true, false };
+        leds[7].leds = new bool[10] { true, true, false, false, true, false, false, true, false, false };
+        leds[8].leds = new bool[10] { true, true, true, true, true, true, true, true, true, true };
+        leds[9].leds = new bool[10] { false, true, true, true, true, true, true, true, true, true };
     }
 
     // Update is called once per frame
     void Update () {
-        if(clockwiseRots + counterClockwiseRots == 5)
+        if(counterClockwiseRots > 1)
         {
-            gameObject.transform.GetComponentInChildren<KnobController>().DisableTurning();
-            bool[] leds = new bool[10];
-            if (!AnswerDisplayed)
+            counterClockwiseRots = 0;
+            clockwiseRots = 0;
+            --section;
+            if(section < 0)
             {
-                for(int i = 0; i < 10; ++i)
-                {
-                    if(i == 0 || i == 9)
-                    {
-                        if(order[0])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    else if(i == 1 || i == 7)
-                    {
-                        if (order[1])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    else if (i == 2 || i == 3)
-                    {
-                        if (order[2])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    else if (i == 6 || i == 8)
-                    {
-                        if (order[3])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    else if (i == 4)
-                    {
-                        if (order[4])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    else if(i == 5)
-                    {
-                        if (!order[4])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    if(i == 0 || i == 4)
-                    {
-                        if(!order[2])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    else if (i == 1 || i == 7)
-                    {
-                        if (!order[0])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    else if (i == 2 || i == 9)
-                    {
-                        if (!order[1])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    else if (i == 3 || i == 6)
-                    {
-                        if (!order[4])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    else if (i == 4 || i == 5)
-                    {
-                        if (!order[3])
-                        {
-                            leds[i] = !leds[i];
-                        }
-                    }
-                    //Do shti with LEDs;
-                    //int check = i;
-                    //print(check);
-                    //if (check == 0)
-                    //{
-                    //    if (order[0])
-                    //    {
-                    //        leds[i] = !leds[i];
-                    //    }
-                    //}
-                    //check = i % 2;
-                    //if (check == 1)
-                    //{
-                    //  if (order[1])
-                    //  {
-                    //    leds[i] = !leds[i];
-                    //  }
-                    //}
-                    //check = i % 3;
-                    //print(check);
-                    //if (check == 2)
-                    //{
-                    //  if(order[2])
-                    //  {
-                    //    leds[i] = !leds[i];
-                    //  }
-                    //}
-                    //check = i % 4;
-                    //print(check);
-                    //if (check == 3)
-                    //{
-                    //   if(!order[3])
-                    //   {
-                    //     leds[i] = !leds[i];
-                    //   }
-                    //}
-                    //check = i % 5;
-                    //print(check);
-                    //if (check == 4)
-                    //{
-                    //    if (!order[4])
-                    //    {
-                    //        leds[i] = !leds[i];
-                    //    }
-                    //}
-                }
-                //Debug.Log(leds.ToString());
-                gameObject.transform.GetComponent<LEDManager>().SetLEDs(leds);
-                AnswerDisplayed = true;
+                section = 9;
             }
         }
-	}
+        if (clockwiseRots > 1)
+        {
+            counterClockwiseRots = 0;
+            clockwiseRots = 0;
+            ++section;
+            if (section > 9)
+            {
+                section = 0;
+            }
+        }
+        gameObject.transform.GetComponent<LEDManager>().SetLEDs(leds[section].leds);
+        AnswerDisplayed = true;
+    }
 }
+
