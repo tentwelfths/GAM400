@@ -31,6 +31,8 @@ bool Object::Initialize()
 void Object::Update(double dt)
 {
   mMessages_.clear();
+  mMessages_ = mNextMessages_;
+  mNextMessages_.clear();
 }
 
 void Object::Destroy(){

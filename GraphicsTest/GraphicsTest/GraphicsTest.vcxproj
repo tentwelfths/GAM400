@@ -197,6 +197,8 @@
     <ClCompile Include="imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="JSONTranslator.cpp" />
+    <ClCompile Include="KeypadButtonComponent.cpp" />
+    <ClCompile Include="KeypadComboManager.cpp" />
     <ClCompile Include="MessagingSystem.cpp" />
     <ClCompile Include="MyListen.cpp" />
     <ClCompile Include="NetworkingComponent.cpp" />
@@ -217,6 +219,7 @@
     <ClCompile Include="ResetObj.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="StartManagerComponent.cpp" />
+    <ClCompile Include="TimerManagerComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="tutorial03.cpp" />
   </ItemGroup>
@@ -301,6 +304,8 @@
     <ClInclude Include="imgui_internal.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="JSONTranslator.h" />
+    <ClInclude Include="KeypadButtonComponent.h" />
+    <ClInclude Include="KeypadComboManager.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="MessagingSystem.h" />
@@ -331,6 +336,7 @@
     <ClInclude Include="stb_textedit.h" />
     <ClInclude Include="stb_truetype.h" />
     <ClInclude Include="System.h" />
+    <ClInclude Include="TimerManagerComponent.h" />
     <ClInclude Include="TransformComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

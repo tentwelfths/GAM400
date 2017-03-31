@@ -24,6 +24,11 @@ bool PuzzleObjectSpawn::Initialize()
   auto * g = gCore->GetSystem(GraphicsSystem);
   for (auto& iter : g->mTextureMap_)
   {
+    if (iter.first == "Selector.png" || iter.first == "Radar.png" || iter.first == "HeatTracker.png" || iter.first == "DistanceModule.png" || iter.first == "KnobModule.png" 
+      || iter.first == "PhotocellModule.png" || iter.first == "SliderModule.png" || iter.first == "SwitchesModule.png")
+    {
+      continue;
+    }
     listOfTextureNames.push_back(iter.first);
   }
   //Init list of colors, then the hint object sprites and colors
@@ -191,9 +196,5 @@ void PuzzleObjectSpawn::Update(double dt)
 
 void PuzzleObjectSpawn::Shutdown()
 {
-  for (int i = 0; i < objectsInWorld.size(); ++i)
-  {
-    delete objectsInWorld[i];
-  }
-  objectsInWorld.clear();
+
 }

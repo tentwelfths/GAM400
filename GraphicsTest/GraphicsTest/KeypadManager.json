@@ -1,0 +1,35 @@
+File: KeypadManager.json
+Name: KeypadBackground
+Object: {
+TransformComponent: {
+	"mPosition_": {
+		x: 6.175000,
+		y: 33.125000,
+		z: 1.000000
+		},
+	"mScale_": {
+		x: 5.000000,
+		y: 1.250000,
+		z: 1.000000
+		},
+	"mRotation_": {
+		x: 0.000000,
+		y: 0.000000,
+		z: 0.000000
+		}
+	},
+SpriteComponent: {
+	"mTextureName": KeypadBackground.png,
+	"mOpacity_": 1.000000,
+	"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+	},
+EditorComponent: {
+	"tile": false
+	},
+KeypadComboManager: {
+	}
+}

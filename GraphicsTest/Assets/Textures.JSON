@@ -166,3 +166,206 @@
 	Rows:1,
 	Cols:1
 },
+{
+	Name:TimerOne.png,
+	Index:24,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerTwo.png,
+	Index:25,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerThree.png,
+	Index:26,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerFour.png,
+	Index:27,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerFive.png,
+	Index:28,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerSix.png,
+	Index:29,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerSeven.png,
+	Index:30,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerEight.png,
+	Index:31,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerNine.png,
+	Index:32,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerZero.png,
+	Index:33,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerColon.png,
+	Index:34,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:OneButton.png,
+	Index:35,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TwoButton.png,
+	Index:36,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:ThreeButton.png,
+	Index:37,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:FourButton.png,
+	Index:38,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:FiveButton.png,
+	Index:39,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SixButton.png,
+	Index:40,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SevenButton.png,
+	Index:41,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:EightButton.png,
+	Index:42,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:NineButton.png,
+	Index:43,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:ZeroButton.png,
+	Index:44,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:BackButton.png,
+	Index:45,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:Shutdown.png,
+	Index:46,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:TimerNone.png,
+	Index:47,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KeypadBackground.png,
+	Index:48,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:CloudSticker.png,
+	Index:49,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:AwesomeSticker.png,
+	Index:50,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:RainbowSticker.png,
+	Index:51,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:StarSticker.png,
+	Index:52,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},

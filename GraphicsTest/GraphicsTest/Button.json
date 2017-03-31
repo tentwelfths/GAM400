@@ -1,0 +1,36 @@
+File: Button.json
+Name: ButtonOne
+Object: {
+TransformComponent: {
+	"mPosition_": {
+		x: 4.000000,
+		y: 32.000000,
+		z: 1.000000
+		},
+	"mScale_": {
+		x: 1.000000,
+		y: 1.000000,
+		z: 1.000000
+		},
+	"mRotation_": {
+		x: 0.000000,
+		y: 0.000000,
+		z: 0.000000
+		}
+	},
+SpriteComponent: {
+	"mTextureName": OneButton.png,
+	"mOpacity_": 1.000000,
+	"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+	},
+EditorComponent: {
+	"tile": false
+	},
+KeypadButtonComponent: {
+	"mDigit": 0
+	}
+}

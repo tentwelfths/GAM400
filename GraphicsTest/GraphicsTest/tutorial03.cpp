@@ -23,6 +23,9 @@
 #include "PuzzleObject.h"
 #include "PuzzleHints.h"
 #include "PCCameraFollow.h"
+#include "TimerManagerComponent.h"
+#include "KeypadButtonComponent.h"
+#include "KeypadComboManager.h"
 
 Core * gCore = nullptr;
 std::unordered_map<std::string, IComponent*(*)()> components;
@@ -66,6 +69,9 @@ int main( void )
   RegisterComponentType(PuzzleObject);
   RegisterComponentType(PuzzleHints);
   RegisterComponentType(PCCameraFollow);
+  RegisterComponentType(TimerManagerComponent);
+  RegisterComponentType(KeypadButtonComponent);
+  RegisterComponentType(KeypadComboManager);
 
   gCore->LoadLevel("nothing.json");
 
