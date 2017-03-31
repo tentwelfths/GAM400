@@ -28,7 +28,7 @@ public:
   T* GetComponentA(const char * compName);
 
   std::unordered_map<std::string, IComponent *> mComponents;
-  void ReceiveMessage(IMessage msg){ mMessages_.push_back(msg); }
+  void ReceiveMessage(IMessage msg){ mNextMessages_.push_back(msg); }
 
   void RemoveComponent(IComponent * comp);
 
@@ -39,6 +39,7 @@ public:
   std::string source;
   bool dead;
   std::vector<IMessage> mMessages_;
+  std::vector<IMessage> mNextMessages_;
   //0-3 controllers, 4 PC
   bool mVisibility[5];
   ControllerCamera mCamera;

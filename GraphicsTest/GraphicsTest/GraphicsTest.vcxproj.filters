@@ -193,6 +193,9 @@
     <ClCompile Include="PuzzleHints.cpp" />
     <ClCompile Include="PCCameraFollow.cpp" />
     <ClCompile Include="ControllerCameraFollow.cpp" />
+    <ClCompile Include="TimerManagerComponent.cpp" />
+    <ClCompile Include="KeypadButtonComponent.cpp" />
+    <ClCompile Include="KeypadComboManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoxColliderComponent.h" />
@@ -434,6 +437,9 @@
     <ClInclude Include="PuzzleHints.h" />
     <ClInclude Include="ControllerCameraFollow.h" />
     <ClInclude Include="PCCameraFollow.h" />
+    <ClInclude Include="TimerManagerComponent.h" />
+    <ClInclude Include="KeypadButtonComponent.h" />
+    <ClInclude Include="KeypadComboManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleTransform.vertexshader" />

@@ -1,6 +1,6 @@
 #pragma once
 
-enum class MessageType{COLLISIONSTARTED, COLLISIONENDED, CHANGELEDS, CAMERAMOVE, PLAYSOUND, PLAY3DSOUND, SPRITECHANGED};
+enum class MessageType{COLLISIONSTARTED, COLLISIONENDED, CHANGELEDS, CAMERAMOVE, PLAYSOUND, PLAY3DSOUND, SPRITECHANGED, KEYPADBUTTONPRESS};
 
 class Object;
 class TransformComponent;
@@ -47,4 +47,9 @@ struct Play3DSoundMessage {
 struct SpriteChangeMessage{
   SpriteChangeMessage(){}
   unsigned int objID;
+};
+
+struct KeypadButtonPress{
+  KeypadButtonPress(){}
+  char index;
 };
