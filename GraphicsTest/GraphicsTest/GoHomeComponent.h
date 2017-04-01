@@ -11,6 +11,4 @@ public:
   void Update(double dt);
   void Shutdown();
 private:
-  float mCountDown;
-  float mTarget;
 };

@@ -10,6 +10,7 @@ class PuzzleHints : public GameLogicComponent
     void Shutdown();
     void SetHintRevealed(int hintNum);
     bool GetHintRevealed(int hintNum);
+    int GetValue(int valuePos);
   private:
     std::vector<int> hintsList;
     std::vector<bool> hintsRevealed;

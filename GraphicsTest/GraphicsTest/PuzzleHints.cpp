@@ -48,3 +48,8 @@ bool PuzzleHints::GetHintRevealed(int hintNum)
 {
   return hintsRevealed[hintNum];
 }
+
+int PuzzleHints::GetValue(int valuePos)
+{
+  return hintsList[valuePos];
+}

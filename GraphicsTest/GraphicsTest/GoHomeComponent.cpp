@@ -4,7 +4,7 @@
 #include "Globals.h"
 #include "InputSystem.h"
 
-GoHomeComponent::GoHomeComponent() : GameLogicComponent(GameLogicType::HOME), mCountDown(0.0f), mTarget(3.0f)
+GoHomeComponent::GoHomeComponent() : GameLogicComponent(GameLogicType::HOME)
 {
   mName_ = "GoHomeComponent";
 }
@@ -20,14 +20,8 @@ void GoHomeComponent::Update(double dt)
   if (i->isKeyPressed(GLFW_KEY_SPACE))
   {
     gCore->UnloadLevel();
-    gCore->LoadLevel("New.json");
+    gCore->LoadLevel("nothing.json");
   }
-  if (mCountDown > mTarget)
-  {
-    gCore->UnloadLevel();
-    gCore->LoadLevel("New.json");
-  }
-  mCountDown += dt;
 }
 
 void GoHomeComponent::Shutdown()

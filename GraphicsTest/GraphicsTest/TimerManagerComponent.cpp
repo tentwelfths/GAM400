@@ -75,8 +75,8 @@ void TimerManagerComponent::Update(double dt)
       seconds = 59;
       minutes -= 1;
       if (minutes < 0){
-        //TODO: LOSE
-        timer = -1000000;
+        gCore->UnloadLevel();
+        gCore->LoadLevel("Lose.json");
       }
       
       mMinute->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[minutes]);

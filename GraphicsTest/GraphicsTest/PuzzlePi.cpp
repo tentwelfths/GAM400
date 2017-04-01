@@ -111,7 +111,8 @@ void PuzzlePi::UpdateTarget( double dt)
   }
   if (countdown_ > killtime_)
   {
-
+    gCore->UnloadLevel();
+    gCore->LoadLevel("Lose.json");
   }
 }
 

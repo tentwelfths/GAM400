@@ -369,3 +369,17 @@
 	Rows:1,
 	Cols:1
 },
+{
+	Name:YouWin.png,
+	Index:53,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:YouLose.png,
+	Index:54,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},

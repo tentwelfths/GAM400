@@ -22,15 +22,23 @@ bool PuzzleObjectSpawn::Initialize()
 {
   JSONTranslator j;
   auto * g = gCore->GetSystem(GraphicsSystem);
-  for (auto& iter : g->mTextureMap_)
-  {
-    if (iter.first == "Selector.png" || iter.first == "Radar.png" || iter.first == "HeatTracker.png" || iter.first == "DistanceModule.png" || iter.first == "KnobModule.png" 
-      || iter.first == "PhotocellModule.png" || iter.first == "SliderModule.png" || iter.first == "SwitchesModule.png")
-    {
-      continue;
-    }
-    listOfTextureNames.push_back(iter.first);
-  }
+  listOfTextureNames.push_back("Ball.png");
+  listOfTextureNames.push_back("Dinosaur.png");
+  listOfTextureNames.push_back("Train.png");
+  listOfTextureNames.push_back("Truck.png");
+  listOfTextureNames.push_back("Pacifier.png");
+  listOfTextureNames.push_back("Cube.png");
+  listOfTextureNames.push_back("Rattle.png");
+  listOfTextureNames.push_back("TeddyBear.png");
+  listOfTextureNames.push_back("WBlock.png");
+  listOfTextureNames.push_back("EBlock.png");
+  listOfTextureNames.push_back("YBlock.png");
+  listOfTextureNames.push_back("LBlock.png");
+  listOfTextureNames.push_back("IBlock.png");
+  listOfTextureNames.push_back("NBlock.png");
+  listOfTextureNames.push_back("JBlock.png");
+  listOfTextureNames.push_back("OBlock.png");
+
   //Init list of colors, then the hint object sprites and colors
   listOfColors.push_back(glm::vec3(0.0f, 0.0f, 0.0f));
   listOfColors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));

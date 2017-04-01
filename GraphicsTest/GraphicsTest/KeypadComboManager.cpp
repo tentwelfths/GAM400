@@ -2,6 +2,7 @@
 #include <Box2D\Box2D.h>
 #include "KeypadComboManager.h"
 #include "JSONTranslator.h"
+#include "PuzzleHints.h"
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
@@ -74,6 +75,25 @@ void KeypadComboManager::ButtonPress(char button){
     //enter
     //TODO:
     //End Game Logic
+    auto * o = gCore->GetSystem(ObjectSystem);
+    auto * hintObj = o->GetFirstItemByName("Chair");
+    auto * ph = hintObj->GetComponent(PuzzleHints);
+    std::string theCode;
+    for (int i = 0; i < 5; ++i)
+    {
+      theCode += std::to_string(ph->GetValue(i));
+    }
+    
+    if (theCode == mCombination)
+    {
+      gCore->UnloadLevel();
+      gCore->LoadLevel("Win.json");
+    }
+    else
+    {
+      gCore->UnloadLevel();
+      gCore->LoadLevel("Lose.json");
+    }
   }
 }
 
