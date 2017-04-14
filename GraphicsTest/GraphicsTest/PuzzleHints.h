@@ -13,5 +13,7 @@ class PuzzleHints : public GameLogicComponent
     int GetValue(int valuePos);
   private:
     std::vector<int> hintsList;
+    std::vector<Object*> hintObjects;
+    std::string mHintFilenames[5][10];
     std::vector<bool> hintsRevealed;
 };
