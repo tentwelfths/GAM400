@@ -8,7 +8,7 @@ public:
   bool Initialize();
   void Update(double dt);
   void Shutdown();
-  char mDigit;
+  int mDigit;
 private:
   Object * manager;
 };
