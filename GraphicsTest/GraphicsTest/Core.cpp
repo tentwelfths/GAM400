@@ -19,7 +19,7 @@ void Core::RegisterSystem(System * s)
 
 bool Core::Initialize()
 {
-  srand(time(NULL));
+  //srand(time(NULL));
   editor = false;
   active = true;
   auto * g = new GraphicsSystem();
