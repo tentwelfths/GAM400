@@ -60,14 +60,11 @@ void PuzzleHints::Shutdown()
 void PuzzleHints::SetHintRevealed(int hintNum)
 {
   hintsRevealed[hintNum - 1] = true;
-  auto * o = gCore->GetSystem(ObjectSystem);
-  std::string hintName = "TheHint" + std::to_string(hintNum);
-  auto * obj = o->GetFirstItemByName(hintName);
   for (int i = 0; i < 5; ++i)
   {
-    obj->mVisibility[i] = true;
+    hintObjects[hintNum-1]->mVisibility[i] = true;
   }
-  obj->hasChanged = true;
+  hintObjects[hintNum - 1]->hasChanged = true;
 }
 
 bool PuzzleHints::GetHintRevealed(int hintNum)
