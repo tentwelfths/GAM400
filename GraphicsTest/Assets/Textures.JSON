@@ -384,8 +384,348 @@
 	Cols:1
 },
 {
-	Name:SwitchesHint7.png,
+	Name:DistanceHint0.png,
 	Index:55,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:DistanceHint1.png,
+	Index:56,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:DistanceHint2.png,
+	Index:57,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:DistanceHint3.png,
+	Index:58,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:DistanceHint4.png,
+	Index:59,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:DistanceHint5.png,
+	Index:70,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:DistanceHint6.png,
+	Index:71,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:DistanceHint7.png,
+	Index:72,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:DistanceHint8.png,
+	Index:73,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:DistanceHint9.png,
+	Index:74,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint0.png,
+	Index:75,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint1.png,
+	Index:76,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint2.png,
+	Index:77,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint3.png,
+	Index:78,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint4.png,
+	Index:79,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint5.png,
+	Index:80,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint6.png,
+	Index:81,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint7.png,
+	Index:82,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint8.png,
+	Index:83,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:KnobHint9.png,
+	Index:84,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},{
+	Name:PhotocellHint0.png,
+	Index:85,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellHint1.png,
+	Index:86,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellHint2.png,
+	Index:87,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellHint3.png,
+	Index:88,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellHint4.png,
+	Index:89,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellHint5.png,
+	Index:90,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellHint6.png,
+	Index:91,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellHint7.png,
+	Index:92,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellHint8.png,
+	Index:93,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:PhotocellHint9.png,
+	Index:94,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},{
+	Name:SliderHint0.png,
+	Index:95,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderHint1.png,
+	Index:96,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderHint2.png,
+	Index:97,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderHint3.png,
+	Index:98,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderHint4.png,
+	Index:99,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderHint5.png,
+	Index:100,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderHint6.png,
+	Index:101,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderHint7.png,
+	Index:102,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderHint8.png,
+	Index:103,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SliderHint9.png,
+	Index:104,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},{
+	Name:SwitchesHint0.png,
+	Index:105,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesHint1.png,
+	Index:106,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesHint2.png,
+	Index:107,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesHint3.png,
+	Index:108,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesHint4.png,
+	Index:109,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesHint5.png,
+	Index:110,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesHint6.png,
+	Index:111,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesHint7.png,
+	Index:112,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesHint8.png,
+	Index:113,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:SwitchesHint9.png,
+	Index:114,
 	Frames:1,
 	Rows:1,
 	Cols:1
