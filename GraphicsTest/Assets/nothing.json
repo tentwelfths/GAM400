@@ -426,7 +426,7 @@
 	},
 	ObjectID: 15
 	File: Chair.json
-	Name: Chair
+	Name: HintHolder
 	Object: {
 	TransformComponent: {
 		"mPosition_": {

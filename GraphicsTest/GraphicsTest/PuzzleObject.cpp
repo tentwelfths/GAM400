@@ -37,8 +37,8 @@ void PuzzleObject::Update(double dt)
       auto* o = gCore->GetSystem(ObjectSystem);
       if (hintValue_ > 0)
       {
-        //auto* obj = o->GetFirstItemByName("HintHolder");
-        //obj->GetComponent(PuzzleHints)->SetHintRevealed(hintValue_);
+        auto* obj = o->GetFirstItemByName("HintHolder");
+        obj->GetComponent(PuzzleHints)->SetHintRevealed(hintValue_);
       }
       else
       {
