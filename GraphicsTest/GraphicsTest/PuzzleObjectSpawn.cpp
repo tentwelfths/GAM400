@@ -168,7 +168,7 @@ bool PuzzleObjectSpawn::Initialize()
   for (int i = 0; i < NUMOFMODULES; ++i)
   {
     auto* obj = j.CreateObjectFromFile("PuzzleObject.json");
-    int randomHint = (rand() % 10);
+    int randomHint = i;
     int randomType = (rand() % hintSpriteList.size());
     obj->GetComponent(PuzzleObject)->SetHint(randomHint);
     obj->name = "HintObject_" + std::to_string(i);
