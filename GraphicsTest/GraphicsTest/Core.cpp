@@ -9,6 +9,7 @@
 #include "EditorSystem.h"
 #include "JSONTranslator.h"
 #include "AudioSystem.h"
+#include <time.h>
 
 void Core::RegisterSystem(System * s)
 {
@@ -18,6 +19,7 @@ void Core::RegisterSystem(System * s)
 
 bool Core::Initialize()
 {
+  srand(time(NULL));
   editor = false;
   active = true;
   auto * g = new GraphicsSystem();
@@ -41,7 +43,6 @@ bool Core::Initialize()
 
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
     (*iter).second->Initialize();
-  srand(f->GetFrameStart());
   //g->LoadTexture("../Assets/Kakka_Carrot_Veggie.png");
   //g->LoadTexture("../Assets/Key.png");
   //g->LoadTexture("../Assets/player.png");

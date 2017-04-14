@@ -13,7 +13,6 @@ GameLogicSystem::GameLogicSystem()
 
 bool GameLogicSystem::Initialize()
 {
-  srand(time(NULL));
   return true;
 }
 
