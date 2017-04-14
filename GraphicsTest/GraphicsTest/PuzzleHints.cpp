@@ -3,6 +3,7 @@
 #include "Core.h"
 #include "Object.h"
 #include "Globals.h"
+#include "JSONTranslator.h"
 
 #define NUMOFHINTS 5
 
@@ -13,9 +14,34 @@ PuzzleHints::PuzzleHints() : GameLogicComponent(GameLogicType::PUZZLEHINTS)
 
 bool PuzzleHints::Initialize()
 {
+  JSONTranslator j;
+
+  for (int i = 0; i < 10; ++i)
+    mHintFilenames[0][i] = "DistanceHint" +std::to_string(i)+ ".png";
+  for (int i = 0; i < 10; ++i)
+    mHintFilenames[1][i] = "KnobHint" + std::to_string(i) + ".png";
+  for (int i = 0; i < 10; ++i)
+    mHintFilenames[2][i] = "PhotocellHint" + std::to_string(i) + ".png";
+  for (int i = 0; i < 10; ++i)
+    mHintFilenames[3][i] = "SliderHint" + std::to_string(i) + ".png";
+  for (int i = 0; i < 10; ++i)
+    mHintFilenames[4][i] = "SwitchesHint" + std::to_string(i) + ".png";
+
+
   for (int i = 0; i < NUMOFHINTS; ++i)
   {
-    hintsList.push_back((rand() % 10));
+    int index = (rand() % 10);
+    hintsList.push_back(index);
+    Object * obj = j.CreateObjectFromFile("Empty.json");
+    obj->GetComponent(SpriteComponent)->SetTexture(mHintFilenames[4][7]);
+    obj->GetComponent(SpriteComponent)->mTint({ 0, 1, 0 });
+    glm::vec3 newTrans(-7, 34 - 2 * i, 4);
+    obj->GetComponent(TransformComponent)->mPosition(newTrans);
+    obj->GetComponent(TransformComponent)->mScale(8,2,1);
+    obj->save = false;
+    obj->Initialize();
+    obj->Register();
+    hintObjects.push_back(obj);
     hintsRevealed.push_back(false);
   }
   return true;
