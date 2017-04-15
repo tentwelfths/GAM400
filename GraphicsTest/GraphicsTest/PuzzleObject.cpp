@@ -35,7 +35,7 @@ void PuzzleObject::Update(double dt)
     if (clicked_)
     {
       auto* o = gCore->GetSystem(ObjectSystem);
-      if (hintValue_ > 0)
+      if (hintValue_ >= 0)
       {
         auto* obj = o->GetFirstItemByName("HintHolder");
         obj->GetComponent(PuzzleHints)->SetHintRevealed(hintValue_);
