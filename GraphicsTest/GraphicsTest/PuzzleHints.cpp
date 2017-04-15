@@ -4,6 +4,8 @@
 #include "Object.h"
 #include "Globals.h"
 #include "JSONTranslator.h"
+#include "MessagingSystem.h"
+#include "Messages.h"
 
 #define NUMOFHINTS 5
 
@@ -199,7 +201,7 @@ bool PuzzleHints::Initialize()
       auto* spr = check->GetComponent(SpriteComponent);
       if (index == 9 || index == 2 || index == 1)
       {
-        spr->mTint(glm::vec3(1.0f,0.0f,0.0f));
+        spr->mTint(glm::vec3(1.0f, 0.0f, 0.0f));
       }
       else if (index == 6 || index== 4 || index == 3 || index == 0)
       {
@@ -209,7 +211,13 @@ bool PuzzleHints::Initialize()
       {
         spr->mTint(glm::vec3(0.0f, 0.0f, 1.0f));
       }
-      spr->hasChanged = true;
+      IMessage msg(MessageType::SPRITECHANGED);
+      SpriteChangeMessage* msgData = reinterpret_cast<SpriteChangeMessage*>(msg.data);
+
+      msgData->objID = check->ID;
+
+      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+      m->SendMessageToSystem(msg, "NetworkingSystem");
     }
 
     hintObjects.push_back(obj);
