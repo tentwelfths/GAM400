@@ -19,8 +19,8 @@ bool TimerManagerComponent::Initialize()
   JSONTranslator j;
   auto * g = gCore->GetSystem(GraphicsSystem);
 
-  minutes = 5;
-  seconds = 0;
+  minutes = 9;
+  seconds = 59;
 
   mDigitFilenames[0] = "TimerZero.png";
   mDigitFilenames[1] = "TimerOne.png";
@@ -36,7 +36,7 @@ bool TimerManagerComponent::Initialize()
   timer = 0.0;
 
   mMinute = j.CreateObjectFromFile("Empty.json");
-  mMinute->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[5]);
+  mMinute->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[9]);
   mMinute->GetComponent(SpriteComponent)->mTint({ 1, 0, 0 });
   glm::vec3 newTrans(mParent()->GetComponent(TransformComponent)->mPositionX() - 1, mParent()->GetComponent(TransformComponent)->mPositionY(), mParent()->GetComponent(TransformComponent)->mPositionZ());
   mMinute->GetComponent(TransformComponent)->mPosition(newTrans);
@@ -45,7 +45,7 @@ bool TimerManagerComponent::Initialize()
   mMinute->Register();
 
   mTenSecond = j.CreateObjectFromFile("Empty.json");
-  mTenSecond->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[0]);
+  mTenSecond->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[5]);
   mTenSecond->GetComponent(SpriteComponent)->mTint({ 1, 0, 0 });
   glm::vec3 newTrans2(mParent()->GetComponent(TransformComponent)->mPositionX() + 1, mParent()->GetComponent(TransformComponent)->mPositionY(), mParent()->GetComponent(TransformComponent)->mPositionZ());
   mTenSecond->GetComponent(TransformComponent)->mPosition(newTrans2);
@@ -54,7 +54,7 @@ bool TimerManagerComponent::Initialize()
   mTenSecond->Register();
 
   mSecond = j.CreateObjectFromFile("Empty.json");
-  mSecond->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[0]);
+  mSecond->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[9]);
   mSecond->GetComponent(SpriteComponent)->mTint({ 1, 0, 0 });
   glm::vec3 newTrans3(mParent()->GetComponent(TransformComponent)->mPositionX() + 2, mParent()->GetComponent(TransformComponent)->mPositionY(), mParent()->GetComponent(TransformComponent)->mPositionZ());
   mSecond->GetComponent(TransformComponent)->mPosition(newTrans3);
@@ -77,6 +77,7 @@ void TimerManagerComponent::Update(double dt)
       if (minutes < 0){
         gCore->UnloadLevel();
         gCore->LoadLevel("Lose.json");
+        return;
       }
       
       mMinute->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[minutes]);

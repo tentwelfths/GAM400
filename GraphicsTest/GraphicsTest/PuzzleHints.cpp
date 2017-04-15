@@ -36,7 +36,7 @@ bool PuzzleHints::Initialize()
     hintsList.push_back(index);
     Object * obj = j.CreateObjectFromFile("Empty.json");
     obj->GetComponent(SpriteComponent)->SetTexture(mHintFilenames[i][index]);
-    obj->GetComponent(SpriteComponent)->mTint({ 0, 1, 0 });
+    obj->GetComponent(SpriteComponent)->mTint({ 0, 0, 0 });
     obj->mVisibility[4] = false;
     glm::vec3 newTrans(-7, 34 - 2 * i, 4);
     obj->GetComponent(TransformComponent)->mPosition(newTrans);
