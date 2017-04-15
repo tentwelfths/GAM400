@@ -108,6 +108,7 @@ void PuzzlePi::UpdateTarget( double dt)
     sprite->mTint_.b -= (dt*.33);
     sprite->mTint_.g -= (dt*.33);
     countdown_ += dt;
+    sprite->hasChanged = true;
   }
   if (countdown_ > killtime_)
   {

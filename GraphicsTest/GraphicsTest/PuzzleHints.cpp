@@ -64,6 +64,8 @@ bool PuzzleHints::Initialize()
       float y = 30.0f + randY;
       glm::vec3 batTrans(randX, y, 9.0);
       bat->GetComponent(TransformComponent)->mPosition(batTrans);
+      bat->Initialize();
+      bat->Register();
     }
     if (i == 1)
     {
@@ -86,6 +88,8 @@ bool PuzzleHints::Initialize()
         float y = 30.0f + randY;
         glm::vec3 starTrans(randX, y, 9.0);
         star->GetComponent(TransformComponent)->mPosition(starTrans);
+        star->Initialize();
+        star->Register();
       }
       if (index == 4 || index == 3)
       {
@@ -106,6 +110,8 @@ bool PuzzleHints::Initialize()
         float y = 30.0f + randY;
         glm::vec3 rainbowTrans(randX, y, 9.0);
         rainbow->GetComponent(TransformComponent)->mPosition(rainbowTrans);
+        rainbow->Initialize();
+        rainbow->Register();
       }
       if (index == 0 || index == 2 || index == 4 || index == 5 || index == 8)
       {
@@ -126,6 +132,8 @@ bool PuzzleHints::Initialize()
         float y = 30.0f + randY;
         glm::vec3 awesomeTrans(randX, y, 9.0);
         awesome->GetComponent(TransformComponent)->mPosition(awesomeTrans);
+        awesome->Initialize();
+        awesome->Register();
 
         Object * cloud = j.CreateObjectFromFile("Empty.json");
         cloud->GetComponent(SpriteComponent)->SetTexture("CloudSticker.png");
@@ -144,6 +152,8 @@ bool PuzzleHints::Initialize()
         y = 30.0f + randY;
         glm::vec3 cloudTrans(randX, y, 9.0);
         cloud->GetComponent(TransformComponent)->mPosition(cloudTrans);
+        cloud->Initialize();
+        cloud->Register();
       }
       else
       {
@@ -167,6 +177,8 @@ bool PuzzleHints::Initialize()
           float y = 30.0f + randY;
           glm::vec3 awesomeTrans(randX, y, 9.0);
           awesome->GetComponent(TransformComponent)->mPosition(awesomeTrans);
+          awesome->Initialize();
+          awesome->Register();
         }
         else
         {
@@ -190,14 +202,15 @@ bool PuzzleHints::Initialize()
             float y = 30.0f + randY;
             glm::vec3 cloudTrans(randX, y, 9.0);
             cloud->GetComponent(TransformComponent)->mPosition(cloudTrans);
+            cloud->Initialize();
+            cloud->Register();
           }
         }
       }
     }
     if (i == 4)
     {
-      auto* o = gCore->GetSystem(ObjectSystem);
-      auto* check = o->GetFirstItemByName("Checker");
+      auto* check  = j.CreateObjectFromFile("RightStick.json");
       auto* spr = check->GetComponent(SpriteComponent);
       if (index == 9 || index == 2 || index == 1)
       {
@@ -211,13 +224,9 @@ bool PuzzleHints::Initialize()
       {
         spr->mTint(glm::vec3(0.0f, 0.0f, 1.0f));
       }
-      IMessage msg(MessageType::SPRITECHANGED);
-      SpriteChangeMessage* msgData = reinterpret_cast<SpriteChangeMessage*>(msg.data);
-
-      msgData->objID = check->ID;
-
-      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
-      m->SendMessageToSystem(msg, "NetworkingSystem");
+      spr->hasChanged = true;
+      check->Initialize();
+      check->Register();
     }
 
     hintObjects.push_back(obj);

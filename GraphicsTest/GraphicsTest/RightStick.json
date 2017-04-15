@@ -1,0 +1,47 @@
+File: RightStick.json
+Name: Checker
+Object: {
+TransformComponent: {
+	"mPosition_": {
+		x: 5.000000,
+		y: 0.000000,
+		z: 5.000000
+		},
+	"mScale_": {
+		x: 1.000000,
+		y: 1.000000,
+		z: 1.000000
+		},
+	"mRotation_": {
+		x: 0.000000,
+		y: 0.000000,
+		z: 0.000000
+		}
+	},
+SpriteComponent: {
+	"mTextureName": Selector.png,
+	"mOpacity_": 1.000000,
+	"mTint_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+	},
+CircleColliderComponent: {
+	"mRadius": 0.500000,
+	"dynamicState": 2,
+	"mOffset": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				},
+	"mDensity": 0.000000,
+	"mFriction": 0.000000,
+	"mGhost": true
+	},
+EditorComponent: {
+	"tile": false
+	},
+PuzzleRightStick: {
+	}
+}
