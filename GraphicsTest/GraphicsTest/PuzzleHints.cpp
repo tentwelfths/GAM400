@@ -247,12 +247,12 @@ void PuzzleHints::Shutdown()
 
 void PuzzleHints::SetHintRevealed(int hintNum)
 {
-  hintsRevealed[hintNum - 1] = true;
+  hintsRevealed[hintNum] = true;
   for (int i = 0; i < 5; ++i)
   {
-    hintObjects[hintNum-1]->mVisibility[i] = true;
+    hintObjects[hintNum]->mVisibility[i] = true;
   }
-  hintObjects[hintNum - 1]->hasChanged = true;
+  hintObjects[hintNum]->hasChanged = true;
 }
 
 bool PuzzleHints::GetHintRevealed(int hintNum)
