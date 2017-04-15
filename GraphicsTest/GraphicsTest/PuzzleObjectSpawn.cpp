@@ -173,7 +173,6 @@ bool PuzzleObjectSpawn::Initialize()
     obj->GetComponent(PuzzleObject)->SetHint(randomHint);
     obj->name = "HintObject_" + std::to_string(i);
     obj->GetComponent(SpriteComponent)->SetTexture(hintSpriteList[i][randomType]);
-    int randomColor = rand() % listOfColors.size();
     obj->GetComponent(SpriteComponent)->mTint(hintColorList[i][randomType]);
     float randX = float(rand()) / float(RAND_MAX / 8);
     float randY = float(rand()) / float(RAND_MAX / 5);
