@@ -43,7 +43,7 @@ bool Core::Initialize()
 
   for (auto iter = mSystems.begin(); iter != mSystems.end(); ++iter)
     (*iter).second->Initialize();
-  srand(f->GetFrameStart());
+  //srand(f->GetFrameStart());
   //g->LoadTexture("../Assets/Kakka_Carrot_Veggie.png");
   //g->LoadTexture("../Assets/Key.png");
   //g->LoadTexture("../Assets/player.png");
