@@ -335,6 +335,7 @@ void GraphicsSystem::Update(double dt)
       --i;
       continue;
     }
+    mComponents_[i]->Update(dt);
     if (iter->mParent()->mVisibility[4] == false) continue;
     TransformComponent * t = iter->mParent()->GetComponent(TransformComponent);
     glm::vec3 pos = t->mPosition();
@@ -347,7 +348,6 @@ void GraphicsSystem::Update(double dt)
     if (!(pos.x < maxX && pos.y < maxY && pos.x > minX && pos.y > minY)){
       continue;
     }
-    mComponents_[i]->Update(dt);
     glm::mat4 Position;
     Position[3][0] = t->mPositionX();
     Position[3][1] = t->mPositionY();
