@@ -34,6 +34,7 @@ bool PuzzleHints::Initialize()
   {
     int index = (rand() % 10);
     hintsList.push_back(index);
+
     Object * obj = j.CreateObjectFromFile("Empty.json");
     obj->GetComponent(SpriteComponent)->SetTexture(mHintFilenames[i][index]);
     obj->GetComponent(SpriteComponent)->mTint({ 0, 0, 0 });
@@ -44,6 +45,7 @@ bool PuzzleHints::Initialize()
     obj->save = false;
     obj->Initialize();
     obj->Register();
+    hintObjects.push_back(obj);
 
     if (i == 0)
     {
@@ -229,7 +231,6 @@ bool PuzzleHints::Initialize()
       check->Register();
     }
 
-    hintObjects.push_back(obj);
     hintsRevealed.push_back(false);
   }
   return true;
