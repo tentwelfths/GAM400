@@ -1,0 +1,74 @@
+{
+	ObjectID: 146
+	File: Empty.json
+	Name: Title
+	Object: {
+	PCCameraFollow: {
+		},
+	TransformComponent: {
+		"mPosition_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 1.000000
+				},
+		"mScale_": {
+				x: 10.000000,
+				y: 5.000000,
+				z: 1.000000
+				},
+		"mRotation_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	SpriteComponent: {
+		"mTextureName": Babysfirsttitle.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					}
+		},
+	GoHomeComponent: {
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+	ObjectID: 147
+	File: Empty.json
+	Name: Controls
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 0.000000,
+			y: -4.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 3.000000,
+			y: 3.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Babysfirstmenu.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+}

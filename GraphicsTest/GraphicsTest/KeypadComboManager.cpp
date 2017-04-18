@@ -76,7 +76,7 @@ void KeypadComboManager::ButtonPress(char button){
     //TODO:
     //End Game Logic
     auto * o = gCore->GetSystem(ObjectSystem);
-    auto * hintObj = o->GetFirstItemByName("Chair");
+    auto * hintObj = o->GetFirstItemByName("HintHolder");
     auto * ph = hintObj->GetComponent(PuzzleHints);
     std::string theCode;
     for (int i = 0; i < 5; ++i)

@@ -73,7 +73,7 @@ int main( void )
   RegisterComponentType(KeypadButtonComponent);
   RegisterComponentType(KeypadComboManager);
 
-  gCore->LoadLevel("nothing.json");
+  gCore->LoadLevel("MainMenu.json");
 
   while (gCore->active)
   {
