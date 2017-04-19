@@ -10,7 +10,7 @@ public:
   void Shutdown();
 private:
   void ButtonPress(char button);
-  Object *(mDigits[5]);
+  Object *(mDigits[5]), * timerManager;
   std::string mDigitFilenames[11];
   int mCurrentDigit;
   std::string mCombination;

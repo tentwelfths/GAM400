@@ -10,10 +10,12 @@
 #include "PuzzleObject.h"
 #include "SpriteComponent.h"
 #include "GraphicsSystem.h"
+#include "MessagingSystem.h"
 
 KeypadComboManager::KeypadComboManager() : GameLogicComponent(GameLogicType::COMBOMANAGER)
 {
   mName_ = "KeypadComboManager";
+  timerManager = nullptr;
   mCombination = "     ";
 }
 
@@ -91,8 +93,17 @@ void KeypadComboManager::ButtonPress(char button){
     }
     else
     {
-      gCore->UnloadLevel();
-      gCore->LoadLevel("Lose.json");
+      //gCore->UnloadLevel();
+      //gCore->LoadLevel("Lose.json");
+      if (timerManager == nullptr){
+        timerManager = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("TimerManager");
+      }
+          IMessage msg(MessageType::SUBTRACTTIME);
+          SubtractTime * st = reinterpret_cast<SubtractTime*>(msg.data);
+          st->minutes = 1;
+          st->seconds = 0;
+          MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+          m->SendMessageToObject(msg, timerManager->ID);
     }
   }
 }
