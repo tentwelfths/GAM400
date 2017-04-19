@@ -8,12 +8,13 @@
 #include "Object.h"
 #include "Globals.h"
 
-PuzzlePi::PuzzlePi() : GameLogicComponent(GameLogicType::PUZZLEPI), targetValueX_(0), targetValueY_(0), range_(0.7f), speed_(1), delay_(1.0f), countdown_(0.0f), killtime_(1.5f), timeTillChange_(0.0f), dying_(false)
+PuzzlePi::PuzzlePi() : GameLogicComponent(GameLogicType::PUZZLEPI), targetValueX_(0), targetValueY_(0), range_(0.7f), speed_(1), delay_(1.0f), countdown_(0.0f), killtime_(0.1f), timeTillChange_(0.0f), dying_(false)
 {
   AddMember(PuzzlePi, range_);
   AddMember(PuzzlePi, speed_);
   AddMember(PuzzlePi, delay_);
   mName_ = "PuzzlePi";
+  timerManager = nullptr;
 }
 
 bool PuzzlePi::Initialize()
@@ -112,8 +113,18 @@ void PuzzlePi::UpdateTarget( double dt)
   }
   if (countdown_ > killtime_)
   {
-    gCore->UnloadLevel();
-    gCore->LoadLevel("Lose.json");
+    countdown_ = 0;
+    if (timerManager == nullptr){
+      timerManager = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("TimerManager");
+    }
+    IMessage msg(MessageType::SUBTRACTTIME);
+    SubtractTime * st = reinterpret_cast<SubtractTime*>(msg.data);
+    st->minutes = 0;
+    st->seconds = 1;
+    MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+    m->SendMessageToObject(msg, timerManager->ID);
+    //gCore->UnloadLevel();
+    //gCore->LoadLevel("Lose.json");
   }
 }
 

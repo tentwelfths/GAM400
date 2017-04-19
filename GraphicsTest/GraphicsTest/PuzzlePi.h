@@ -2,6 +2,7 @@
 #include "GameLogicComponent.h"
 class InputSystem;
 class CircleColliderComponent;
+class Object;
 
 class PuzzlePi : public GameLogicComponent
 {
@@ -22,4 +23,5 @@ private:
   float killtime_;
   float timeTillChange_;
   bool dying_;
+  Object * timerManager;
 };

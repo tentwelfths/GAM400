@@ -90,10 +90,11 @@ void TimerManagerComponent::Update(double dt)
     updateDisplay = true;
     timer -= 1.0;
     seconds -= 1;
-    if (seconds < 0){
-      seconds = 59;
-      minutes -= 1;
-    }
+    
+  }
+  if (seconds < 0){
+    seconds = 59;
+    minutes -= 1;
   }
   if (minutes < 0){
     gCore->UnloadLevel();

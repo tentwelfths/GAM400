@@ -98,12 +98,12 @@ void KeypadComboManager::ButtonPress(char button){
       if (timerManager == nullptr){
         timerManager = gCore->GetSystem(ObjectSystem)->GetFirstItemByName("TimerManager");
       }
-          IMessage msg(MessageType::SUBTRACTTIME);
-          SubtractTime * st = reinterpret_cast<SubtractTime*>(msg.data);
-          st->minutes = 1;
-          st->seconds = 0;
-          MessagingSystem* m = gCore->GetSystem(MessagingSystem);
-          m->SendMessageToObject(msg, timerManager->ID);
+      IMessage msg(MessageType::SUBTRACTTIME);
+      SubtractTime * st = reinterpret_cast<SubtractTime*>(msg.data);
+      st->minutes = 1;
+      st->seconds = 0;
+      MessagingSystem* m = gCore->GetSystem(MessagingSystem);
+      m->SendMessageToObject(msg, timerManager->ID);
     }
   }
 }
