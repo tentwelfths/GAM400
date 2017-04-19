@@ -193,6 +193,15 @@ bool PuzzleObjectSpawn::Initialize()
     obj->Register();
     objectsInWorld.push_back(obj);
   }
+  auto * piObj = j.CreateObjectFromFile("Arrow.json");
+  auto * radObj = j.CreateObjectFromFile("Radar.json");
+  radObj->GetComponent(TransformComponent)->mPositionZ(1);
+  piObj->save = false;
+  piObj->Initialize();
+  piObj->Register();
+  radObj->save = false;
+  radObj->Initialize();
+  radObj->Register();
   return true;
 }
 
