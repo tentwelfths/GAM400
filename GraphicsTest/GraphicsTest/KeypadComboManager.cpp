@@ -72,6 +72,7 @@ void KeypadComboManager::ButtonPress(char button){
   if (button >= '0' && button <= '9' && mCurrentDigit < 5){
     //new number
     mDigits[mCurrentDigit]->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[button - '0']);
+    mDigits[mCurrentDigit]->GetComponent(SpriteComponent)->mTint({ 0, 1, 0 });
     mCombination[mCurrentDigit] = button;
   }
   else if (button == 'b'){
@@ -119,6 +120,11 @@ void KeypadComboManager::ButtonPress(char button){
       st->seconds = 0;
       MessagingSystem* m = gCore->GetSystem(MessagingSystem);
       m->SendMessageToObject(msg, timerManager->ID);
+    }
+    for (int i = 0; i < theCode.length(); ++i){
+      if (theCode[i] != mCombination[i]){
+        mDigits[i]->GetComponent(SpriteComponent)->mTint(1.0f, 0.0f, 0.0f);
+      }
     }
   }
 }
