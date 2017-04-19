@@ -751,3 +751,24 @@
 	Rows:1,
 	Cols:1
 },
+{
+	Name:emergencyshutdownsequence.png,
+	Index:118,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:keypadpad.png,
+	Index:119,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},
+{
+	Name:hinthome.png,
+	Index:120,
+	Frames:1,
+	Rows:1,
+	Cols:1
+},

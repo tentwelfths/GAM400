@@ -1,17 +1,17 @@
 {
-	ObjectID: 41
-	File: Default.json
-	Name: DistanceModule
+	ObjectID: 52
+	File: TimerManager.json
+	Name: TimerManager
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -7.000000,
-			y: 27.000000,
-			z: 9.000000
+			x: -0.000000,
+			y: 34.000000,
+			z: 1.000000
 			},
 		"mScale_": {
-			x: 5.000000,
-			y: 2.000000,
+			x: 1.000000,
+			y: 1.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -21,7 +21,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": SwitchesModule.png,
+		"mTextureName": TimerColon.png,
 		"mOpacity_": 1.000000,
 		"mTint_": {
 				x: 0.000000,
@@ -31,21 +31,23 @@
 		},
 	EditorComponent: {
 		"tile": false
+		},
+	TimerManagerComponent: {
 		}
 	},
-	ObjectID: 40
-	File: Default.json
-	Name: DistanceModule
+	ObjectID: 307
+	File: Empty.json
+	Name: Keypad
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -7.000000,
+			x: 6.000000,
 			y: 29.000000,
-			z: 9.000000
+			z: 1.000000
 			},
 		"mScale_": {
-			x: 5.000000,
-			y: 2.000000,
+			x: 7.000000,
+			y: 9.500000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -55,7 +57,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": SliderModule.png,
+		"mTextureName": keypadpad.png,
 		"mOpacity_": 1.000000,
 		"mTint_": {
 				x: 0.000000,
@@ -67,19 +69,19 @@
 		"tile": false
 		}
 	},
-	ObjectID: 39
-	File: Default.json
-	Name: DistanceModule
+	ObjectID: 66
+	File: KeypadManager.json
+	Name: KeypadBackground
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -7.000000,
-			y: 31.000000,
-			z: 9.000000
+			x: 6.000000,
+			y: 34.000000,
+			z: 1.000000
 			},
 		"mScale_": {
 			x: 5.000000,
-			y: 2.000000,
+			y: 1.250000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -89,7 +91,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": PhotocellModule.png,
+		"mTextureName": KeypadBackground.png,
 		"mOpacity_": 1.000000,
 		"mTint_": {
 				x: 0.000000,
@@ -99,113 +101,8 @@
 		},
 	EditorComponent: {
 		"tile": false
-		}
-	},
-	ObjectID: 38
-	File: Default.json
-	Name: DistanceModule
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -7.000000,
-			y: 35.000000,
-			z: 9.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 2.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
 		},
-	SpriteComponent: {
-		"mTextureName": DistanceModule.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		}
-	},
-	ObjectID: 37
-	File: Default.json
-	Name: DistanceModule
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -7.000000,
-			y: 33.000000,
-			z: 9.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 2.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": KnobModule.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		}
-	},
-	ObjectID: 26
-	File: Default.json
-	Name: Default
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 0.000000,
-			y: 30.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 5.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	PCCameraFollow: {
-		},
-	SpriteComponent: {
-		"mTextureName": Shutdown.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-					x: 0.000000,
-					y: 0.000000,
-					z: 0.000000
-					}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 101
+	KeypadComboManager: {
 		}
 	},
 	ObjectID: 4
@@ -281,19 +178,19 @@
 	PuzzleHints: {
 		}
 	},
-	ObjectID: 66
-	File: KeypadManager.json
-	Name: KeypadBackground
+	ObjectID: 37
+	File: Default.json
+	Name: DistanceModule
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 6.000000,
-			y: 34.000000,
-			z: 1.000000
+			x: -7.000000,
+			y: 33.000000,
+			z: 9.000000
 			},
 		"mScale_": {
 			x: 5.000000,
-			y: 1.250000,
+			y: 2.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -303,7 +200,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": KeypadBackground.png,
+		"mTextureName": KnobModule.png,
 		"mOpacity_": 1.000000,
 		"mTint_": {
 				x: 0.000000,
@@ -313,23 +210,21 @@
 		},
 	EditorComponent: {
 		"tile": false
-		},
-	KeypadComboManager: {
 		}
 	},
-	ObjectID: 52
-	File: TimerManager.json
-	Name: TimerManager
+	ObjectID: 38
+	File: Default.json
+	Name: DistanceModule
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -0.000000,
-			y: 34.000000,
-			z: 1.000000
+			x: -7.000000,
+			y: 35.000000,
+			z: 9.000000
 			},
 		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
+			x: 5.000000,
+			y: 2.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -339,7 +234,7 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": TimerColon.png,
+		"mTextureName": DistanceModule.png,
 		"mOpacity_": 1.000000,
 		"mTint_": {
 				x: 0.000000,
@@ -349,23 +244,21 @@
 		},
 	EditorComponent: {
 		"tile": false
-		},
-	TimerManagerComponent: {
 		}
 	},
-	ObjectID: 90
-	File: Button.json
-	Name: ButtonOne
+	ObjectID: 39
+	File: Default.json
+	Name: DistanceModule
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 4.000000,
-			y: 32.000000,
-			z: 1.000000
+			x: -7.000000,
+			y: 31.000000,
+			z: 9.000000
 			},
 		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
+			x: 5.000000,
+			y: 2.000000,
 			z: 1.000000
 			},
 		"mRotation_": {
@@ -375,352 +268,123 @@
 			}
 		},
 	SpriteComponent: {
-		"mTextureName": OneButton.png,
+		"mTextureName": PhotocellModule.png,
 		"mOpacity_": 1.000000,
 		"mTint_": {
 				x: 0.000000,
 				y: 0.000000,
 				z: 0.000000
 				}
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+	ObjectID: 40
+	File: Default.json
+	Name: DistanceModule
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -7.000000,
+			y: 29.000000,
+			z: 9.000000
+			},
+		"mScale_": {
+			x: 5.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": SliderModule.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+	ObjectID: 41
+	File: Default.json
+	Name: DistanceModule
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -7.000000,
+			y: 27.000000,
+			z: 9.000000
+			},
+		"mScale_": {
+			x: 5.000000,
+			y: 2.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": SwitchesModule.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+	ObjectID: 26
+	File: Default.json
+	Name: Default
+	Object: {
+	PCCameraFollow: {
+		},
+	TransformComponent: {
+		"mPosition_": {
+				x: 0.000000,
+				y: 30.000000,
+				z: 1.000000
+				},
+		"mScale_": {
+				x: 5.000000,
+				y: 5.000000,
+				z: 1.000000
+				},
+		"mRotation_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	SpriteComponent: {
+		"mTextureName": Shutdown.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					}
 		},
 	EditorComponent: {
 		"tile": false
 		},
 	KeypadButtonComponent: {
-		"mDigit": 49
-		}
-	},
-	ObjectID: 100
-	File: Button.json
-	Name: ButtonOne
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 8.000000,
-			y: 26.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": BackButton.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 98
-		}
-	},
-	ObjectID: 99
-	File: Button.json
-	Name: ButtonOne
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 6.000000,
-			y: 26.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": ZeroButton.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 48
-		}
-	},
-	ObjectID: 98
-	File: Button.json
-	Name: ButtonOne
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 8.000000,
-			y: 28.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": NineButton.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 57
-		}
-	},
-	ObjectID: 97
-	File: Button.json
-	Name: ButtonOne
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 6.000000,
-			y: 28.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": EightButton.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 56
-		}
-	},
-	ObjectID: 96
-	File: Button.json
-	Name: ButtonOne
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 4.000000,
-			y: 28.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": SevenButton.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 55
-		}
-	},
-	ObjectID: 95
-	File: Button.json
-	Name: ButtonOne
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 8.000000,
-			y: 30.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": SixButton.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 54
-		}
-	},
-	ObjectID: 94
-	File: Button.json
-	Name: ButtonOne
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 6.000000,
-			y: 30.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": FiveButton.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 53
-		}
-	},
-	ObjectID: 93
-	File: Button.json
-	Name: ButtonOne
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 4.000000,
-			y: 30.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": FourButton.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 52
-		}
-	},
-	ObjectID: 92
-	File: Button.json
-	Name: ButtonOne
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 8.000000,
-			y: 32.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 1.000000,
-			y: 1.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": ThreeButton.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		},
-	KeypadButtonComponent: {
-		"mDigit": 51
+		"mDigit": 101
 		}
 	},
 	ObjectID: 91
@@ -760,6 +424,376 @@
 		"mDigit": 50
 		}
 	},
+	ObjectID: 92
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.000000,
+			y: 32.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": ThreeButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 51
+		}
+	},
+	ObjectID: 93
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 4.000000,
+			y: 30.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": FourButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 52
+		}
+	},
+	ObjectID: 94
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: 30.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": FiveButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 53
+		}
+	},
+	ObjectID: 95
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.000000,
+			y: 30.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": SixButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 54
+		}
+	},
+	ObjectID: 96
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 4.000000,
+			y: 28.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": SevenButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 55
+		}
+	},
+	ObjectID: 97
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: 28.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": EightButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 56
+		}
+	},
+	ObjectID: 98
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.000000,
+			y: 28.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": NineButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 57
+		}
+	},
+	ObjectID: 99
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.000000,
+			y: 26.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": ZeroButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 48
+		}
+	},
+	ObjectID: 100
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.000000,
+			y: 26.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": BackButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 98
+		}
+	},
+	ObjectID: 90
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 4.000000,
+			y: 32.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": OneButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 49
+		}
+	},
 	ObjectID: 119
 	File: Empty.json
 	Name: Empty
@@ -792,6 +826,150 @@
 		},
 	EditorComponent: {
 		"tile": false
+		}
+	},
+	ObjectID: 362
+	File: RightStick.json
+	Name: Checker
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: 0.000000,
+			z: 5.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Selector.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 1.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 2,
+		"mOffset": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": true
+		},
+	PuzzleRightStick: {
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+	ObjectID: 298
+	File: RightStick.json
+	Name: Checker
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: 0.000000,
+			z: 5.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Selector.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 1.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 2,
+		"mOffset": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": true
+		},
+	PuzzleRightStick: {
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+	ObjectID: 335
+	File: RightStick.json
+	Name: Checker
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: 0.000000,
+			z: 5.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Selector.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 1.000000,
+				z: 0.000000
+				}
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 2,
+		"mOffset": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": true
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	PuzzleRightStick: {
 		}
 	},
 }
