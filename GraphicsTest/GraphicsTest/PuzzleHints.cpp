@@ -227,6 +227,7 @@ bool PuzzleHints::Initialize()
         spr->mTint(glm::vec3(0.0f, 0.0f, 1.0f));
       }
       spr->hasChanged = true;
+      check->GetComponent(TransformComponent)->mPositionZ(5);
       check->Initialize();
       check->Register();
     }
