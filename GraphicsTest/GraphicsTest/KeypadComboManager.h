@@ -13,5 +13,6 @@ private:
   Object *(mDigits[5]), * timerManager;
   std::string mDigitFilenames[11];
   int mCurrentDigit;
+  double mTimer;
   std::string mCombination;
 };

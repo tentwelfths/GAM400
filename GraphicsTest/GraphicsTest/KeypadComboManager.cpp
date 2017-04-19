@@ -17,6 +17,7 @@ KeypadComboManager::KeypadComboManager() : GameLogicComponent(GameLogicType::COM
   mName_ = "KeypadComboManager";
   timerManager = nullptr;
   mCombination = "     ";
+  mTimer = 0.0;
 }
 
 bool KeypadComboManager::Initialize()
@@ -58,6 +59,12 @@ void KeypadComboManager::Update(double dt)
       ButtonPress(reinterpret_cast<KeypadButtonPress*>(mParent()->mMessages_[i].data)->index);
     }
   }
+  mTimer += dt;
+  if (mTimer > 0.5){
+    mTimer = 0;
+    mDigits[mCurrentDigit]->mVisibility[4] = !mDigits[mCurrentDigit]->mVisibility[4];
+  }
+
 }
 
 void KeypadComboManager::ButtonPress(char button){
@@ -65,13 +72,21 @@ void KeypadComboManager::ButtonPress(char button){
   if (button >= '0' && button <= '9' && mCurrentDigit < 5){
     //new number
     mDigits[mCurrentDigit]->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[button - '0']);
-    mCombination[mCurrentDigit++] = button;
+    mCombination[mCurrentDigit] = button;
   }
   else if (button == 'b'){
     //backspace
+    mDigits[mCurrentDigit]->mVisibility[4] = true;
     --mCurrentDigit;
-    mDigits[mCurrentDigit]->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[10]);
-    mCombination[mCurrentDigit] = ' ';
+    //mDigits[mCurrentDigit]->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[10]);
+    //mCombination[mCurrentDigit] = ' ';
+  }
+  else if (button == 'f'){
+    //backspace
+    mDigits[mCurrentDigit]->mVisibility[4] = true;
+    ++mCurrentDigit;
+    //mDigits[mCurrentDigit]->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[10]);
+    //mCombination[mCurrentDigit] = ' ';
   }
   else if (button == 'e'){
     //enter
