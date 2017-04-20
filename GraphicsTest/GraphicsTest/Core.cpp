@@ -80,7 +80,9 @@ void Core::Update(double dt)
     iter->Update(frc->GetDT());
     frc->SetSystemEnd();
   }
-
+  if (GetSystem(InputSystem)->isKeyPressed(GLFW_KEY_ESCAPE)){
+    active = false;
+  }
   //frc->PrintSystemTimeAnalysis();
   frc->EndFrame();
 }
