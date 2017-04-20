@@ -66,7 +66,7 @@ void EditorSystem::Update(double dt){
   }
 
   if (tileEditorActive){
-    if (input->isKeyJustPressed(GLFW_KEY_ESCAPE)){
+    if (input->isKeyJustPressed(GLFW_KEY_M)){
       tileEditorActive = false;
       tileArchetype = "";
     }
