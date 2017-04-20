@@ -19,8 +19,8 @@ bool TimerManagerComponent::Initialize()
   JSONTranslator j;
   auto * g = gCore->GetSystem(GraphicsSystem);
 
-  minutes = 10;
-  seconds = 01;
+  minutes = 99;
+  seconds = 99;
 
   mDigitFilenames[0] = "TimerZero.png";
   mDigitFilenames[1] = "TimerOne.png";
