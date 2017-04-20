@@ -39,7 +39,7 @@ bool PuzzleHints::Initialize()
     obj->GetComponent(SpriteComponent)->SetTexture(mHintFilenames[i][index]);
     obj->GetComponent(SpriteComponent)->mTint({ 1, 1, 0 });
     obj->mVisibility[4] = true;
-    glm::vec3 newTrans(-6, 34 - 2.15 * i, 9);
+    glm::vec3 newTrans(-5.85, 33.85 - 2.2 * i, 9);
     obj->GetComponent(TransformComponent)->mPosition(newTrans);
     obj->GetComponent(TransformComponent)->mScale(4.3,2.1,1);
     obj->save = false;
