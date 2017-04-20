@@ -41,7 +41,7 @@ bool KeypadComboManager::Initialize()
     mDigits[i] = j.CreateObjectFromFile("Empty.json");
     mDigits[i]->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[10]);
     mDigits[i]->GetComponent(SpriteComponent)->mTint({ 0, 1, 0 });
-    glm::vec3 newTrans(mParent()->GetComponent(TransformComponent)->mPositionX() - ((5 / 2) - i), mParent()->GetComponent(TransformComponent)->mPositionY(), 10);
+    glm::vec3 newTrans(mParent()->GetComponent(TransformComponent)->mPositionX() - ((5 / 2) - i), mParent()->GetComponent(TransformComponent)->mPositionY(), mParent()->GetComponent(TransformComponent)->mPositionZ() + 1);
     mDigits[i]->GetComponent(TransformComponent)->mPosition(newTrans);
     mDigits[i]->save = false;
     mDigits[i]->Initialize();
