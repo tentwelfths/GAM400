@@ -37,34 +37,21 @@ bool PuzzleHints::Initialize()
 
     Object * obj = j.CreateObjectFromFile("Empty.json");
     obj->GetComponent(SpriteComponent)->SetTexture(mHintFilenames[i][index]);
-    obj->GetComponent(SpriteComponent)->mTint({ 0, 0, 0 });
+    obj->GetComponent(SpriteComponent)->mTint({ 1, 1, 0 });
     obj->mVisibility[4] = false;
-    glm::vec3 newTrans(-7, 34 - 2 * i, 10);
+    glm::vec3 newTrans(-6, 34 - 2.15 * i, 9);
     obj->GetComponent(TransformComponent)->mPosition(newTrans);
-    obj->GetComponent(TransformComponent)->mScale(8,2,1);
+    obj->GetComponent(TransformComponent)->mScale(4.3,2.1,1);
     obj->save = false;
     obj->Initialize();
     obj->Register();
     hintObjects.push_back(obj);
 
-    if (i == 0)
+    if (i == 0 && index%2 == 0)
     {
       Object * bat = j.CreateObjectFromFile("Empty.json");
       bat->GetComponent(SpriteComponent)->SetTexture("Battery.png");
-      float randX = float(rand()) / float(RAND_MAX / 8);
-      float randY = float(rand()) / float(RAND_MAX / 5);
-      int negX = rand() % 2;
-      if (negX > 0)
-      {
-        randX = -randX;
-      }
-      int negY = rand() % 2;
-      if (negY > 0)
-      {
-        randY = -randY;
-      }
-      float y = 30.0f + randY;
-      glm::vec3 batTrans(randX, y, 9.0);
+      glm::vec3 batTrans(0.0f, 25.0f, 9.0f);
       bat->GetComponent(TransformComponent)->mPosition(batTrans);
       bat->Initialize();
       bat->Register();
@@ -75,20 +62,7 @@ bool PuzzleHints::Initialize()
       {
         Object * star = j.CreateObjectFromFile("Empty.json");
         star->GetComponent(SpriteComponent)->SetTexture("StarSticker.png");
-        float randX = float(rand()) / float(RAND_MAX / 8);
-        float randY = float(rand()) / float(RAND_MAX / 5);
-        int negX = rand() % 2;
-        if (negX > 0)
-        {
-          randX = -randX;
-        }
-        int negY = rand() % 2;
-        if (negY > 0)
-        {
-          randY = -randY;
-        }
-        float y = 30.0f + randY;
-        glm::vec3 starTrans(randX, y, 9.0);
+        glm::vec3 starTrans(-1.0f, 26.5f, 9.0f);
         star->GetComponent(TransformComponent)->mPosition(starTrans);
         star->Initialize();
         star->Register();
@@ -97,20 +71,7 @@ bool PuzzleHints::Initialize()
       {
         Object * rainbow = j.CreateObjectFromFile("Empty.json");
         rainbow->GetComponent(SpriteComponent)->SetTexture("RainbowSticker.png");
-        float randX = float(rand()) / float(RAND_MAX / 8);
-        float randY = float(rand()) / float(RAND_MAX / 5);
-        int negX = rand() % 2;
-        if (negX > 0)
-        {
-          randX = -randX;
-        }
-        int negY = rand() % 2;
-        if (negY > 0)
-        {
-          randY = -randY;
-        }
-        float y = 30.0f + randY;
-        glm::vec3 rainbowTrans(randX, y, 9.0);
+        glm::vec3 rainbowTrans(0.0f, 26.5f, 9.0f);
         rainbow->GetComponent(TransformComponent)->mPosition(rainbowTrans);
         rainbow->Initialize();
         rainbow->Register();
@@ -119,40 +80,14 @@ bool PuzzleHints::Initialize()
       {
         Object * awesome = j.CreateObjectFromFile("Empty.json");
         awesome->GetComponent(SpriteComponent)->SetTexture("AwesomeSticker.png");
-        float randX = float(rand()) / float(RAND_MAX / 8);
-        float randY = float(rand()) / float(RAND_MAX / 5);
-        int negX = rand() % 2;
-        if (negX > 0)
-        {
-          randX = -randX;
-        }
-        int negY = rand() % 2;
-        if (negY > 0)
-        {
-          randY = -randY;
-        }
-        float y = 30.0f + randY;
-        glm::vec3 awesomeTrans(randX, y, 9.0);
+        glm::vec3 awesomeTrans(1.0f, 26.5f, 9.0f);
         awesome->GetComponent(TransformComponent)->mPosition(awesomeTrans);
         awesome->Initialize();
         awesome->Register();
 
         Object * cloud = j.CreateObjectFromFile("Empty.json");
         cloud->GetComponent(SpriteComponent)->SetTexture("CloudSticker.png");
-        randX = float(rand()) / float(RAND_MAX / 8);
-        randY = float(rand()) / float(RAND_MAX / 5);
-        negX = rand() % 2;
-        if (negX > 0)
-        {
-          randX = -randX;
-        }
-        negY = rand() % 2;
-        if (negY > 0)
-        {
-          randY = -randY;
-        }
-        y = 30.0f + randY;
-        glm::vec3 cloudTrans(randX, y, 9.0);
+        glm::vec3 cloudTrans(2.0f, 26.5f, 9.0f);
         cloud->GetComponent(TransformComponent)->mPosition(cloudTrans);
         cloud->Initialize();
         cloud->Register();
@@ -164,20 +99,7 @@ bool PuzzleHints::Initialize()
         {
           Object * awesome = j.CreateObjectFromFile("Empty.json");
           awesome->GetComponent(SpriteComponent)->SetTexture("AwesomeSticker.png");
-          float randX = float(rand()) / float(RAND_MAX / 8);
-          float randY = float(rand()) / float(RAND_MAX / 5);
-          int negX = rand() % 2;
-          if (negX > 0)
-          {
-            randX = -randX;
-          }
-          int negY = rand() % 2;
-          if (negY > 0)
-          {
-            randY = -randY;
-          }
-          float y = 30.0f + randY;
-          glm::vec3 awesomeTrans(randX, y, 9.0);
+          glm::vec3 awesomeTrans(1.0f, 26.5f, 9.0);
           awesome->GetComponent(TransformComponent)->mPosition(awesomeTrans);
           awesome->Initialize();
           awesome->Register();
@@ -189,20 +111,7 @@ bool PuzzleHints::Initialize()
           {
             Object * cloud = j.CreateObjectFromFile("Empty.json");
             cloud->GetComponent(SpriteComponent)->SetTexture("CloudSticker.png");
-            float randX = float(rand()) / float(RAND_MAX / 8);
-            float randY = float(rand()) / float(RAND_MAX / 5);
-            int negX = rand() % 2;
-            if (negX > 0)
-            {
-              randX = -randX;
-            }
-            int negY = rand() % 2;
-            if (negY > 0)
-            {
-              randY = -randY;
-            }
-            float y = 30.0f + randY;
-            glm::vec3 cloudTrans(randX, y, 9.0);
+            glm::vec3 cloudTrans(2.0f, 26.5f, 9.0f);
             cloud->GetComponent(TransformComponent)->mPosition(cloudTrans);
             cloud->Initialize();
             cloud->Register();
