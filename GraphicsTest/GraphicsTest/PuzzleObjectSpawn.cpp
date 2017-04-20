@@ -195,7 +195,8 @@ bool PuzzleObjectSpawn::Initialize()
   }
   auto * piObj = j.CreateObjectFromFile("Arrow.json");
   auto * radObj = j.CreateObjectFromFile("Radar.json");
-  radObj->GetComponent(TransformComponent)->mPositionZ(1);
+  piObj->GetComponent(TransformComponent)->mPositionZ(9);
+  radObj->GetComponent(TransformComponent)->mPositionZ(5);
   piObj->save = false;
   piObj->Initialize();
   piObj->Register();

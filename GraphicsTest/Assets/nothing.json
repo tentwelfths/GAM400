@@ -5,7 +5,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: -0.000000,
+			x: -0.300000,
 			y: 34.000000,
 			z: 1.000000
 			},
@@ -35,47 +35,13 @@
 	TimerManagerComponent: {
 		}
 	},
-	ObjectID: 307
-	File: Empty.json
-	Name: Keypad
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: 6.000000,
-			y: 29.000000,
-			z: 1.000000
-			},
-		"mScale_": {
-			x: 7.000000,
-			y: 9.500000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": keypadpad.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		}
-	},
 	ObjectID: 66
 	File: KeypadManager.json
 	Name: KeypadBackground
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 6.000000,
+			x: 6.500000,
 			y: 34.000000,
 			z: 1.000000
 			},
@@ -142,6 +108,40 @@
 		"tile": false
 		}
 	},
+	ObjectID: 37
+	File: Default.json
+	Name: Modules
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: -6.500000,
+			y: 30.000000,
+			z: 9.000000
+			},
+		"mScale_": {
+			x: 7.000000,
+			y: 11.500000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": hinthome.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
 	ObjectID: 15
 	File: Chair.json
 	Name: HintHolder
@@ -176,176 +176,6 @@
 		"tile": false
 		},
 	PuzzleHints: {
-		}
-	},
-	ObjectID: 37
-	File: Default.json
-	Name: DistanceModule
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -7.000000,
-			y: 33.000000,
-			z: 9.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 2.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": KnobModule.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		}
-	},
-	ObjectID: 38
-	File: Default.json
-	Name: DistanceModule
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -7.000000,
-			y: 35.000000,
-			z: 9.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 2.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": DistanceModule.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		}
-	},
-	ObjectID: 39
-	File: Default.json
-	Name: DistanceModule
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -7.000000,
-			y: 31.000000,
-			z: 9.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 2.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": PhotocellModule.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		}
-	},
-	ObjectID: 40
-	File: Default.json
-	Name: DistanceModule
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -7.000000,
-			y: 29.000000,
-			z: 9.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 2.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": SliderModule.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
-		}
-	},
-	ObjectID: 41
-	File: Default.json
-	Name: DistanceModule
-	Object: {
-	TransformComponent: {
-		"mPosition_": {
-			x: -7.000000,
-			y: 27.000000,
-			z: 9.000000
-			},
-		"mScale_": {
-			x: 5.000000,
-			y: 2.000000,
-			z: 1.000000
-			},
-		"mRotation_": {
-			x: 0.000000,
-			y: 0.000000,
-			z: 0.000000
-			}
-		},
-	SpriteComponent: {
-		"mTextureName": SwitchesModule.png,
-		"mOpacity_": 1.000000,
-		"mTint_": {
-				x: 0.000000,
-				y: 0.000000,
-				z: 0.000000
-				}
-		},
-	EditorComponent: {
-		"tile": false
 		}
 	},
 	ObjectID: 26
@@ -393,7 +223,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 6.000000,
+			x: 6.500000,
 			y: 32.000000,
 			z: 1.000000
 			},
@@ -430,7 +260,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 8.000000,
+			x: 8.500000,
 			y: 32.000000,
 			z: 1.000000
 			},
@@ -467,7 +297,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 4.000000,
+			x: 4.500000,
 			y: 30.000000,
 			z: 1.000000
 			},
@@ -504,7 +334,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 6.000000,
+			x: 6.500000,
 			y: 30.000000,
 			z: 1.000000
 			},
@@ -541,7 +371,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 8.000000,
+			x: 8.500000,
 			y: 30.000000,
 			z: 1.000000
 			},
@@ -578,7 +408,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 4.000000,
+			x: 4.500000,
 			y: 28.000000,
 			z: 1.000000
 			},
@@ -615,7 +445,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 6.000000,
+			x: 6.500000,
 			y: 28.000000,
 			z: 1.000000
 			},
@@ -652,7 +482,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 8.000000,
+			x: 8.500000,
 			y: 28.000000,
 			z: 1.000000
 			},
@@ -689,7 +519,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 6.000000,
+			x: 6.500000,
 			y: 26.000000,
 			z: 1.000000
 			},
@@ -720,13 +550,50 @@
 		"mDigit": 48
 		}
 	},
+	ObjectID: 300
+	File: Button.json
+	Name: ButtonOne
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 8.500000,
+			y: 26.000000,
+			z: 1.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 180.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": BackButton.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	KeypadButtonComponent: {
+		"mDigit": 102
+		}
+	},
 	ObjectID: 100
 	File: Button.json
 	Name: ButtonOne
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 8.000000,
+			x: 4.500000,
 			y: 26.000000,
 			z: 1.000000
 			},
@@ -763,7 +630,7 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 4.000000,
+			x: 4.500000,
 			y: 32.000000,
 			z: 1.000000
 			},
@@ -800,12 +667,12 @@
 	Object: {
 	TransformComponent: {
 		"mPosition_": {
-			x: 0.500000,
-			y: 34.000004,
+			x: 0.000000,
+			y: 34.000000,
 			z: 0.000000
 			},
 		"mScale_": {
-			x: 4.000000,
+			x: 5.000000,
 			y: 1.252000,
 			z: 1.000000
 			},
@@ -828,7 +695,41 @@
 		"tile": false
 		}
 	},
-	ObjectID: 362
+	ObjectID: 329
+	File: Empty.json
+	Name: KeypadBack
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 6.500000,
+			y: 30.000000,
+			z: 0.000000
+			},
+		"mScale_": {
+			x: 7.000000,
+			y: 11.500000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": keypadpad.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+	ObjectID: 440
 	File: RightStick.json
 	Name: Checker
 	Object: {
@@ -876,7 +777,7 @@
 		"tile": false
 		}
 	},
-	ObjectID: 298
+	ObjectID: 384
 	File: RightStick.json
 	Name: Checker
 	Object: {
@@ -924,7 +825,103 @@
 		"tile": false
 		}
 	},
-	ObjectID: 335
+	ObjectID: 319
+	File: RightStick.json
+	Name: Checker
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: 0.000000,
+			z: 5.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Selector.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 1.000000,
+				y: 0.000000,
+				z: 0.000000
+				}
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 2,
+		"mOffset": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": true
+		},
+	PuzzleRightStick: {
+		},
+	EditorComponent: {
+		"tile": false
+		}
+	},
+	ObjectID: 356
+	File: RightStick.json
+	Name: Checker
+	Object: {
+	TransformComponent: {
+		"mPosition_": {
+			x: 5.000000,
+			y: 0.000000,
+			z: 5.000000
+			},
+		"mScale_": {
+			x: 1.000000,
+			y: 1.000000,
+			z: 1.000000
+			},
+		"mRotation_": {
+			x: 0.000000,
+			y: 0.000000,
+			z: 0.000000
+			}
+		},
+	SpriteComponent: {
+		"mTextureName": Selector.png,
+		"mOpacity_": 1.000000,
+		"mTint_": {
+				x: 0.000000,
+				y: 0.000000,
+				z: 1.000000
+				}
+		},
+	CircleColliderComponent: {
+		"mRadius": 0.500000,
+		"dynamicState": 2,
+		"mOffset": {
+					x: 0.000000,
+					y: 0.000000,
+					z: 0.000000
+					},
+		"mDensity": 0.000000,
+		"mFriction": 0.000000,
+		"mGhost": true
+		},
+	EditorComponent: {
+		"tile": false
+		},
+	PuzzleRightStick: {
+		}
+	},
+	ObjectID: 412
 	File: RightStick.json
 	Name: Checker
 	Object: {
