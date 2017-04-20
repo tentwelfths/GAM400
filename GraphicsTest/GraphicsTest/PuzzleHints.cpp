@@ -38,7 +38,7 @@ bool PuzzleHints::Initialize()
     Object * obj = j.CreateObjectFromFile("Empty.json");
     obj->GetComponent(SpriteComponent)->SetTexture(mHintFilenames[i][index]);
     obj->GetComponent(SpriteComponent)->mTint({ 1, 1, 0 });
-    obj->mVisibility[4] = true;
+    obj->mVisibility[4] = false;
     glm::vec3 newTrans(-5.85, 33.85 - 2.2 * i, 9);
     obj->GetComponent(TransformComponent)->mPosition(newTrans);
     obj->GetComponent(TransformComponent)->mScale(4.3,2.1,1);
