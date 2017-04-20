@@ -38,7 +38,7 @@ bool TimerManagerComponent::Initialize()
   mTenMinute = j.CreateObjectFromFile("Empty.json");
   mTenMinute->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[minutes / 10]);
   mTenMinute->GetComponent(SpriteComponent)->mTint({ 1, 0, 0 });
-  glm::vec3 newTrans4(mParent()->GetComponent(TransformComponent)->mPositionX() - 1.5f, mParent()->GetComponent(TransformComponent)->mPositionY(), mParent()->GetComponent(TransformComponent)->mPositionZ());
+  glm::vec3 newTrans4(mParent()->GetComponent(TransformComponent)->mPositionX() - 1.5f, mParent()->GetComponent(TransformComponent)->mPositionY(), 5);
   mTenMinute->GetComponent(TransformComponent)->mPosition(newTrans4);
   mTenMinute->save = false;
   mTenMinute->Initialize();
@@ -47,7 +47,7 @@ bool TimerManagerComponent::Initialize()
   mMinute = j.CreateObjectFromFile("Empty.json");
   mMinute->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[minutes % 10]);
   mMinute->GetComponent(SpriteComponent)->mTint({ 1, 0, 0 });
-  glm::vec3 newTrans(mParent()->GetComponent(TransformComponent)->mPositionX() - 0.5f, mParent()->GetComponent(TransformComponent)->mPositionY(), mParent()->GetComponent(TransformComponent)->mPositionZ());
+  glm::vec3 newTrans(mParent()->GetComponent(TransformComponent)->mPositionX() - 0.5f, mParent()->GetComponent(TransformComponent)->mPositionY(), 5);
   mMinute->GetComponent(TransformComponent)->mPosition(newTrans);
   mMinute->save = false;
   mMinute->Initialize();
@@ -56,7 +56,7 @@ bool TimerManagerComponent::Initialize()
   mTenSecond = j.CreateObjectFromFile("Empty.json");
   mTenSecond->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[seconds / 10]);
   mTenSecond->GetComponent(SpriteComponent)->mTint({ 1, 0, 0 });
-  glm::vec3 newTrans2(mParent()->GetComponent(TransformComponent)->mPositionX() + 1, mParent()->GetComponent(TransformComponent)->mPositionY(), mParent()->GetComponent(TransformComponent)->mPositionZ());
+  glm::vec3 newTrans2(mParent()->GetComponent(TransformComponent)->mPositionX() + 1, mParent()->GetComponent(TransformComponent)->mPositionY(), 5);
   mTenSecond->GetComponent(TransformComponent)->mPosition(newTrans2);
   mTenSecond->save = false;
   mTenSecond->Initialize();
@@ -65,7 +65,7 @@ bool TimerManagerComponent::Initialize()
   mSecond = j.CreateObjectFromFile("Empty.json");
   mSecond->GetComponent(SpriteComponent)->SetTexture(mDigitFilenames[seconds % 10]);
   mSecond->GetComponent(SpriteComponent)->mTint({ 1, 0, 0 });
-  glm::vec3 newTrans3(mParent()->GetComponent(TransformComponent)->mPositionX() + 2, mParent()->GetComponent(TransformComponent)->mPositionY(), mParent()->GetComponent(TransformComponent)->mPositionZ());
+  glm::vec3 newTrans3(mParent()->GetComponent(TransformComponent)->mPositionX() + 2, mParent()->GetComponent(TransformComponent)->mPositionY(), 5);
   mSecond->GetComponent(TransformComponent)->mPosition(newTrans3);
   mSecond->save = false;
   mSecond->Initialize();
